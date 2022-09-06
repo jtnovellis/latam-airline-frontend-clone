@@ -1,0 +1,30 @@
+.menu-responsive {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    border: none;
+    background-color: transparent;
+    min-height: 4rem;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0px 1rem;
+    margin-right: 1.5rem;
+    margin-left: 0.7rem;
+    .faBars {
+      display: flex;
+      width: fit-content;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: rgb(255, 255, 255);
+    }
+  }
+}

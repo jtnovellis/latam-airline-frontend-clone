@@ -1,0 +1,12 @@
+.container-nav {
+  display: none;
+}
+nav {
+  @media (min-width: 64rem) {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    padding: 0px 0px 0px 2.5rem;
+  }
+}

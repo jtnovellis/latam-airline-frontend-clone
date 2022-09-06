@@ -1,0 +1,36 @@
+.ofertas-destino {
+  @media (min-width: 64rem) {
+    position: relative;
+    button {
+      -webkit-box-align: center;
+      align-items: center;
+      background: transparent;
+      border: none;
+      border-radius: 1000px;
+      cursor: pointer;
+      display: flex;
+      height: 2rem;
+      padding: 0px 0.75rem 0px 0.5rem;
+      position: relative;
+      appearance: button;
+      text-transform: none;
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0px;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .faAngleDown {
+        color: rgb(255, 255, 255);
+        margin-left: 0.5rem;
+        display: flex;
+        width: fit-content;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+      }
+    }
+  }
+}
