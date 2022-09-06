@@ -1,0 +1,5 @@
+@mixin to-center($jtfy-cnt: flex-start, $alg-itm: stretch) {
+  display: flex;
+  justify-content: $jtfy-cnt;
+  align-items: $alg-itm;
+}
