@@ -3,6 +3,7 @@ import background from '../../images/homepage/bg-girl-small.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import Booking from '../Booking/Booking';
 
 function Hero() {
   return (
@@ -29,6 +30,7 @@ function Hero() {
             </Link>
           </div>
         </div>
+        <Booking />
       </div>
     </div>
   );

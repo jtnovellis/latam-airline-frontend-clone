@@ -1,0 +1,20 @@
+.search-flight-options {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
+}
+.search-info {
+  span {
+    margin-top: auto;
+    margin-right: 0.375rem;
+    color: rgb(133, 133, 133);
+    font-size: 0.875rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+  }
+  .faAngleDown {
+    color: rgb(232, 17, 75);
+  }
+}
