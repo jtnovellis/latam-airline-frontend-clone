@@ -9,4 +9,7 @@
     font-size: 26px;
     line-height: 31px;
   }
+  @media (min-width: 64rem) {
+    display: none;
+  }
 }

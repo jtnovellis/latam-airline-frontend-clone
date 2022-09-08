@@ -1,5 +1,14 @@
-.container-nav {
+.disable {
   display: none;
+}
+.container-nav {
+  @media (min-width: 64rem) {
+    display: flex;
+    width: 100%;
+    position: relative;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
 }
 nav {
   @media (min-width: 64rem) {
@@ -8,5 +17,21 @@ nav {
     align-items: center;
     position: relative;
     padding: 0px 0px 0px 2.5rem;
+  }
+  @media (min-width: 89.75rem) {
+    position: relative;
+  }
+}
+.centro-ayuda {
+  @media (min-width: 64rem) {
+    display: flex;
+  }
+}
+.e-vuelo-container {
+  @media (min-width: 64rem) {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
   }
 }

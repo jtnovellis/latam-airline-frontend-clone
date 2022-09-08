@@ -3,6 +3,12 @@
   position: relative;
   padding: 0px 1rem;
   margin-top: -3rem;
+  @media (min-width: 64rem) {
+    margin-top: -4.5rem;
+  }
+  @media (min-width: 89.75rem) {
+    padding: 0px 4rem;
+  }
 }
 .products-wrapper {
   border-radius: 0.5rem 0.5rem 0px 0px;

@@ -1,7 +1,12 @@
-function Anchormenu({ content, className }) {
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Anchormenu({ content, className, anchorClass }) {
   return (
     <div className={className}>
-      <a href='/'>{content}</a>
+      <Link to='/centro-de-ayuda' className={anchorClass}>
+        {content}
+      </Link>
     </div>
   );
 }

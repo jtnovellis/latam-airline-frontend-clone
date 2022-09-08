@@ -5,6 +5,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (min-width: 37.5rem) {
+    min-height: 5rem;
+    padding: 0 2rem 0 1rem;
+  }
+  @media (min-width: 64rem) {
+    display: none;
+  }
   button {
     border: none;
     background-color: transparent;

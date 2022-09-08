@@ -2,6 +2,9 @@
   display: block;
   max-width: 79rem;
   margin: 2.5rem auto 0px;
+  @media (min-width: 64rem) {
+    margin: 4rem auto 0px;
+  }
 }
 .section-main-content {
   display: flex;

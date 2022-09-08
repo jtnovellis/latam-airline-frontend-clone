@@ -3,6 +3,10 @@
   border-radius: 0.5rem;
   border: 1px solid #dfdfdf;
   box-shadow: rgb(0 0 0 / 20%) 0rem 0.25rem 0.5rem;
+  @media (min-width: 64rem) {
+    display: flex;
+    flex-direction: row;
+  }
 }
 .covid-communications__subcontainer {
   display: flex;
@@ -10,6 +14,10 @@
   flex-direction: column;
   border-radius: 0.5rem;
   border: 0.0625rem solid rgb(225, 225, 225);
+  @media (min-width: 64rem) {
+    flex: 1 1 0rem;
+    width: 100%;
+  }
 }
 .covid-comunications-info {
   display: flex;
@@ -18,12 +26,18 @@
   -webkit-box-pack: center;
   justify-content: center;
   padding: 0px 1rem 0px 1.5rem;
+  @media (min-width: 64rem) {
+    margin: 0px 0px 1rem;
+  }
 }
 .covid-comunications-info-header {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
   margin: 1rem 0px;
+  @media (min-width: 64rem) {
+    margin: 2.5rem 1rem 1rem;
+  }
   h2 {
     color: rgb(27, 0, 136);
     margin: 0px;
@@ -41,6 +55,11 @@
   justify-content: center;
   display: none;
   margin-right: 0.625rem;
+  @media (min-width: 64rem) {
+    display: block;
+    color: rgb(186, 25, 161);
+    font-size: 1.5rem;
+  }
 }
 .covid-link {
   font-weight: 600;
@@ -52,6 +71,13 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  @media (min-width: 37.5rem) {
+    margin: 0rem 1rem 0rem 1rem;
+  }
+  @media (min-width: 64rem) {
+    margin: 1rem 1.5rem 1rem 1rem;
+    width: 100%;
+  }
 }
 .option-container {
   display: flex;
@@ -112,6 +138,9 @@ ul li a:visited {
   justify-content: center;
   width: 1.375rem;
   height: 1.375rem;
+  @media (min-width: 64rem) {
+    color: rgb(70, 88, 223);
+  }
 }
 .faAngleRight {
   display: flex;
@@ -121,4 +150,16 @@ ul li a:visited {
   -webkit-box-pack: center;
   justify-content: center;
   color: rgb(232, 17, 75);
+}
+.faFileLines {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 1.375rem;
+  height: 1.375rem;
+  @media (min-width: 64rem) {
+    color: rgb(70, 88, 223);
+  }
 }

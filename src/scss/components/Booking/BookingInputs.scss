@@ -1,6 +1,9 @@
 .input-container {
   list-style: none;
   margin: 0 1rem;
+  @media (min-width: 64rem) {
+    display: none;
+  }
 }
 .origen-container {
   display: flex;
