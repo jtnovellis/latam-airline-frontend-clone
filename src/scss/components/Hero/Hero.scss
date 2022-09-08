@@ -22,6 +22,20 @@
   width: 100%;
   height: 320px;
   padding: 1rem;
+  @media (min-width: 37.5rem) {
+    height: 250px;
+    padding: 2.5rem 2rem 1rem;
+    gap: 2rem;
+    grid-template-columns: repeat(8, 1fr);
+  }
+  @media (min-width: 64rem) {
+    height: 360px;
+    padding: 2.5rem 3.125rem 1rem;
+  }
+  @media (min-width: 89.75rem) {
+    height: 360px;
+    padding: 2.5rem 4rem 1rem;
+  }
 }
 .background-img {
   position: absolute;
@@ -31,6 +45,9 @@
   height: 320px;
   max-height: 380px;
   width: 100%;
+  @media (min-width: 64rem) {
+    height: 360px;
+  }
 }
 .bg-img {
   width: 100%;
@@ -40,12 +57,23 @@
   display: block;
   object-fit: cover;
   border-radius: 0px 0px 1rem 1rem;
+  @media (min-width: 37.5rem) {
+    max-height: 15.625rem;
+  }
+  @media (min-width: 64rem) {
+    max-height: 22.5rem;
+    border-bottom-right-radius: 1.375rem;
+    border-bottom-left-radius: 1.375rem;
+  }
 }
 .info-hero {
   grid-column: 1 / 4;
   z-index: 10;
   position: relative;
   padding-left: 1rem;
+  @media (min-width: 37.5rem) {
+    grid-column: 1 / 6;
+  }
   h1 {
     color: rgb(27, 0, 136);
     margin-top: 0px;
@@ -53,6 +81,9 @@
     margin-bottom: 1rem;
     padding: 0px;
     font-weight: 300;
+    @media (min-width: 89.75rem) {
+      font-size: 2.25rem;
+    }
   }
   .Destinos {
     display: inline;
@@ -63,6 +94,9 @@
     font-size: inherit;
     line-height: inherit;
     transition: color 100ms ease-in-out 0s;
+  }
+  @media (min-width: 64rem) {
+    grid-column: 1 / 8;
   }
 }
 .faArrowUpRightFromSquare {
