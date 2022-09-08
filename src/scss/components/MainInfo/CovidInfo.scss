@@ -1,0 +1,124 @@
+.covid-communications__container {
+  margin: 0px 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dfdfdf;
+  box-shadow: rgb(0 0 0 / 20%) 0rem 0.25rem 0.5rem;
+}
+.covid-communications__subcontainer {
+  display: flex;
+  min-height: 9.625rem;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid rgb(225, 225, 225);
+}
+.covid-comunications-info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0px 1rem 0px 1.5rem;
+}
+.covid-comunications-info-header {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin: 1rem 0px;
+  h2 {
+    color: rgb(27, 0, 136);
+    margin: 0px;
+    font-style: normal;
+    font-size: 1.75rem;
+    font-weight: 300;
+  }
+}
+.faHandHoldingMedical {
+  display: flex;
+  width: fit-content;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  display: none;
+  margin-right: 0.625rem;
+}
+.covid-link {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.main-options-container {
+  margin: 0.5rem 1rem 1rem;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+.option-container {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 100%;
+}
+.option-ul {
+  width: 100%;
+  list-style-type: none;
+}
+.option-ul-li {
+  cursor: pointer;
+  padding: 0px 0px 1rem;
+}
+ul li a:visited {
+  color: rgb(48, 48, 48);
+}
+.option-ul-li-a {
+  display: flex;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  color: rgb(92, 92, 92);
+}
+.option-one-info {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.one-info {
+  display: flex;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 0.75rem;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-color: rgb(238, 237, 249);
+  span {
+    font-weight: 700;
+    margin-left: 0.5rem;
+    color: rgb(92, 92, 92);
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+}
+.faEarthAfrica {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 1.375rem;
+  height: 1.375rem;
+}
+.faAngleRight {
+  display: flex;
+  width: fit-content;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  color: rgb(232, 17, 75);
+}

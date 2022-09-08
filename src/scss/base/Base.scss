@@ -10,3 +10,14 @@ body {
 #root {
   height: 100%;
 }
+a:visited {
+  color: rgb(102, 23, 163);
+}
+a {
+  color: rgb(70, 88, 223);
+  cursor: pointer;
+  text-decoration: none;
+}
+hr {
+  color: #dfdfdf;
+}

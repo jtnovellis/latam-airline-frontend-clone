@@ -6,6 +6,7 @@ function MainInfo() {
     <main className='main-content'>
       <section className='section-main-content'>
         <CovidInfo />
+        <hr />
       </section>
     </main>
   );
