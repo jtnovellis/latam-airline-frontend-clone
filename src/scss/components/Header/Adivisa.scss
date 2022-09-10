@@ -19,9 +19,10 @@
     cursor: pointer;
     appearance: button;
     font-family: inherit;
+    width: 120px;
   }
   span {
-    @media (min-width) {
+    @media (min-width: 64rem) {
       display: block;
       width: max-content;
       font-weight: 700;

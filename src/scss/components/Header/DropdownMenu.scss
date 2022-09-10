@@ -1,4 +1,4 @@
-.dropdown-menu {
+.dropdown-menu-OyD {
   position: absolute;
   top: 40px;
   left: 45px;
@@ -24,4 +24,14 @@
 }
 .dropdown-menu-disable {
   display: none;
+}
+.dropdown-menu-MV {
+  position: absolute;
+  top: 40px;
+  left: 225px;
+  z-index: 20;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 290px;
+  box-shadow: rgb(48 48 48 / 20%) 0px 0.25rem 0.5rem;
 }
