@@ -5,7 +5,7 @@ function getBackgroundSize() {
   return { width };
 }
 
-function WindowSize() {
+function useWindowSize() {
   const [windowWidth, setWindowWidth] = useState(getBackgroundSize());
 
   useEffect(() => {
@@ -18,4 +18,4 @@ function WindowSize() {
   return windowWidth;
 }
 
-export default WindowSize;
+export default useWindowSize;

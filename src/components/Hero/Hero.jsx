@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Booking from '../Booking/Booking';
 import MainInfo from '../MainInfo/MainInfo';
-import WindowSize from './WindowSize';
+import useWindowSize from './WindowSize';
 
 function Hero() {
-  const { width } = WindowSize();
+  const { width } = useWindowSize();
 
   return (
     <div className='hero-container'>
