@@ -26,6 +26,9 @@ nav {
   @media (min-width: 64rem) {
     display: flex;
   }
+  a:visited {
+    color: #fff;
+  }
 }
 .e-vuelo-container {
   @media (min-width: 64rem) {

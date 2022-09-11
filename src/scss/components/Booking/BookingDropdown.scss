@@ -1,0 +1,67 @@
+.passenger-dropdown {
+  z-index: 20;
+  position: absolute;
+  right: 370px;
+  top: 115px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: rgb(0 0 0 / 25%) 0px 0px 12px;
+}
+.adults {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  margin: 5px 8px;
+}
+.adults-title {
+  display: flex;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+  .faUser {
+    margin-right: 10px;
+    color: rgb(179, 15, 59);
+  }
+}
+.adults-title-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+.adults-counter {
+  display: flex;
+  padding: 0 10px;
+}
+.icon {
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-adults-minus {
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.faCircleMinus {
+  color: rgb(179, 15, 59);
+}
+.faCirclePlus {
+  color: rgb(179, 15, 59);
+}
+.faChild {
+  margin-right: 10px;
+  color: rgb(179, 15, 59);
+  font-size: 20px;
+}
+.faBaby {
+  margin-right: 10px;
+  color: rgb(179, 15, 59);
+  font-size: 20px;
+}

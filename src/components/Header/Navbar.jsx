@@ -12,8 +12,7 @@ function Navbar() {
   return (
     <div className={width >= 1024 ? navClassList.enable : navClassList.disable}>
       <nav>
-        <Navmenu content='Ofertas y destinos' />
-        <Navmenu content='Mis viajes' />
+        <Navmenu />
         <Anchormenu
           className='centro-ayuda'
           content='Centro de ayuda'

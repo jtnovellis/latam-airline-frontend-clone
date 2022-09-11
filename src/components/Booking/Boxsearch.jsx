@@ -1,4 +1,5 @@
 import Flightoptions from './Flightoptions';
+import { BookingDropdown } from './BookingDropdown';
 
 function Boxsearch() {
   return (
@@ -11,6 +12,7 @@ function Boxsearch() {
         <Flightoptions content='Economy' />
         <Flightoptions content='Pasajero' pasajeroNum={1} />
       </div>
+      <BookingDropdown />
     </div>
   );
 }
