@@ -5,7 +5,7 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 function Flightdeals({citySelected="Bogotá"}){
     return(
         <div className="fly-offers-menu-container">
-            <div>
+            <div className="city-selector-label">
               <span className="menu-label-offers">Ofertas de vuelo desde </span>
               <button id="cityselector">
                 <h2 className="cityselected">
@@ -16,6 +16,7 @@ function Flightdeals({citySelected="Bogotá"}){
                 </h2>
               </button>
             </div>
+            
         </div>
     )
 }
