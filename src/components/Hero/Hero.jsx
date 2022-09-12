@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Booking from '../Booking/Booking';
-import MainInfo from '../MainInfo/MainInfo';
 import WindowSize from './WindowSize';
 
 function Hero() {
@@ -45,7 +44,6 @@ function Hero() {
         </div>
         <Booking />
       </div>
-      <MainInfo />
     </div>
   );
 }

@@ -120,3 +120,49 @@ button {
     border-color: none;
     border-image: initial;
 }
+
+.doxKgH {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.cQREGG {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.offers-imgs-container {
+    margin: 0px -0.25rem;
+
+    @media (min-width: 768px) {
+        .offers-imgs-container {
+            margin: 0px -0.75rem;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .offers-imgs-container {
+            margin: 0px -1rem;
+        }
+    }
+}
+
+.offers-carousel {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    max-width: 1280px;
+
+}
+
