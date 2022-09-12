@@ -1,0 +1,163 @@
+
+footer{
+    width: auto;
+    height:21rem;
+    background-color: #ECECEE;
+    margin-top: 5rem;
+    border-top: solid 1px #919191;
+    
+}
+.footer-components{
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    margin: 2rem 0px 1.75rem;
+    max-width: 89.75rem;
+    padding: 0px 1rem;
+    text-align: center;
+
+
+}
+.f-logo svg{
+    margin-top: 0.75rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+.f-terms{
+    -webkit-box-flex: 2;
+    flex-grow: 2;
+    margin-right: 1rem;
+}
+.f-terms span {
+    font-family: 'LATAM Sans', 'Sans';
+    color: #5C5C5C;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    padding: 0px 0.5rem 0.25rem 0px;
+}
+
+.f-cert{
+display: flex;
+flex-direction: column;
+padding-bottom: 1rem;
+}
+.f-cert span{
+    font-family: 'LATAM Sans', 'Sans';
+    font-size: 12px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.f-cert img{
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    margin: auto;
+}
+.f-cert2 img{
+    width: 133px;
+    height: 50px;
+    justify-content: center;
+    margin: auto;
+}
+
+    
+@media (min-width: 920px) { 
+    footer{
+        height:8rem;
+        background-color: #ECECEE;
+        margin-top: 5rem;
+        border-top: solid 1px #919191;
+        
+    }
+    .footer-components{
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        -webkit-box-pack: start;
+        text-align: center;    
+    }
+    .f-logo svg{
+        margin-top: 0.75rem;
+        height: 2rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        margin-left: 2rem;
+    }
+    .f-terms{
+        -webkit-box-flex: 2;
+        flex-grow: 2;
+        margin-right: 1rem;
+    }
+    .f-terms span {
+        text-align: justify;
+    }
+    
+    .f-cert{
+        display: flex;
+        flex-direction: row;
+        margin-top: 1rem;
+        margin-left: 2rem;
+        margin-right: 4rem;
+    }
+    .f-cert span{
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: pre;
+        margin-top: 0.5rem;
+        margin-right:1rem;
+    }
+    .f-cert img{
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        margin: auto;
+    }
+    .f-cert2{
+        margin-right: 2rem;
+    }
+    .f-cert2 img{
+        width: 133px;
+        height: 50px;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+
+
+@media (min-width: 1600px) { 
+    footer{
+        width: auto;
+        margin:0px;
+        background-color: #ECECEE;
+        margin-top: 5rem;
+        border-top: solid 1px #919191;
+    }
+    .footer-components{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+       
+    }
+    .f-logo{
+        margin-left: 12rem;
+    }
+    .f-cert{
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 1rem;
+    }
+    .f-cert2{
+        margin-right: 12rem;
+    }
+}
