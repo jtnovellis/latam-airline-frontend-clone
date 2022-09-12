@@ -1,4 +1,4 @@
-export let flightsArr = [
+export const flightsArr = [
     {
         id: 1,
         cityImg: 'https://www.latamairlines.com/content/dam/latamxp/sites/destinos/colombia/deals/CLO-deals.jpg.transform/md/image.jpg',
@@ -8,8 +8,8 @@ export let flightsArr = [
         returnDate: '',
         tripClass: 'Economy',
         price: 192950.00,
-        taxes: 'Tasas incluidas',
-        tripType: 'Vuelo directo',
+        tags: [ 'Tasas incluidas', 'Vuelo directo' ],
+        from: "Bogotá"
     },
     {
         id: 2,
@@ -20,8 +20,8 @@ export let flightsArr = [
         returnDate: '',
         tripClass: 'Economy',
         price: 278800.00,
-        taxes: 'Tasas incluidas',
-        tripType: 'Vuelo directo',
+        tags: [ 'Tasas incluidas', 'Vuelo directo' ],
+        from: "Bogotá"
     },
     {
         id: 3,
@@ -32,8 +32,8 @@ export let flightsArr = [
         returnDate: '06/12/22',
         tripClass: 'Economy',
         price: 1766510.00,
-        taxes: 'Tasas incluidas',
-        tripType: 'Vuelo directo',
+        tags: [ 'Tasas incluidas', 'Vuelo directo' ],
+        from: "Medellín"
     },
     {
         id: 4,
@@ -44,8 +44,8 @@ export let flightsArr = [
         returnDate: '',
         tripClass: 'Economy',
         price: 203240.00,
-        taxes: 'Tasas incluidas',
-        tripType: 'Vuelo directo',
+        tags: [ 'Tasas incluidas', 'Vuelo directo' ],
+        from: "Bogotá"
     },
     {
         id: 5,
@@ -55,9 +55,9 @@ export let flightsArr = [
         departDate: '18/11/22',
         returnDate: '',
         tripClass: 'Economy',
-        price: 284311.00,
-        taxes: 'Tasas incluidas',
-        tripType: 'Vuelo directo',
+        price: 284311.00,       
+        tags: [ 'Tasas incluidas', 'Vuelo directo' ],
+        from: "Medellín"
     },
     {
         id: 6,
@@ -67,8 +67,10 @@ export let flightsArr = [
         departDate: '18/11/22',
         returnDate: '',
         tripClass: 'Economy',
-        price: 224240.00,
-        taxes: 'Tasas incluidas',
-        tripType: 'Vuelo directo',
+        price:  224240.00,
+        tags: [ 'Tasas incluidas', 'Vuelo directo' ],
+        from: "Medellín"
     },
 ]
+
+export const citiesArr = [ "Bogotá", "Medellín" ]

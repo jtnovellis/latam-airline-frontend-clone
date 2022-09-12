@@ -45,7 +45,6 @@ function Hero() {
         </div>
         <Booking />
       </div>
-      <MainInfo />
     </div>
   );
 }
