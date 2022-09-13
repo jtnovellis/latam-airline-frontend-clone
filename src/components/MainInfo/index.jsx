@@ -1,6 +1,6 @@
 import React from 'react';
 import CovidInfo from './CovidInfo';
-import FlightDeals from '../FlightDeals/Flightdeals';
+import FlightDeals from '../FlightDeals';
 
 function MainInfo() {
   return (
