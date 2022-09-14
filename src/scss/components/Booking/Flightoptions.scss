@@ -18,11 +18,45 @@
     font-style: normal;
     font-weight: bold;
   }
-  @media (min-width: 64rem) {
+  @media (min-width: 1024px) {
     padding: 1rem 3rem;
     margin-right: 6rem;
   }
   .faAngleDown {
     color: rgb(232, 17, 75);
+  }
+}
+.search-info-ida-vuelta {
+  span {
+    margin-top: auto;
+    margin-right: 0.375rem;
+    color: rgb(133, 133, 133);
+    font-size: 0.875rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+  }
+  @media (min-width: 1024px) {
+    padding: 1rem 3rem;
+    margin-right: 6rem;
+  }
+}
+.faAngleDownIda-vuelta {
+  color: rgb(232, 17, 75);
+  rotate: -180deg;
+}
+.passenger {
+  span {
+    margin-top: auto;
+    margin-right: 0.375rem;
+    color: rgb(133, 133, 133);
+    font-size: 0.875rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+  }
+  @media (min-width: 1024px) {
+    padding: 1rem 3rem;
+    margin-right: 6rem;
   }
 }
