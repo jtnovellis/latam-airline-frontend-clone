@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 function PassengerDropDown({ title, description, icon, nameClick }) {
+  const [add, setAdd] = useState(1);
   const [seats, setSeats] = useState({
     adults: 1,
     kids: 0,
@@ -15,27 +16,96 @@ function PassengerDropDown({ title, description, icon, nameClick }) {
   });
 
   function handleClickMinus(key) {
-    console.log(key);
     if (key === 'adults' && seats[key] < 2) {
-      setErrors(prevState => ({
-        ...prevState,
+      setErrors(prev => ({
+        ...prev,
         [key]: 'Debe viajar al menos 1 adulto',
       }));
-    } else {
-      setSeats(prevState => ({ ...prevState, [key]: prevState[key] - 1 }));
-    }
-  }
-  function handleClickPlus(key) {
-    if (key === 'adults' && seats[key] >= 9) {
-      setErrors(prevState => ({
-        ...prevState,
-        [key]: 'No puedes agregar mas de 9 pasajeros',
+    } else if (key === 'adults') {
+      setErrors(prev => ({
+        ...prev,
+        [key]: '',
       }));
-    } else {
-      setSeats(prevState => ({ ...prevState, [key]: prevState[key] + 1 }));
+      setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
+      setAdd(prev => prev - 1);
+    }
+    if (key === 'kids' && seats[key] < 1) {
+      setErrors(prev => ({
+        ...prev,
+        [key]: '',
+      }));
+    } else if (key === 'kids') {
+      setErrors(prev => ({
+        ...prev,
+        [key]: '',
+      }));
+      setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
+      setAdd(prev => prev - 1);
+    }
+    if (key === 'babies' && seats[key] < 1) {
+      setErrors(prev => ({
+        ...prev,
+        [key]: '',
+      }));
+    } else if (key === 'babies') {
+      setErrors(prev => ({
+        ...prev,
+        [key]: '',
+      }));
+      setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
+      setAdd(prev => prev - 1);
     }
   }
 
+  function handleClickPlus(key) {
+    if (key === 'adults' && seats[key] > add) {
+      setErrors(prev => ({
+        ...prev,
+        [key]: 'No puedes agregar mas de 9 pasajeros',
+      }));
+    } else if (key === 'adults') {
+      setErrors(prev => ({
+        ...prev,
+        [key]: '',
+      }));
+      setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
+      setAdd(prev => prev + 1);
+    }
+    if (key === 'kids' && add > 8) {
+      setErrors(prev => ({
+        ...prev,
+        [key]: 'No puedes agregar mas de 9 pasajeros',
+      }));
+    } else if (key === 'kids') {
+      setErrors(prev => ({
+        ...prev,
+        [key]: '',
+      }));
+      setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
+      setAdd(prev => prev + 1);
+    }
+    if (key === 'babies' && seats[key] > seats.adults - 1) {
+      setErrors(prev => ({
+        ...prev,
+        [key]: 'No pueden viajar más bebés que adultos',
+      }));
+    } else if (key === 'babies' && add > 8) {
+      setErrors(prev => ({
+        ...prev,
+        [key]: 'No puedes agregar mas de 9 pasajeros',
+      }));
+      setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
+      setAdd(prev => prev + 1);
+    } else if (key === 'babies') {
+      setErrors(prev => ({
+        ...prev,
+        [key]: '',
+      }));
+      setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
+      setAdd(prev => prev + 1);
+    }
+  }
+  console.log(seats);
   return (
     <>
       <div className='adults'>
@@ -58,7 +128,7 @@ function PassengerDropDown({ title, description, icon, nameClick }) {
               />
             </div>
             <div className='icon-number'>
-              <span>{seats.adults}</span>
+              <span>{seats[nameClick]}</span>
             </div>
             <div className='icon'>
               <FontAwesomeIcon
@@ -69,7 +139,7 @@ function PassengerDropDown({ title, description, icon, nameClick }) {
             </div>
           </div>
         </div>
-        {errors[nameClick] ? <p className='err'>{errors.adults}</p> : null}
+        {errors[nameClick] && <p className='err'>{errors[nameClick]}</p>}
       </div>
     </>
   );
