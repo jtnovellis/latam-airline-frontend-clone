@@ -74,3 +74,20 @@ export const flightsArr = [
 ]
 
 export const citiesArr = [ "Bogotá", "Medellín" ]
+
+
+
+export const imgPromoSectionArr = [
+    {
+        id:1,
+        smallImg: 'https://www.latamairlines.com/content/dam/latamxp/sites/promociones/zona-de-campa%C3%B1as/andean/mobile/CO-FESTIVAL-12SEP-ZDC-MOBILE-768x286.jpg',
+        bigImg: 'https://www.latamairlines.com/content/dam/latamxp/sites/promociones/zona-de-campa%C3%B1as/andean/desk/CO-FESTIVAL-12SEP-ZDC-DESKTOP-1024x308.jpg',
+        paragraph: "Viaja a Bogotá y disfruta del 'Festival Cordillera' este 24 y 25 de septiembre junto con LATAM "
+    },
+    {
+        id:2,
+        smallImg: 'https://www.latamairlines.com/content/dam/latamxp/sites/promociones/zona-de-campa%C3%B1as/andean/mobile/CO-VDM-12SEP-ZDC-MOBILE-768x286.png',
+        bigImg: 'https://www.latamairlines.com/content/dam/latamxp/sites/promociones/zona-de-campa%C3%B1as/andean/desk/CO-VDM-12SEP-ZDC-DESKTOP-1024x308.png',
+        paragraph: '¡Vive el amor! 50% Off en Millas LATAM Pass'
+    },
+]
