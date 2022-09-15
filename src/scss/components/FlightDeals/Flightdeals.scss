@@ -165,3 +165,21 @@ button {
     max-width: 1280px;
 
 }
+
+.terms-container{
+    margin-top: 1rem;
+    
+    a{
+        font-size: 1rem;
+    }
+
+    .faArrowUpRightFromSquare{
+        height: 1rem;
+        width: 1rem;
+    }
+    @media (min-width: 992px) {
+        .terms-container {
+            margin-top: 1rem;
+        }
+    }
+}
