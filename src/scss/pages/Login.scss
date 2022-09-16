@@ -1,6 +1,6 @@
 .container {
     width: 400px;
-    height: 450px;
+    height: 500px;
     padding: 20px;
     margin: auto;
     box-sizing: border-box;
@@ -73,6 +73,11 @@
     
     .input:checked {
         border: 3px solid rgb(17, 0, 112);
+    }
+    .register{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
     }
 }
 

@@ -69,15 +69,19 @@ function login() {
                                     <ErrorMessage className="errors" name="password" component="div" />
                                 </div>
                                 <div>
+                                    <p className="recuperar"><a href=""><strong>recupera el acceso a tu cuenta </strong> </a></p>
                                     <button type="submit" disabled={isSubmitting} >Iniciar sesión</button>
                                     {done}
                                 </div>
                             </Form>
                         )}
-                        </Formik>
-                    </div>
+                        </Formik>                        
+                    </div>                    
                 </div>
             </div>
+            <div className='resgister'>
+            <p className="register-p">¿No estás registrado? <a href="./registerForm.html">Crea una cuenta </a></p>
+            </div>            
         </div>
     );
 
