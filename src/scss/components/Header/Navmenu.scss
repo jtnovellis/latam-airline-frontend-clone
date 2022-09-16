@@ -1,7 +1,12 @@
 .ofertas-destino {
   @media (min-width: 64rem) {
     position: relative;
-    button {
+  }
+}
+
+.ofertas-destino {
+  button {
+    @media (min-width: 64rem) {
       -webkit-box-align: center;
       align-items: center;
       background: transparent;
@@ -21,7 +26,20 @@
       &:hover {
         background-color: rgba(255, 255, 255, 0.2);
       }
-      .faAngleDown {
+    }
+    span {
+      @media (min-width: 64rem) {
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        max-width: none;
+        overflow: hidden;
+        padding: 0px 0px 0px 0.5rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .faAngleDown {
+      @media (min-width: 64rem) {
         color: rgb(255, 255, 255);
         margin-left: 0.5rem;
         display: flex;
@@ -33,4 +51,15 @@
       }
     }
   }
+}
+.faAngleDownR {
+  color: rgb(255, 255, 255);
+  margin-left: 0.5rem;
+  display: flex;
+  width: fit-content;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  rotate: -180deg;
 }

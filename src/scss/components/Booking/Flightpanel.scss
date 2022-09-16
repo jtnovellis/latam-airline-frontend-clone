@@ -1,0 +1,11 @@
+.panel-flight {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: rgb(0 0 0 / 20%) 0rem 0.25rem 0.5rem;
+  margin-top: -1.25rem;
+  padding-top: 1.25rem;
+  @media (min-width: 64rem) {
+    margin-top: 0;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+  }
+}

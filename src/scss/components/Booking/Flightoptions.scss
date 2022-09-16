@@ -1,0 +1,58 @@
+.search-flight-options {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
+  @media (min-width: 64rem) {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+.search-info {
+  position: relative;
+  button {
+    border: none;
+    background-color: transparent;
+  }
+  span {
+    margin-top: auto;
+    margin-right: 0.375rem;
+    color: rgb(133, 133, 133);
+    font-size: 0.875rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+  }
+  @media (min-width: 1024px) {
+    padding: 1rem 3rem;
+    margin-right: 6rem;
+  }
+  .faAngleDown {
+    margin-left: 5px;
+    color: rgb(232, 17, 75);
+  }
+}
+.search-info-ida-vuelta {
+  span {
+    margin-top: auto;
+    margin-right: 0.375rem;
+    color: rgb(133, 133, 133);
+    font-size: 0.875rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+  }
+  @media (min-width: 1024px) {
+    padding: 1rem 3rem;
+    margin-right: 6rem;
+  }
+  button {
+    border: 1px solid rgb(232, 17, 75);
+    background-color: transparent;
+  }
+}
+.faAngleDownIda-vuelta {
+  margin-left: 5px;
+  color: rgb(232, 17, 75);
+  rotate: -180deg;
+}
