@@ -96,6 +96,12 @@
             }
         }
 
+        .pp {
+            label {
+                width: 11rem;
+            }
+        }
+
         .input-field {
             display: flex;
             flex-direction: column;
@@ -116,6 +122,8 @@
                     color: #5C5C5C;
                     opacity: 1;
                 }
+
+
             }
         }
 
@@ -140,26 +148,28 @@
                 .select-number {
                     display: flex;
                     flex-direction: row;
-                    align-items: center;
-                    align-content: center;
-                    justify-content: space-between;
+                    justify-content: space-around;
+                    width: 100%;
 
                     .select-field {
                         margin: 0px;
+                        width: 50%;
+                        padding: 0px;
                     }
 
                     .input-field {
                         margin: 0px;
-                    }
-
-                    select {
                         width: 100%;
 
                     }
 
+                    select {
+                        height: 3.4rem;
+                        width: 150px;
+                    }
+
                     input {
-                        margin: auto;
-                        width: 90%;
+                        width: 100%;
                     }
                 }
             }
@@ -175,28 +185,48 @@
 
         .requeriments {
             ul {
-                margin-left: 1.3rem;
+                list-style-type: none;
             }
+            .requeriment{
+                margin-bottom: 0.3rem;
+                display: flex;  
+                li{
+                    margin-left: 0.5rem;
+                }
+                path{
+                    fill:rgb(143, 143, 143);
+                }
+            }
+           
+            
         }
 
         .check-login {
             display: flex;
             flex-direction: column;
-
-            input {
-                margin-right: 1rem;
-
-            }
-
+            margin-bottom: 2rem;
             label {
                 display: flex;
                 flex-direction: row;
-                align-items: baseline;
-                margin-right: 1rem;
-                height: 6rem;
-                margin-bottom: 1rem;
-
+                align-items:center;
+                width: 100%;
+            
+                p, a{
+                    width: 100%;
+                    
+                }
+                input{
+                    margin-right: 1rem;
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    border: #1B0088 1px solid; 
+                }
             }
+            
+             
+            
+
+            
         }
 
         .dropdown-data-treatment {
@@ -212,9 +242,26 @@
 
             }
 
-            .dropdown-svg svg path {
-                fill: red;
+            .dropdown-svg{ 
+                path {
+                    fill: red;
+                }
+                button{
+                    background: none;
+                    border: 0;
+                    color: inherit;
+                    /* cursor: default; */
+                    font: inherit;
+                    line-height: normal;
+                    overflow: visible;
+                    padding: 0;
+                    -webkit-user-select: none; /* for button */
+                    -webkit-appearance: button; /* for input */
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                }
             }
+
         }
 
         .btn-create {
@@ -229,6 +276,12 @@
             height: 3.5rem;
             margin-top: 2rem;
             padding: 1rem 2rem;
+
+            &:hover {
+                background: rgb(255, 110, 110);
+                border: 0.0625rem solid rgb(255, 110, 110);
+            }
+
         }
 
         .captcha {
@@ -238,14 +291,45 @@
                 color: #4658DF;
                 font-weight: 600;
             }
+            
         }
-
+        .message{
+            margin-left: 1.5rem;
+            margin-bottom: 3rem;
+            li{
+                margin-bottom: 1rem;
+            }
+        }    
+               
+        hr{
+            height: 0.02px;
+            opacity: 0.3;
+        }
         /* Medium devices (landscape tablets, 768px and up) */
         @media only screen and (min-width: 768px) {
             .main-container {
                 margin: 0rem 3rem
             }
 
+            .check-login {
+                label {
+                    height: 4rem;
+                }
+            }
+
+            .select-number-split {
+                width: 100%;
+                justify-content: space-between;
+
+                select {
+                    height: 100%;
+
+                }
+
+                input {
+                    width: 50%;
+                }
+            }
         }
 
         /* Large devices (laptops/desktops, 992px and up) */
@@ -253,29 +337,33 @@
             .main-container {
                 margin: 0rem 3rem
             }
-
         }
 
         /* Extra large devices (large laptops and desktops, 1200px and up) */
-        @media only screen and (min-width: 1200px) {
-            .main-container {
-                margin: 0rem 28rem;
-                
-                .title{
-                    h1{
-                        font-size: 32px;
-                    }
-                }
-            }
+
+        @media(min-width: 1200px) {
+            margin: 0rem 27rem;
 
         }
 
-        @media only screen and (min-width: 1920px) {
+        @media(min-width: 1500px) {
+            margin: 0rem 30rem;
+
+        }
+
+        @media(min-width: 1700px) {
+            margin: 0rem 38rem;
+
+        }
+
+        @media(min-width: 1800px) {
             margin: 0rem 42rem;
-           
+
         }
-        @media only screen and (min-width: 2000px) {
-            margin: 0rem 55rem
+
+        @media(min-width: 2000px) {
+            margin: 0rem 55rem;
+
         }
     }
 }

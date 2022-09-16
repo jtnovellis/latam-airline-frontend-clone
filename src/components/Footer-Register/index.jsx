@@ -1,4 +1,6 @@
 import React from 'react'
+import certificado from '../../images/footer/icon.png'
+import vigilado from '../../images/footer/Logo Vigilado(1).png'
 const index = () => {
     return (
         <div>
@@ -12,10 +14,10 @@ const index = () => {
                     </div>
                     <div className="f-cert">
                         <span>Certificado por: </span>
-                        <img src="/media-registerpage/icon.png" alt />
+                        <img src={certificado} alt="Logo certificado"/>
                     </div>
                     <div className="f-cert2">
-                        <img src="/media-registerpage/Logo Vigilado(1).png" alt />
+                        <img src={vigilado}  alt="logo vigilado"/>
                     </div>
                 </div>
             </footer>
