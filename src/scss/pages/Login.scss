@@ -1,0 +1,85 @@
+.container {
+    width: 400px;
+    height: 450px;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid rgb(238, 227, 227);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    font-family: 'LATAM Sans';
+    border: 2px solid rgb(238, 227, 227);
+    box-shadow: 2px 2px 3px 1px rgb(241, 238, 238);
+    border-radius: 15px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            height: 50px;
+        }
+    }
+
+    h1 {
+        color: rgb(11, 11, 126)
+    }
+
+    .logo {
+        margin-top: 50px;
+        margin-left: 10px;
+        max-width: 120px;
+    }
+
+    button {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(226, 0, 68);
+        color: white;
+        border-radius: 5px;
+        padding: 8px;
+        border-color: rgb(226, 0, 68);
+        margin-top: 20px;
+        font-size: medium;
+    }
+
+    button:hover {
+        background-color: rgb(221, 30, 87);
+
+        .input {
+            width: 100%;
+            height: 50px;
+        }
+    }
+    a:hover {
+        color: rgb(17, 0, 112);
+        text-decoration: none;
+        font-size: medium;
+    }
+    .input:hover {
+        border-color: rgb(17, 0, 112);
+    }
+    
+    .input:focus {
+        border: 3px solid rgb(17, 0, 112);
+        outline-color: rgb(27, 0, 136);
+    }
+    
+    .input:checked {
+        border: 3px solid rgb(17, 0, 112);
+    }
+}
+
+.background-container {
+    background-image: url(https://s.latamairlines.com/images/auth0/login/background.svg);
+}
+
+.window{
+    padding-top: 100px;
+}
