@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import IdaVueltaDropdown from './IdaVueltaDropdown';
+import { useSelector } from 'react-redux';
 
 function Boxsearch() {
+  const passengerAmount = useSelector(state => state.passengerAmount);
   const [drop, setDrop] = useState({
     idavuelta: false,
     economy: false,
@@ -57,7 +59,9 @@ function Boxsearch() {
         </div>
         <div className={passenger ? 'search-info-ida-vuelta' : 'search-info'}>
           <button onClick={e => handleClick(e)} value='passenger'>
-            1 Pasajero
+            {passengerAmount > 1
+              ? `${passengerAmount} Pasajeros`
+              : `${passengerAmount} Pasajero`}
           </button>
           <FontAwesomeIcon
             icon={faAngleDown}
