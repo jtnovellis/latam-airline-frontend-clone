@@ -3,50 +3,70 @@ import { BookingDropdown } from './BookingDropdown';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import IdaVueltaDropdown from './IdaVueltaDropdown';
 
 function Boxsearch() {
-  const [drop, setDrop] = useState(false);
-  function handleClick() {
-    if (drop) {
-      setDrop(false);
-    } else {
-      setDrop(true);
+  const [drop, setDrop] = useState({
+    idavuelta: false,
+    economy: false,
+    passenger: false,
+  });
+
+  function handleClick(e) {
+    switch (e.target.value) {
+      case 'idavuelta':
+        setDrop(prev => ({ ...prev, [e.target.value]: !prev[e.target.value] }));
+        break;
+      case 'economy':
+        setDrop(prev => ({ ...prev, [e.target.value]: !prev[e.target.value] }));
+        break;
+      case 'passenger':
+        setDrop(prev => ({ ...prev, [e.target.value]: !prev[e.target.value] }));
+        break;
+      default:
+        setDrop(prev => ({ ...prev }));
+        break;
     }
   }
-  console.log(drop);
+
+  const { idavuelta, economy, passenger } = drop;
+
   return (
     <div className='box-search'>
       <div className='title'>
         <h2>¿A dónde quieres ir?</h2>
       </div>
       <div className='search-flight-options'>
-        <div className={drop ? 'search-info-ida-vuelta' : 'search-info'}>
-          <button onClick={() => handleClick}>Ida y vuelta</button>
+        <div className={idavuelta ? 'search-info-ida-vuelta' : 'search-info'}>
+          <button onClick={e => handleClick(e)} value='idavuelta'>
+            Ida y vuelta
+          </button>
           <FontAwesomeIcon
             icon={faAngleDown}
-            className={drop ? 'faAngleDownIda-vuelta' : 'faAngleDown'}
+            className={idavuelta ? 'faAngleDownIda-vuelta' : 'faAngleDown'}
           />
         </div>
-        <div
-          className={drop ? 'search-info-economy' : 'search-info'}
-          onClick={() => handleClick}>
-          <span>Economy</span>
+        <div className={economy ? 'search-info-ida-vuelta' : 'search-info'}>
+          <button onClick={e => handleClick(e)} value='economy'>
+            Economy
+          </button>
           <FontAwesomeIcon
             icon={faAngleDown}
-            className={drop ? 'faAngleDownIda-vuelta' : 'faAngleDown'}
+            className={economy ? 'faAngleDownIda-vuelta' : 'faAngleDown'}
           />
         </div>
-        <div
-          className={drop ? 'search-info-passenger' : 'search-info'}
-          onClick={() => handleClick}>
-          <span>1 Pasajero</span>
+        <div className={passenger ? 'search-info-ida-vuelta' : 'search-info'}>
+          <button onClick={e => handleClick(e)} value='passenger'>
+            1 Pasajero
+          </button>
           <FontAwesomeIcon
             icon={faAngleDown}
-            className={drop ? 'faAngleDownIda-vuelta' : 'faAngleDown'}
+            className={passenger ? 'faAngleDownIda-vuelta' : 'faAngleDown'}
           />
         </div>
       </div>
-      <BookingDropdown />
+      {idavuelta && <IdaVueltaDropdown />}
+      {passenger && <BookingDropdown />}
     </div>
   );
 }
