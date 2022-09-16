@@ -1,0 +1,70 @@
+
+.input-field {
+    font-family: 'LATAM Sans ', 'Sans';
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: 1rem 5rem;
+    margin-bottom: 2.2rem;
+  }
+  .input-field select:focus {
+    border-style: inset;
+    outline-color: rgb(27, 0, 136);
+}
+.input-field label {
+    font-size: 12px;
+    color: #5C5C5C;
+    margin-left: -10px;
+    z-index:2
+}
+.input-field label .label-style {
+    background: #FFF;
+    font-weight: bold;
+    padding: 0px 7px;
+}
+.input-field select {
+    font-family: 'LATAM Sans Light', 'Sans';
+    background-color: #FFF;
+    border: solid 1px grey;
+    font-size: 16px;
+    height: 3.8rem;
+    margin-top: -10px;
+    padding: 10px 20px;
+    border-radius: 10px; 
+    /* Added the dropdown svg*/
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Antu-go-down-24.svg');
+    background-repeat: no-repeat, repeat; 
+    background-position: right .7em top 50%, 0 0;
+    background-size: 1.3em auto, 100%;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+}
+
+.input-field input {
+    font-family: 'LATAM Sans Light', 'Sans';
+    color: #5C5C5C;
+    font-size: 16px;
+    height: 2.6rem;
+    padding: 10px 20px;
+    border: solid 1px grey;
+    border-radius: 10px; 
+}
+.input-field input::placeholder {
+    font-family: 'LATAM Sans Light', 'Sans';
+    font-size: 1rem;
+    font-weight:lighter;
+    color:rgb(92, 92, 92);
+    opacity: 1; 
+}
+.input-field input:focus {
+    border-style: inset;
+    outline-color: rgb(27, 0, 136);
+}
+.input-field span{
+    font-family: 'LATAM sans Light', 'Sans';
+    font-weight: 200;
+    font-size: 12px;
+    margin: 4px 16px 0px;
+}

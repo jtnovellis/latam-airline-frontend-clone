@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import CalendarRange from './CalendarRange';
 
 function BookingInputsDesktop() {
   return (
@@ -69,26 +70,27 @@ function BookingInputsDesktop() {
                     />
                   </div>
                 </div>
-                <div className='input-date-container'>
+                <CalendarRange />
+                {/* <div className='input-date-container'>
                   <div className='dates'>
-                    <div className='input-ida'>
-                      <Field type='date' name='dateIda' id='fecha-ida' />
-                    </div>
-                    <div className='input-vuelta'>
-                      <Field type='date' name='dateVuelta' id='fecha-regreso' />
-                    </div>
+                  <div className='input-ida'>
+                  <Field type='date' name='dateIda' id='fecha-ida' />
+                  </div>
+                  <div className='input-vuelta'>
+                  <Field type='date' name='dateVuelta' id='fecha-regreso' />
+                  </div>
                   </div>
                   <ErrorMessage
-                    name='dateIda'
-                    component='div'
-                    className='errors'
+                  name='dateIda'
+                  component='div'
+                  className='errors'
                   />
                   <ErrorMessage
-                    name='dateVuelta'
-                    component='div'
-                    className='errors'
+                  name='dateVuelta'
+                  component='div'
+                  className='errors'
                   />
-                </div>
+                </div> */}
                 <div className='btn-submit-search'>
                   <button
                     type='submit'
