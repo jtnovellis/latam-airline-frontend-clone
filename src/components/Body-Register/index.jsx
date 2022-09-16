@@ -2,6 +2,7 @@ import React from 'react'
 //import Titles from '../components/Body-Register/Titles'
 import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import axios from 'axios';
 const index = () => {
   const [done, setDone] = useState(false);
   const [checked, setChecked] = useState(false);
@@ -88,6 +89,15 @@ const index = () => {
               setSubmitting(false);
               setDone(false)
               console.log(values)
+              axios.post('https://jsonplaceholder.typicode.com/posts', {
+                values
+              })
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
             }}
           >{({
             isSubmitting, errors, values
@@ -120,8 +130,7 @@ const index = () => {
               <span>Te recomendamos registrarte con tu cédula de ciudadanía de Colombia</span>
             </div>
 
-            {values.id === 'PP' ?
-              <>
+            {values.id === 'PP' ?(<>
                 <div className="select-field pp">
                   <label>País de emisión del pasaporte</label>
                   <Field
@@ -144,9 +153,10 @@ const index = () => {
                   />
                   {errors.idNumber ? <ErrorMessage className="errors" name="idNumber" component="div" /> : <span>Ejemplo: 1234567891</span>}
                 </div>
-              </>
+              </>)
+              
               :
-              <div className='input-field'>
+              (<div className='input-field'>
                 <Field
                   type="input"
                   id="idNumber"
@@ -154,7 +164,7 @@ const index = () => {
                   placeholder="Numero de cedula de ciudadanía"
                 />
                 {errors.idNumber ? <ErrorMessage className="errors" name="idNumber" component="div" /> : <span>Ejemplo: 1234567891</span>}
-              </div>}
+              </div>)}
             <div className='input-field'>
               <Field
                 type="input"
