@@ -2,13 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faChild, faBaby } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import PassengerDropDown from './PassengerDropDown';
-import { useDispatch, useSelector } from 'react-redux';
-import { PASSENGER_AMOUNT_DOWN, PASSENGER_AMOUNT_UP } from '../../store';
 
 export function BookingDropdown() {
-  const dispatch = useDispatch();
-  const passengerAmount = useSelector(state => state.passengerAmount);
-  console.log(passengerAmount);
+  const [add, setAdd] = useState(1);
   const [seats, setSeats] = useState({
     adults: 1,
     kids: 0,
@@ -20,21 +16,21 @@ export function BookingDropdown() {
     babies: '',
   });
 
-  function validateSeats(seats, key, action, passengerAmount) {
+  function validateSeats(seats, key, action, add) {
     if (action === 'add') {
       switch (key) {
         case 'adults':
-          if (seats[key] > 8 || passengerAmount > 8) {
+          if (seats[key] > 8 || add > 8) {
             return 'No puedes agregar más de 9 pasajeros';
           }
           break;
         case 'kids':
-          if (passengerAmount > 8) {
+          if (add > 8) {
             return 'No puedes agregar más de 9 pasajeros';
           }
           break;
         case 'babies':
-          if (passengerAmount > 8) {
+          if (add > 8) {
             return 'No puedes agregar más de 9 pasajeros';
           }
           if (seats[key] > seats.adults - 1) {
@@ -51,7 +47,7 @@ export function BookingDropdown() {
   }
 
   function handleClickPlus(key) {
-    const error = validateSeats(seats, key, 'add', passengerAmount);
+    const error = validateSeats(seats, key, 'add', add);
     if (error) {
       setErrors(prev => ({ ...prev, [key]: error }));
       return;
@@ -63,7 +59,7 @@ export function BookingDropdown() {
           [key]: '',
         }));
         setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
-        dispatch({ type: PASSENGER_AMOUNT_UP });
+        setAdd(prev => prev + 1);
         break;
       case 'kids':
         setErrors(prev => ({
@@ -71,7 +67,7 @@ export function BookingDropdown() {
           [key]: '',
         }));
         setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
-        dispatch({ type: PASSENGER_AMOUNT_UP });
+        setAdd(prev => prev + 1);
         break;
       case 'babies':
         setErrors(prev => ({
@@ -79,13 +75,13 @@ export function BookingDropdown() {
           [key]: '',
         }));
         setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
-        dispatch({ type: PASSENGER_AMOUNT_UP });
+        setAdd(prev => prev + 1);
         break;
     }
   }
 
   function handleClickMinus(key) {
-    const error = validateSeats(seats, key, 'remove', passengerAmount);
+    const error = validateSeats(seats, key, 'remove', add);
     if (error) {
       setErrors(prev => ({ ...prev, [key]: error }));
       return;
@@ -97,7 +93,7 @@ export function BookingDropdown() {
           [key]: '',
         }));
         setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
-        dispatch({ type: PASSENGER_AMOUNT_DOWN });
+        setAdd(prev => prev - 1);
         break;
       case 'kids':
         if (seats[key] > 0) {
@@ -106,7 +102,7 @@ export function BookingDropdown() {
             [key]: '',
           }));
           setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
-          dispatch({ type: PASSENGER_AMOUNT_DOWN });
+          setAdd(prev => prev - 1);
         }
         break;
       case 'babies':
@@ -116,7 +112,7 @@ export function BookingDropdown() {
             [key]: '',
           }));
           setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
-          dispatch({ type: PASSENGER_AMOUNT_DOWN });
+          setAdd(prev => prev - 1);
         }
         break;
     }
