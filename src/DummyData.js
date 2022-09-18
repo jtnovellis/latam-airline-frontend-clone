@@ -91,3 +91,29 @@ export const imgPromoSectionArr = [
         paragraph: '¡Vive el amor! 50% Off en Millas LATAM Pass'
     },
 ]
+
+
+export const adviceArr= [
+    {
+        id: 1,
+        imgUrl:'https://s.latamairlines.com/images/home/value_proposition_slider1.jpg',
+        title: 'Al preparar tu viaje',
+        description:'Lo que necesitas saber con anticipación.',
+        other:'Conoce más'
+    },
+    {
+        id: 2,
+        imgUrl:'https://s.latamairlines.com/images/home/value_proposition_slider2.jpg',
+        title: 'En el aeropuerto',
+        description:'Hacemos fácil el día de tu viaje.',
+        other:'Conoce más'
+    },
+    {
+        id: 3,
+        imgUrl:'https://s.latamairlines.com/images/home/value_proposition_slider3.jpg',
+        title: 'Durante el vuelo',
+        description:'Relájate y disfruta de nuestro servicio a bordo.',
+        other:'Conoce más'
+    },
+   
+]

@@ -1,0 +1,32 @@
+.hmppgnd {
+  margin-top: 2rem;
+  padding: 0px;
+  display: flex;
+  min-width: 100%;
+
+  .splt-ppgnd {
+    min-width: 100%;
+    min-height: 14.5rem;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .hmppgnd {
+        margin-top: 4rem;
+    }
+    .splt-ppgnd {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+}
+@media (min-width: 992px) {
+    .splt-ppgnd {
+        justify-content: space-between;
+      min-height: 6rem;
+    }
+  }
+}

@@ -1,29 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { imgPromoSectionArr } from '../../DummyData'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import WindowSize from '../Hero/WindowSize';
 
 export default function PromosCard(props) {
-    const { promoDetails }= props
-    const { id, smallImg, bigImg, paragraph} = promoDetails
+  const { width } = WindowSize();
+  const { promoDetails } = props;
+  const { id, smallImg, bigImg, paragraph } = promoDetails;
   return (
     <Link to={''} className='ppgnd-prm'>
-    <div>
-        {width >= 800 ? (
-              <img
-                src={bigImg}
-                className='imgn-prm-prpgnd' 
-                alt={paragraph}
-              />
-            ) : (
-              <img
-                src={backgroundSmall}
-                className='bg-img'
-                alt='Disfruta de viajar por Colombia y el mundo con LATAM Airlines'
-              />
-            )}
+      <div className='prm-container ppgnd-container'>
+        <div className='imb-prm-ctnr'>
+          {width >= 800 ? (
+            <img
+              id={id}
+              src={bigImg}
+              className='imgn-prm-prpgnd'
+              alt={paragraph}
+            />
+          ) : (
+            <img src={smallImg} className='imgn-prm-prpgnd' alt={paragraph} />
+          )}
         </div>
-        <div>
+        <div className='info-prm-ctnr'>
+          <p className='nf-prm-p'>{paragraph}</p>
         </div>
+      </div>
     </Link>
-  )
+  );
 }

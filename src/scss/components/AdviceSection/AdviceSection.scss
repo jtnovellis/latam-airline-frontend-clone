@@ -1,0 +1,79 @@
+.vl-prpstn{
+    margin-top: 2.5rem;
+
+    @media (min-width: 992px) {
+        margin-top: 3.75rem;
+        padding: 0px 1rem;
+    }
+  }
+
+  .prpstn-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(16, 0, 79);
+    padding: 2.5rem 1rem 2rem;
+
+    @media (min-width: 992px) {
+        display: flex;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        gap: 1rem;
+        border-radius: 0.5rem;
+        padding: 4rem 4rem 0.25rem;
+    }
+  }
+
+  .prpstn-pnl-nf{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    @media (min-width: 992px) {
+        margin-bottom: 0px;
+    }
+  }
+
+  .prpstn-nf-ttl{
+    font-style: normal;
+    color: rgb(255, 255, 255);
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .prpstn-nf-p{
+    color: rgb(255, 255, 255);
+    font-size: 1.125rem;
+  }
+
+  .prpstn-l-nf{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .prpstn-crsl-container{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prpstn-crsl-ul-cntnr{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+  }
+
+  
+.prpstn-crsl-ul{
+    display: flex;
+    -webkit-box-pack:center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: auto;
+    min-height: 100%;
+  }
