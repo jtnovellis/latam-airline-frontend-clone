@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Booking from '../Booking';
-import MainInfo from '../MainInfo';
+
 import useWindowSize from './WindowSize';
 
 function Hero() {
