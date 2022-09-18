@@ -1,6 +1,9 @@
 import React from 'react';
 import CovidInfo from './CovidInfo';
 import FlightDeals from '../FlightDeals';
+import PromosSection from './PromosSection';
+import AdviceSection from '../AdviceSection';
+import AdvertisementLatamPass from '../AdvertisementLatamPass';
 
 function MainInfo() {
   return (
@@ -9,6 +12,9 @@ function MainInfo() {
         <CovidInfo />
         <hr />
         <FlightDeals />
+        <PromosSection />
+        <AdviceSection />
+        <AdvertisementLatamPass />
       </section>
     </main>
   );

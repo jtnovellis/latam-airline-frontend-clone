@@ -38,9 +38,15 @@
 @import url(./scss/components/MainInfo/CovidInfo.scss);
 @import url(./scss/components/MainInfo/MainInfo.scss);
 
-// Home deals section 
+// Home deals section
 @import url(./scss/components/FlightDeals/Flightdeals.scss);
 @import url(./scss/components/FlightCard/FlightCard.scss);
 
-// Home promos section 
+// Home promos section
 @import url(./scss/components/MainInfo/PromosSection.scss);
+@import url(./scss/components/PromosCard/PromosCard.scss);
+
+// Home promos section
+@import url(./scss/components/AdviceSection/AdviceSection.scss);
+@import url(./scss/components/AdviceSection/CardAdvice.scss);
+@import url(./scss/components/AdvertisementLatamPass/AdvertisementLatamPass.scss);

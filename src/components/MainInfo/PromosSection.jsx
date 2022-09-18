@@ -1,28 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import WindowSize from '../Hero/WindowSize';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { imgPromoSectionArr } from '../../DummyData';
+import PromosCard from '../PromosCard';
 
-export default function PromosSection() {
+ function PromosSection() {
+
+  const [promos, setPromos]= useState([]);
+  
+  useEffect(()=>{
+    const newPromos = imgPromoSectionArr.map(
+      promo=>promo
+    );
+    setPromos(newPromos)
+  },[])
+
+
+  
   return (
-    <div>
-      <Link to={''}>
-        <div>
-        {width >= 800 ? (
-              <img
-                src={backgroundLarge}
-                className='bg-img'
-                alt='Disfruta de viajar por Colombia y el mundo con LATAM Airlines'
-              />
-            ) : (
-              <img
-                src={backgroundSmall}
-                className='bg-img'
-                alt='Disfruta de viajar por Colombia y el mundo con LATAM Airlines'
-              />
-            )}
-        </div>
-        <div></div>
-      </Link>
+    <div className='hmppgnd'>
+      <div className='splt-ppgnd'>
+      {promos.map(promo => (
+                <PromosCard promoDetails={promo} key={promo.id} />
+              ))}
+      </div>
     </div>
   );
 }
+
+
+export default PromosSection;
