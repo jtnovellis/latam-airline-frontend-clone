@@ -10,10 +10,10 @@ import { useState } from 'react';
 function login() {
     const [done, setDone] = useState(false);
     return (
-        <div className='window'>
-            <div className='background-container'>
+        <div className='window-login'>
+            <div className='background-container-login'>
 
-                <div className='container'>
+                <div className='container-login'>
                     <div>
                         <a href='./home.jsx'><img src={logo} className="logo" alt="logo" /> </a>
                     </div>
@@ -47,7 +47,7 @@ function login() {
                         }) => (
                             <Form >
                                 <p>Si ya eres parte de LATAM, ingresa tus datos.</p>
-                                <div className='input' >
+                                <div className='input-login' >
                                     <label htmlFor="name"></label>
                                     <Field
                                         type="text"
@@ -58,7 +58,7 @@ function login() {
                                     <ErrorMessage className="errors" name="name" component="div" />
                                 </div>
 
-                                <div className='input' >
+                                <div className='input-login' >
                                     <label htmlFor="password"></label>
                                     <Field
                                         type="password"
@@ -80,7 +80,7 @@ function login() {
                 </div>
             </div>
             <div className='resgister'>
-            <p className="register-p">¿No estás registrado? <a href="./registerForm.html">Crea una cuenta </a></p>
+            <p className="register-p">¿No estás registrado? <a href="./register.jsx">Crea una cuenta </a></p>
             </div>            
         </div>
     );

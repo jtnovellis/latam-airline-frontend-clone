@@ -1,4 +1,4 @@
-.container {
+.container-login {
     width: 400px;
     height: 500px;
     padding: 20px;
@@ -36,7 +36,6 @@
         margin-left: 10px;
         max-width: 120px;
     }
-
     button {
         width: 100%;
         height: 50px;
@@ -48,11 +47,10 @@
         margin-top: 20px;
         font-size: medium;
     }
-
     button:hover {
         background-color: rgb(221, 30, 87);
 
-        .input {
+        .input-login {
             width: 100%;
             height: 50px;
         }
@@ -62,16 +60,16 @@
         text-decoration: none;
         font-size: medium;
     }
-    .input:hover {
+    .input-login:hover {
         border-color: rgb(17, 0, 112);
     }
     
-    .input:focus {
+    .input-login:focus {
         border: 3px solid rgb(17, 0, 112);
         outline-color: rgb(27, 0, 136);
     }
     
-    .input:checked {
+    .input-login:checked {
         border: 3px solid rgb(17, 0, 112);
     }
     .register{
@@ -80,11 +78,9 @@
         align-content: center;
     }
 }
-
-.background-container {
+.background-container-login {
     background-image: url(https://s.latamairlines.com/images/auth0/login/background.svg);
 }
-
-.window{
+.window-login{
     padding-top: 100px;
 }
