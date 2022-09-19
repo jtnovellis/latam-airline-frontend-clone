@@ -1,0 +1,96 @@
+.prpstn-crsl-li {
+  width: 100%;
+  height: fit-content;
+  transform: translate(calc(-16px));
+  transition: transform 0.5s ease 0s;
+  display: flex;
+  -webkit-box-align: center;
+  place-items: center;
+  -webkit-box-pack: center;
+  justify-content: space-between;
+  padding: 0px 0px 0px 1rem;
+  margin: 0.5rem;
+  min-width: 225px;
+  
+  @media (min-width: 768px) {
+      padding: 0px 0px 0px 1rem;
+      margin: 0px;
+      min-width: 376px;
+  }
+  @media (min-width: 1024px) {
+     
+      min-width: 274px;
+  }
+  @media (min-width: 1150px) {
+     
+      min-width: 219px;
+  }
+}
+
+.prpstn-crsl-l-element {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.prp-crsl-elmnt-a {
+  height: calc(100% - 0.75rem);
+}
+
+.prp-c-e-imgdiv {
+  width: 100%;
+  min-height: 14.5rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem 0.5rem 0px 0px;
+  @media (min-width: 992px) {
+    min-height: 9.25rem;
+  }
+}
+
+.prpCE-img {
+  width: 100%;
+  opacity: 1;
+  height: 100%;
+  transition: all 0.5s ease 0s;
+  object-fit: cover;
+  min-width: 20.5rem;
+  border-radius: 0.5rem 0.5rem 0px 0px;
+
+  @media (min-width: 992px) {
+    min-width: 0px;
+  }
+}
+
+.prp-c-e-infodiv {
+  display: flex;
+  min-height: 10rem;
+  transition: all 0.5s ease 0s;
+  margin-bottom: 0px;
+  position: relative;
+  flex-direction: column;
+  top: -1.25rem;
+  padding: 1rem;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  background-color: rgb(255, 255, 255);
+}
+
+.prpCEinfo-title {
+  color: rgb(27, 0, 136);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.prpCEinfo-p {
+  transition: all 0.5s ease 0s;
+  color: rgb(92, 92, 92);
+  margin-bottom: 1rem;
+}
+
+.prpCEI-link {
+  color: rgb(232, 17, 75);
+  font-weight: 700;
+}
