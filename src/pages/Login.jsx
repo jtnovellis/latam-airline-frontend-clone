@@ -8,9 +8,9 @@ import { useState } from 'react';
 function login() {
   const [done, setDone] = useState(false);
   return (
-    <div className='window'>
-      <div className='background-container'>
-        <div className='container'>
+    <div className='window-login'>
+      <div className='background-container-login'>
+        <div className='container-login'>
           <div>
             <a href='./home.jsx'>
               <img src={logo} className='logo' alt='logo' />{' '}
@@ -45,7 +45,7 @@ function login() {
               {({ isSubmitting }) => (
                 <Form>
                   <p>Si ya eres parte de LATAM, ingresa tus datos.</p>
-                  <div className='input'>
+                  <div className='input-login'>
                     <label htmlFor='name'></label>
                     <Field
                       type='text'
@@ -60,7 +60,7 @@ function login() {
                     />
                   </div>
 
-                  <div className='input'>
+                  <div className='input-login'>
                     <label htmlFor='password'></label>
                     <Field
                       type='password'
@@ -75,6 +75,11 @@ function login() {
                     />
                   </div>
                   <div>
+                    <p className='recuperar'>
+                      <a href=''>
+                        <strong>recupera el acceso a tu cuenta </strong>{' '}
+                      </a>
+                    </p>
                     <button type='submit' disabled={isSubmitting}>
                       Iniciar sesión
                     </button>
@@ -85,6 +90,11 @@ function login() {
             </Formik>
           </div>
         </div>
+      </div>
+      <div className='resgister'>
+        <p className='register-p'>
+          ¿No estás registrado? <a href='./register.jsx'>Crea una cuenta </a>
+        </p>
       </div>
     </div>
   );
