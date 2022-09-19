@@ -128,68 +128,68 @@ export const adviceArr = [
   },
 ];
 
-export const footerLinksAboutLATAM = [
-  {
-    id: `LargeFooterLatam-${this.description}`,
-    urlRedirec: '/',
-    description: 'Inicio',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
-    description: 'Acerca de LATAM',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
-    description: 'Experiencia LATAM',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
-    description: 'Prepara tu viaje',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
-    description: 'Mis viajes',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
-    description: 'Estado de vuelo',
-  },
-  {
-    id: `LargeFooterLatam-${this.description}`,
-    urlRedirec: '/',
-    description: 'Check-in',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split}`,
-    urlRedirec: '/',
-    description: 'Destinos',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/register',
-    description: 'Crea tu cuenta',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
-    description: 'Centro de ayuda',
-  },
-  {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
-    description: 'Sala de prensa',
-  },
-  {
-    id: `LargeFooterLatam-${this.description}`,
-    urlRedirec: '/',
-    description: 'Sostenibilidad',
-  },
-];
+// export const footerLinksAboutLATAM = [
+//   {
+//     id: `LargeFooterLatam-${this.description}`,
+//     urlRedirec: '/',
+//     description: 'Inicio',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+//     urlRedirec: '/',
+//     description: 'Acerca de LATAM',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+//     urlRedirec: '/',
+//     description: 'Experiencia LATAM',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+//     urlRedirec: '/',
+//     description: 'Prepara tu viaje',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+//     urlRedirec: '/',
+//     description: 'Mis viajes',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+//     urlRedirec: '/',
+//     description: 'Estado de vuelo',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description}`,
+//     urlRedirec: '/',
+//     description: 'Check-in',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split}`,
+//     urlRedirec: '/',
+//     description: 'Destinos',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+//     urlRedirec: '/register',
+//     description: 'Crea tu cuenta',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+//     urlRedirec: '/',
+//     description: 'Centro de ayuda',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+//     urlRedirec: '/',
+//     description: 'Sala de prensa',
+//   },
+//   {
+//     id: `LargeFooterLatam-${this.description}`,
+//     urlRedirec: '/',
+//     description: 'Sostenibilidad',
+//   },
+// ];
 
 export const footerLinksLegalInfo = [
   {
