@@ -2,14 +2,37 @@
   height: auto;
   width: 0 auto;
   max-width: 89.75rem;
+
+  hr {
+    background-color: rgb(243, 242, 246);
+    border: 0px;
+    height: 0.0625rem;
+    margin: 2rem auto;
+    width: 100%;
+    box-sizing: content-box;
+    overflow: visible;
+  }
 }
 
 .bg-ftr-cntnr-margins {
   margin-bottom: 1.25rem;
   padding: 0px 1rem;
 
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
+    padding: 0px 2rem;
   }
   @media (min-width: 992px) {
+    margin-bottom: 4.125rem;
+    padding: 0px 4rem;
+  }
+}
+
+.ftr-inside-cntnr {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
   }
 }
