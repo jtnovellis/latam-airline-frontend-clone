@@ -4,6 +4,7 @@ import '../scss/pages/Login.scss';
 import '../scss/base/Fontfaces.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function login() {
   const [done, setDone] = useState(false);
@@ -93,7 +94,7 @@ function login() {
       </div>
       <div className='resgister'>
         <p className='register-p'>
-          ¿No estás registrado? <a href='./register.jsx'>Crea una cuenta </a>
+          ¿No estás registrado? <Link to='/register'>Crea una cuenta </Link>
         </p>
       </div>
     </div>
