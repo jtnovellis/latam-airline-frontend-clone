@@ -48,7 +48,7 @@
 }
 .faHandHoldingMedical {
   display: flex;
-  width: fit-content;
+  *width: fit-content;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;

@@ -43,7 +43,7 @@
         color: rgb(255, 255, 255);
         margin-left: 0.5rem;
         display: flex;
-        width: fit-content;
+        *width: fit-content;
         -webkit-box-align: center;
         align-items: center;
         -webkit-box-pack: center;
@@ -56,7 +56,7 @@
   color: rgb(255, 255, 255);
   margin-left: 0.5rem;
   display: flex;
-  width: fit-content;
+  *width: fit-content;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
