@@ -38,16 +38,15 @@ const MyAccount = () => {
             {menuOptions.map(link => {
               const { slug, content } = link;
               return (
-                <>
+                <div key={content}>
                   <hr />
                   <MenuSelector
-                    key={content}
                     path={slug}
                     setCurrent={setSelected}
                     current={selected}>
                     {content}
                   </MenuSelector>
-                </>
+                </div>
               );
             })}
             <hr />

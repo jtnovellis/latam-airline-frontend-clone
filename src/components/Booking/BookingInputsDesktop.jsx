@@ -1,41 +1,33 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import CalendarRange from './CalendarRange';
+import { useDispatch } from 'react-redux';
+import { BOOKING_CITIES_ADD } from 'store/reducers/bookingReducer';
 
 function BookingInputsDesktop() {
+  const dispatch = useDispatch();
   return (
     <div className='input-desktop-container'>
       <div className='form-container'>
         <Formik
           initialValues={{
-            origen: '',
-            destino: '',
-            dateIda: '',
-            dateVuelta: '',
+            origin: '',
+            destination: '',
           }}
           validate={values => {
             const errors = {};
-            if (!values.origen) {
+            if (!values.origin) {
               errors.origen = 'Ingrese una ciudad de origen';
             }
-            if (!values.destino) {
+            if (!values.destination) {
               errors.destino = 'Ingrese una ciudad de destino';
-            }
-            if (!values.dateIda) {
-              errors.dateIda = 'Ingrese una fecha de partida';
-            }
-            if (!values.dateVuelta) {
-              errors.dateVuelta = 'Ingrese una fecha de regreso';
-            } else if (!(values.dateVuelta > values.dateIda)) {
-              errors.dateVuelta =
-                'No puede viajar hacia el pasado, ingrese una fecha de regreso válida';
             }
             return errors;
           }}
-          onSubmit={(values, { setSubmiting, resetForm }) => {
+          onSubmit={(values, { resetForm }) => {
+            dispatch({ type: BOOKING_CITIES_ADD, payload: values });
             alert(JSON.stringify(values, null, 2));
             resetForm();
-            setSubmiting(false);
           }}>
           {({ isSubmiting }) => (
             <Form>
@@ -44,12 +36,12 @@ function BookingInputsDesktop() {
                   <div className='input'>
                     <Field
                       type='text'
-                      name='origen'
+                      name='origin'
                       id='ida'
                       placeholder='Ingresa origen'
                     />
                     <ErrorMessage
-                      name='origen'
+                      name='origin'
                       component='div'
                       className='errors'
                     />
@@ -59,38 +51,18 @@ function BookingInputsDesktop() {
                   <div className='input'>
                     <Field
                       type='text'
-                      name='destino'
+                      name='destination'
                       id='regreso'
                       placeholder='Ingresa destino'
                     />
                     <ErrorMessage
-                      name='destino'
+                      name='destination'
                       component='div'
                       className='errors'
                     />
                   </div>
                 </div>
                 <CalendarRange />
-                {/* <div className='input-date-container'>
-                  <div className='dates'>
-                  <div className='input-ida'>
-                  <Field type='date' name='dateIda' id='fecha-ida' />
-                  </div>
-                  <div className='input-vuelta'>
-                  <Field type='date' name='dateVuelta' id='fecha-regreso' />
-                  </div>
-                  </div>
-                  <ErrorMessage
-                  name='dateIda'
-                  component='div'
-                  className='errors'
-                  />
-                  <ErrorMessage
-                  name='dateVuelta'
-                  component='div'
-                  className='errors'
-                  />
-                </div> */}
                 <div className='btn-submit-search'>
                   <button
                     type='submit'

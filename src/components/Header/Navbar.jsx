@@ -17,12 +17,14 @@ function Navbar() {
           className='centro-ayuda'
           content='Centro de ayuda'
           anchorClass='ayuda'
+          path='centro-ayuda'
         />
       </nav>
       <Anchormenu
         className='e-vuelo-container'
         content='Estado de vuelo'
         anchorClass='e-vuelo'
+        path='estado-vuelo'
       />
     </div>
   );
