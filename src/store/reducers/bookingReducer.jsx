@@ -1,10 +1,19 @@
-import { createStore } from 'redux';
 export const PASSENGER_AMOUNT_UP = '@passengerAmount/increment';
 export const PASSENGER_AMOUNT_DOWN = '@passengerAmount/decrement';
+
 const initialValues = {
   passengerAmount: 1,
+  origin: '',
+  destination: '',
+  departureDate: '',
+  returnDate: '',
+  adults: 1,
+  kids: 0,
+  babies: 0,
+  roundTrip: true,
 };
-const reducer = (state = initialValues, action) => {
+
+const bookingReducer = (state = initialValues, action) => {
   switch (action.type) {
     case PASSENGER_AMOUNT_UP:
       return {
@@ -20,8 +29,5 @@ const reducer = (state = initialValues, action) => {
       return state;
   }
 };
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-export default store;
+
+export default bookingReducer;

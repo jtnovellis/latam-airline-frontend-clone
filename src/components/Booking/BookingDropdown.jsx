@@ -3,12 +3,14 @@ import { faUser, faChild, faBaby } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import PassengerDropDown from './PassengerDropDown';
 import { useDispatch, useSelector } from 'react-redux';
-import { PASSENGER_AMOUNT_DOWN, PASSENGER_AMOUNT_UP } from '../../store';
+import {
+  PASSENGER_AMOUNT_DOWN,
+  PASSENGER_AMOUNT_UP,
+} from 'store/reducers/bookingReducer';
 
 export function BookingDropdown() {
   const dispatch = useDispatch();
   const passengerAmount = useSelector(state => state.passengerAmount);
-  console.log(passengerAmount);
   const [seats, setSeats] = useState({
     adults: 1,
     kids: 0,
