@@ -128,68 +128,117 @@ export const adviceArr = [
   },
 ];
 
-// export const footerLinksAboutLATAM = [
-//   {
-//     id: `LargeFooterLatam-${this.description}`,
-//     urlRedirec: '/',
-//     description: 'Inicio',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-//     urlRedirec: '/',
-//     description: 'Acerca de LATAM',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-//     urlRedirec: '/',
-//     description: 'Experiencia LATAM',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-//     urlRedirec: '/',
-//     description: 'Prepara tu viaje',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-//     urlRedirec: '/',
-//     description: 'Mis viajes',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-//     urlRedirec: '/',
-//     description: 'Estado de vuelo',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description}`,
-//     urlRedirec: '/',
-//     description: 'Check-in',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split}`,
-//     urlRedirec: '/',
-//     description: 'Destinos',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-//     urlRedirec: '/register',
-//     description: 'Crea tu cuenta',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-//     urlRedirec: '/',
-//     description: 'Centro de ayuda',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-//     urlRedirec: '/',
-//     description: 'Sala de prensa',
-//   },
-//   {
-//     id: `LargeFooterLatam-${this.description}`,
-//     urlRedirec: '/',
-//     description: 'Sostenibilidad',
-//   },
-// ];
+export const footerLinksAboutLATAM = [
+  {
+    id: `LargeFooterLatam-${this.description}`,
+    urlRedirec: '/',
+    description: 'Inicio',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+    urlRedirec: '/',
+    description: 'Acerca de LATAM',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+    urlRedirec: '/',
+    description: 'Experiencia LATAM',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+    urlRedirec: '/',
+    description: 'Prepara tu viaje',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+    urlRedirec: '/',
+    description: 'Mis viajes',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+    urlRedirec: '/',
+    description: 'Estado de vuelo',
+  },
+  {
+    id: `LargeFooterLatam-${this.description}`,
+    urlRedirec: '/',
+    description: 'Check-in',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split}`,
+    urlRedirec: '/',
+    description: 'Destinos',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+    urlRedirec: '/register',
+    description: 'Crea tu cuenta',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+    urlRedirec: '/',
+    description: 'Centro de ayuda',
+  },
+  {
+    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
+    urlRedirec: '/',
+    description: 'Sala de prensa',
+  },
+  {
+    id: `LargeFooterLatam-${this.description}`,
+    urlRedirec: '/',
+    description: 'Sostenibilidad',
+  },
+];
+
+export const footerLinksLegalInfo = [
+  {
+    id: `LargeFooterLegal-1`,
+    urlRedirec: '/',
+    description: 'Condiciones de contrato de transporte',
+  },
+  {
+    id: `LargeFooterLegal-2`,
+    urlRedirec: '/',
+    description: 'Políticas de privacidad y seguridad',
+  },
+  {
+    id: `LargeFooterLegal-3`,
+    urlRedirec: '/',
+    description: 'Términos de uso',
+  },
+  {
+    id: `LargeFooterLegal-4`,
+    urlRedirec: '/',
+    description: 'Conoce tus derechos y deberes',
+  },
+  {
+    id: `LargeFooterLegal-5`,
+    urlRedirec: '/',
+    description: 'Reorganización financiera / Capítulo 11',
+  },
+  {
+    id: `LargeFooterLegal-6`,
+    urlRedirec: '/',
+    description: 'Tasas, cargos e impuestos',
+  },
+  {
+    id: `LargeFooterLegal-7`,
+    urlRedirec: '/',
+    description: 'Tasas, cargos e impuestos',
+  },
+  {
+    id: `LargeFooterLegal-8`,
+    urlRedirec: '/',
+    description: 'Política de tratamiento de datos pesonales',
+  },
+  {
+    id: `LargeFooterLegal-1`,
+    urlRedirec: '/',
+    description:
+      'Información Supersociedades: reconocimiento de proceso extranjero',
+  },
+];
 
 // export const footerLinksLegalInfo = [
 //   {
