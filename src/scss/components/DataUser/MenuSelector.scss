@@ -1,0 +1,31 @@
+.menuSelector {
+  padding-right: 0;
+
+  &:hover {
+    border-left: 6px solid #e8114b;
+    border-radius: 0.3rem 0 0 0.3rem;
+    background-color: #eee;
+    button {
+      color: #e8114b;
+    }
+  }
+  button {
+    width: 100%;
+    height: 4rem;
+    background: transparent;
+    padding: 0 0 0 1rem;
+    border: none;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.selected {
+  border-left: 6px solid #e8114b;
+  border-radius: 0.3rem 0 0 0.3rem;
+  background-color: #eee;
+  button {
+    font-size: 700;
+    color: #1b0088;
+  }
+}
