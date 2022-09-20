@@ -8,7 +8,6 @@ const MenuSelector = props => {
     const value = e.target.value;
     if (value === '/my-account') {
       setCurrent({
-        ...current,
         '/my-account': !current[value],
         'my-trips': false,
         'pay-methods': false,
@@ -16,16 +15,13 @@ const MenuSelector = props => {
     }
     if (value === 'my-trips') {
       setCurrent({
-        ...current,
         '/my-account': false,
         'my-trips': !current[value],
         'pay-methods': false,
       });
     }
-    console.log(value);
     if (value === 'pay-methods') {
       setCurrent({
-        ...current,
         '/my-account': false,
         'my-trips': false,
         'pay-methods': !current[value],

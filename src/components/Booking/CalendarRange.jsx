@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TextField } from '@mui/material';
 import { AdapterDateFns } from '@mui/x-date-pickers-pro/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
+import { useDispatch, useSelector } from 'react-redux';
+import { BOOKING_DATES_ADD } from 'store/reducers/bookingReducer';
 
 const CalendarRange = () => {
-  const [value, setValue] = useState([null, null]);
+  const dispatch = useDispatch();
+  const dates = useSelector(state => state.bookingReducer.dates);
   function handleChange(e) {
-    setValue(e);
+    dispatch({ type: BOOKING_DATES_ADD, payload: e });
   }
-  console.log(value);
   return (
     <LocalizationProvider
       dateAdapter={AdapterDateFns}
@@ -18,7 +20,7 @@ const CalendarRange = () => {
         end: 'Fecha vuelta',
       }}>
       <DateRangePicker
-        value={value}
+        value={dates}
         onChange={e => handleChange(e)}
         renderInput={(startProps, endProps) => (
           <>

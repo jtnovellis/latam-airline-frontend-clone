@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Anchormenu({ content, className, anchorClass }) {
+function Anchormenu({ content, className, anchorClass, path }) {
   return (
     <div className={className}>
-      <Link to='/centro-de-ayuda' className={anchorClass}>
+      <Link to={path} className={anchorClass}>
         {content}
       </Link>
     </div>
