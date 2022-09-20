@@ -1,373 +1,354 @@
 .section__div {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    .main-container {
-        margin: 0rem 2rem;
-        display: flex;
-        flex-direction: column;
+  .main-container {
+    margin: 0rem 2rem;
+    display: flex;
+    flex-direction: column;
 
-        /* Small devices (portrait tablets and large phones, 600px and up) */
-        @media only screen and (min-width: 600px) {
-            margin: 0rem 3.5rem
-        }
-
-
-        .title {
-            margin-top: 0.3rem;
-        }
-
-        p {
-            font-family: 'LATAM Sans';
-            line-height: 1.5;
-            font-size: 1rem;
-            font-weight: 400;
-            color: #5C5C5C;
-            text-align: 'start';
-            margin-bottom: 0.8rem;
-
-            a {
-                color: #4658DF;
-                font-weight: bold;
-            }
-        }
-
-        .errors {
-            font-family: 'LATAM Sans', 'Sans';
-            font-size: 12px;
-            letter-spacing: 1.5;
-            margin: 0.5rem 0.5rem;
-            color: #B30F3B;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        span {
-            font-family: 'LATAM Sans', 'Sans';
-            font-size: 12px;
-            margin: 0.5rem 0.5rem;
-            color: #5C5C5C;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        .select-field {
-            display: flex;
-            flex-direction: column;
-            margin-top: 1rem;
-
-            label {
-                font-size: 12px;
-                color: #5C5C5C;
-                margin-left: 10px;
-                z-index: 2;
-                background: #fff;
-                width: 2rem;
-                padding-left: 0.4rem;
-                margin-left: 14px;
-            }
-
-            select {
-                font-family: 'LATAM Sans', 'Sans';
-                font-weight: 400;
-                color: #5C5C5C;
-                background-color: #FFF;
-                border: solid 1px grey;
-                font-size: 16px;
-                height: 3.5rem;
-                margin-top: -10px;
-                padding: 10px 20px;
-                border-radius: 10px;
-                /* Added the dropdown svg*/
-                background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Antu-go-down-24.svg');
-                background-repeat: no-repeat, repeat;
-                background-position: right .7em top 50%, 0 0;
-                background-size: 1.3em auto, 100%;
-                -moz-appearance: none;
-                /* Firefox */
-                -webkit-appearance: none;
-                /* Safari and Chrome */
-                appearance: none;
-
-                &:focus {
-                    border-style: inset;
-                    outline-color: rgb(27, 0, 136);
-                }
-            }
-        }
-
-        .pp {
-            label {
-                width: 11rem;
-            }
-        }
-
-        .input-field {
-            display: flex;
-            flex-direction: column;
-            margin: 1.5rem 0rem;
-
-            input {
-                color: #5C5C5C;
-                font-size: 16px;
-                height: 3.5rem;
-                padding: 10px 20px;
-                border: solid 1px rgb(152, 152, 152);
-                border-radius: 10px;
-
-                &::placeholder {
-                    font-family: 'LATAM Sans', 'Sans';
-                    font-size: 1rem;
-                    font-weight: 400;
-                    color: #5C5C5C;
-                    opacity: 1;
-                }
-
-
-            }
-        }
-
-        .gender-radio {
-            display: flex;
-            flex-direction: column;
-
-            input {
-                margin: 1rem 0.5rem;
-            }
-        }
-
-        .number-selection {
-            margin: 2rem 0rem;
-            display: flex;
-            flex-direction: column;
-
-            .select-number-split {
-                display: flex;
-                flex-direction: row;
-
-                .select-number {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-around;
-                    width: 100%;
-
-                    .select-field {
-                        margin: 0px;
-                        width: 50%;
-                        padding: 0px;
-                    }
-
-                    .input-field {
-                        margin: 0px;
-                        width: 100%;
-
-                    }
-
-                    select {
-                        height: 3.4rem;
-                        width: 150px;
-                    }
-
-                    input {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-
-        .id {
-            margin-top: 1.8rem;
-
-            label {
-                width: 7rem;
-            }
-        }
-
-        .requeriments {
-            ul {
-                list-style-type: none;
-            }
-            .requeriment{
-                margin-bottom: 0.3rem;
-                display: flex;  
-                li{
-                    margin-left: 0.5rem;
-                }
-                path{
-                    fill:rgb(143, 143, 143);
-                }
-            }
-           
-            
-        }
-
-        .check-login {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 2rem;
-            label {
-                display: flex;
-                flex-direction: row;
-                align-items:center;
-                width: 100%;
-            
-                p, a{
-                    width: 100%;
-                    
-                }
-                input{
-                    margin-right: 1rem;
-                    height: 1.5rem;
-                    width: 1.5rem;
-                    border: #1B0088 1px solid; 
-                }
-            }
-            
-             
-            
-
-            
-        }
-
-        .dropdown-data-treatment {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            span {
-                font-size: 1rem;
-                font-weight: 700;
-                color: #1B0088;
-                font-family: 'LATAM Sans', 'Sans';
-
-            }
-
-            .dropdown-svg{ 
-                path {
-                    fill: red;
-                }
-                button{
-                    background: none;
-                    border: 0;
-                    color: inherit;
-                    /* cursor: default; */
-                    font: inherit;
-                    line-height: normal;
-                    overflow: visible;
-                    padding: 0;
-                    -webkit-user-select: none; /* for button */
-                    -webkit-appearance: button; /* for input */
-                    -moz-user-select: none;
-                    -ms-user-select: none;
-                }
-            }
-
-        }
-
-        .btn-create {
-            background: none rgb(232, 17, 75);
-            border-radius: 0.5rem;
-            font-family: "LATAM Sans", "Trebuchet MS", sans-serif;
-            font-weight: 600;
-            width: 100%;
-            border: 0.0625rem solid rgb(232, 17, 75);
-            color: rgb(255, 255, 255);
-            font-size: 1.125rem;
-            height: 3.5rem;
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-
-            &:hover {
-                background: rgb(255, 110, 110);
-                border: 0.0625rem solid rgb(255, 110, 110);
-            }
-
-        }
-
-        .captcha {
-            font-size: 0.9rem;
-
-            a {
-                color: #4658DF;
-                font-weight: 600;
-            }
-            
-        }
-        .message{
-            margin-left: 1.5rem;
-            margin-bottom: 3rem;
-            li{
-                margin-bottom: 1rem;
-            }
-        }    
-               
-        hr{
-            height: 0.02px;
-            opacity: 0.3;
-        }
-        /* Medium devices (landscape tablets, 768px and up) */
-        @media only screen and (min-width: 768px) {
-            .main-container {
-                margin: 0rem 3rem
-            }
-
-            .check-login {
-                label {
-                    height: 4rem;
-                }
-            }
-
-            .select-number-split {
-                width: 100%;
-                justify-content: space-between;
-
-                select {
-                    height: 100%;
-
-                }
-
-                input {
-                    width: 50%;
-                }
-            }
-        }
-
-        /* Large devices (laptops/desktops, 992px and up) */
-        @media only screen and (min-width: 992px) {
-            .main-container {
-                margin: 0rem 3rem
-            }
-        }
-
-        /* Extra large devices (large laptops and desktops, 1200px and up) */
-
-        @media(min-width: 1200px) {
-            margin: 0rem 27rem;
-
-        }
-
-        @media(min-width: 1500px) {
-            margin: 0rem 30rem;
-
-        }
-
-        @media(min-width: 1700px) {
-            margin: 0rem 38rem;
-
-        }
-
-        @media(min-width: 1800px) {
-            margin: 0rem 42rem;
-
-        }
-
-        @media(min-width: 2000px) {
-            margin: 0rem 44rem;
-
-        }
-        @media(min-width: 2053px) {
-            margin: 0rem 44rem;
-
-        }
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+      margin: 0rem 3.5rem;
     }
+
+    .title {
+      margin-top: 0.3rem;
+    }
+    .tt {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-family: 'LATAM Sans';
+      line-height: 1.5;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #5c5c5c;
+      text-align: 'start';
+      margin-bottom: 0.8rem;
+
+      a {
+        color: #4658df;
+        font-weight: bold;
+      }
+    }
+
+    .errors {
+      font-family: 'LATAM Sans', 'Sans';
+      font-size: 12px;
+      letter-spacing: 1.5;
+      margin: 0.5rem 0.5rem;
+      color: #b30f3b;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    span {
+      font-family: 'LATAM Sans', 'Sans';
+      font-size: 12px;
+      margin: 0.5rem 0.5rem;
+      color: #5c5c5c;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .select-field {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+
+      label {
+        font-size: 12px;
+        color: #5c5c5c;
+        margin-left: 10px;
+        z-index: 2;
+        background: #fff;
+        width: 2rem;
+        padding-left: 0.4rem;
+        margin-left: 14px;
+      }
+
+      select {
+        font-family: 'LATAM Sans', 'Sans';
+        font-weight: 400;
+        color: #5c5c5c;
+        background-color: #fff;
+        border: solid 1px grey;
+        font-size: 16px;
+        height: 3.5rem;
+        margin-top: -10px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        /* Added the dropdown svg*/
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Antu-go-down-24.svg');
+        background-repeat: no-repeat, repeat;
+        background-position: right 0.7em top 50%, 0 0;
+        background-size: 1.3em auto, 100%;
+        -moz-appearance: none;
+        /* Firefox */
+        -webkit-appearance: none;
+        /* Safari and Chrome */
+        appearance: none;
+
+        &:focus {
+          border-style: inset;
+          outline-color: rgb(27, 0, 136);
+        }
+      }
+    }
+
+    .pp {
+      label {
+        width: 11rem;
+      }
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+      margin: 1.5rem 0rem;
+
+      input {
+        color: #5c5c5c;
+        font-size: 16px;
+        height: 3.5rem;
+        padding: 10px 20px;
+        border: solid 1px rgb(152, 152, 152);
+        border-radius: 10px;
+
+        &::placeholder {
+          font-family: 'LATAM Sans', 'Sans';
+          font-size: 1rem;
+          font-weight: 400;
+          color: #5c5c5c;
+          opacity: 1;
+        }
+      }
+    }
+
+    .gender-radio {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        margin: 1rem 0.5rem;
+      }
+    }
+
+    .number-selection {
+      margin: 2rem 0rem;
+      display: flex;
+      flex-direction: column;
+
+      .select-number-split {
+        display: flex;
+        flex-direction: row;
+
+        .select-number {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          width: 100%;
+
+          .select-field {
+            margin: 0px;
+            width: 50%;
+            padding: 0px;
+          }
+
+          .input-field {
+            margin: 0px;
+            width: 100%;
+          }
+
+          select {
+            height: 3.4rem;
+            width: 150px;
+          }
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .id {
+      margin-top: 1.8rem;
+
+      label {
+        width: 7rem;
+      }
+    }
+
+    .requeriments {
+      ul {
+        list-style-type: none;
+      }
+      .requeriment {
+        margin-bottom: 0.3rem;
+        display: flex;
+        li {
+          margin-left: 0.5rem;
+        }
+        path {
+          fill: rgb(143, 143, 143);
+        }
+      }
+    }
+
+    .check-login {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+      label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+
+        p,
+        a {
+          width: 100%;
+        }
+        input {
+          margin-right: 1rem;
+          height: 1.5rem;
+          width: 1.5rem;
+          border: #1b0088 1px solid;
+        }
+      }
+    }
+
+    .dropdown-data-treatment {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      span {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #1b0088;
+        font-family: 'LATAM Sans', 'Sans';
+      }
+
+      .dropdown-svg {
+        path {
+          fill: red;
+        }
+        button {
+          background: none;
+          border: 0;
+          color: inherit;
+          /* cursor: default; */
+          font: inherit;
+          line-height: normal;
+          overflow: visible;
+          padding: 0;
+          -webkit-user-select: none; /* for button */
+          -webkit-appearance: button; /* for input */
+          -moz-user-select: none;
+          -ms-user-select: none;
+        }
+      }
+    }
+
+    .btn-create {
+      background: none rgb(232, 17, 75);
+      border-radius: 0.5rem;
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+      font-weight: 600;
+      width: 100%;
+      border: 0.0625rem solid rgb(232, 17, 75);
+      color: rgb(255, 255, 255);
+      font-size: 1.125rem;
+      height: 3.5rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+
+      &:hover {
+        background: rgb(255, 110, 110);
+        border: 0.0625rem solid rgb(255, 110, 110);
+      }
+    }
+
+    .captcha {
+      font-size: 0.9rem;
+
+      a {
+        color: #4658df;
+        font-weight: 600;
+      }
+    }
+    .message {
+      margin-left: 1.5rem;
+      margin-bottom: 3rem;
+      li {
+        margin-bottom: 1rem;
+      }
+    }
+
+    hr {
+      height: 0.02px;
+      opacity: 0.3;
+    }
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+      .main-container {
+        margin: 0rem 3rem;
+      }
+
+      .check-login {
+        label {
+          height: 4rem;
+        }
+      }
+
+      .select-number-split {
+        width: 100%;
+        justify-content: space-between;
+
+        select {
+          height: 100%;
+        }
+
+        input {
+          width: 50%;
+        }
+      }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+      .main-container {
+        margin: 0rem 3rem;
+      }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+
+    @media (min-width: 1200px) {
+      margin: 0rem 27rem;
+    }
+
+    @media (min-width: 1500px) {
+      margin: 0rem 30rem;
+    }
+
+    @media (min-width: 1700px) {
+      margin: 0rem 38rem;
+    }
+
+    @media (min-width: 1800px) {
+      margin: 0rem 42rem;
+    }
+
+    @media (min-width: 2000px) {
+      margin: 0rem 44rem;
+    }
+    @media (min-width: 2053px) {
+      margin: 0rem 44rem;
+    }
+  }
 }

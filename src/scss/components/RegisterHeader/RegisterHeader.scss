@@ -1,80 +1,75 @@
 .header {
-    /*Principal div*/
+  /*Principal div*/
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background: rgb(16, 0, 79);
+  width: 100% !important;
+  min-height: 3rem;
+
+  .header-div {
+    /*Div where the items(icon and button) are placed*/
+    width: 100%;
+    height: 4rem;
     display: flex;
+    position: relative;
     align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    background: rgb(16, 0, 79);
-    width: 100% !important;
-    min-height: 3rem;
+    justify-content: space-evenly;
+    color: rgb(255, 255, 255);
 
-    .header-div {
-        /*Div where the items(icon and button) are placed*/
-        width: 100%;
-        height: 4rem;
+    .latam-a {
+      /*Container of the icon*/
+      margin-top: 0.3rem;
+
+      .latam-icon {
+        /*Icon itself*/
+        width: 104px;
+        margin-left: 12rem;
+      }
+    }
+
+    .latam-btn-div {
+      /*Button container*/
+      display: flex;
+      flex-direction: row;
+
+      .latam-login-btn {
+        /*Button itself*/
+        outline: none;
         display: flex;
+        cursor: pointer;
+        text-align: left;
         position: relative;
+        white-space: nowrap;
         align-items: center;
-        justify-content: space-evenly;
         color: rgb(255, 255, 255);
-
-        .latam-a {
-            /*Container of the icon*/
-            margin-top: .3rem;
-
-            .latam-icon {
-                /*Icon itself*/
-                width: 104px;
-                margin-left: -1rem;
-
-            }
-        }
-
-        .latam-btn-div {
-            /*Button container*/
-            display: flex;
-            flex-direction: row;
-
-            .latam-login-btn {
-                /*Button itself*/
-                outline: none;
-                display: flex;
-                cursor: pointer;
-                text-align: left;
-                position: relative;
-                white-space: nowrap;
-                align-items: center;
-                color: rgb(255, 255, 255);
-                border-radius: 3.125rem;
-                font-size: 1rem;
-                font-weight: 700;
-                padding: 0px 0.8rem;
-                min-height: 2rem;
-                margin-left:4rem;
-                border: 0.0625rem solid transparent;
-                background-color: rgba(255, 255, 255, 0.2);
-            }
-        }
-
-
+        border-radius: 3.125rem;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 0px 0.8rem;
+        min-height: 2rem;
+        margin-right: 12rem;
+        border: 0.0625rem solid transparent;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
     }
-    @media (min-width: 980px) { 
-        .header-div{
-            height: 4rem;
-            margin: 0rem 4rem;
-        }
-        
+  }
+  @media (min-width: 980px) {
+    .header-div {
+      height: 4rem;
+      margin: 0rem 4rem;
     }
-    @media (min-width: 820px) { 
-        .header-div{
-            justify-content: space-between;
-            .latam-a{
-                margin-left: 3rem;
-            }
-            .latam-btn-div{
-                margin-right: 2rem
-            }
-        }
-        
+  }
+  @media (min-width: 820px) {
+    .header-div {
+      justify-content: space-between;
+      .latam-a {
+        margin-left: 3rem;
+      }
+      .latam-btn-div {
+        margin-right: 2rem;
+      }
     }
+  }
 }

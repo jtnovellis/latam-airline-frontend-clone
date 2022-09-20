@@ -6,6 +6,10 @@ import MyAccount from './pages/MyAccount';
 import MyTrips from './components/DataUser/MyTrips';
 import PayMethods from './components/DataUser/PayMethods';
 import DataUser from './components/DataUser';
+import AdminFligths from 'pages/AdminFligths';
+import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
+import TravelData from 'components/BodyAdminFligths/TravelData';
+//import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
 
 function App() {
   return (
@@ -18,6 +22,10 @@ function App() {
           <Route index element={<DataUser />} />
           <Route path='my-trips' element={<MyTrips />} />
           <Route path='pay-methods' element={<PayMethods />} />
+        </Route>
+        <Route path='admin-fligths' element={<AdminFligths />}>
+          <Route index element={<SearchFligth />} />
+          <Route path='travel-data' element={<TravelData />} />
         </Route>
       </Routes>
     </div>
