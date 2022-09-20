@@ -8,7 +8,7 @@ const MenuSelector = props => {
     const value = e.target.value;
     if (value === '/my-account') {
       setCurrent({
-        '/my-account': !current[value],
+        '/my-account': true,
         'my-trips': false,
         'pay-methods': false,
       });
@@ -16,7 +16,7 @@ const MenuSelector = props => {
     if (value === 'my-trips') {
       setCurrent({
         '/my-account': false,
-        'my-trips': !current[value],
+        'my-trips': true,
         'pay-methods': false,
       });
     }
@@ -24,7 +24,7 @@ const MenuSelector = props => {
       setCurrent({
         '/my-account': false,
         'my-trips': false,
-        'pay-methods': !current[value],
+        'pay-methods': true,
       });
     }
   }
@@ -36,7 +36,7 @@ const MenuSelector = props => {
           className='menuSelector__links--buttons'
           value={path}
           onClick={e => handleClick(e)}>
-          <span>{children}</span>
+          {children}
         </button>
       </Link>
     </div>
