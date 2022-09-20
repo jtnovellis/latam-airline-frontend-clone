@@ -7,7 +7,9 @@ import IdaVueltaDropdown from './IdaVueltaDropdown';
 import { useSelector } from 'react-redux';
 
 function Boxsearch() {
-  const passengerAmount = useSelector(state => state.passengerAmount);
+  const passengerAmount = useSelector(
+    state => state.bookingReducer.passengerAmount
+  );
   const [drop, setDrop] = useState({
     idavuelta: false,
     economy: false,

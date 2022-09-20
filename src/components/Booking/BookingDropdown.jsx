@@ -11,7 +11,6 @@ import {
 export function BookingDropdown() {
   const dispatch = useDispatch();
   const passengerAmount = useSelector(state => state.passengerAmount);
-  console.log(passengerAmount);
   const [seats, setSeats] = useState({
     adults: 1,
     kids: 0,

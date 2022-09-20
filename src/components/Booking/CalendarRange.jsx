@@ -6,6 +6,9 @@ import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 
 const CalendarRange = () => {
   const [value, setValue] = useState([null, null]);
+  function handleChange(e) {
+    setValue(e);
+  }
   console.log(value);
   return (
     <LocalizationProvider
@@ -16,7 +19,7 @@ const CalendarRange = () => {
       }}>
       <DateRangePicker
         value={value}
-        onChange={newValue => setValue(newValue)}
+        onChange={e => handleChange(e)}
         renderInput={(startProps, endProps) => (
           <>
             <TextField {...startProps} />
