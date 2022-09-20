@@ -21,7 +21,7 @@ const menuOptions = [
 
 const MyAccount = () => {
   const [selected, setSelected] = useState({
-    '/my-account': false,
+    '/my-account': true,
     'my-trips': false,
     'pay-methods': false,
   });
