@@ -27,44 +27,46 @@ const LargeFooter = () => {
   }, []);
 
   return (
-    <div className='big-footer-container'>
-      <div className='bg-ftr-cntnr-margins'>
-        <div className='ftr-inside-cntnr'>
-          <hr />
-          <div className='LATAM-self-information'>
+    <div className='footer__Container'>
+      <div className='big-footer-container'>
+        <div className='bg-ftr-cntnr-margins'>
+          <div className='ftr-inside-cntnr'>
+            <hr />
+            <div className='LATAM-self-information'>
+              <div className='Ftr-info-cntnr'>
+                <h5 className='Footer-titles'>LATAM Airlines</h5>
+                <div className='FooterList__container'>
+                  <ul>
+                    {linkAboutLATAM.map(link => (
+                      <ListItemFooter key={link.id} linkDetails={link} />
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className='Ftr-info-cntnr'>
+                <h5 className='Footer-titles'>Información Leegal</h5>
+                <div className='FooterList__container'>
+                  <ul>
+                    {linkLegal.map(link => (
+                      <ListItemFooter key={link.id} linkDetails={link} />
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
             <div className='Ftr-info-cntnr'>
-              <h5 className='Footer-titles'>LATAM Airlines</h5>
+              <h5 className='Footer-titles'>Portales asociados</h5>
               <div className='FooterList__container'>
                 <ul>
-                  {linkAboutLATAM.map(link => (
+                  {linkAsociated.map(link => (
                     <ListItemFooter key={link.id} linkDetails={link} />
                   ))}
                 </ul>
               </div>
             </div>
-            <div className='Ftr-info-cntnr'>
-              <h5 className='Footer-titles'>Información Leegal</h5>
-              <div className='FooterList__container'>
-                <ul>
-                  {linkLegal.map(link => (
-                    <ListItemFooter key={link.id} linkDetails={link} />
-                  ))}
-                </ul>
-              </div>
+            <div className='Ftr-info-cntnr' width='100%'>
+              <h5 className='Footer-titles'>Contacta con nosotros</h5>
             </div>
-          </div>
-          <div className='Ftr-info-cntnr'>
-            <h5 className='Footer-titles'>Portales asociados</h5>
-            <div className='FooterList__container'>
-              <ul>
-                {linkAsociated.map(link => (
-                  <ListItemFooter key={link.id} linkDetails={link} />
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className='Ftr-info-cntnr' width='100%'>
-            <h5 className='Footer-titles'>Contacta con nosotros</h5>
           </div>
         </div>
       </div>

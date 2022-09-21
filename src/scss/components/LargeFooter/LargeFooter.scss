@@ -1,7 +1,14 @@
+.footer__Container {
+  display: flex;
+  width: 100%;
+}
+
 .big-footer-container {
   height: auto;
-  width: 0 auto;
+
+  display: flex;
   max-width: 89.75rem;
+  margin: 0 auto;
 }
 
 .bg-ftr-cntnr-margins {
