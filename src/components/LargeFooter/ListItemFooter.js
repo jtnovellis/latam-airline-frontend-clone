@@ -6,7 +6,9 @@ const ListItemFooter = props => {
   const { id, url, description } = linkDetails;
   return (
     <li className='ListItem__Footer' id={id}>
-      <Link to={url}>{description}</Link>
+      <Link className='redirectTo' to={url}>
+        {description}
+      </Link>
     </li>
   );
 };
