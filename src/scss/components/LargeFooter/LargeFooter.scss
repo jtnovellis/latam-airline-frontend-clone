@@ -2,16 +2,6 @@
   height: auto;
   width: 0 auto;
   max-width: 89.75rem;
-
-  hr {
-    background-color: rgb(243, 242, 246);
-    border: 0px;
-    height: 0.0625rem;
-    margin: 2rem auto;
-    width: 100%;
-    box-sizing: content-box;
-    overflow: visible;
-  }
 }
 
 .bg-ftr-cntnr-margins {
@@ -35,4 +25,45 @@
   @media (min-width: 992px) {
     flex-direction: row;
   }
+  hr {
+    background-color: rgb(243, 242, 246);
+    border: 0px;
+    height: 0.0625rem;
+    margin: 2rem auto;
+    width: 100%;
+    box-sizing: content-box;
+    overflow: visible;
+  }
+}
+
+.LATAM-self-information {
+  display: flex;
+  flex-direction: row;
+  @media (min-width: 992px) {
+    flex: 2 1 0%;
+  }
+}
+
+.Ftr-info-cntnr {
+  flex: 1 1 0%;
+  padding-bottom: 1.5rem;
+  padding-right: 0.5rem;
+  width: 50%;
+
+  @media (min-width: 992px) {
+    .FooterList__container {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.Footer-titles {
+  font-size: 1rem;
+  min-height: 2rem;
+  font-weight: 600;
+  color: rgb(27, 0, 136);
+}
+
+.FooterList__container {
+  list-style: none;
 }
