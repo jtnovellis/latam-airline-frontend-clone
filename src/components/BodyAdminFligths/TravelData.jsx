@@ -15,15 +15,13 @@ const DataTravel = () => {
         <span>Ingresa los datos del viaje.</span>
       </div>
       <Formik
-        initialValues={{ order: '', lname: '' }}
+        initialValues={{ order: '', lastName: '' }}
         validate={values => {
           const errors = {};
           if (!values.order) {
             errors.order = 'Ingresa un formato válido';
           }
-          if (!values.lname) {
-            errors.lname = 'Ingresa un formato válido';
-          }
+
           return errors;
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -37,7 +35,7 @@ const DataTravel = () => {
           <Form>
             <div className='item input-div'>
               <Field
-                type='text'
+                type='input'
                 id='order'
                 name='order'
                 placeholder='N° orden o Código de reserva'
@@ -52,15 +50,18 @@ const DataTravel = () => {
               }}>
               <Link to='/admin-fligths/travel-data'>Dónde encontrarlos?</Link>
             </span>
-            <div className='item input-div'>
+            <div className='item input-div' onClick={() => setShow(true)}>
               <Field
-                onClick={() => setShow(true)}
-                type='text'
-                id='lname'
-                name='lname '
+                type='input'
+                id='lastName'
+                name='lastName'
                 placeholder='Apellido del pasajero'
               />
-              <ErrorMessage className='errors' name='lname' component='div' />
+              <ErrorMessage
+                className='errors'
+                name='lastName'
+                component='div'
+              />
               {show ? (
                 <div className='admincard'>
                   <svg
