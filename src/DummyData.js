@@ -4,7 +4,6 @@ export const flightsArr = [
     cityImg:
       'https://www.latamairlines.com/content/dam/latamxp/sites/destinos/colombia/deals/CLO-deals.jpg.transform/md/image.jpg',
     city: 'Cali',
-    // departDate: { day: 18, month: 09, year: 2022 },
     departDate: '18/11/22',
     returnDate: '',
     tripClass: 'Economy',
@@ -17,7 +16,6 @@ export const flightsArr = [
     cityImg:
       'https://www.latamairlines.com/content/dam/latamxp/sites/destinos/colombia/deals/ADZ-deals.jpg.transform/md/image.jpg',
     city: 'Isla San Andrés',
-    // departDate: { day: 18, month: 09, year: 2022 },
     departDate: '18/11/22',
     returnDate: '',
     tripClass: 'Economy',
@@ -30,7 +28,6 @@ export const flightsArr = [
     cityImg:
       'https://www.latamairlines.com/content/dam/latamxp/sites/destinos/estados-unidos/deals/MIA-deals.jpg.transform/md/image.jpg',
     city: 'Miami',
-    // departDate: { day: 18, month: 09, year: 2022 },
     departDate: '26/11/22',
     returnDate: '06/12/22',
     tripClass: 'Economy',
@@ -43,7 +40,6 @@ export const flightsArr = [
     cityImg:
       'https://www.latamairlines.com/content/dam/latamxp/sites/destinos/colombia/deals/MDE2-deals.jpg.transform/md/image.jpg',
     city: 'Medellín',
-    // departDate: { day: 18, month: 09, year: 2022 },
     departDate: '20/11/22',
     returnDate: '',
     tripClass: 'Economy',
@@ -56,7 +52,6 @@ export const flightsArr = [
     cityImg:
       'https://www.latamairlines.com/content/dam/latamxp/sites/destinos/colombia/deals/CTG2-deals.jpg.transform/md/image.jpg',
     city: 'Cartagena de indias',
-    // departDate: { day: 18, month: 09, year: 2022 },
     departDate: '18/11/22',
     returnDate: '',
     tripClass: 'Economy',
@@ -69,7 +64,6 @@ export const flightsArr = [
     cityImg:
       'https://www.latamairlines.com/content/dam/latamxp/sites/destinos/colombia/deals/smr-deals.jpg.transform/md/image.jpg',
     city: 'Santa Marta',
-    // departDate: { day: 18, month: 09, year: 2022 },
     departDate: '18/11/22',
     returnDate: '',
     tripClass: 'Economy',
@@ -130,63 +124,63 @@ export const adviceArr = [
 
 export const footerLinksAboutLATAM = [
   {
-    id: `LargeFooterLatam-${this.description}`,
-    urlRedirec: '/',
+    id: `1`,
+    url: '/',
     description: 'Inicio',
   },
   {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
+    id: `2`,
+    url: '/',
     description: 'Acerca de LATAM',
   },
   {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
+    id: `3`,
+    url: '/',
     description: 'Experiencia LATAM',
   },
   {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
+    id: `4`,
+    url: '/',
     description: 'Prepara tu viaje',
   },
   {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
+    id: `5`,
+    url: '/',
     description: 'Mis viajes',
   },
   {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
+    id: `6`,
+    url: '/',
     description: 'Estado de vuelo',
   },
   {
-    id: `LargeFooterLatam-${this.description}`,
-    urlRedirec: '/',
+    id: `7`,
+    url: '/',
     description: 'Check-in',
   },
   {
-    id: `LargeFooterLatam-${this.description.split}`,
-    urlRedirec: '/',
+    id: `8`,
+    url: '/',
     description: 'Destinos',
   },
   {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/register',
+    id: `9`,
+    url: '/register',
     description: 'Crea tu cuenta',
   },
   {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
+    id: `10`,
+    url: '/',
     description: 'Centro de ayuda',
   },
   {
-    id: `LargeFooterLatam-${this.description.split(' ').join('')}`,
-    urlRedirec: '/',
+    id: `11`,
+    url: '/',
     description: 'Sala de prensa',
   },
   {
-    id: `LargeFooterLatam-${this.description}`,
-    urlRedirec: '/',
+    id: `12`,
+    url: '/',
     description: 'Sostenibilidad',
   },
 ];
@@ -194,153 +188,52 @@ export const footerLinksAboutLATAM = [
 export const footerLinksLegalInfo = [
   {
     id: `LargeFooterLegal-1`,
-    urlRedirec: '/',
+    url: '/',
     description: 'Condiciones de contrato de transporte',
   },
   {
     id: `LargeFooterLegal-2`,
-    urlRedirec: '/',
+    url: '/',
     description: 'Políticas de privacidad y seguridad',
   },
   {
     id: `LargeFooterLegal-3`,
-    urlRedirec: '/',
+    url: '/',
     description: 'Términos de uso',
   },
   {
     id: `LargeFooterLegal-4`,
-    urlRedirec: '/',
+    url: '/',
     description: 'Conoce tus derechos y deberes',
   },
   {
     id: `LargeFooterLegal-5`,
-    urlRedirec: '/',
+    url: '/',
     description: 'Reorganización financiera / Capítulo 11',
   },
   {
     id: `LargeFooterLegal-6`,
-    urlRedirec: '/',
+    url: '/',
     description: 'Tasas, cargos e impuestos',
   },
   {
     id: `LargeFooterLegal-7`,
-    urlRedirec: '/',
+    url: '/',
     description: 'Tasas, cargos e impuestos',
   },
   {
     id: `LargeFooterLegal-8`,
-    urlRedirec: '/',
+    url: '/',
     description: 'Política de tratamiento de datos pesonales',
   },
   {
-    id: `LargeFooterLegal-1`,
-    urlRedirec: '/',
+    id: `LargeFooterLegal-9`,
+    url: '/',
     description:
       'Información Supersociedades: reconocimiento de proceso extranjero',
   },
 ];
 
-<<<<<<< HEAD
-export const footerLinksLegalInfo = [
-  {
-    id: `LargeFooterLegal-1`,
-    urlRedirec: '/',
-    description: 'Condiciones de contrato de transporte',
-  },
-  {
-    id: `LargeFooterLegal-2`,
-    urlRedirec: '/',
-    description: 'Políticas de privacidad y seguridad',
-  },
-  {
-    id: `LargeFooterLegal-3`,
-    urlRedirec: '/',
-    description: 'Términos de uso',
-  },
-  {
-    id: `LargeFooterLegal-4`,
-    urlRedirec: '/',
-    description: 'Conoce tus derechos y deberes',
-  },
-  {
-    id: `LargeFooterLegal-5`,
-    urlRedirec: '/',
-    description: 'Reorganización financiera / Capítulo 11',
-  },
-  {
-    id: `LargeFooterLegal-6`,
-    urlRedirec: '/',
-    description: 'Tasas, cargos e impuestos',
-  },
-  {
-    id: `LargeFooterLegal-7`,
-    urlRedirec: '/',
-    description: 'Tasas, cargos e impuestos',
-  },
-  {
-    id: `LargeFooterLegal-8`,
-    urlRedirec: '/',
-    description: 'Política de tratamiento de datos pesonales',
-  },
-  {
-    id: `LargeFooterLegal-1`,
-    urlRedirec: '/',
-    description:
-      'Información Supersociedades: reconocimiento de proceso extranjero',
-  },
-];
-
-// export const footerLinksLegalInfo = [
-//   {
-//     id: `LargeFooterLegal-1`,
-//     urlRedirec: '/',
-//     description: 'Condiciones de contrato de transporte',
-  },
-  {
-    id: `LargeFooterLegal-2`,
-    urlRedirec: '/',
-    description: 'Políticas de privacidad y seguridad',
-  },
-  {
-    id: `LargeFooterLegal-3`,
-    urlRedirec: '/',
-    description: 'Términos de uso',
-  },
-  {
-    id: `LargeFooterLegal-4`,
-    urlRedirec: '/',
-    description: 'Conoce tus derechos y deberes',
-  },
-  {
-    id: `LargeFooterLegal-5`,
-    urlRedirec: '/',
-    description: 'Reorganización financiera / Capítulo 11',
-  },
-  {
-    id: `LargeFooterLegal-6`,
-    urlRedirec: '/',
-    description: 'Tasas, cargos e impuestos',
-  },
-  {
-    id: `LargeFooterLegal-7`,
-    urlRedirec: '/',
-    description: 'Tasas, cargos e impuestos',
-  },
-  {
-    id: `LargeFooterLegal-8`,
-    urlRedirec: '/',
-    description: 'Política de tratamiento de datos pesonales',
-  },
-  {
-    id: `LargeFooterLegal-1`,
-    urlRedirec: '/',
-    description:
-      'Información Supersociedades: reconocimiento de proceso extranjero',
-  },
-];
-
-=======
->>>>>>> 48f608e (add part of footer)
 export const associatedLinks = [
   {
     id: 1,
@@ -381,10 +274,5 @@ export const associatedLinks = [
     id: 8,
     url: 'https://www.supertransporte.gov.co/',
     description: 'Superintendencia de Transporte',
-<<<<<<< HEAD
-//   },
-// ];
-=======
   },
 ];
->>>>>>> 48f608e (add part of footer)
