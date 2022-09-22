@@ -1,0 +1,112 @@
+.Flight__selector-body {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  height: 8rem;
+  background-color: rgb(233, 233, 233);
+  transition: background-color 0.4s ease 0s, box-shadow 0.4s ease 0s;
+  border-radius: 8px;
+  hr {
+    margin: 0rem 0.5rem;
+  }
+
+  .Flight__selector-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 1rem;
+
+    .Flight__selector-departure {
+      display: flex;
+      margin: auto 0rem 1rem 0rem;
+      .Flight__selector-departure-time {
+        font-size: 26px;
+        color: rgb(27, 0, 136);
+      }
+      .Flight__selector-departure-location {
+        margin-left: 0.5rem;
+        font-size: 26px;
+        font-weight: 100;
+      }
+    }
+    .Flight__selector-duration {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1rem;
+      .Flight__selector-duration-title {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+    .Flight__selector-arrival {
+      display: flex;
+      margin: auto 0rem 1rem 0rem;
+      .Flight__selector-arrival-time {
+        font-size: 26px;
+        color: rgb(27, 0, 136);
+      }
+      .Flight__selector-arrival-location {
+        margin-left: 0.5rem;
+        font-size: 26px;
+        font-weight: 100;
+      }
+    }
+    .Flight__selector-price {
+      display: flex;
+      flex-direction: column;
+      margin-right: 1rem;
+      .Flight__selector-price-title {
+        font-size: 14px;
+        text-align: end;
+      }
+      .Flight__selector-price-amount {
+        color: rgb(27, 0, 136);
+      }
+    }
+    .hidden {
+      display: none;
+    }
+  }
+  .Flight__selector-type {
+    display: flex;
+    margin: 1rem 1rem;
+    justify-content: space-between;
+    .toShow {
+      display: none;
+    }
+    .Flight__selector-price {
+      display: flex;
+      flex-direction: column;
+      margin-right: 1rem;
+      .Flight__selector-price-title {
+        font-size: 14px;
+        text-align: end;
+      }
+      .Flight__selector-price-amount {
+        color: rgb(27, 0, 136);
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin: 1rem auto;
+    height: 10rem;
+    width: 23rem;
+  }
+  @media (min-width: 1025px) {
+    .Flight__selector-info {
+      .hidden {
+        display: block;
+      }
+      .Flight__selector-price {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+      }
+    }
+    .Flight__selector-type {
+      .toShow {
+        display: none;
+      }
+    }
+  }
+}
