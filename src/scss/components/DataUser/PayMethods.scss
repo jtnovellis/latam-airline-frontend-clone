@@ -1,0 +1,47 @@
+.myAccount__bodyContainer-section {
+  background: rgb(255, 255, 255);
+  min-height: 100%;
+  height: 100%;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 992px) {
+    padding: 3.35rem 1.5rem 3rem;
+    min-height: 35rem;
+    overflow: hidden;
+    width: 80%;
+    margin: 0px auto;
+  }
+}
+
+.myAccount__bodyContainer-title {
+  display: none;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  margin-bottom: 1.25rem;
+
+  @media (min-width: 992px) {
+    display: flex;
+    color: rgb(27, 0, 136);
+  }
+}
+
+.PayMethod__bodyContainer {
+  @media (min-width: 992px) {
+    max-width: 29rem;
+  }
+}
+
+.PayMethod__bodyContainer-section {
+  display: flex;
+  flex-direction: column-reverse;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  position: relative;
+}

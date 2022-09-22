@@ -1,9 +1,19 @@
 import React from 'react';
+import cards from '../../svg/MyAccount/PayMethods/cards.svg';
 
 const PayMethods = () => {
   return (
-    <div>
-      <h1>Estos son los metodos de pago</h1>
+    <div className='myAccount__bodyContainer-section'>
+      <h1 className='myAccount__bodyContainer-title'>
+        Tarjetas de crédito guardadas
+      </h1>
+      <div className='PayMethod__bodyContainer'>
+        <section className='PayMethod__bodyContainer-section'>
+          <div className=''>
+            <img src={cards} alt='credit cards' />
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
