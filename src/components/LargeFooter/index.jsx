@@ -65,7 +65,7 @@ const LargeFooter = () => {
                 </ul>
               </div>
             </div>
-            <div className='Ftr-info-cntnr' width='100%'>
+            <div className='Ftr-info-cntnr' style={{ width: '100%' }}>
               <h5 className='Footer-titles'>Contacta con nosotros</h5>
               <ul className='FooterIconLink__UL'>
                 <li className='FooterIconLink__LI'>
