@@ -1,7 +1,7 @@
 export const DROP_MENU_VALIDATOR = '@user/dropdownLogin';
 
 const initialState = {
-  dropdown: false,
+  dropdown: true,
   country: '',
   documentType: '',
   documentNumber: 0,

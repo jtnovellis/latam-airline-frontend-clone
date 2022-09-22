@@ -6,10 +6,12 @@ import {
   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import profileIMG from '../../images/login/profileIMG.jpg';
+import { useSelector } from 'react-redux';
 
 const LoginDropDown = () => {
+  const drop = useSelector(state => state.loginReducer.dropdown);
   return (
-    <div className='loginDropDown'>
+    <div className={drop ? 'drop-enable' : 'loginDropDown'}>
       <div className='loginDropDown__content'>
         <div className='loginDropDown__content--header'>
           <div className='header--profile'>

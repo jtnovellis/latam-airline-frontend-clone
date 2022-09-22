@@ -1,3 +1,14 @@
+.drop-enable {
+  display: block;
+  z-index: 40;
+  background-color: #fff;
+  position: absolute;
+  top: 40px;
+  right: -9rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
+}
+
 .loginDropDown {
   z-index: 40;
   background-color: #fff;
@@ -6,6 +17,7 @@
   right: -9rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
+  display: none;
 }
 .loginDropDown__content--header {
   color: #1b0088;
