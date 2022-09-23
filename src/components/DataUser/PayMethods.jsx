@@ -1,5 +1,5 @@
 import React from 'react';
-import cards from '../../svg/MyAccount/PayMethods/cards.svg';
+import { ReactComponent as CardLogo } from '../../svg/MyAccount/PayMethods/cards.svg';
 
 const PayMethods = () => {
   return (
@@ -10,7 +10,7 @@ const PayMethods = () => {
       <div className='PayMethod__bodyContainer'>
         <section className='PayMethod__bodyContainer-section'>
           <div className=''>
-            <img src={cards} alt='credit cards' />
+            <CardLogo />
           </div>
         </section>
       </div>
