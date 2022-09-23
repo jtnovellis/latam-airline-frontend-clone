@@ -45,7 +45,7 @@ function login() {
                         >{({
                             isSubmitting
                         }) => (
-                            <Form >
+                            <Form className='input-login' >
                                 <p>Si ya eres parte de LATAM, ingresa tus datos.</p>
                                 <div className='input-login' >
                                     <label htmlFor="name"></label>
@@ -75,13 +75,13 @@ function login() {
                                 </div>
                             </Form>
                         )}
-                        </Formik>                        
-                    </div>                    
+                        </Formik>
+                    </div>
+                </div>
+                <div className='resgister'>
+                    <p className="register-p">¿No estás registrado? <a href="./register.jsx">Crea una cuenta </a></p>
                 </div>
             </div>
-            <div className='resgister'>
-            <p className="register-p">¿No estás registrado? <a href="./register.jsx">Crea una cuenta </a></p>
-            </div>            
         </div>
     );
 
