@@ -1,0 +1,99 @@
+.BnnrLTMPSS {
+  margin: 5rem 2rem;
+  @media (min-width: 992px) {
+    margin: 5rem 10rem;
+  }
+}
+
+.BnnrLP-container {
+  margin: 1rem 0px;
+}
+
+.RdrctBnnrLP {
+  display: block;
+  text-decoration: none;
+}
+
+a:visited .RdrctBnnrLP {
+  color: rgb(102, 23, 163);
+}
+
+.SzRdrctBnnrLP {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0px, 0px, 0px, 0px);
+  border: 0px;
+}
+
+.bnnrLPintern {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(16 0 79 / 12%) 0px 2px;
+  border-radius: 8px;
+  font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+  font-size: 0.875rem;
+}
+
+.BLPUp {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.blueinfo {
+  border-radius: 8px 0px 0px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 1rem;
+  vertical-align: middle;
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODYiIGhlaWdodD0iNjkiIHZpZXdCb3g9IjAgMCA4NiA2OSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPG1hc2sgaWQ9Im1hc2swIiBtYXNrLXR5cGU9ImFscGhhIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODYiIGhlaWdodD0iNjkiPgo8cGF0aCBkPSJNMCA4QzAgMy41ODE3MiAzLjU4MTcyIDAgOCAwSDc4QzgyLjQxODMgMCA4NiAzLjU4MTcyIDg2IDhWNjlIMFY4WiIgZmlsbD0iIzExODM3QyIvPgo8L21hc2s+CjxnIG1hc2s9InVybCgjbWFzazApIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0tMjUuMjMxOSAzMy40NzQxTDQuODA1MTMgMjIuNTY4M0w0LjgwNjg5IDIyLjU2NzdDNy4wNDU3NiAyMS43NjM1IDEyLjE0NTYgMTkuOTMxNyAxMi4zNzUgMTIuNTY0NEwxMi41NjUyIDYuNDU1NjFDMTIuNjYxNSAzLjM2NTkxIDEyLjA4NDQgMy41NzU0MiA4LjE5MDE2IDQuOTg5NEw4LjE0MDIyIDUuMDA3NTNMLTQ1LjcxMDkgMjQuNTM4TC0yNS4yMzE5IDMzLjQ3NDFaTTI2LjcwMTYgNDEuNzI1OEwtMy4zMzU0NSA1Mi42MzE3TC0yMy44MTQ1IDQzLjY5NTVMMzAuMDM2NyAyNC4xNjUxTDMwLjA4NjYgMjQuMTQ2OUMzMy45ODA5IDIyLjczMjkgMzQuNTU3OSAyMi41MjM0IDM0LjQ2MTcgMjUuNjEzMUwzNC4yNzE1IDMxLjcyMTlDMzQuMDQyMSAzOS4wODkyIDI4Ljk0MjIgNDAuOTIxIDI2LjcwMzQgNDEuNzI1MkwyNi43MDE2IDQxLjcyNThaTTI2LjY4NTMgNjkuMDk0NEwtMy4zNTE4MSA4MC4wMDAzTC0yMy44MzA4IDcxLjA2NDFMMzAuMDIwNCA1MS41MzM3TDMwLjA3MDMgNTEuNTE1NUMzMy45NjQ2IDUwLjEwMTUgMzQuNTQxNiA0OS44OTIgMzQuNDQ1NCA1Mi45ODE3TDM0LjI1NTIgNTkuMDkwNUMzNC4wMjU4IDY2LjQ1NzggMjguOTI1OSA2OC4yODk2IDI2LjY4NyA2OS4wOTM4TDI2LjY4NTMgNjkuMDk0NFoiIGZpbGw9IiMyNjJDNkEiLz4KPC9nPgo8L3N2Zz4K)
+    left bottom / auto 95% no-repeat rgb(16, 0, 79);
+  height: 90px;
+  width: calc(100% - 134px);
+
+  @media (min-width: 992px) {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODYiIGhlaWdodD0iNjkiIHZpZXdCb3g9IjAgMCA4NiA2OSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPG1hc2sgaWQ9Im1hc2swIiBtYXNrLXR5cGU9ImFscGhhIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iODYiIGhlaWdodD0iNjkiPgo8cGF0aCBkPSJNMCA4QzAgMy41ODE3MiAzLjU4MTcyIDAgOCAwSDc4QzgyLjQxODMgMCA4NiAzLjU4MTcyIDg2IDhWNjlIMFY4WiIgZmlsbD0iIzExODM3QyIvPgo8L21hc2s+CjxnIG1hc2s9InVybCgjbWFzazApIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0tMjUuMjMxOSAzMy40NzQxTDQuODA1MTMgMjIuNTY4M0w0LjgwNjg5IDIyLjU2NzdDNy4wNDU3NiAyMS43NjM1IDEyLjE0NTYgMTkuOTMxNyAxMi4zNzUgMTIuNTY0NEwxMi41NjUyIDYuNDU1NjFDMTIuNjYxNSAzLjM2NTkxIDEyLjA4NDQgMy41NzU0MiA4LjE5MDE2IDQuOTg5NEw4LjE0MDIyIDUuMDA3NTNMLTQ1LjcxMDkgMjQuNTM4TC0yNS4yMzE5IDMzLjQ3NDFaTTI2LjcwMTYgNDEuNzI1OEwtMy4zMzU0NSA1Mi42MzE3TC0yMy44MTQ1IDQzLjY5NTVMMzAuMDM2NyAyNC4xNjUxTDMwLjA4NjYgMjQuMTQ2OUMzMy45ODA5IDIyLjczMjkgMzQuNTU3OSAyMi41MjM0IDM0LjQ2MTcgMjUuNjEzMUwzNC4yNzE1IDMxLjcyMTlDMzQuMDQyMSAzOS4wODkyIDI4Ljk0MjIgNDAuOTIxIDI2LjcwMzQgNDEuNzI1MkwyNi43MDE2IDQxLjcyNThaTTI2LjY4NTMgNjkuMDk0NEwtMy4zNTE4MSA4MC4wMDAzTC0yMy44MzA4IDcxLjA2NDFMMzAuMDIwNCA1MS41MzM3TDMwLjA3MDMgNTEuNTE1NUMzMy45NjQ2IDUwLjEwMTUgMzQuNTQxNiA0OS44OTIgMzQuNDQ1NCA1Mi45ODE3TDM0LjI1NTIgNTkuMDkwNUMzNC4wMjU4IDY2LjQ1NzggMjguOTI1OSA2OC4yODk2IDI2LjY4NyA2OS4wOTM4TDI2LjY4NTMgNjkuMDk0NFoiIGZpbGw9IiMyNjJDNkEiLz4KPC9nPgo8L3N2Zz4K)
+      left 0px / auto no-repeat rgb(16, 0, 79);
+    height: 69px;
+    width: calc(100% - 168px);
+  }
+}
+
+.BlPUpImg {
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  align-items: center;
+  vertical-align: middle;
+  height: 90px;
+  width: 8.375rem;
+  border-radius: 0px 8px 0px 0px;
+  overflow: hidden;
+  background: url(https://s.latamairlines.com/images/web-ancillaries/bogota-latampass-mobile.jpg)
+    0% 0% / contain no-repeat;
+
+  @media (min-width: 992px) {
+    height: 69px;
+    width: 10.5rem;
+    background: url(https://s.latamairlines.com/images/web-ancillaries/bogota-latampass.jpg)
+      0% 0% / contain no-repeat;
+  }
+}
+
+.BLPDown {
+  color: rgb(70, 88, 223);
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: flex;
+  padding: 0.75rem 1rem;
+}
