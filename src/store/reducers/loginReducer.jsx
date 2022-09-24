@@ -1,7 +1,7 @@
 export const DROP_MENU_VALIDATOR = '@user/dropdownLogin';
 
 const initialState = {
-  dropdown: true,
+  dropdown: false,
   country: '',
   documentType: '',
   documentNumber: 0,
@@ -11,9 +11,9 @@ const initialState = {
   genre: '',
   phoneNumber: 0,
   email: '',
-  password: '',
   terms: false,
   privacity: false,
+  isLogin: false,
 };
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
