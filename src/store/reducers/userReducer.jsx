@@ -15,7 +15,7 @@ const initialState = {
   privacity: false,
   isLogin: false,
 };
-const loginReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case DROP_MENU_VALIDATOR:
       return {
@@ -26,4 +26,4 @@ const loginReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default loginReducer;
+export default userReducer;

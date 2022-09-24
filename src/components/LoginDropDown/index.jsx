@@ -9,7 +9,7 @@ import profileIMG from '../../images/login/profileIMG.jpg';
 import { useSelector } from 'react-redux';
 
 const LoginDropDown = () => {
-  const drop = useSelector(state => state.loginReducer.dropdown);
+  const drop = useSelector(state => state.userReducer.dropdown);
   return (
     <div className={drop ? 'drop-enable' : 'loginDropDown'}>
       <div className='loginDropDown__content'>
