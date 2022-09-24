@@ -70,6 +70,74 @@ const DataUser = () => {
           </div>
           <h4>Datos de acceso</h4>
         </div>
+        <Box
+          component='form'
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '400px' },
+          }}
+          noValidate
+          autoComplete='off'>
+          <div className='dataUser__personalData--name'>
+            <TextField
+              id='user-name'
+              label='Nombre(s)'
+              type='text'
+              defaultValue='Jairo'
+              InputProps={{
+                readOnly: true,
+              }}
+              variant='standard'
+            />
+          </div>
+          <div className='dataUser__personalData--lastname'>
+            <TextField
+              id='user-lastname'
+              label='Apellidos'
+              type='text'
+              defaultValue='Toro'
+              InputProps={{
+                readOnly: true,
+              }}
+              variant='standard'
+            />
+          </div>
+          <div className='dataUser__personalData--birthDate'>
+            <TextField
+              id='user-bithDate'
+              label='Fecha de nacimiento'
+              type='text'
+              defaultValue='28/07/1994'
+              InputProps={{
+                readOnly: true,
+              }}
+              variant='standard'
+            />
+          </div>
+          <div className='dataUser__personalData--genre'>
+            <TextField
+              id='user-genre'
+              label='Género'
+              type='text'
+              defaultValue='Masculino'
+              InputProps={{
+                readOnly: true,
+              }}
+              variant='standard'
+            />
+          </div>
+          <div className='dataUser__personalData--numberPhone'>
+            <TextField
+              id='user-numberPhone'
+              label='Número de telédono'
+              type='number'
+              defaultValue={3005090433}
+              InputProps={{
+                readOnly: true,
+              }}
+              variant='standard'
+            />
+          </div>
+        </Box>
       </div>
     </div>
   );
