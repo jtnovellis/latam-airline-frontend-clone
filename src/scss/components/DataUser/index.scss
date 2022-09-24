@@ -1,5 +1,5 @@
 .dataUser {
-  max-width: 430px;
+  max-width: 28rem;
   margin-left: 5rem;
   padding: 1rem;
 }
@@ -23,6 +23,9 @@
   h4 {
     margin-left: 1rem;
   }
+}
+.dataUser__personalData {
+  margin-top: 2.4rem;
 }
 .dataUser__personalData--header {
   display: flex;
