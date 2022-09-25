@@ -64,7 +64,7 @@ export function BookingDropdown() {
           ...prev,
           [key]: '',
         }));
-        setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
+        // setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
         dispatch({ type: PASSENGER_AMOUNT_UP });
         break;
       case 'kids':
@@ -72,7 +72,7 @@ export function BookingDropdown() {
           ...prev,
           [key]: '',
         }));
-        setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
+        // setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
         dispatch({ type: PASSENGER_AMOUNT_UP });
         break;
       case 'babies':
@@ -80,7 +80,7 @@ export function BookingDropdown() {
           ...prev,
           [key]: '',
         }));
-        setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
+        // setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
         dispatch({ type: PASSENGER_AMOUNT_UP });
         break;
     }
