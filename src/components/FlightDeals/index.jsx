@@ -48,20 +48,7 @@ function FlightDeals() {
           </div>
         </div>
       </div>
-      {/* <div className="terms-container">
-            <a href="#" className="termsAndConditions">
-              <span id="terms-and-conditions-sr-label" className="t-and-c-label">
-                <span>Conocer los términos y condiciones de vuelos recomendados.</span>
-              </span>
-              Términos y condiciones generales
-              <i className="icon-redirect" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 20 20" fill="none" focusable="false">
-                  <path fill="currentColor" d="M7 2v2H4v12h12v-3h2v5H2V2h5zm11 0v8h-2V5.379L8.38 13 7 11.62 14.62 4H10V2h8z">                    
-                  </path>
-                </svg>
-              </i>
-            </a>
-          </div> */}
+
       <div className='terms-container'>
         <Link to='/terminos-y-condiciones' className='terms-container'>
           <span>Términos y condiciones generales</span>
