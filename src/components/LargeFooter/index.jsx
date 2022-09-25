@@ -81,7 +81,6 @@ const LargeFooter = () => {
                         focusable='false'>
                         <path
                           fill='currentColor'
-                          // fillRule='evenodd'
                           d='M20 0v20H0V0h20zm-7.636 4.8h-1.652C8.61 4.8 8.513 6.368 8.51 6.78V8.3H7.458v1.8H8.51V15h2.202v-4.95h1.451s.1-.75.2-1.6v-.2h-1.651v-1.2c0-.15.25-.4.45-.4h1.202V4.8z'></path>
                       </svg>
                     </i>
