@@ -1,0 +1,55 @@
+.ArrowButtonRight__container {
+  position: relative;
+  display: inline-block;
+  height: fit-content;
+  width: auto;
+
+  .ArrowButtonRight__roundButton {
+    border-radius: 100%;
+    min-width: 0rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0px;
+    box-shadow: rgb(16 0 79 / 12%) 0px 0.125rem 0.5rem;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-color: rgb(232, 17, 75);
+    border: 0.0625rem solid rgb(232, 17, 75);
+    color: rgb(255, 255, 255);
+    text-transform: none;
+    font-size: 1rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    outline: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    vertical-align: middle;
+    justify-content: center;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    &:hover {
+      background-color: rgb(233, 88, 120);
+      border: 0.0625rem solid rgb(233, 88, 120);
+    }
+
+    .button__spanlabel {
+      display: inherit;
+      align-items: inherit;
+      justify-content: inherit;
+      width: auto;
+
+      .ArrowButtonRight__arrowIconContainer {
+        display: flex;
+        width: fit-content;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+      }
+    }
+  }
+}
