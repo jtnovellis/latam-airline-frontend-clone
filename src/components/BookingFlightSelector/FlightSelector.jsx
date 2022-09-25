@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import FlightCard from './FlightCard';
+import useMediaQuery from '@mui/material/useMediaQuery';
 const FlightSelector = () => {
+  const [show, setShow] = useState(false);
   const user = {
     departureAirport: 'El Dorado Intl.',
     departureTime: '6:13',
@@ -11,10 +15,20 @@ const FlightSelector = () => {
     duration: '0 h 59 min',
     price: '212.080',
   };
-
+  const ourMediaQuery = useMediaQuery('(max-width:588px)');
   return (
-    <div className='Flight__selector-body'>
-      <div className='Flight__selector-info'>
+    <div
+      style={
+        show
+          ? ourMediaQuery
+            ? { height: '100rem' }
+            : { height: '46rem' }
+          : null
+      }
+      className='Flight__selector-body'>
+      <div
+        className='Flight__selector-info'
+        onClick={() => (!show ? setShow(true) : null)}>
         <div className='Flight__selector-departure'>
           <span className='Flight__selector-departure-time'>
             {user.departureTime}
@@ -37,12 +51,20 @@ const FlightSelector = () => {
             {user.arrival}
           </span>
         </div>
-        <div className='Flight__selector-price hidden'>
-          <span className='Flight__selector-price-title'>Adulto desde</span>
-          <span className='Flight__selector-price-amount'>
-            COP {user.price}
-          </span>
-        </div>
+        {!show ? (
+          <div className='Flight__selector-price hidden'>
+            <span className='Flight__selector-price-title'>Adulto desde</span>
+            <span className='Flight__selector-price-amount'>
+              COP {user.price}
+            </span>
+          </div>
+        ) : (
+          <button
+            onClick={() => (show ? setShow(false) : null)}
+            className='Flight__button-close'>
+            Cerrar X
+          </button>
+        )}
       </div>
       <hr />
       <div className='Flight__selector-type'>
@@ -55,6 +77,17 @@ const FlightSelector = () => {
           <span className='Flight__selector-price-amount'>COP 212.080,00</span>
         </div>
       </div>
+      {show ? (
+        <div className='Flight__type-cards'>
+          <div className='Flight__type-cards-container'>
+            <FlightCard type='Basic' />
+            <FlightCard type='Light' />
+            <FlightCard type='Plus' />
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
