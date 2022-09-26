@@ -5,17 +5,21 @@ import PassengerDropDown from './PassengerDropDown';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   PASSENGER_AMOUNT_DOWN,
+  PASSENGER_AMOUNT_UP_ADULTS,
+  PASSENGER_AMOUNT_UP_KIDS,
+  PASSENGER_AMOUNT_UP_BABIES,
   PASSENGER_AMOUNT_UP,
+  PASSENGER_AMOUNT_DOWN_ADULTS,
+  PASSENGER_AMOUNT_DOWN_KIDS,
+  PASSENGER_AMOUNT_DOWN_BABIES,
 } from 'store/reducers/bookingReducer';
 
 export function BookingDropdown() {
   const dispatch = useDispatch();
-  const passengerAmount = useSelector(state => state.passengerAmount);
-  const [seats, setSeats] = useState({
-    adults: 1,
-    kids: 0,
-    babies: 0,
-  });
+  const passengerAmount = useSelector(
+    state => state.bookingReducer.passengerAmount
+  );
+  const seats = useSelector(state => state.bookingReducer);
   const [errors, setErrors] = useState({
     adults: '',
     kids: '',
@@ -64,24 +68,24 @@ export function BookingDropdown() {
           ...prev,
           [key]: '',
         }));
-        setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
         dispatch({ type: PASSENGER_AMOUNT_UP });
+        dispatch({ type: PASSENGER_AMOUNT_UP_ADULTS });
         break;
       case 'kids':
         setErrors(prev => ({
           ...prev,
           [key]: '',
         }));
-        setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
         dispatch({ type: PASSENGER_AMOUNT_UP });
+        dispatch({ type: PASSENGER_AMOUNT_UP_KIDS });
         break;
       case 'babies':
         setErrors(prev => ({
           ...prev,
           [key]: '',
         }));
-        setSeats(prev => ({ ...prev, [key]: prev[key] + 1 }));
         dispatch({ type: PASSENGER_AMOUNT_UP });
+        dispatch({ type: PASSENGER_AMOUNT_UP_BABIES });
         break;
     }
   }
@@ -98,8 +102,8 @@ export function BookingDropdown() {
           ...prev,
           [key]: '',
         }));
-        setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
         dispatch({ type: PASSENGER_AMOUNT_DOWN });
+        dispatch({ type: PASSENGER_AMOUNT_DOWN_ADULTS });
         break;
       case 'kids':
         if (seats[key] > 0) {
@@ -107,8 +111,8 @@ export function BookingDropdown() {
             ...prev,
             [key]: '',
           }));
-          setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
           dispatch({ type: PASSENGER_AMOUNT_DOWN });
+          dispatch({ type: PASSENGER_AMOUNT_DOWN_KIDS });
         }
         break;
       case 'babies':
@@ -117,8 +121,8 @@ export function BookingDropdown() {
             ...prev,
             [key]: '',
           }));
-          setSeats(prev => ({ ...prev, [key]: prev[key] - 1 }));
           dispatch({ type: PASSENGER_AMOUNT_DOWN });
+          dispatch({ type: PASSENGER_AMOUNT_DOWN_BABIES });
         }
         break;
     }
