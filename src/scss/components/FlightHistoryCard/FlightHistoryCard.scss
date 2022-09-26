@@ -1,0 +1,101 @@
+.flightHistoryCard-container {
+  position: relative;
+  text-decoration: none;
+  color: initial;
+  text-align: initial;
+  padding: 0px;
+  background-color: transparent;
+  border: 0px;
+  border-radius: 8px;
+}
+
+.flightHistoryCard__img-container {
+  height: 184px;
+  margin-bottom: -1rem;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+
+  @media (min-width: 1280px) {
+    height: 245px;
+    margin-bottom: -2.9375rem;
+  }
+}
+
+.flightHistoryCard__img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.flightHistoryCard__body-container {
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  position: relative;
+  z-index: 3;
+  box-shadow: rgb(16 0 79 / 12%) 0px 2px 8px 0px;
+
+  .flightHistoryCard__departureCity {
+    color: rgb(92, 92, 92);
+    font-size: 0.875rem;
+    line-height: 150%;
+  }
+
+  .flightHistoryCard__arrivalCity {
+    color: rgb(27, 0, 136);
+    font-size: 1.125rem;
+    line-height: 21px;
+    font-style: italic;
+
+    @media (min-width: 1280px) {
+      font-size: 1.5rem;
+      line-height: 28px;
+    }
+  }
+
+  .flightHistoryCard__details {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+}
+.flightHistoryCard__details-date {
+  display: flex;
+
+  .flightHistoryCard__details-dateDetails {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 0.875rem;
+    color: rgb(92, 92, 92);
+
+    .icon-svg {
+      margin-right: 0.5rem;
+      height: 0.938rem;
+      width: 0.938rem;
+      color: rgb(128, 15, 113);
+    }
+
+    .dataDetails__planeIcon {
+      display: flex;
+      width: fit-content;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+
+      svg path {
+        fill: currentColor;
+      }
+    }
+  }
+}
+
+.buttonRedArrowWhite {
+  &:hover {
+    background-color: rgb(233, 88, 120);
+    border: 0.0625rem solid rgb(233, 88, 120);
+  }
+}

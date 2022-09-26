@@ -1,15 +1,126 @@
+.footer__Container {
+  width: 100%;
+}
+
 .big-footer-container {
   height: auto;
-  width: 0 auto;
+
   max-width: 89.75rem;
+  margin: 0px auto;
 }
 
 .bg-ftr-cntnr-margins {
   margin-bottom: 1.25rem;
   padding: 0px 1rem;
 
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
+    padding: 0px 2rem;
   }
   @media (min-width: 992px) {
+    margin-bottom: 4.125rem;
+    padding: 0px 4rem;
+  }
+}
+
+.ftr-inside-cntnr {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+  }
+  hr {
+    background-color: rgb(243, 242, 246);
+    border: 0px;
+    height: 0.0625rem;
+    margin: 2rem auto;
+    width: 100%;
+    box-sizing: content-box;
+    overflow: visible;
+  }
+}
+
+.LATAM-self-information {
+  display: flex;
+  flex-direction: row;
+  @media (min-width: 992px) {
+    flex: 2 1 0%;
+  }
+}
+
+.Ftr-info-cntnr {
+  flex: 1 1 0%;
+  padding-bottom: 1.5rem;
+  padding-right: 0.5rem;
+  width: 50%;
+
+  @media (min-width: 992px) {
+    .FooterList__container {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.Footer-titles {
+  font-size: 1rem;
+  min-height: 2rem;
+  font-weight: 600;
+  color: rgb(27, 0, 136);
+}
+
+.FooterList__container {
+  list-style: none;
+}
+
+.FooterIconLink__UL {
+  display: flex;
+  margin-bottom: 1.5rem;
+
+  li {
+    list-style: none;
+  }
+
+  svg {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+  }
+
+  @media (min-width: 992px) {
+    margin-bottom: 3rem;
+  }
+}
+
+.FooterIconLink__LI {
+  margin-right: 0.5rem;
+
+  @media (min-width: 992px) {
+    margin-right: 1rem;
+  }
+}
+
+.FooterIconLink__LI-span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0px, 0px, 0px, 0px);
+  border: 0px;
+}
+
+.FooterIconLink__LI-icon {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+
+  svg {
+    border-radius: 0.5rem;
+    margin-right: 0px;
   }
 }

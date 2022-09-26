@@ -1,0 +1,137 @@
+.myAccount__bodyContainer-section {
+  display: flex;
+  background: rgb(255, 255, 255);
+  min-height: 100%;
+  height: 100%;
+  margin-bottom: 1.2rem;
+  flex-direction: column;
+
+  @media (min-width: 992px) {
+    min-height: 35rem;
+    overflow: hidden;
+    width: 80%;
+    margin: 0px auto;
+  }
+}
+
+.myAccount__bodyContainer-title {
+  display: none;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  margin-bottom: 1.25rem;
+
+  @media (min-width: 992px) {
+    display: flex;
+    margin: 0.67em 0px;
+    color: rgb(27, 0, 136);
+  }
+}
+
+.PayMethod__bodyContainer {
+  @media (min-width: 992px) {
+    max-width: 29rem;
+  }
+}
+
+.PayMethod__bodyContainer-section {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  position: relative;
+
+  span {
+    text-align: initial;
+  }
+}
+
+.PayMethod__bodySection__svg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 3rem 2rem 2rem;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.PayMethod__bodySection__info-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+}
+
+.PayMethod__bodySection__subtitle {
+  color: rgb(27, 0, 136);
+  font-size: 1.375rem;
+  line-height: 1.625rem;
+  font-weight: bold;
+  font-style: normal;
+  width: 100%;
+  max-width: 70%;
+  margin: 0px auto;
+
+  @media (min-width: 992px) {
+    max-width: 100%;
+    padding: 0px 0px 1rem;
+  }
+}
+
+.PayMethod__bodySection__p {
+  line-height: 1.375rem;
+  color: rgb(92, 92, 92);
+  max-width: 83%;
+  margin: 1.5rem auto 2.5rem;
+  min-height: 2.5rem;
+
+  @media (min-width: 992px) {
+    margin: 0px auto 2.5rem;
+  }
+}
+
+.PayMethod__add-card-link {
+  .PayMethod__add-card-link-container {
+    display: inline-block;
+    height: fit-content;
+    position: relative;
+    width: auto;
+
+    button {
+      background: none rgb(232, 17, 75);
+      border-radius: 0.5rem;
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+      font-weight: 600;
+      line-height: 1;
+      text-transform: none;
+      transition: none 0s ease 0s;
+      border: 0.0625rem solid rgb(232, 17, 75);
+      color: rgb(255, 255, 255);
+      font-size: 1.125rem;
+      height: 3.5rem;
+      padding: 1rem 2rem;
+      letter-spacing: 0.02857em;
+      min-width: 64px;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(233, 88, 120);
+        border: 0.0625rem solid rgb(233, 88, 120);
+      }
+
+      span {
+        width: 100%;
+        display: inherit;
+        align-items: inherit;
+        justify-content: inherit;
+      }
+    }
+  }
+}

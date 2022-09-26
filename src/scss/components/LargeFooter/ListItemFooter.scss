@@ -1,0 +1,15 @@
+.ListItem__Footer {
+  list-style: none;
+
+  a {
+    color: rgb(92, 92, 92);
+    display: inline-block;
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline dotted rgb(92, 92, 92);
+    }
+  }
+}

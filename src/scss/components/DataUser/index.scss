@@ -1,0 +1,100 @@
+.dataUser {
+  max-width: 28rem;
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+.dataUser__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  h2 {
+    font-style: italic;
+    color: #1b0088;
+    font-size: 2.3rem;
+    font-weight: 400;
+  }
+}
+.dataUser__accessData--header {
+  display: flex;
+  align-items: center;
+  color: #1b0088;
+  h4 {
+    margin-left: 1rem;
+  }
+}
+.dataUser__personalData {
+  margin-top: 2.4rem;
+}
+.dataUser__personalData--header {
+  display: flex;
+  align-items: center;
+  color: #1b0088;
+  h4 {
+    margin-left: 1rem;
+  }
+}
+.dataUser__accessData--email {
+  margin: 1rem 0;
+  label {
+    color: #1b0088;
+  }
+  input {
+    color: #666;
+  }
+}
+.dataUser__accessData-password {
+  margin: 1rem 0;
+  label {
+    color: #1b0088;
+  }
+  input {
+    color: #666;
+  }
+}
+.dataUser__personalData--name {
+  margin: 1rem 0;
+  label {
+    color: #1b0088;
+  }
+  input {
+    color: #666;
+  }
+}
+.dataUser__personalData--lastname {
+  margin: 1rem 0;
+  label {
+    color: #1b0088;
+  }
+  input {
+    color: #666;
+  }
+}
+.dataUser__personalData--birthDate {
+  margin: 1rem 0;
+  label {
+    color: #1b0088;
+  }
+  input {
+    color: #666;
+  }
+}
+.dataUser__personalData--genre {
+  margin: 1rem 0;
+  label {
+    color: #1b0088;
+  }
+  input {
+    color: #666;
+  }
+}
+.dataUser__personalData--numberPHone {
+  margin: 1rem 0;
+  label {
+    color: #1b0088;
+  }
+  input {
+    color: #666;
+  }
+}
