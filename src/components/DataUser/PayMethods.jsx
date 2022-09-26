@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import { ReactComponent as CardLogo } from '../../svg/MyAccount/PayMethods/cards.svg';
+import AddCardModal from './AddCardModal';
 
 const PayMethods = () => {
   return (
@@ -31,16 +32,7 @@ const PayMethods = () => {
                 haz que tus próximas compras sean más rápidas y seguras.
               </span>
             </p>
-            <Link
-              to={''}
-              className='PayMethod__add-card-link'
-              id='add-credit-card-dialog'>
-              <div className='PayMethod__add-card-link-container'>
-                <button className='PayMethod__add-card-link-button'>
-                  <span>Agregar</span>
-                </button>
-              </div>
-            </Link>
+            <AddCardModal />
           </div>
         </section>
       </div>
