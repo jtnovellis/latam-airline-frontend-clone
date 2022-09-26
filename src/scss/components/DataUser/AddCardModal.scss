@@ -1,0 +1,145 @@
+.PayMethod__add-card-link-container {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  margin: 0;
+
+  @media (hover: none) {
+    border-color: blue;
+  }
+
+  :first-child {
+    margin: 0;
+    border: 0;
+    max-height: 100%;
+    svg {
+      min-width: 100%;
+    }
+    :first-child {
+      border: none;
+    }
+  }
+  fieldset .textfield {
+    &:hover {
+      border-color: pink;
+      border-width: 2px;
+    }
+  }
+  .addCardButton__Submit {
+    background: none rgb(232, 17, 75);
+    border-radius: 0.5rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1;
+    text-transform: none;
+    transition: none 0s ease 0s;
+    border: 0.0625rem solid rgb(232, 17, 75);
+    color: rgb(255, 255, 255);
+    font-size: 1.125rem;
+    height: 3.5rem;
+    padding: 1rem 2rem;
+    letter-spacing: 0.02857em;
+    min-width: 64px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(233, 88, 120);
+      border: 0.0625rem solid rgb(233, 88, 120);
+    }
+
+    span {
+      width: 100%;
+      display: inherit;
+      align-items: inherit;
+      justify-content: inherit;
+    }
+  }
+
+  .AddCardDialog__title {
+    font-style: normal;
+    margin: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.016rem;
+    font-weight: 300;
+    color: rgb(27, 0, 136);
+    border: 0px;
+  }
+}
+
+.MuiDialog-container {
+  height: 100%;
+  display: none;
+}
+
+.MuiDialog-scrollPaper .css-hz1bth-MuiDialog-container {
+  display: none;
+}
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  max-height: 100%;
+}
+
+.AddCardModal__body {
+  height: 100%;
+  width: 100%;
+}
+
+.AddCardModal__body__subtitle-container {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: rgb(48, 48, 48);
+
+  svg {
+    font-size: 1.125rem;
+  }
+}
+
+.AddCardModal__body__subtitle-icon {
+  display: flex;
+  width: fit-content;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-right: 16px !important;
+}
+
+.AddCardModal__body__info {
+  margin-bottom: 1.25rem;
+  color: rgb(92, 92, 92);
+}
+
+.AddCardModal__body_form--container {
+  .textfield {
+    margin: 1rem 0 2rem 0;
+    border-radius: 8px;
+    label {
+      color: #666;
+    }
+
+    fieldset {
+      border-radius: 8px;
+    }
+    input {
+      color: #666;
+
+      border-radius: 8px;
+    }
+  }
+
+  .AddCardModal__accessData--cardNunber {
+    border: 1px solid rgb(27, 0, 136);
+    color: rgb(27, 0, 136);
+  }
+
+  .submitButton-modal {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 9rem 0;
+  }
+}

@@ -16,6 +16,9 @@
 /* components */
 @import url(./scss/components/App.scss);
 
+//Buttons
+@import url(./scss/components/Buttons/ArrowButtonRight.scss);
+
 /* Header */
 @import url(./scss/components/Header/index.scss);
 @import url(./scss/components/Header/Navbar.scss);
@@ -89,7 +92,10 @@
 //Data User
 @import url(./scss/components/DataUser/MenuSelector.scss);
 @import url(./scss/components/DataUser/PayMethods.scss);
+@import url(./scss/components/DataUser/MyTrips.scss);
+@import url(./scss/components/FlightHistoryCard/FlightHistoryCard.scss);
 @import url(./scss/components/DataUser/index.scss);
+@import url(./scss/components/DataUser/AddCardModal.scss);
 
 //adminFligths
 @import url(./scss/components/BodyAdminFligths/AdminFligths.scss);
