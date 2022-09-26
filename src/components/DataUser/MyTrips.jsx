@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyTrips = () => {
-  const tripHistory = false;
+  const tripHistory = true;
 
   return (
     <div className='myAccount__bodyContainer-section'>
