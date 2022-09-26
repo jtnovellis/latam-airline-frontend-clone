@@ -1,0 +1,153 @@
+.Flight__selector-body {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  height: 8rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.4s ease 0s, box-shadow 0.4s ease 0s;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  &:hover {
+    box-shadow: rgba(16, 0, 79, 0.16) 0px 8px 16px 0px;
+  }
+  hr {
+    margin: 0rem 0.5rem;
+  }
+
+  .Flight__selector-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 1rem;
+
+    .Flight__selector-departure {
+      display: flex;
+      margin: auto 0rem 1rem 0rem;
+      .Flight__selector-departure-time {
+        font-size: 26px;
+        color: rgb(27, 0, 136);
+      }
+      .Flight__selector-departure-location {
+        margin-left: 0.5rem;
+        font-size: 26px;
+        font-weight: 100;
+      }
+    }
+    .Flight__selector-duration {
+      display: flex;
+      margin-left: 1rem;
+      .Flight__selector-duration-title {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+    .Flight__button-close {
+      background-color: white;
+      border: 0px;
+      font-size: 20px;
+      color: rgb(246, 0, 53);
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .Flight__selector-arrival {
+      display: flex;
+      margin: auto 0rem 1rem 0rem;
+      .Flight__selector-arrival-time {
+        font-size: 26px;
+        color: rgb(27, 0, 136);
+      }
+      .Flight__selector-arrival-location {
+        margin-left: 0.5rem;
+        font-size: 26px;
+        font-weight: 100;
+      }
+    }
+    .Flight__selector-price {
+      display: flex;
+      flex-direction: column;
+      margin-right: 1rem;
+      .Flight__selector-price-title {
+        font-size: 14px;
+        text-align: end;
+      }
+      .Flight__selector-price-amount {
+        color: rgb(27, 0, 136);
+      }
+    }
+    .hidden {
+      display: none;
+    }
+  }
+  .Flight__selector-type {
+    display: flex;
+    margin: 1rem 1rem;
+    justify-content: space-between;
+    .toShow {
+      display: none;
+    }
+    .Flight__selector-price {
+      display: flex;
+      flex-direction: column;
+      margin-right: 1rem;
+      .Flight__selector-price-title {
+        font-size: 14px;
+        text-align: end;
+      }
+      .Flight__selector-price-amount {
+        color: rgb(27, 0, 136);
+      }
+    }
+  }
+
+  .Flight__type-cards {
+    height: 440rem;
+    .Flight__type-cards-container {
+      display: flex;
+    }
+  }
+  @media (max-width: 390px) {
+    margin: 1rem auto;
+    max-width: 26rem;
+    height: 10rem;
+    width: 20rem;
+    .Flight__selector-info {
+      justify-content: space-around;
+    }
+  }
+  @media (max-width: 589px) {
+    margin: 1rem auto;
+    height: 10rem;
+    width: 35rem;
+    .Flight__type-cards-container {
+      flex-direction: column;
+      height: 36rem;
+    }
+  }
+  @media (max-width: 1024px) {
+    margin: 1rem auto;
+    height: 10rem;
+    width: 35rem;
+    .Flight__selector-departure {
+      flex-direction: column;
+    }
+    .Flight__selector-arrival {
+      flex-direction: column;
+    }
+  }
+  @media (min-width: 1025px) {
+    .Flight__selector-info {
+      .hidden {
+        display: block;
+      }
+      .Flight__selector-price {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+      }
+    }
+    .Flight__selector-type {
+      .toShow {
+        display: none;
+      }
+    }
+  }
+}

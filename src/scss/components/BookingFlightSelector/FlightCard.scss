@@ -1,0 +1,118 @@
+.FlightCard__body {
+  display: flex;
+  flex-direction: column;
+  width: 22rem;
+  height: 28rem;
+  margin: 1rem auto;
+
+  transition: box-shadow 300ms ease-in-out 0s;
+  &:hover {
+    box-shadow: rgba(255, 203, 92, 0.921) 8px 8px 8px;
+  }
+  .FlightCard__header {
+    display: flex;
+    margin-top: 1rem;
+
+    span {
+      font-size: 1.2rem;
+      margin-left: 1rem;
+      font-weight: bold;
+    }
+    .FlightCard__header-blue {
+      content: '';
+      display: inline-block;
+      background-color: rgb(0, 139, 255);
+      height: 24px;
+      width: 10px;
+      border-radius: 0px 8px 8px 0px;
+    }
+    .FlightCard__header-green {
+      content: '';
+      display: inline-block;
+      background-color: rgb(153, 204, 51);
+      height: 24px;
+      width: 10px;
+      border-radius: 0px 8px 8px 0px;
+    }
+    .FlightCard__header-aqua {
+      content: '';
+      display: inline-block;
+      background-color: rgb(0, 181, 174);
+      height: 24px;
+      width: 10px;
+      border-radius: 0px 8px 8px 0px;
+    }
+  }
+  .FlightCard__list {
+    display: flex;
+    flex-direction: column;
+    .FlightCard__list-content {
+      display: flex;
+      margin-left: 1rem;
+      margin-top: 1rem;
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  .FlightCard__details-price {
+    display: flex;
+    justify-content: space-between;
+    .FlightCard__detail {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 1rem;
+      margin-top: 1rem;
+    }
+    .FlightCard__price {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1rem;
+      .FlightCard__price-amount {
+        font-size: 20px;
+        color: rgb(27, 0, 136);
+        font-weight: bold;
+      }
+    }
+  }
+
+  .FlightCard__choose {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    .FlightCard__choose-button {
+      button {
+        background-color: white;
+        border: 0px;
+        font-size: 20px;
+        color: rgb(246, 0, 53);
+        font-weight: 800;
+        cursor: pointer;
+      }
+    }
+  }
+  @media (max-width: 390px) {
+    margin: 1rem auto;
+    height: 30rem;
+    width: 19rem;
+    max-width: 19rem;
+  }
+  @media (max-width: 588px) {
+    margin: 1rem auto;
+    height: 30rem;
+    width: 30rem;
+  }
+  @media (min-width: 589px) {
+    width: 12rem;
+    height: 36rem;
+
+    .FlightCard__details-price {
+      flex-direction: column;
+    }
+  }
+  @media (min-width: 1025px) {
+    width: 23rem;
+    height: 36rem;
+  }
+}
