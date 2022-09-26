@@ -1,6 +1,7 @@
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import Flights from './pages/Flights';
 import { Routes, Route } from 'react-router-dom';
 import MyAccount from './pages/MyAccount';
 import MyTrips from './components/DataUser/MyTrips';
@@ -27,6 +28,7 @@ function App() {
           <Route index element={<SearchFligth />} />
           <Route path='travel-data' element={<TravelData />} />
         </Route>
+        <Route path='flights' element={<Flights />} />
       </Routes>
     </div>
   );

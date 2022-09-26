@@ -1,6 +1,6 @@
 .container-login {
   width: 400px;
-  height: 500px;
+  height: 450px;
   padding: 20px;
   margin: auto;
   box-sizing: border-box;
@@ -25,6 +25,10 @@
       margin-bottom: 10px;
       height: 50px;
     }
+    input {
+      height: 100px;
+      margin-top: 10px;
+    }
   }
 
   h1 {
@@ -48,39 +52,56 @@
     font-size: medium;
   }
   button:hover {
+    cursor: pointer;
     background-color: rgb(221, 30, 87);
 
-    .input-login {
+    input {
       width: 100%;
       height: 50px;
     }
   }
-  a:hover {
+  link:hover {
     color: rgb(17, 0, 112);
     text-decoration: none;
     font-size: medium;
   }
-  .input-login:hover {
-    border-color: rgb(17, 0, 112);
+  input:hover {
+    border: 1px solid rgb(230, 11, 77);
   }
 
-  .input-login:focus {
-    border: 3px solid rgb(17, 0, 112);
+  input:focus {
+    border-style: inset;
+    border: 3px solid rgb(27, 4, 156);
     outline-color: rgb(27, 0, 136);
   }
 
-  .input-login:checked {
-    border: 3px solid rgb(17, 0, 112);
+  input:checked {
+    border: 3px solid rgb(24, 5, 129);
   }
-  .register {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+  .input-login {
+    input {
+      padding: 2px 5px;
+    }
   }
 }
 .background-container-login {
   background-image: url(https://s.latamairlines.com/images/auth0/login/background.svg);
+  background-size: cover;
 }
 .window-login {
   padding-top: 100px;
+
+  .register-login {
+    text-align: center;
+    height: 100px;
+    padding-left: 30px;
+    padding-top: 100px;
+    .register-p {
+      align-content: center;
+      text-align: center;
+    }
+  }
+}
+.register-p {
+  text-align: center;
 }
