@@ -1,0 +1,17 @@
+.SpinnerMain__Container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: fit-content;
+  width: fit-content;
+}
+
+.spinner__text {
+  font-size: 1.5rem;
+  margin-top: 1.2rem;
+  font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+  color: rgb(27, 0, 136);
+  font-style: italic;
+}
