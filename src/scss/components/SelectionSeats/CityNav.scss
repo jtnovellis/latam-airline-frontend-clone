@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1rem;
+  padding: 1rem;
   width: 270px;
   height: 100%;
   border: none;
@@ -18,4 +18,7 @@
 .cityNav__direction {
   font-size: 0.9rem;
   color: #777;
+}
+.selected {
+  border-bottom: 4px solid #e8114b;
 }

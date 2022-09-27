@@ -1,0 +1,19 @@
+.passengersContainer {
+  width: 26rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.passengersContainer__flightSelector {
+  position: sticky;
+  bottom: 0;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+}
