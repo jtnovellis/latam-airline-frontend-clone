@@ -5,36 +5,42 @@ import Select from '@mui/material/Select';
 import FlightSelector from './FlightSelector';
 const FlightContainer = () => {
   const [filter, setFilter] = React.useState('');
-  const t1 = {
-    departureAirport: 'El Dorado Intl.',
-    departureTime: '7:20',
-    departure: 'BOG',
-    arrivalAirport: 'Jose maría cordoba',
-    arrivalTime: '8:19',
-    arrival: 'MDE',
-    duration: '0 h 59 min',
-    price: 220000,
-  };
-  const t2 = {
-    departureAirport: 'El Dorado Intl.',
-    departureTime: '8:30',
-    departure: 'BOG',
-    arrivalAirport: 'Jose maría cordoba',
-    arrivalTime: '9:30',
-    arrival: 'MDE',
-    duration: '1 h 00 min',
-    price: 240000,
-  };
-  const t3 = {
-    departureAirport: 'El Dorado Intl.',
-    departureTime: '11:30',
-    departure: 'BOG',
-    arrivalAirport: 'Jose maría cordoba',
-    arrivalTime: '12:20',
-    arrival: 'MDE',
-    duration: '0 h 50 min',
-    price: 260008,
-  };
+  const flights = [
+    {
+      id: '1',
+      departureAirport: 'El Dorado Intl.',
+      departureTime: '7:20',
+      departure: 'BOG',
+      arrivalAirport: 'Jose maría cordoba',
+      arrivalTime: '8:19',
+      arrival: 'MDE',
+      duration: '0 h 59 min',
+      price: 220000,
+    },
+    {
+      id: '2',
+      departureAirport: 'El Dorado Intl.',
+      departureTime: '8:30',
+      departure: 'BOG',
+      arrivalAirport: 'Jose maría cordoba',
+      arrivalTime: '9:30',
+      arrival: 'MDE',
+      duration: '1 h 00 min',
+      price: 240000,
+    },
+    {
+      id: '3',
+      departureAirport: 'El Dorado Intl.',
+      departureTime: '11:30',
+      departure: 'BOG',
+      arrivalAirport: 'Jose maría cordoba',
+      arrivalTime: '12:20',
+      arrival: 'MDE',
+      duration: '0 h 50 min',
+      price: 260008,
+    },
+  ];
+
   const handleChange = event => {
     setFilter(event.target.value);
   };
@@ -66,30 +72,20 @@ const FlightContainer = () => {
           </FormControl>
         </div>
       </div>
-      <FlightSelector
-        departure={t1.departure}
-        departureTime={t1.departureTime}
-        price={t1.price}
-        duration={t1.duration}
-        arrival={t1.arrival}
-        arrivalTime={t1.arrivalTime}
-      />
-      <FlightSelector
-        departure={t2.departure}
-        departureTime={t2.departureTime}
-        price={t2.price}
-        duration={t2.duration}
-        arrival={t2.arrival}
-        arrivalTime={t2.arrivalTime}
-      />
-      <FlightSelector
-        departure={t3.departure}
-        departureTime={t3.departureTime}
-        price={t3.price}
-        duration={t1.duration}
-        arrival={t3.arrival}
-        arrivalTime={t3.arrivalTime}
-      />
+      {flights.map(function (item) {
+        return (
+          <FlightSelector
+            key={item.id}
+            departure={item.departure}
+            departureTime={item.departureTime}
+            price={item.price}
+            duration={item.duration}
+            arrival={item.arrival}
+            arrivalTime={item.arrivalTime}
+          />
+        );
+      })}
+
       <div className='Flight__container-footer'>
         <div className='Flight__container-footer-services'>
           <ul>
