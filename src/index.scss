@@ -12,6 +12,7 @@
 @import url(./scss/pages/Login.scss);
 @import url(./scss/pages/Register.scss);
 @import url(./scss/pages/MyAccount.scss);
+@import url(./scss/pages/SelectionSeats.scss);
 
 /* components */
 @import url(./scss/components/App.scss);
@@ -106,3 +107,8 @@
 //Flights selector
 @import url(./scss/components/BookingFlightSelector/FlightSelector.scss);
 @import url(./scss/components/BookingFlightSelector/FlightCard.scss);
+
+// Selection Seats
+@import url(./scss/components/SelectionSeats/Airplane.scss);
+@import url(./scss/components/SelectionSeats/Navigation.scss);
+@import url(./scss/components/SelectionSeats/Passengers.scss);
