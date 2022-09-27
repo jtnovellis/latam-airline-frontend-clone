@@ -253,10 +253,10 @@ const FlightCard = prop => {
         <div className='FlightCard__price'>
           <div className='FlightCard__price-amount'>
             {prop.type === 'Basic'
-              ? 'Cop 212.080,00'
+              ? Math.floor(prop.price * 0.8)
               : prop.type === 'Light'
-              ? '280.230.00'
-              : '320.340.00'}
+              ? prop.price
+              : Math.floor(prop.price * 1.2)}
           </div>
           <div className='FlightCard__price-description'>Por pasajero</div>
         </div>
