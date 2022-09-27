@@ -1,9 +1,18 @@
 .passengersContainer {
-  width: 26rem;
+  width: 40rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  h2 {
+    padding: 1rem;
+    font-weight: lighter;
+    font-style: italic;
+    color: #1b0088;
+  }
+}
+.passengersContainer__data {
+  height: 100%;
 }
 .passengersContainer__flightSelector {
   position: sticky;
@@ -15,5 +24,29 @@
   div {
     display: flex;
     justify-content: space-between;
+    margin: 1rem 0;
+    button {
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      color: #1b0088;
+      cursor: pointer;
+    }
+    p {
+      font-weight: 700;
+    }
   }
+}
+.passengersContainer__flightSelector--buttonNext {
+  padding: 1rem 2rem;
+  background-color: #e8114b;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border: none;
+  height: 3.5rem;
+  cursor: pointer;
 }

@@ -1,14 +1,23 @@
 import React from 'react';
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
+import PassengersCard from './PassengersCard';
 
 const Passengers = () => {
   return (
     <div className='passengersContainer'>
       <h2>Pasajeros</h2>
-      <div></div>
+      <div className='passengersContainer__data'>
+        <PassengersCard />
+      </div>
       <div className='passengersContainer__flightSelector'>
-        <button>Pasar al siguiente vuelo</button>
+        <button className='passengersContainer__flightSelector--buttonNext'>
+          Pasar al siguiente vuelo
+        </button>
         <div>
-          <button>Precio Final</button>
+          <button>
+            <span>Precio final</span>
+            <KeyboardArrowUpOutlinedIcon />
+          </button>
           <p>COP 408.254,45</p>
         </div>
       </div>
