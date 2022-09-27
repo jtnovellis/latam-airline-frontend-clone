@@ -1,0 +1,17 @@
+.navigation {
+  width: 100%;
+}
+.navigation__title {
+  padding: 1rem;
+  h1 {
+    color: #1b0088;
+    font-weight: lighter;
+    font-style: italic;
+  }
+}
+.navigation__selectorbyCity {
+  border-top: 1px solid #ddd;
+  display: flex;
+  padding: 1rem 2rem;
+  box-shadow: rgb(19 41 104 / 10%) 0px 4px 7px;
+}
