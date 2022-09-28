@@ -6,7 +6,7 @@ import {
   HEAVY_LUGGAGE_UP,
   HEAVY_LUGGAGE_DOWN,
 } from 'store/reducers/luggageReducer';
-const LuggageButtons = prop => {
+const LuggageButtons = ({ action }) => {
   const dispatch = useDispatch();
   const lightLuggage = useSelector(state => state.luggageReducer.lightLuggage);
   const heavyLuggage = useSelector(state => state.luggageReducer.heavyLuggage);
@@ -41,9 +41,9 @@ const LuggageButtons = prop => {
       {lightLuggage}
       {<br />}
       {heavyLuggage}
-      {console.log(prop.action)}
-      {prop.action === 'lightIncrement' ? <>hola</> : <>chao</>}
-      <span onClick={() => validateAmount('heavyIncrement')}>
+
+      {action === 'lightIncrement' ? <>hola</> : <>chao</>}
+      <span onClick={() => validateAmount(action)}>
         <svg
           height={20}
           width={20}
@@ -61,7 +61,7 @@ const LuggageButtons = prop => {
             fill='#E8114b'></path>
         </svg>
       </span>
-      <span onClick={() => validateAmount(prop.action)}>
+      <span onClick={() => validateAmount(action)}>
         <svg viewBox='0 0 24 24' height={20} width={20} aria-hidden='true'>
           <circle
             cx='12'

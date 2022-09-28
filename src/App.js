@@ -11,7 +11,7 @@ import AdminFligths from 'pages/AdminFligths';
 import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
 import TravelData from 'components/BodyAdminFligths/TravelData';
 //import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
-import LuggageCard from 'components/Luggage/LuggageButtons';
+import LuggageCard from 'components/Luggage/LuggageCard';
 function App() {
   return (
     <div className='App'>
