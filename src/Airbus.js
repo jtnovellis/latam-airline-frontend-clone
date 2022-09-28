@@ -258,3 +258,5 @@ export const thirthDiv = [
     { column: 'F', row: '30', price: '24.990,32', location: 'Ventana' },
   ],
 ];
+
+export const headerSeats = ['A', 'B', 'C', '', 'D', 'E', 'F'];
