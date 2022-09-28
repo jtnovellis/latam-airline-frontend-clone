@@ -1,6 +1,35 @@
 .airplane {
   background-image: linear-gradient(to bottom, #fff, #d8d8d8);
   width: 100%;
-  height: 100vh;
-  z-index: -1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.airplane__body {
+  margin-top: -3rem;
+  margin-bottom: 4rem;
+  padding: 8rem 0 5rem;
+  border: 2px solid #eee;
+  width: 25rem;
+  height: fit-content;
+  position: relative;
+  background-color: #fff;
+  border-radius: 12rem 12rem 6rem 6rem;
+  p {
+    text-align: center;
+  }
+}
+.airplane__body--seats {
+  border-top: 1px solid #ccc;
+}
+.seats--header {
+  display: flex;
+  justify-content: space-around;
+}
+.seats--header-item {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
