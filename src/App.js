@@ -11,7 +11,7 @@ import AdminFligths from 'pages/AdminFligths';
 import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
 import TravelData from 'components/BodyAdminFligths/TravelData';
 //import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
-
+import LuggageCard from 'components/Luggage/LuggageButtons';
 function App() {
   return (
     <div className='App'>
@@ -29,6 +29,7 @@ function App() {
           <Route path='travel-data' element={<TravelData />} />
         </Route>
         <Route path='flights' element={<Flights />} />
+        <Route path='luggage' element={<LuggageCard />} />
       </Routes>
     </div>
   );
