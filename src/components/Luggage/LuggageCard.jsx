@@ -10,7 +10,7 @@ const LuggageCard = () => {
   const lightLuggage = useSelector(state => state.luggageReducer.lightLuggage);
   const heavyLuggage = useSelector(state => state.luggageReducer.heavyLuggage);
   const totalAmount = useSelector(state => state.luggageReducer.totalPrice);
-  console.log(totalAmount);
+
   return (
     <div className='Luggagecard__body'>
       <div className='Luggagecard__body-departure-arrival'>
@@ -114,7 +114,13 @@ const LuggageCard = () => {
             </div>
             <div className='Luggagecard__body-hold-23kg-price'>
               <p>
-                <strong>COP 55000</strong>
+                <strong>
+                  {heavyLuggage == 0
+                    ? 'COP 55000'
+                    : heavyLuggage >= 1 && heavyLuggage < 2
+                    ? 'COP 74900'
+                    : 'COP 79900'}
+                </strong>
               </p>
             </div>
           </div>

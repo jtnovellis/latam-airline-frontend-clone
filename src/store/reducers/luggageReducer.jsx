@@ -24,11 +24,18 @@ const bookingReducer = (state = initialValues, action) => {
         totalPrice: state.totalPrice - 44900,
       };
     case HEAVY_LUGGAGE_UP:
-      if (state.heavyLuggage >= 1) {
+      if (state.heavyLuggage >= 1 && state.heavyLuggage < 2) {
         return {
           ...state,
           heavyLuggage: state.heavyLuggage + 1,
           totalPrice: state.totalPrice + 74900,
+        };
+      }
+      if (state.heavyLuggage >= 2) {
+        return {
+          ...state,
+          heavyLuggage: state.heavyLuggage + 1,
+          totalPrice: state.totalPrice + 79900,
         };
       }
       return {
@@ -37,19 +44,25 @@ const bookingReducer = (state = initialValues, action) => {
         totalPrice: state.totalPrice + 54900,
       };
     case HEAVY_LUGGAGE_DOWN:
-      if (state.heavyLuggage > 1) {
+      if (state.heavyLuggage >= 1 && state.heavyLuggage < 2) {
         return {
           ...state,
           heavyLuggage: state.heavyLuggage - 1,
           totalPrice: state.totalPrice - 74900,
         };
-      } else {
+      }
+      if (state.heavyLuggage > 2) {
         return {
           ...state,
           heavyLuggage: state.heavyLuggage - 1,
-          totalPrice: state.totalPrice - 54900,
+          totalPrice: state.totalPrice - 79900,
         };
       }
+      return {
+        ...state,
+        heavyLuggage: state.heavyLuggage - 1,
+        totalPrice: state.totalPrice - 54900,
+      };
 
     default:
       return state;
