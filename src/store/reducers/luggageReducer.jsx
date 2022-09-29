@@ -44,7 +44,7 @@ const bookingReducer = (state = initialValues, action) => {
         totalPrice: state.totalPrice + 54900,
       };
     case HEAVY_LUGGAGE_DOWN:
-      if (state.heavyLuggage >= 1 && state.heavyLuggage < 2) {
+      if (state.heavyLuggage > 1 && state.heavyLuggage <= 2) {
         return {
           ...state,
           heavyLuggage: state.heavyLuggage - 1,
