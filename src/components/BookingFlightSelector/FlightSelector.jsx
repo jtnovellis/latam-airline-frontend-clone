@@ -3,18 +3,9 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import FlightCard from './FlightCard';
 import useMediaQuery from '@mui/material/useMediaQuery';
-const FlightSelector = () => {
+const FlightSelector = prop => {
   const [show, setShow] = useState(false);
-  const user = {
-    departureAirport: 'El Dorado Intl.',
-    departureTime: '6:13',
-    departure: 'BOG',
-    arrivalAirport: 'Jose maría cordoba',
-    arrivalTime: '7:12',
-    arrival: 'MDE',
-    duration: '0 h 59 min',
-    price: '212.080',
-  };
+
   const ourMediaQuery = useMediaQuery('(max-width:588px)');
   return (
     <div
@@ -31,31 +22,31 @@ const FlightSelector = () => {
         onClick={() => (!show ? setShow(true) : null)}>
         <div className='Flight__selector-departure'>
           <span className='Flight__selector-departure-time'>
-            {user.departureTime}
+            {prop.departureTime}
           </span>
           <span className='Flight__selector-departure-location'>
-            {user.departure}
+            {prop.departure}
           </span>
         </div>
         <div className='Flight__selector-duration'>
           <span className='Flight__selector-duration-title'>Duración</span>
           <span className='Flight__selector-duration-time'>
-            {user.duration}
+            {prop.duration}
           </span>
         </div>
         <div className='Flight__selector-arrival'>
           <span className='Flight__selector-arrival-time'>
-            {user.arrivalTime}
+            {prop.arrivalTime}
           </span>
           <span className='Flight__selector-arrival-location'>
-            {user.arrival}
+            {prop.arrival}
           </span>
         </div>
         {!show ? (
           <div className='Flight__selector-price hidden'>
             <span className='Flight__selector-price-title'>Adulto desde</span>
             <span className='Flight__selector-price-amount'>
-              COP {user.price}
+              COP {prop.price}
             </span>
           </div>
         ) : (
@@ -80,9 +71,9 @@ const FlightSelector = () => {
       {show ? (
         <div className='Flight__type-cards'>
           <div className='Flight__type-cards-container'>
-            <FlightCard type='Basic' />
-            <FlightCard type='Light' />
-            <FlightCard type='Plus' />
+            <FlightCard type='Basic' price={prop.price} />
+            <FlightCard type='Light' price={prop.price} />
+            <FlightCard type='Plus' price={prop.price} />
           </div>
         </div>
       ) : (

@@ -5,6 +5,7 @@ import Boxsearch from 'components/Booking/Boxsearch';
 import BookingInputs from 'components/Booking/BookingInputs';
 import BookingInputsDesktop from 'components/Booking/BookingInputsDesktop';
 
+import FlightContainer from '../components/BookingFlightSelector/FlightContainer';
 const Flights = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const Flights = () => {
           <BookingInputsDesktop />
         </div>
       </div>
+      <FlightContainer />
     </>
   );
 };
