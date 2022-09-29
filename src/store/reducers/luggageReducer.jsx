@@ -63,7 +63,6 @@ const bookingReducer = (state = initialValues, action) => {
         heavyLuggage: state.heavyLuggage - 1,
         totalPrice: state.totalPrice - 54900,
       };
-
     default:
       return state;
   }
