@@ -3,8 +3,8 @@ import LuggageCard from '../components/Luggage/LuggageCard';
 const Luggage = () => {
   return (
     <>
-      <LuggageCard />
-      <LuggageCard />
+      <LuggageCard types='departure' />
+      <LuggageCard types='arrival' />
     </>
   );
 };

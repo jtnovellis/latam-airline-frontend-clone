@@ -5,10 +5,20 @@ import luggage from 'svg/luggage/maleta.png';
 import luggagelug from 'svg/luggage/maleta2.png';
 import LuggageButtons from './LuggageButtons';
 import { useSelector } from 'react-redux';
-const LuggageCard = () => {
+const LuggageCard = prop => {
   //const action = 'lightIncrement';
-  const lightLuggage = useSelector(state => state.luggageReducer.lightLuggage);
-  const heavyLuggage = useSelector(state => state.luggageReducer.heavyLuggage);
+  const departureLightLuggage = useSelector(
+    state => state.luggageReducer.departureLightLuggage
+  );
+  const departureHeavyLuggage = useSelector(
+    state => state.luggageReducer.departureHeavyLuggage
+  );
+  const arrivalLightLuggage = useSelector(
+    state => state.luggageReducer.arrivalLightLuggage
+  );
+  const arrivalHeavyLuggage = useSelector(
+    state => state.luggageReducer.arrivalHeavyLuggage
+  );
   const totalAmount = useSelector(state => state.luggageReducer.totalPrice);
 
   console.log(totalAmount);
@@ -97,13 +107,17 @@ const LuggageCard = () => {
           </div>
           <div className='Luggagecard__body-hold-15kg-buttons'>
             <div className='lightDecrement'>
-              <LuggageButtons action='lightDecrement' />
+              <LuggageButtons action='lightDecrement' types={prop.types} />
             </div>
             <div className='light-luggage-counter'>
-              <p>{lightLuggage}</p>
+              <p>
+                {prop.types === 'arrival'
+                  ? arrivalLightLuggage
+                  : departureLightLuggage}
+              </p>
             </div>
             <div className='lightIncrement'>
-              <LuggageButtons action='lightIncrement' />
+              <LuggageButtons action='lightIncrement' types={prop.types} />
             </div>
           </div>
         </div>
@@ -118,24 +132,43 @@ const LuggageCard = () => {
             <div className='Luggagecard__body-hold-23kg-price'>
               <p>
                 <strong>
-                  {heavyLuggage == 0
-                    ? 'COP 54900'
-                    : heavyLuggage >= 1 && heavyLuggage < 2
-                    ? 'COP 74900'
-                    : 'COP 79900'}
+                  {prop.types === 'arrival' ? (
+                    arrivalHeavyLuggage == 0 ? (
+                      'COP 54900'
+                    ) : arrivalHeavyLuggage >= 1 && arrivalHeavyLuggage < 2 ? (
+                      'COP 74900'
+                    ) : (
+                      'COP 79900'
+                    )
+                  ) : prop.types === 'departure' ? (
+                    departureHeavyLuggage == 0 ? (
+                      'COP 54900'
+                    ) : departureHeavyLuggage >= 1 &&
+                      departureHeavyLuggage < 2 ? (
+                      'COP 74900'
+                    ) : (
+                      'COP 79900'
+                    )
+                  ) : (
+                    <></>
+                  )}
                 </strong>
               </p>
             </div>
           </div>
           <div className='Luggagecard__body-hold-23kg-buttons'>
             <div className='heavyDecrement'>
-              <LuggageButtons action='heavyDecrement' />
+              <LuggageButtons action='heavyDecrement' types={prop.types} />
             </div>
             <div className='heavy-luggage-counter'>
-              <p>{heavyLuggage}</p>
+              <p>
+                {prop.types === 'arrival'
+                  ? arrivalHeavyLuggage
+                  : departureHeavyLuggage}
+              </p>
             </div>
             <div className='heavyIncrement'>
-              <LuggageButtons action='heavyIncrement' />
+              <LuggageButtons action='heavyIncrement' types={prop.types} />
             </div>
           </div>
         </div>
