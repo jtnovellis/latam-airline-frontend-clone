@@ -1,7 +1,12 @@
 import React from 'react';
-
+import LuggageCard from '../components/Luggage/LuggageCard';
 const Luggage = () => {
-  return <div>Luggage</div>;
+  return (
+    <>
+      <LuggageCard />
+      <LuggageCard />
+    </>
+  );
 };
 
 export default Luggage;
