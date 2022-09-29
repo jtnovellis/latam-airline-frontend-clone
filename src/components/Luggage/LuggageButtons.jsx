@@ -38,42 +38,44 @@ const LuggageButtons = ({ action }) => {
 
   return (
     <div>
-      {lightLuggage}
+      {/* {{lightLuggage}
       {<br />}
-      {heavyLuggage}
+      {heavyLuggage}} */}
 
-      {action === 'lightIncrement' ? <>hola</> : <>chao</>}
-      <span onClick={() => validateAmount(action)}>
-        <svg
-          height={20}
-          width={20}
-          fill='#000'
-          viewBox='0 0 24 24'
-          aria-hidden='true'>
-          <circle
-            cx='12'
-            cy='12'
-            r='11.5'
-            fill='white'
-            stroke='#E8114b'></circle>
-          <path
-            d='M18.2398 12.5054H12.5054V18.2398H11.5249V12.5054H5.75977V11.5249H11.5249V5.75977H12.5054V11.5249H18.2398V12.5054Z'
-            fill='#E8114b'></path>
-        </svg>
-      </span>
-      <span onClick={() => validateAmount(action)}>
-        <svg viewBox='0 0 24 24' height={20} width={20} aria-hidden='true'>
-          <circle
-            cx='12'
-            cy='12'
-            r='11.5'
-            fill='white'
-            stroke='#E8114b'></circle>
-          <path
-            d='M18.2554 11.5097V12.4902H5.77539V11.5097H18.2554Z'
-            fill='#E8114b'></path>
-        </svg>
-      </span>
+      {action === 'lightIncrement' || action === 'heavyIncrement' ? (
+        <span onClick={() => validateAmount(action)}>
+          <svg
+            height={20}
+            width={20}
+            fill='#000'
+            viewBox='0 0 24 24'
+            aria-hidden='true'>
+            <circle
+              cx='12'
+              cy='12'
+              r='11.5'
+              fill='white'
+              stroke='#E8114b'></circle>
+            <path
+              d='M18.2398 12.5054H12.5054V18.2398H11.5249V12.5054H5.75977V11.5249H11.5249V5.75977H12.5054V11.5249H18.2398V12.5054Z'
+              fill='#E8114b'></path>
+          </svg>
+        </span>
+      ) : (
+        <span onClick={() => validateAmount(action)}>
+          <svg viewBox='0 0 24 24' height={20} width={20} aria-hidden='true'>
+            <circle
+              cx='12'
+              cy='12'
+              r='11.5'
+              fill='white'
+              stroke='#E8114b'></circle>
+            <path
+              d='M18.2554 11.5097V12.4902H5.77539V11.5097H18.2554Z'
+              fill='#E8114b'></path>
+          </svg>
+        </span>
+      )}
     </div>
   );
 };
