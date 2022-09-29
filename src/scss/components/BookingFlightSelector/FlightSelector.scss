@@ -18,6 +18,7 @@
     display: flex;
     justify-content: space-between;
     margin: 1rem 1rem;
+    cursor: pointer;
 
     .Flight__selector-departure {
       display: flex;
@@ -35,6 +36,7 @@
     .Flight__selector-duration {
       display: flex;
       margin-left: 1rem;
+      flex-direction: column;
       .Flight__selector-duration-title {
         font-size: 14px;
         text-align: center;
@@ -68,6 +70,7 @@
       .Flight__selector-price-title {
         font-size: 14px;
         text-align: end;
+        color: rgb(17, 131, 124);
       }
       .Flight__selector-price-amount {
         color: rgb(27, 0, 136);
@@ -129,11 +132,13 @@
     .Flight__selector-departure {
       flex-direction: column;
     }
+
     .Flight__selector-arrival {
       flex-direction: column;
     }
   }
   @media (min-width: 1025px) {
+    width: 30rem;
     .Flight__selector-info {
       .hidden {
         display: block;
@@ -143,6 +148,51 @@
         flex-direction: column;
         margin-right: 1rem;
       }
+    }
+    .Flight__selector-duration {
+      flex-direction: column;
+    }
+    .Flight__selector-type {
+      .toShow {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: 1025px) {
+    width: 30rem;
+    .Flight__selector-info {
+      .hidden {
+        display: block;
+      }
+      .Flight__selector-price {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+      }
+    }
+    .Flight__selector-duration {
+      flex-direction: column;
+    }
+    .Flight__selector-type {
+      .toShow {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    width: 50rem;
+    .Flight__selector-info {
+      .hidden {
+        display: block;
+      }
+      .Flight__selector-price {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+      }
+    }
+    .Flight__selector-duration {
+      flex-direction: column;
     }
     .Flight__selector-type {
       .toShow {
