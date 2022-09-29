@@ -26,7 +26,6 @@ function BookingInputsDesktop() {
           }}
           onSubmit={(values, { resetForm }) => {
             dispatch({ type: BOOKING_CITIES_ADD, payload: values });
-            alert(JSON.stringify(values, null, 2));
             resetForm();
           }}>
           {({ isSubmiting }) => (

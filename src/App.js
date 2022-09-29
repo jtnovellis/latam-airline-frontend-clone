@@ -10,6 +10,8 @@ import DataUser from './components/DataUser';
 import AdminFligths from 'pages/AdminFligths';
 import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
 import TravelData from 'components/BodyAdminFligths/TravelData';
+import SelectionSeats from 'pages/SelectionSeats';
+import NotFound from 'pages/NotFound';
 //import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route path='travel-data' element={<TravelData />} />
         </Route>
         <Route path='flights' element={<Flights />} />
+        <Route path='seats-selection' element={<SelectionSeats />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );

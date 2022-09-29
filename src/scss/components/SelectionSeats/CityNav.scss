@@ -1,0 +1,24 @@
+.cityNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 270px;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #fff;
+}
+.cityNav__cities {
+  font-style: italic;
+  font-weight: 700;
+  color: #1b0088;
+}
+.cityNav__direction {
+  font-size: 0.9rem;
+  color: #777;
+}
+.selected {
+  border-bottom: 4px solid #e8114b;
+}

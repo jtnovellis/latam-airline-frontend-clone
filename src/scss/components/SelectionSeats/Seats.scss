@@ -1,0 +1,24 @@
+.seats__button {
+  background-color: #fff;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 20;
+}
+.seats__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.seats__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.seats__row--content {
+  position: relative;
+}
