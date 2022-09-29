@@ -14,9 +14,9 @@ function login() {
         <div className='background-container-login'>
           <div className='container-login'>
             <div>
-              <a href='./home.jsx'>
+              <Link to='/'>
                 <img src={logo} className='logo' alt='logo' />{' '}
-              </a>
+              </Link>
             </div>
             <h1>Inicia sesión</h1>
             <div>
