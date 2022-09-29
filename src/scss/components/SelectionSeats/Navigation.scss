@@ -3,7 +3,7 @@
   background-color: #fff;
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 50;
 }
 .navigation__title {
   padding: 1rem;
@@ -15,11 +15,8 @@
 }
 .navigation__selectorbyCity {
   background-color: #fff;
-  position: sticky;
-  top: 0;
   border-top: 1px solid #ddd;
   display: flex;
   padding: 0 2rem;
   box-shadow: rgb(19 41 104 / 15%) 0px 4px 7px;
-  z-index: 1;
 }

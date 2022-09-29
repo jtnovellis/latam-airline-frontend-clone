@@ -1,9 +1,7 @@
 import React from 'react';
 import SeatsRow from './SeatsRow';
-import { firstDiv, secondDiv, thirthDiv } from '../../Airbus';
+import { firstDiv, secondDiv, thirthDiv, headerSeats } from '../../Airbus';
 import Emergency from 'components/SelectionSeats/Emergency';
-
-const headerSeats = ['A', 'B', 'C', '', 'D', 'E', 'F'];
 
 const Airplane = () => {
   const airplane = '213';

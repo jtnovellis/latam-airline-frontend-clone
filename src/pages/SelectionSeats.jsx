@@ -9,6 +9,9 @@ const SelectionSeats = () => {
   return (
     <>
       <Header />
+      <div className='navigation__title'>
+        <h1>Elige tus asientos</h1>
+      </div>
       <main className='selectionSeats'>
         <Navigation />
         <section className='selectionSeats__section'>

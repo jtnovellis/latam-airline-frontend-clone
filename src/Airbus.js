@@ -1,6 +1,12 @@
 export const firstDiv = [
   [
-    { column: 'A', row: '3', price: '41.990,32', location: 'Ventana' },
+    {
+      column: 'A',
+      row: '3',
+      price: '41.990,32',
+      location: 'Ventana',
+      prefered: '#800f71',
+    },
     { column: 'B', row: '3', price: '41.990,32', location: 'Medio' },
     { column: 'C', row: '3', price: '41.990,32', location: 'Pasillo' },
     { column: '', row: '3', price: '', location: 'Pasillo' },
@@ -75,13 +81,49 @@ export const firstDiv = [
 
 export const secondDiv = [
   [
-    { column: 'A', row: '11', price: '41.990,32', location: 'Ventana' },
-    { column: 'B', row: '11', price: '41.990,32', location: 'Medio' },
-    { column: 'C', row: '11', price: '41.990,32', location: 'Pasillo' },
+    {
+      column: 'A',
+      row: '11',
+      price: '41.990,32',
+      location: 'Ventana',
+      prefered: '#5c7a1f',
+    },
+    {
+      column: 'B',
+      row: '11',
+      price: '41.990,32',
+      location: 'Medio',
+      prefered: '#5c7a1f',
+    },
+    {
+      column: 'C',
+      row: '11',
+      price: '41.990,32',
+      location: 'Pasillo',
+      prefered: '#5c7a1f',
+    },
     { column: '', row: '11', price: '', location: 'Pasillo' },
-    { column: 'D', row: '11', price: '41.990,32', location: 'Pasillo' },
-    { column: 'E', row: '11', price: '41.990,32', location: 'Medio' },
-    { column: 'F', row: '11', price: '41.990,32', location: 'Ventana' },
+    {
+      column: 'D',
+      row: '11',
+      price: '41.990,32',
+      location: 'Pasillo',
+      prefered: '#5c7a1f',
+    },
+    {
+      column: 'E',
+      row: '11',
+      price: '41.990,32',
+      location: 'Medio',
+      prefered: '#5c7a1f',
+    },
+    {
+      column: 'F',
+      row: '11',
+      price: '41.990,32',
+      location: 'Ventana',
+      prefered: '#5c7a1f',
+    },
   ],
 ];
 
@@ -258,3 +300,5 @@ export const thirthDiv = [
     { column: 'F', row: '30', price: '24.990,32', location: 'Ventana' },
   ],
 ];
+
+export const headerSeats = ['A', 'B', 'C', '', 'D', 'E', 'F'];
