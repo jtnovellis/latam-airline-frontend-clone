@@ -1,7 +1,5 @@
 .passengersContainer {
   width: 40rem;
-  position: sticky;
-  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,6 +9,11 @@
     font-style: italic;
     color: #1b0088;
   }
+}
+.passengersContainer__header {
+  position: sticky;
+  top: 6rem;
+  z-index: 50;
 }
 .passengersContainer__data {
   height: 100%;

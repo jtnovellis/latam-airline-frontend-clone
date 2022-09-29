@@ -1,0 +1,37 @@
+.seatsinfo {
+  height: 5rem;
+  width: 8rem;
+  z-index: 40;
+  position: absolute;
+  top: -6.5rem;
+  left: -2.8rem;
+}
+.seatsinfo__content {
+  border: 1px solid #1b0088;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+.seatsinfo__header {
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: #1b0088;
+  color: #fff;
+  font-weight: 700;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.seatsinfo__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+.seatsinfo__arrow {
+  display: flex;
+  justify-content: center;
+  margin: -0.7rem;
+  font-size: 1.6rem;
+  color: #1b0088;
+}

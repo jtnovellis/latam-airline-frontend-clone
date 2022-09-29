@@ -5,9 +5,11 @@ import PassengersCard from './PassengersCard';
 const Passengers = () => {
   return (
     <div className='passengersContainer'>
-      <h2>Pasajeros</h2>
-      <div className='passengersContainer__data'>
-        <PassengersCard />
+      <div className='passengersContainer__header'>
+        <h2>Pasajeros</h2>
+        <div className='passengersContainer__data'>
+          <PassengersCard />
+        </div>
       </div>
       <div className='passengersContainer__flightSelector'>
         <button className='passengersContainer__flightSelector--buttonNext'>
