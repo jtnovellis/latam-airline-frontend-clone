@@ -9,6 +9,8 @@ const LuggageCard = () => {
   //const action = 'lightIncrement';
   const lightLuggage = useSelector(state => state.luggageReducer.lightLuggage);
   const heavyLuggage = useSelector(state => state.luggageReducer.heavyLuggage);
+  const totalAmount = useSelector(state => state.luggageReducer.totalPrice);
+  console.log(totalAmount);
   return (
     <div className='Luggagecard__body'>
       <div className='Luggagecard__body-departure-arrival'>
@@ -18,7 +20,7 @@ const LuggageCard = () => {
       <div className='Luggagecard__body-paragraph'>
         <div>
           <p>
-            Selecciona qué <strong>llevarás en cabina</strong>{' '}
+            Selecciona qué <strong>llevarás en cabina</strong>
           </p>
         </div>
       </div>
@@ -129,6 +131,7 @@ const LuggageCard = () => {
           </div>
         </div>
       </div>
+      <div>{totalAmount}</div>
     </div>
   );
 };
