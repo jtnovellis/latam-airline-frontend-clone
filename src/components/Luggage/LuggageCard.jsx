@@ -238,7 +238,7 @@ const LuggageCard = prop => {
               fill='none'
               focusable='false'>
               <path
-                fill='currentColor'
+                fill='red'
                 d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
             </svg>
           </div>
