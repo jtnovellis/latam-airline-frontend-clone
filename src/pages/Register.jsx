@@ -1,15 +1,12 @@
-import React from 'react'
-import HeaderRegister from '../components/Header-Register/HeaderRegister'
-import BodyRegister from '../components/Body-Register/index'
-import FooterRegister from '../components/Footer-Register/index'
+import React from 'react';
+
+import NonExistingRoute from '../components/NonExistingRoute/NonExistingRoute';
 const Register = () => {
   return (
     <div>
-      <HeaderRegister />
-      <BodyRegister/>
-      <FooterRegister />
+      <NonExistingRoute />
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
