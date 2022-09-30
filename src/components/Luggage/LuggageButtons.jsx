@@ -10,6 +10,10 @@ import {
   ARRIVAL_LIGHT_LUGGAGE_DOWN,
   ARRIVAL_HEAVY_LUGGAGE_UP,
   ARRIVAL_HEAVY_LUGGAGE_DOWN,
+  SPECIAL_DEPARTURE_UP,
+  SPECIAL_DEPARTURE_DOWN,
+  SPECIAL_ARRIVAL_UP,
+  SPECIAL_ARRIVAL_DOWN,
 } from 'store/reducers/luggageReducer';
 const LuggageButtons = ({ action, types }) => {
   const dispatch = useDispatch();
@@ -24,6 +28,12 @@ const LuggageButtons = ({ action, types }) => {
   );
   const arrivalHeavyLuggage = useSelector(
     state => state.luggageReducer.arrivalHeavyLuggage
+  );
+  const specialDeparture = useSelector(
+    state => state.luggageReducer.specialDeparture
+  );
+  const specialArrival = useSelector(
+    state => state.luggageReducer.specialArrival
   );
 
   function validateAmount(action, types) {
@@ -76,6 +86,31 @@ const LuggageButtons = ({ action, types }) => {
             dispatch({ type: ARRIVAL_HEAVY_LUGGAGE_DOWN });
           }
         }
+        break;
+      case 'specialIncrement':
+        if (types === 'departure') {
+          if (specialDeparture < 1) {
+            dispatch({ type: SPECIAL_DEPARTURE_UP });
+          }
+        }
+        if (types === 'arrival') {
+          if (specialArrival < 1) {
+            dispatch({ type: SPECIAL_ARRIVAL_UP });
+          }
+        }
+        break;
+      case 'specialDecrement':
+        if (types === 'departure') {
+          if (specialDeparture > 0) {
+            dispatch({ type: SPECIAL_DEPARTURE_DOWN });
+          }
+        }
+        if (types === 'arrival') {
+          if (specialArrival > 0) {
+            dispatch({ type: SPECIAL_ARRIVAL_DOWN });
+          }
+        }
+        break;
     }
   }
 
@@ -85,7 +120,9 @@ const LuggageButtons = ({ action, types }) => {
       {<br />}
       {heavyLuggage}} */}
 
-      {action === 'lightIncrement' || action === 'heavyIncrement' ? (
+      {action === 'lightIncrement' ||
+      action === 'heavyIncrement' ||
+      action === 'specialIncrement' ? (
         <span onClick={() => validateAmount(action, types)}>
           <svg
             height={20}

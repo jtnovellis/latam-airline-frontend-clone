@@ -181,4 +181,46 @@
       font-size: 0.875rem;
     }
   }
+  .Luggagecard_special-luggage {
+    display: flex;
+    font-size: 0.875rem;
+    margin: 0.5rem 0.5rem;
+    padding: 1rem;
+    border: 1px solid rgb(205, 209, 241);
+    border-radius: 0.5rem;
+    flex-direction: column;
+    svg {
+      margin-right: 1rem;
+    }
+    p {
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 25px;
+      font-style: italic;
+      color: rgb(27, 0, 136);
+    }
+    .Luggagecard_special-luggage-content {
+      display: flex;
+      justify-content: space-between;
+      .Luggagecard_special-luggage-content-info {
+        display: flex;
+      }
+      .Luggagecard_special-luggage-content-arrow {
+        display: flex;
+
+        justify-content: baseline;
+      }
+    }
+    .Luggagecard__special-luggage-price-content {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      .luggageCard__special__luggage-buttons {
+        display: flex;
+        p {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
 }
