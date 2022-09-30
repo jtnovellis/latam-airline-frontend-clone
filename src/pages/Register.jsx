@@ -1,10 +1,13 @@
 import React from 'react';
-
-import NonExistingRoute from '../components/NonExistingRoute/NonExistingRoute';
+import HeaderRegister from '../components/Header-Register/HeaderRegister';
+import BodyRegister from '../components/Body-Register/index';
+import FooterRegister from '../components/Footer-Register/index';
 const Register = () => {
   return (
     <div>
-      <NonExistingRoute />
+      <HeaderRegister />
+      <BodyRegister />
+      <FooterRegister />
     </div>
   );
 };
