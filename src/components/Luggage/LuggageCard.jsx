@@ -5,6 +5,10 @@ import luggage from 'svg/luggage/maleta.png';
 import luggagelug from 'svg/luggage/maleta2.png';
 import LuggageButtons from './LuggageButtons';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { COMBO_UP, COMBO_DOWN } from 'store/reducers/luggageReducer';
 const LuggageCard = prop => {
   //const action = 'lightIncrement';
   const departureLightLuggage = useSelector(
@@ -20,6 +24,18 @@ const LuggageCard = prop => {
     state => state.luggageReducer.arrivalHeavyLuggage
   );
   const totalAmount = useSelector(state => state.luggageReducer.totalPrice);
+  const [radio, setRadio] = useState(true);
+  const [send, setSend] = useState(false);
+  function handleSend(action) {
+    switch (action) {
+      case 'increment':
+        useDispatch(COMBO_UP);
+        break;
+      case 'decrement':
+        useDispatch(COMBO_DOWN);
+        break;
+    }
+  }
 
   console.log(totalAmount);
   return (
@@ -54,7 +70,11 @@ const LuggageCard = prop => {
           </div>
           <div className='Luggagecard__body-backpack-selector'>
             <div className='Luggagecard__body-backpack-selector-radio'>
-              <input type='radio' />
+              <input
+                type='radio'
+                checked={radio ? 'checked' : ''}
+                onClick={() => (radio ? setRadio(false) : setRadio(true))}
+              />
             </div>
             <div className='Luggagecard__body-backpack-selector-description'>
               <p>articulo personal gratis</p>
@@ -77,7 +97,13 @@ const LuggageCard = prop => {
           </div>
           <div className='Luggagecard__body-handheld-selector'>
             <div className='Luggagecard__body-handheld-selector-radio'>
-              <input type='radio' />
+              <input
+                type='radio'
+                checked={radio ? '' : 'checked'}
+                onChange={() => (!radio ? setRadio(true) : setRadio(false))}
+                onClick={() => (radio ? setSend(false) : setSend(true))}
+              />
+              {send ? handleSend('increment') : handleSend('decrement')}
             </div>
             <div className='Luggagecard__body-handheld-selector-description'>
               <p>Ambos por cop 45000</p>
