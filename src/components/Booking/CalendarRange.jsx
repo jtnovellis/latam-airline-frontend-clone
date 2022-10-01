@@ -24,8 +24,14 @@ const CalendarRange = () => {
         onChange={e => handleChange(e)}
         renderInput={(startProps, endProps) => (
           <>
-            <TextField {...startProps} />
-            <TextField {...endProps} />
+            <TextField
+              sx={{ width: '220px', marginLeft: '1rem' }}
+              {...startProps}
+            />
+            <TextField
+              sx={{ marginLeft: '1rem', width: '220px' }}
+              {...endProps}
+            />
           </>
         )}
       />

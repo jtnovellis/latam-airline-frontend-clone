@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from 'react';
-
-const flightGo = {
-  origin: 'Barranquilla',
-  destination: 'Bogota',
-  direction: 'Vuelo de ida',
-};
-const flightRtn = {
-  origin: 'Bogota',
-  destination: 'Barranquilla',
-  direction: 'Vuelo de vuelta',
-};
+import { useSelector } from 'react-redux';
 
 const CityNav = ({ param }) => {
   const [selected, setSelected] = useState({
     go: true,
     return: false,
   });
+  const { origin, destination, roundTrip } = useSelector(
+    state => state.bookingReducer
+  );
+
   useEffect(() => {
     if (param === 'departure') {
       setSelected({
@@ -30,20 +24,23 @@ const CityNav = ({ param }) => {
       });
     }
   }, [param]);
+
   return (
     <>
       <button className={selected.go ? 'cityNav selected' : 'cityNav'}>
         <span className='cityNav__cities'>
-          {flightGo.origin} a {flightGo.destination}
+          {origin} a {destination}
         </span>
-        <span className='cityNav__direction'>{flightGo.direction}</span>
+        <span className='cityNav__direction'>Vuelo de ida</span>
       </button>
-      <button className={selected.return ? 'cityNav selected' : 'cityNav'}>
-        <span className='cityNav__cities'>
-          {flightRtn.origin} a {flightRtn.destination}
-        </span>
-        <span className='cityNav__direction'>{flightRtn.direction}</span>
-      </button>
+      {!roundTrip ? null : (
+        <button className={selected.return ? 'cityNav selected' : 'cityNav'}>
+          <span className='cityNav__cities'>
+            {destination} a {origin}
+          </span>
+          <span className='cityNav__direction'>Vuelo de vuelta</span>
+        </button>
+      )}
     </>
   );
 };

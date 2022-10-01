@@ -8,11 +8,12 @@ export const PASSENGER_AMOUNT_DOWN_KIDS = '@passengerAmount_kids/decrement';
 export const PASSENGER_AMOUNT_DOWN_BABIES = '@passengerAmount_babies/decrement';
 export const BOOKING_CITIES_ADD = '@booking/add-cities';
 export const BOOKING_DATES_ADD = '@booking/add-dates';
+export const BOOKING_SET_ROUNDTRIP = '@booking/add-roundtrip';
 
 const initialValues = {
   passengerAmount: 1,
-  origin: '',
-  destination: '',
+  origin: 'Barranquilla',
+  destination: 'Mayapo',
   dates: [null, null],
   adults: 1,
   kids: 0,
@@ -72,6 +73,11 @@ const bookingReducer = (state = initialValues, action) => {
       return {
         ...state,
         dates: action.payload,
+      };
+    case BOOKING_SET_ROUNDTRIP:
+      return {
+        ...state,
+        roundTrip: action.payload,
       };
     default:
       return state;
