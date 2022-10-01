@@ -7,7 +7,7 @@ const Airplane = ({ flightData, param, totalseats, setTotalseats }) => {
   const { firstDiv, secondDiv, thirthDiv, headerSeats } = seats;
 
   return (
-    <div className='airplane'>
+    <div className={param === 'arrival' ? 'airplaneout' : 'airplane'}>
       <div className='airplane__body'>
         <p>Air Bus {airBus}</p>
         <div className='airplane__body--seats'>
