@@ -1,10 +1,15 @@
 import React from 'react';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import PassengersCard from './PassengersCard';
+import { useSelector } from 'react-redux';
 
 const Passengers = ({ passengersToRender, totalseats }) => {
   let length = passengersToRender.length;
   const [toRender, setToRender] = React.useState([]);
+  const { adults, kids } = useSelector(state => state.bookingReducer);
+  const total = adults + kids;
+  console.log(total);
+
   React.useEffect(() => {
     setToRender(passengersToRender);
   }, [totalseats]);
@@ -17,13 +22,15 @@ const Passengers = ({ passengersToRender, totalseats }) => {
           <div className='passengersContainer__data--adults'>
             {length > 0 ? (
               toRender.map(({ column, row, price, location }, i) => (
-                <PassengersCard
-                  key={`${column}${row}`}
-                  seat={`${column}${row}`}
-                  level={location}
-                  numPass={i + 1}
-                  price={price}
-                />
+                <>
+                  <PassengersCard
+                    key={`${column}${row}`}
+                    seat={`${column}${row}`}
+                    level={location}
+                    numPass={i + 1}
+                    price={price}
+                  />
+                </>
               ))
             ) : (
               <PassengersCard numPass={1} />

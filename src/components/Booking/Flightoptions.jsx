@@ -9,7 +9,6 @@ function Flightoptions({
   classTrigger,
   iconClass,
 }) {
-  console.log(trigger);
   return (
     <>
       <div

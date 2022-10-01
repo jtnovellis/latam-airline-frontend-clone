@@ -34,7 +34,7 @@ function PassengerDropDown({
               />
             </div>
             <div className='icon-number'>
-              <span>{seats[nameClick].amount}</span>
+              <span>{seats[nameClick]}</span>
             </div>
             <div className='icon'>
               <FontAwesomeIcon

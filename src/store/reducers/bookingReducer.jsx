@@ -14,7 +14,7 @@ const initialValues = {
   origin: '',
   destination: '',
   dates: [null, null],
-  adults: 1,
+  adults: 4,
   kids: 0,
   babies: 0,
   roundTrip: true,
@@ -30,26 +30,17 @@ const bookingReducer = (state = initialValues, action) => {
     case PASSENGER_AMOUNT_UP_ADULTS:
       return {
         ...state,
-        adults: {
-          ...state.adults,
-          amount: state.adults.amount + 1,
-        },
+        adults: state.adults + 1,
       };
     case PASSENGER_AMOUNT_UP_KIDS:
       return {
         ...state,
-        kids: {
-          ...state.kids,
-          amount: state.kids.amount + 1,
-        },
+        kids: state.kids + 1,
       };
     case PASSENGER_AMOUNT_UP_BABIES:
       return {
         ...state,
-        babies: {
-          ...state.babies,
-          amount: state.babies.amount + 1,
-        },
+        babies: state.babies + 1,
       };
     case PASSENGER_AMOUNT_DOWN:
       return {
@@ -59,26 +50,17 @@ const bookingReducer = (state = initialValues, action) => {
     case PASSENGER_AMOUNT_DOWN_ADULTS:
       return {
         ...state,
-        adults: {
-          ...state.adults,
-          amount: state.adults.amount - 1,
-        },
+        adults: state.adults - 1,
       };
     case PASSENGER_AMOUNT_DOWN_KIDS:
       return {
         ...state,
-        kids: {
-          ...state.kids,
-          amount: state.kids.amount - 1,
-        },
+        kids: state.kids - 1,
       };
     case PASSENGER_AMOUNT_DOWN_BABIES:
       return {
         ...state,
-        babies: {
-          ...state.babies,
-          amount: state.babies.amount - 1,
-        },
+        babies: state.babies - 1,
       };
     case BOOKING_CITIES_ADD:
       return {
