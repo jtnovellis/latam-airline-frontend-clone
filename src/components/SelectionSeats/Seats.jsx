@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
 import WeekendOutlinedIcon from '@mui/icons-material/WeekendOutlined';
 import SeatsInfo from './SeatsInfo';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  ADD_SEATS_DEPARTURE,
+  ADD_SEATS_ARRIVAL,
+} from '../../store/reducers/flightsReducer';
 
-const Seats = ({ column, row, price, location }) => {
+const Seats = ({
+  column,
+  row,
+  price,
+  location,
+  totalseats,
+  setTotalseats,
+  param,
+}) => {
   const [hover, setHover] = useState(false);
   const [selected, setSelected] = useState(false);
+  const { adults, kids } = useSelector(state => state.bookingReducer);
+  const dispatch = useDispatch();
+
+  const seatLimit = adults + kids;
 
   const handleMouseLeave = () => {
     setHover(false);
@@ -15,7 +32,23 @@ const Seats = ({ column, row, price, location }) => {
   };
 
   const handleClick = () => {
-    setSelected(true);
+    if (totalseats < seatLimit) {
+      if (param === 'departure') {
+        setSelected(true);
+        setTotalseats(prev => prev + 1);
+        dispatch({
+          type: ADD_SEATS_DEPARTURE,
+          payload: { column, row, price, location },
+        });
+      } else if (param === 'arrival') {
+        setSelected(true);
+        setTotalseats(prev => prev + 1);
+        dispatch({
+          type: ADD_SEATS_ARRIVAL,
+          payload: { column, row, price, location },
+        });
+      }
+    }
   };
 
   return (

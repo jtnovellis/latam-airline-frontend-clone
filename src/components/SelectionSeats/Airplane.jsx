@@ -2,7 +2,7 @@ import React from 'react';
 import SeatsRow from './SeatsRow';
 import Emergency from 'components/SelectionSeats/Emergency';
 
-const Airplane = ({ flightData }) => {
+const Airplane = ({ flightData, param, totalseats, setTotalseats }) => {
   const { airBus, seats } = flightData.airplane;
   const { firstDiv, secondDiv, thirthDiv, headerSeats } = seats;
 
@@ -20,19 +20,37 @@ const Airplane = ({ flightData }) => {
           </div>
           <div className='seats-firstDiv'>
             {firstDiv.map((rows, i) => (
-              <SeatsRow key={i} rows={rows} />
+              <SeatsRow
+                key={i}
+                rows={rows}
+                totalseats={totalseats}
+                setTotalseats={setTotalseats}
+                param={param}
+              />
             ))}
           </div>
           <Emergency />
           <div className='seats-secondDiv'>
             {secondDiv.map((rows, i) => (
-              <SeatsRow key={i} rows={rows} />
+              <SeatsRow
+                key={i}
+                rows={rows}
+                totalseats={totalseats}
+                setTotalseats={setTotalseats}
+                param={param}
+              />
             ))}
           </div>
           <Emergency />
           <div className='seats-secondDiv'>
             {thirthDiv.map((rows, i) => (
-              <SeatsRow key={i} rows={rows} />
+              <SeatsRow
+                key={i}
+                rows={rows}
+                totalseats={totalseats}
+                setTotalseats={setTotalseats}
+                param={param}
+              />
             ))}
           </div>
         </div>

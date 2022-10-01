@@ -12,14 +12,55 @@ const SelectionSeats = () => {
     state => state.flightsReducer.departureFlightData
   );
   const arrival = useSelector(state => state.flightsReducer.arrivalFlightData);
+  const passengerDeparture = useSelector(
+    state => state.flightsReducer.departureUser
+  );
+  const passengerArrival = useSelector(
+    state => state.flightsReducer.arrivalUser
+  );
+  const [totalseats, setTotalseats] = React.useState(0);
   const [query, setQuery] = useSearchParams();
+  const param = query.get('dir');
 
   const handleAirplaneByFlight = () => {
-    const param = query.get('dir');
     if (param === 'departure') {
-      return <Airplane flightData={departure} />;
+      return (
+        <Airplane
+          flightData={departure}
+          param={param}
+          totalseats={totalseats}
+          setTotalseats={setTotalseats}
+        />
+      );
     } else if (param === 'arrival') {
-      return <Airplane flightData={arrival} />;
+      return (
+        <Airplane
+          flightData={arrival}
+          param={param}
+          totalseats={totalseats}
+          setTotalseats={setTotalseats}
+        />
+      );
+    }
+  };
+
+  const handlePassengerByFlight = () => {
+    if (param === 'departure') {
+      return (
+        <Passengers
+          setQuery={setQuery}
+          passengersToRender={passengerDeparture}
+          totalseats={totalseats}
+        />
+      );
+    } else if (param === 'arrival') {
+      return (
+        <Passengers
+          setQuery={setQuery}
+          passengersToRender={passengerArrival}
+          totalseats={totalseats}
+        />
+      );
     }
   };
 
@@ -33,7 +74,7 @@ const SelectionSeats = () => {
         <Navigation />
         <section className='selectionSeats__section'>
           {handleAirplaneByFlight()}
-          <Passengers setQuery={setQuery} />
+          {handlePassengerByFlight()}
         </section>
       </main>
       <Footer />

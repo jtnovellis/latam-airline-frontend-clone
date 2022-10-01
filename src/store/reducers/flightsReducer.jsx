@@ -1,6 +1,9 @@
 import airbus from '../../Airbus';
 import airbusTwo from '../../AirbusTwo';
-const REQ_FLIGHTS = '@flights/req-flights';
+
+export const REQ_FLIGHTS = '@flights/req-flights';
+export const ADD_SEATS_DEPARTURE = '@flights/add-seat-departure';
+export const ADD_SEATS_ARRIVAL = '@flights/add-seat-arrival';
 
 const initialState = {
   departureFlightData: {
@@ -45,6 +48,12 @@ const flightsReducer = (state = initialState, action) => {
           arrivalFlightData: action.payload.arrival,
         },
       };
+    case ADD_SEATS_DEPARTURE:
+      state.departureUser.push(action.payload);
+      return state;
+    case ADD_SEATS_ARRIVAL:
+      state.arrivalUser.push(action.payload);
+      return state;
     default:
       return state;
   }

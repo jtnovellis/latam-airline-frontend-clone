@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PassengersCard = ({ seat, level, passenger, numPass, price }) => {
+const PassengersCard = ({ seat, level, numPass, price }) => {
   return (
     <div className='passengerCard'>
       <button className='passengerCard__info'>
@@ -8,9 +8,7 @@ const PassengersCard = ({ seat, level, passenger, numPass, price }) => {
           <span>{seat || '- -'}</span>
         </div>
         <div className='passengerCard__info--passenger'>
-          <span>
-            {passenger || 'Adulto 1'} {numPass}
-          </span>
+          <span>Pasajero {numPass}</span>
           <span>{level || 'Sin selección'}</span>
         </div>
         <div className='passengerCard__info--price'>
