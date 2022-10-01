@@ -106,7 +106,7 @@ export function BookingDropdown() {
         dispatch({ type: PASSENGER_AMOUNT_DOWN_ADULTS });
         break;
       case 'kids':
-        if (seats[key].amount > 0) {
+        if (seats[key] > 0) {
           setErrors(prev => ({
             ...prev,
             [key]: '',
