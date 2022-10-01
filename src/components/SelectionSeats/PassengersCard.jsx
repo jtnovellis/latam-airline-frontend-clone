@@ -1,9 +1,6 @@
 import React from 'react';
 
-const selection = (lvl, clmn) => {
-  lvl && clmn ? `${lvl} - ${clmn}` : null;
-};
-const PassengersCard = ({ seat, level, column, passenger, numPass, price }) => {
+const PassengersCard = ({ seat, level, numPass, price }) => {
   return (
     <div className='passengerCard'>
       <button className='passengerCard__info'>
@@ -11,13 +8,11 @@ const PassengersCard = ({ seat, level, column, passenger, numPass, price }) => {
           <span>{seat || '- -'}</span>
         </div>
         <div className='passengerCard__info--passenger'>
-          <span>
-            {passenger || 'Adulto 1'} {numPass}
-          </span>
-          <span>{selection(level, column) || 'Sin selección'}</span>
+          <span>Pasajero {numPass}</span>
+          <span>{level || 'Sin selección'}</span>
         </div>
         <div className='passengerCard__info--price'>
-          <span>COP {price || '23.343,32'}</span>
+          <span>COP {price || '--.---,--'}</span>
         </div>
       </button>
       {seat && (

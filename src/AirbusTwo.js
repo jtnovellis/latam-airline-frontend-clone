@@ -1,4 +1,4 @@
-const airbus = {
+const airbusTwo = {
   firstDiv: [
     [
       {
@@ -333,4 +333,4 @@ const airbus = {
   headerSeats: ['A', 'B', 'C', '', 'D', 'E', 'F'],
 };
 
-export default airbus;
+export default airbusTwo;

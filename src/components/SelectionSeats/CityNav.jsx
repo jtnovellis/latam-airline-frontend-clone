@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const flightGo = {
   origin: 'Barranquilla',
@@ -11,24 +11,34 @@ const flightRtn = {
   direction: 'Vuelo de vuelta',
 };
 
-const CityNav = () => {
+const CityNav = ({ param }) => {
   const [selected, setSelected] = useState({
     go: true,
     return: false,
   });
+  useEffect(() => {
+    if (param === 'departure') {
+      setSelected({
+        go: true,
+        return: false,
+      });
+    }
+    if (param === 'arrival') {
+      setSelected({
+        go: false,
+        return: true,
+      });
+    }
+  }, [param]);
   return (
     <>
-      <button
-        onClick={() => setSelected({ go: true, return: false })}
-        className={selected.go ? 'cityNav selected' : 'cityNav'}>
+      <button className={selected.go ? 'cityNav selected' : 'cityNav'}>
         <span className='cityNav__cities'>
           {flightGo.origin} a {flightGo.destination}
         </span>
         <span className='cityNav__direction'>{flightGo.direction}</span>
       </button>
-      <button
-        onClick={() => setSelected({ go: false, return: true })}
-        className={selected.return ? 'cityNav selected' : 'cityNav'}>
+      <button className={selected.return ? 'cityNav selected' : 'cityNav'}>
         <span className='cityNav__cities'>
           {flightRtn.origin} a {flightRtn.destination}
         </span>
