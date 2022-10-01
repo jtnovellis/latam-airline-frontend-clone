@@ -6,8 +6,7 @@ const Seats = ({ column, row, price, location }) => {
   const [hover, setHover] = useState(false);
   const [selected, setSelected] = useState(false);
 
-  const handleMouseLeave = e => {
-    e.preventDefault();
+  const handleMouseLeave = () => {
     setHover(false);
   };
 
@@ -38,8 +37,8 @@ const Seats = ({ column, row, price, location }) => {
 
           <button
             className='seats__button'
-            onMouseEnter={e => handleMouseEnter(e)}
-            onMouseLeave={e => handleMouseLeave(e)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             onClick={handleClick}>
             {selected ? (
               <WeekendOutlinedIcon

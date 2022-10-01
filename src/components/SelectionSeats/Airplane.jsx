@@ -1,14 +1,15 @@
 import React from 'react';
 import SeatsRow from './SeatsRow';
-import { firstDiv, secondDiv, thirthDiv, headerSeats } from '../../Airbus';
 import Emergency from 'components/SelectionSeats/Emergency';
 
-const Airplane = () => {
-  const airplane = '213';
+const Airplane = ({ flightData }) => {
+  const { airBus, seats } = flightData.airplane;
+  const { firstDiv, secondDiv, thirthDiv, headerSeats } = seats;
+
   return (
     <div className='airplane'>
       <div className='airplane__body'>
-        <p>Air Bus {airplane}</p>
+        <p>Air Bus {airBus}</p>
         <div className='airplane__body--seats'>
           <div className='seats--header'>
             {headerSeats.map(item => (
