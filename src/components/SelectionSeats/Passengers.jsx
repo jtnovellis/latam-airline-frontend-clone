@@ -2,17 +2,34 @@ import React from 'react';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import PassengersCard from './PassengersCard';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-const Passengers = ({ passengersToRender, totalseats }) => {
+const Passengers = ({
+  passengersToRender,
+  totalseats,
+  setQuery,
+  param,
+  setTotalseats,
+}) => {
   let length = passengersToRender.length;
   const [toRender, setToRender] = React.useState([]);
-  const { adults, kids } = useSelector(state => state.bookingReducer);
-  const total = adults + kids;
-  console.log(total);
+  const roundTrip = useSelector(state => state.bookingReducer.roundTrip);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     setToRender(passengersToRender);
   }, [totalseats]);
+
+  const handleClick = () => {
+    if (roundTrip && param !== 'arrival') {
+      setQuery({ dir: 'arrival' });
+      setTotalseats(0);
+    } else {
+      navigate({
+        pathname: '/',
+      });
+    }
+  };
 
   return (
     <div className='passengersContainer'>
@@ -24,7 +41,7 @@ const Passengers = ({ passengersToRender, totalseats }) => {
               toRender.map(({ column, row, price, location }, i) => (
                 <>
                   <PassengersCard
-                    key={`${column}${row}`}
+                    key={`${i}${column}${param}`}
                     seat={`${column}${row}`}
                     level={location}
                     numPass={i + 1}
@@ -33,14 +50,18 @@ const Passengers = ({ passengersToRender, totalseats }) => {
                 </>
               ))
             ) : (
-              <PassengersCard numPass={1} />
+              <PassengersCard key={param} numPass={1} />
             )}
           </div>
         </div>
       </div>
       <div className='passengersContainer__flightSelector'>
-        <button className='passengersContainer__flightSelector--buttonNext'>
-          Pasar al siguiente vuelo
+        <button
+          className='passengersContainer__flightSelector--buttonNext'
+          onClick={handleClick}>
+          {roundTrip && param !== 'arrival'
+            ? 'Pasar al siguiente vuelo'
+            : 'Continuar'}
         </button>
         <div>
           <button>

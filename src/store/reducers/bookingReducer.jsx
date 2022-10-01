@@ -14,7 +14,7 @@ const initialValues = {
   origin: '',
   destination: '',
   dates: [null, null],
-  adults: 4,
+  adults: 1,
   kids: 0,
   babies: 0,
   roundTrip: true,

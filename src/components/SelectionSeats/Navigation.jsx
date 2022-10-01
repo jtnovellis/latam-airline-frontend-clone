@@ -1,11 +1,11 @@
 import React from 'react';
 import CityNav from './CityNav';
 
-const Navigation = () => {
+const Navigation = ({ param }) => {
   return (
     <div className='navigation'>
       <div className='navigation__selectorbyCity'>
-        <CityNav />
+        <CityNav param={param} />
       </div>
     </div>
   );

@@ -48,17 +48,23 @@ const SelectionSeats = () => {
     if (param === 'departure') {
       return (
         <Passengers
+          key={param}
           setQuery={setQuery}
           passengersToRender={passengerDeparture}
           totalseats={totalseats}
+          param={param}
+          setTotalseats={setTotalseats}
         />
       );
     } else if (param === 'arrival') {
       return (
         <Passengers
+          key={param}
           setQuery={setQuery}
           passengersToRender={passengerArrival}
           totalseats={totalseats}
+          param={param}
+          setTotalseats={setTotalseats}
         />
       );
     }
@@ -71,7 +77,7 @@ const SelectionSeats = () => {
         <h1>Elige tus asientos</h1>
       </div>
       <main className='selectionSeats'>
-        <Navigation />
+        <Navigation param={param} />
         <section className='selectionSeats__section'>
           {handleAirplaneByFlight()}
           {handlePassengerByFlight()}

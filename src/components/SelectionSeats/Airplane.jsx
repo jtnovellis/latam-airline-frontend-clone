@@ -21,7 +21,8 @@ const Airplane = ({ flightData, param, totalseats, setTotalseats }) => {
           <div className='seats-firstDiv'>
             {firstDiv.map((rows, i) => (
               <SeatsRow
-                key={i}
+                key={`${i}${airBus}seats-firstDiv`}
+                airBus={airBus}
                 rows={rows}
                 totalseats={totalseats}
                 setTotalseats={setTotalseats}
@@ -33,7 +34,8 @@ const Airplane = ({ flightData, param, totalseats, setTotalseats }) => {
           <div className='seats-secondDiv'>
             {secondDiv.map((rows, i) => (
               <SeatsRow
-                key={i}
+                key={`${i}${airBus}seats-secondDiv`}
+                airBus={airBus}
                 rows={rows}
                 totalseats={totalseats}
                 setTotalseats={setTotalseats}
@@ -45,7 +47,8 @@ const Airplane = ({ flightData, param, totalseats, setTotalseats }) => {
           <div className='seats-secondDiv'>
             {thirthDiv.map((rows, i) => (
               <SeatsRow
-                key={i}
+                key={`${i}${airBus}seats-secondDiv`}
+                airBus={airBus}
                 rows={rows}
                 totalseats={totalseats}
                 setTotalseats={setTotalseats}
