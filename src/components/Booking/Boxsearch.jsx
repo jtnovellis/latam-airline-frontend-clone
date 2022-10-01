@@ -1,4 +1,3 @@
-/* import Flightoptions from './Flightoptions'; */
 import { BookingDropdown } from './BookingDropdown';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
