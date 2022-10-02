@@ -4,8 +4,9 @@ import HeaderRegister from '../components/Header-Register/HeaderRegister';
 import Boxsearch from 'components/Booking/Boxsearch';
 import BookingInputs from 'components/Booking/BookingInputs';
 import BookingInputsDesktop from 'components/Booking/BookingInputsDesktop';
-
 import FlightContainer from '../components/BookingFlightSelector/FlightContainer';
+import StatusFlight from 'components/StatusFlight/StatusFlight';
+
 const Flights = () => {
   return (
     <>
@@ -17,7 +18,12 @@ const Flights = () => {
           <BookingInputsDesktop />
         </div>
       </div>
-      <FlightContainer />
+      <div className='container-flights2'>
+        <div className='cf'>
+          <FlightContainer />
+          <StatusFlight />
+        </div>
+      </div>
     </>
   );
 };
