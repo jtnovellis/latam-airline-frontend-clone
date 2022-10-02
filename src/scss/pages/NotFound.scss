@@ -1,0 +1,97 @@
+.NotFound__main {
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  @media (min-width: 1020px) {
+    height: 80vh;
+  }
+}
+
+.NotFound__content {
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  @media (min-width: 990px) {
+    margin-bottom: 0;
+  }
+}
+
+.NotFound__svg {
+  max-height: 224px;
+  margin-bottom: 0.5rem;
+}
+
+.NotFound__title {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.016rem;
+  font-weight: 300;
+  color: rgb(27, 0, 136);
+
+  @media (min-width: 1280px) {
+    font-size: 2.063rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.016rem;
+  }
+}
+
+.NotFound__info {
+  font-style: normal;
+  font-size: 1.063rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+  font-weight: 400;
+  color: rgb(92, 92, 92);
+  font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+  @media (min-width: 1280px) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: 0px;
+  }
+}
+
+.NotFound__redirectHomeButton {
+  margin-top: 2.5rem;
+  position: relative;
+  display: inline-block;
+  height: fit-content;
+  width: auto;
+}
+
+.NotFound__redirectHomeButton--button {
+  background: none rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: none;
+  transition: none 0s ease 0s;
+  border: 0.0625rem solid rgb(232, 17, 75);
+  color: rgb(232, 17, 75);
+  font-size: 1.125rem;
+  height: 3.5rem;
+  padding: 1rem 2rem;
+  letter-spacing: 0.02857em;
+  min-width: 64px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(233, 88, 120);
+    color: rgb(255, 255, 255);
+    border: 0.0625rem solid rgb(233, 88, 120);
+  }
+  span {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+}

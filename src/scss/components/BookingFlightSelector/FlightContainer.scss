@@ -1,0 +1,73 @@
+.Flight__container {
+  background-color: rgb(243, 242, 246);
+  width: 60%;
+
+  height: 62.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  overflow: scroll;
+  .Flight__container-header {
+    display: flex;
+    width: 50rem;
+    justify-content: space-between;
+    .Flight__container-header-title {
+      margin: auto 0rem;
+      color: rgb(13, 39, 144);
+    }
+    .Flight__container-header-filter {
+      display: flex;
+
+      p {
+        margin: auto 0px;
+        font-weight: 100;
+      }
+      select {
+        color: aqua;
+      }
+    }
+  }
+  .Flight__container-footer {
+    display: flex;
+    flex-direction: column;
+    .Flight__container-footer-services {
+      display: flex;
+      margin: 1rem auto;
+      width: 100%;
+      font-size: 12px;
+      justify-content: space-evenly;
+      ul {
+        margin: 0rem auto;
+        li {
+          list-style: none;
+          margin-top: 1rem;
+        }
+      }
+    }
+    .Flight__container-footer-info {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 2rem;
+      h3 {
+        font-size: 16px;
+      }
+
+      li {
+        margin: 0.3rem 1rem;
+        font-size: 12px;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .Flight__container-header {
+      width: 100%;
+    }
+  }
+
+  fieldset {
+    cursor: pointer;
+    border: none !important;
+    outline: none !important;
+  }
+}

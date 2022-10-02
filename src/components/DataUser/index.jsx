@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
+import userAvatar from '../../images/user/avatar.png';
 
 const DataUser = () => {
   return (
@@ -17,7 +18,7 @@ const DataUser = () => {
           <Stack direction='row' spacing={2}>
             <Avatar
               alt='Remy Sharp'
-              src='https://pixabay.com/get/g9854c72bc538623f253b7260263cd7614b1476dcf2095711e845b41a2b90454646650ee1182f8e777ab98b10803e0a9727293d251523c635f7a0b7bc6413daf90734d8570699cdf7da961120d40cbb23_640.png'
+              src={userAvatar}
               sx={{ width: 56, height: 56 }}
             />
           </Stack>

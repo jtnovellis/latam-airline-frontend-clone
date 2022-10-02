@@ -3,9 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import CalendarRange from './CalendarRange';
 import { useDispatch } from 'react-redux';
 import { BOOKING_CITIES_ADD } from 'store/reducers/bookingReducer';
+import { useNavigate } from 'react-router-dom';
 
 function BookingInputsDesktop() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <div className='input-desktop-container'>
       <div className='form-container'>
@@ -26,7 +28,10 @@ function BookingInputsDesktop() {
           }}
           onSubmit={(values, { resetForm }) => {
             dispatch({ type: BOOKING_CITIES_ADD, payload: values });
-            alert(JSON.stringify(values, null, 2));
+            navigate({
+              pathname: '/seats-selection',
+              search: '?dir=departure',
+            });
             resetForm();
           }}>
           {({ isSubmiting }) => (

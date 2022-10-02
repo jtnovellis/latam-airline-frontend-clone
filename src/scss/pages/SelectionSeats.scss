@@ -1,0 +1,14 @@
+.selectionSeats__section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.selectionSeats {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 7%,
+    rgb(243, 242, 246) 9.47%
+  );
+}
