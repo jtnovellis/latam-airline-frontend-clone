@@ -12,8 +12,10 @@ export const ARRIVAL_LIGHT_LUGGAGE_DOWN =
 export const ARRIVAL_HEAVY_LUGGAGE_UP = '@arrivalHeavyLuggageAmount/increment';
 export const ARRIVAL_HEAVY_LUGGAGE_DOWN =
   '@arrivalHeavyLuggageAmount/decrement';
-export const COMBO_UP = '@combo/increment';
-export const COMBO_DOWN = '@combo/decrement';
+export const DEPARTURE_COMBO_UP = '@departureCombo/increment';
+export const DEPARTURE_COMBO_DOWN = '@departureCombo/decrement';
+export const ARRIVAL_COMBO_UP = '@arrivalCombo/increment';
+export const ARRIVAL_COMBO_DOWN = '@arrivalCombo/decrement';
 export const SPECIAL_DEPARTURE_UP = '@specialDeparture/increment';
 export const SPECIAL_DEPARTURE_DOWN = '@specialDeparture/decrement';
 export const SPECIAL_ARRIVAL_UP = '@specialArrival/increment';
@@ -134,12 +136,22 @@ const bookingReducer = (state = initialValues, action) => {
         arrivalHeavyLuggage: state.arrivalHeavyLuggage - 1,
         totalPrice: state.totalPrice - 54900,
       };
-    case COMBO_UP:
+    case DEPARTURE_COMBO_UP:
       return {
         ...state,
         totalPrice: state.totalPrice + 44900,
       };
-    case COMBO_DOWN:
+    case DEPARTURE_COMBO_DOWN:
+      return {
+        ...state,
+        totalPrice: state.totalPrice - 44900,
+      };
+    case ARRIVAL_COMBO_UP:
+      return {
+        ...state,
+        totalPrice: state.totalPrice + 44900,
+      };
+    case ARRIVAL_COMBO_DOWN:
       return {
         ...state,
         totalPrice: state.totalPrice - 44900,

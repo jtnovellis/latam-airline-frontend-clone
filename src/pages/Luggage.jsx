@@ -27,9 +27,9 @@ const Luggage = () => {
             </div>
           </div>
           {selected ? (
-            <LuggageCard types='departure' />
+            <LuggageCard types='departure' select='departure' />
           ) : (
-            <LuggageCard types='arrival' />
+            <LuggageCard types='arrival' select='arrival' />
           )}
         </div>
       </div>

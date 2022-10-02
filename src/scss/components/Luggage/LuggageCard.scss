@@ -8,78 +8,82 @@
   .Luggagecard__body-cabin {
     display: flex;
     justify-content: space-around;
-    .Luggagecard__body-backpack {
+    form {
       display: flex;
-      flex-direction: column;
-      border: 1px solid rgb(225, 225, 225);
-      border-radius: 0.5rem;
-      .Luggagecard__body-backpack-description {
+      .Luggagecard__body-backpack {
         display: flex;
-        .Luggagecard__body-backpack-description-image {
-          margin-left: 0.5rem;
-          img {
-            width: 80px;
+        flex-direction: column;
+        border: 1px solid rgb(225, 225, 225);
+        border-radius: 0.5rem;
+        .Luggagecard__body-backpack-description {
+          display: flex;
+          .Luggagecard__body-backpack-description-image {
+            margin-left: 0.5rem;
+            img {
+              width: 80px;
+            }
+          }
+          .Luggagecard__body-backpack-text-title {
+            margin: 0.5rem 0.5rem;
+            font-weight: 800;
+          }
+          .Luggagecard__body-backpack-text-subtitle {
+            margin: 0.5rem 0.5rem;
+            font-weight: 100;
           }
         }
-        .Luggagecard__body-backpack-text-title {
-          margin: 0.5rem 0.5rem;
-          font-weight: 800;
-        }
-        .Luggagecard__body-backpack-text-subtitle {
-          margin: 0.5rem 0.5rem;
-          font-weight: 100;
+        .Luggagecard__body-backpack-selector {
+          display: flex;
+          margin-top: 2rem;
+          padding: 1rem 0rem;
+          align-items: center;
+          border-top: 1px solid rgb(239, 239, 239);
+          input {
+            margin: 0rem 0.5rem;
+          }
         }
       }
-      .Luggagecard__body-backpack-selector {
+      .Luggagecard__body-handheld {
         display: flex;
-        margin-top: 2rem;
-        padding: 1rem 0rem;
-        align-items: center;
-        border-top: 1px solid rgb(239, 239, 239);
-        input {
-          margin: 0rem 0.5rem;
-        }
-      }
-    }
-    .Luggagecard__body-handheld {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgb(225, 225, 225);
-      border-radius: 0.5rem;
+        flex-direction: column;
+        border: 1px solid rgb(225, 225, 225);
+        border-radius: 0.5rem;
 
-      .Luggagecard__body-handheld-description {
-        display: flex;
+        .Luggagecard__body-handheld-description {
+          display: flex;
 
-        .Luggagecard__body-handheld-description-image {
-          margin: 1rem 0.5rem;
-          img {
-            width: 60px;
+          .Luggagecard__body-handheld-description-image {
+            margin: 1rem 0.5rem;
+            img {
+              width: 60px;
+            }
+          }
+          .Luggagecard__body-handheld-text-title {
+            margin: 0.5rem 0.5rem;
+            font-weight: 800;
+          }
+          .Luggagecard__body-handheld-text-subtitle {
+            margin: 0.5rem 0.5rem;
+            font-weight: 800;
+            span {
+              font-weight: 400;
+            }
           }
         }
-        .Luggagecard__body-handheld-text-title {
-          margin: 0.5rem 0.5rem;
-          font-weight: 800;
-        }
-        .Luggagecard__body-handheld-text-subtitle {
-          margin: 0.5rem 0.5rem;
-          font-weight: 800;
-          span {
-            font-weight: 400;
+        .Luggagecard__body-handheld-selector {
+          border-top: 1px solid rgb(239, 239, 239);
+          display: flex;
+          margin-top: 1rem;
+          padding: 1rem 0rem;
+          align-items: center;
+          input {
+            margin: 0rem 0.5rem;
           }
-        }
-      }
-      .Luggagecard__body-handheld-selector {
-        border-top: 1px solid rgb(239, 239, 239);
-        display: flex;
-        margin-top: 1rem;
-        padding: 1rem 0rem;
-        align-items: center;
-        input {
-          margin: 0rem 0.5rem;
         }
       }
     }
   }
+
   .Luggagecard__body-paragraph {
     margin: 1rem 1rem;
     font-size: 1.125rem;
@@ -207,7 +211,7 @@
       }
       .Luggagecard_special-luggage-content-arrow {
         display: flex;
-
+        margin-top: 1rem;
         justify-content: baseline;
       }
     }

@@ -8,7 +8,13 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { COMBO_UP, COMBO_DOWN } from 'store/reducers/luggageReducer';
+import {
+  DEPARTURE_COMBO_UP,
+  DEPARTURE_COMBO_DOWN,
+  ARRIVAL_COMBO_UP,
+  ARRIVAL_COMBO_DOWN,
+} from 'store/reducers/luggageReducer';
+
 const LuggageCard = prop => {
   //const action = 'lightIncrement';
   const departureLightLuggage = useSelector(
@@ -30,17 +36,58 @@ const LuggageCard = prop => {
     state => state.luggageReducer.specialArrival
   );
   const totalAmount = useSelector(state => state.luggageReducer.totalPrice);
-  const [radio, setRadio] = useState(true);
-  const [send, setSend] = useState(false);
+  let selected = prop.select;
+  const [value, setValue] = useState('increment');
+  const [value2, setValue2] = useState('increment');
+  const [selectedValue, setSelectedValue] = useState(true);
+  const [selectedValue2, setSelectedValue2] = useState(true);
   const [checked, setChecked] = useState(false);
+  const dispatch = useDispatch();
+  /*   function handleClick(action) {
+    setSelectedValue(action);
+    handleSend(selectedValue);
+  } */
   function handleSend(action) {
-    switch (action) {
-      case 'increment':
-        useDispatch(COMBO_UP);
-        break;
-      case 'decrement':
-        useDispatch(COMBO_DOWN);
-        break;
+    console.log(action);
+    if (selected === 'departure') {
+      switch (action) {
+        case 'increment':
+          dispatch({ type: DEPARTURE_COMBO_UP });
+          break;
+        case 'decrement':
+          dispatch({ type: DEPARTURE_COMBO_DOWN });
+          break;
+      }
+    }
+    if (selected === 'arrival') {
+      switch (action) {
+        case 'increment':
+          dispatch({ type: ARRIVAL_COMBO_UP });
+          break;
+        case 'decrement':
+          dispatch({ type: ARRIVAL_COMBO_DOWN });
+          break;
+      }
+    }
+  }
+  function handleRadio() {
+    if (selected === 'departure') {
+      selectedValue ? setSelectedValue(false) : setSelectedValue(true);
+      if (!selectedValue) {
+        setValue('increment');
+      } else {
+        setValue('decrement');
+      }
+      handleSend(value);
+    }
+    if (selected === 'arrival') {
+      selectedValue2 ? setSelectedValue2(false) : setSelectedValue2(true);
+      if (!selectedValue2) {
+        setValue2('increment');
+      } else {
+        setValue2('decrement');
+      }
+      handleSend(value2);
     }
   }
 
@@ -54,63 +101,75 @@ const LuggageCard = prop => {
         </div>
       </div>
       <div className='Luggagecard__body-cabin'>
-        <div className='Luggagecard__body-backpack'>
-          <div className='Luggagecard__body-backpack-description'>
-            <div className='Luggagecard__body-backpack-description-image'>
-              <img src={backpack} alt='backpack' />
-            </div>
-            <div className='Luggagecard__body-backpack-description-text'>
-              <div className='Luggagecard__body-backpack-text-title'>
-                1 bolso o mochila pequeña
+        <form>
+          <div className='Luggagecard__body-backpack'>
+            <div className='Luggagecard__body-backpack-description'>
+              <div className='Luggagecard__body-backpack-description-image'>
+                <img src={backpack} alt='backpack' />
               </div>
-              <div className='Luggagecard__body-backpack-text-subtitle'>
-                bajo el asiento delantero
+              <div className='Luggagecard__body-backpack-description-text'>
+                <div className='Luggagecard__body-backpack-text-title'>
+                  1 bolso o mochila pequeña
+                </div>
+                <div className='Luggagecard__body-backpack-text-subtitle'>
+                  bajo el asiento delantero
+                </div>
               </div>
             </div>
-          </div>
-          <div className='Luggagecard__body-backpack-selector'>
-            <div className='Luggagecard__body-backpack-selector-radio'>
-              <input
-                type='radio'
-                checked={radio ? 'checked' : ''}
-                onClick={() => (radio ? setRadio(false) : setRadio(true))}
-              />
-            </div>
-            <div className='Luggagecard__body-backpack-selector-description'>
-              <p>articulo personal gratis</p>
-            </div>
-          </div>
-        </div>
-        <div className='Luggagecard__body-handheld'>
-          <div className='Luggagecard__body-handheld-description'>
-            <div className='Luggagecard__body-handheld-description-image'>
-              <img src={backpacklug} alt='backpack 2' />
-            </div>
-            <div className='Luggagecard__body-handheld-description-text'>
-              <div className='Luggagecard__body-handheld-text-title'>
-                1 bolso o mochila pequeña
+
+            <div className='Luggagecard__body-backpack-selector'>
+              <div className='Luggagecard__body-backpack-selector-radio'>
+                <input
+                  checked={
+                    selected === 'departure' ? selectedValue : selectedValue2
+                  }
+                  type='radio'
+                  value='free'
+                  id='free'
+                  name='onBoard'
+                  onChange={() => handleRadio()}
+                />
               </div>
-              <div className='Luggagecard__body-handheld-text-subtitle'>
-                +1 equipaje de mano<span> 10kg</span>
+              <div className='Luggagecard__body-backpack-selector-description'>
+                <p>Articulo personal gratis</p>
               </div>
             </div>
           </div>
-          <div className='Luggagecard__body-handheld-selector'>
-            <div className='Luggagecard__body-handheld-selector-radio'>
-              <input
-                type='radio'
-                checked={radio ? '' : 'checked'}
-                onChange={() => (!radio ? setRadio(true) : setRadio(false))}
-                onClick={() => (radio ? setSend(false) : setSend(true))}
-              />
-              {send ? handleSend('increment') : handleSend('decrement')}
+          <div className='Luggagecard__body-handheld'>
+            <div className='Luggagecard__body-handheld-description'>
+              <div className='Luggagecard__body-handheld-description-image'>
+                <img src={backpacklug} alt='backpack 2' />
+              </div>
+              <div className='Luggagecard__body-handheld-description-text'>
+                <div className='Luggagecard__body-handheld-text-title'>
+                  1 bolso o mochila pequeña
+                </div>
+                <div className='Luggagecard__body-handheld-text-subtitle'>
+                  +1 equipaje de mano<span> 10kg</span>
+                </div>
+              </div>
             </div>
-            <div className='Luggagecard__body-handheld-selector-description'>
-              <p>Ambos por COP 45000</p>
+            <div className='Luggagecard__body-handheld-selector'>
+              <div className='Luggagecard__body-handheld-selector-radio'>
+                <input
+                  checked={
+                    selected === 'departure' ? !selectedValue : !selectedValue2
+                  }
+                  type='radio'
+                  value='pay'
+                  id='pay'
+                  name='onBoard'
+                  onChange={() => handleRadio()}
+                />
+              </div>
+              <div className='Luggagecard__body-handheld-selector-description'>
+                <p>Ambos por COP 44900</p>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
+
       <div className='Luggagecard__body-paragraph'>
         <div>
           <p>
@@ -224,13 +283,13 @@ const LuggageCard = prop => {
           </div>
           <div
             className='Luggagecard_special-luggage-content-arrow'
-            onClick={() => (checked ? setChecked(false) : setChecked(true))}
-            style={
-              checked
-                ? { transform: 'rotate(180deg)' }
-                : { transform: 'rotate(0deg)' }
-            }>
+            onClick={() => (checked ? setChecked(false) : setChecked(true))}>
             <svg
+              style={
+                checked
+                  ? { transform: 'rotate(180deg)' }
+                  : { transform: 'rotate(0deg)' }
+              }
               xmlns='http://www.w3.org/2000/svg'
               width='20px'
               height='20px'
@@ -247,7 +306,9 @@ const LuggageCard = prop => {
         {checked ? (
           <div className='Luggagecard__special-luggage-price'>
             <div className='Luggagecard__special-luggage-price-content'>
-              <div>100000 COP</div>
+              <div>
+                <strong>100000 COP</strong>{' '}
+              </div>
               <div className='luggageCard__special__luggage-buttons'>
                 <div>
                   <LuggageButtons
