@@ -2,4 +2,9 @@
   display: flex;
   justify-content: center;
   background-color: rgb(243, 242, 246);
+  box-shadow: 2px 8px 6px rgb(201, 197, 197);
+  position: relative;
+}
+.cf {
+  display: flex;
 }

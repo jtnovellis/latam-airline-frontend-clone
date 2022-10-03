@@ -126,6 +126,10 @@
 @import url(./scss/components/SelectionSeats/Emergency.scss);
 @import url(./scss/components/SelectionSeats/SeatsInfo.scss);
 
+
+//StatusFlight
+@import url(./scss/components/StatusFlight/StatusFlight.scss);
+
 //Non existing route
 @import url(./scss/components/NonExistingRoute/NonExistingRoute.scss);
 
@@ -133,3 +137,4 @@
 
 @import url(./scss/components/Luggage/LuggageCard.scss);
 @import url(./scss/pages/Luggage.scss);
+
