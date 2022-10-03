@@ -12,7 +12,6 @@ import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
 import TravelData from 'components/BodyAdminFligths/TravelData';
 import SelectionSeats from 'pages/SelectionSeats';
 import NotFound from 'pages/NotFound';
-//import SearchFligth from 'components/BodyAdminFligths/SearchFligth';
 import Luggage from 'pages/Luggage';
 function App() {
   return (
@@ -32,8 +31,8 @@ function App() {
         </Route>
         <Route path='flights' element={<Flights />} />
         <Route path='seats-selection' element={<SelectionSeats />} />
-        <Route path='*' element={<NotFound />} />
         <Route path='luggage' element={<Luggage />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );

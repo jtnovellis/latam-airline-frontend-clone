@@ -26,7 +26,7 @@ const Passengers = ({
       setTotalseats(0);
     } else {
       navigate({
-        pathname: '/',
+        pathname: '/luggage',
       });
     }
   };
