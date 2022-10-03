@@ -27,14 +27,15 @@ const CityNav = ({ param }) => {
 
   return (
     <>
-      <button className={selected.go ? 'cityNav selected' : 'cityNav'}>
+      <button className={selected.go ? 'cityNav selected-city' : 'cityNav'}>
         <span className='cityNav__cities'>
           {origin} a {destination}
         </span>
         <span className='cityNav__direction'>Vuelo de ida</span>
       </button>
       {!roundTrip ? null : (
-        <button className={selected.return ? 'cityNav selected' : 'cityNav'}>
+        <button
+          className={selected.return ? 'cityNav selected-city' : 'cityNav'}>
           <span className='cityNav__cities'>
             {destination} a {origin}
           </span>
