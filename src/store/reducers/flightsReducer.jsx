@@ -6,6 +6,11 @@ export const ADD_SEATS_DEPARTURE = '@flights/add-seat-departure';
 export const ADD_SEATS_ARRIVAL = '@flights/add-seat-arrival';
 
 const initialState = {
+  price: {
+    light: '124.090,00',
+    basic: '233.090,00',
+    plus: '533.090,00',
+  },
   departureFlightData: {
     airplane: {
       plate: 'A543',
