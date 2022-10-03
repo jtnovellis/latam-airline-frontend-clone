@@ -1,4 +1,3 @@
-/* import Flightoptions from './Flightoptions'; */
 import { BookingDropdown } from './BookingDropdown';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,8 +6,8 @@ import IdaVueltaDropdown from './IdaVueltaDropdown';
 import { useSelector } from 'react-redux';
 
 function Boxsearch() {
-  const passengerAmount = useSelector(
-    state => state.bookingReducer.passengerAmount
+  const { passengerAmount, roundTrip } = useSelector(
+    state => state.bookingReducer
   );
   const [drop, setDrop] = useState({
     idavuelta: false,
@@ -43,7 +42,7 @@ function Boxsearch() {
       <div className='search-flight-options'>
         <div className={idavuelta ? 'search-info-ida-vuelta' : 'search-info'}>
           <button onClick={e => handleClick(e)} value='idavuelta'>
-            Ida y vuelta
+            {roundTrip ? 'Ida y vuelta' : 'Solo ida'}
           </button>
           <FontAwesomeIcon
             icon={faAngleDown}
@@ -71,7 +70,7 @@ function Boxsearch() {
           />
         </div>
       </div>
-      {idavuelta && <IdaVueltaDropdown />}
+      {idavuelta && <IdaVueltaDropdown setDrop={setDrop} />}
       {passenger && <BookingDropdown />}
     </div>
   );

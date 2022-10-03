@@ -1,14 +1,15 @@
 import React from 'react';
 import SeatsRow from './SeatsRow';
-import { firstDiv, secondDiv, thirthDiv, headerSeats } from '../../Airbus';
 import Emergency from 'components/SelectionSeats/Emergency';
 
-const Airplane = () => {
-  const airplane = '213';
+const Airplane = ({ flightData, param, totalseats, setTotalseats }) => {
+  const { airBus, seats } = flightData.airplane;
+  const { firstDiv, secondDiv, thirthDiv, headerSeats } = seats;
+
   return (
-    <div className='airplane'>
+    <div className={param === 'arrival' ? 'airplaneout' : 'airplane'}>
       <div className='airplane__body'>
-        <p>Air Bus {airplane}</p>
+        <p>Air Bus {airBus}</p>
         <div className='airplane__body--seats'>
           <div className='seats--header'>
             {headerSeats.map(item => (
@@ -19,19 +20,40 @@ const Airplane = () => {
           </div>
           <div className='seats-firstDiv'>
             {firstDiv.map((rows, i) => (
-              <SeatsRow key={i} rows={rows} />
+              <SeatsRow
+                key={`${i}${airBus}seats-firstDiv`}
+                airBus={airBus}
+                rows={rows}
+                totalseats={totalseats}
+                setTotalseats={setTotalseats}
+                param={param}
+              />
             ))}
           </div>
           <Emergency />
           <div className='seats-secondDiv'>
             {secondDiv.map((rows, i) => (
-              <SeatsRow key={i} rows={rows} />
+              <SeatsRow
+                key={`${i}${airBus}seats-secondDiv`}
+                airBus={airBus}
+                rows={rows}
+                totalseats={totalseats}
+                setTotalseats={setTotalseats}
+                param={param}
+              />
             ))}
           </div>
           <Emergency />
           <div className='seats-secondDiv'>
             {thirthDiv.map((rows, i) => (
-              <SeatsRow key={i} rows={rows} />
+              <SeatsRow
+                key={`${i}${airBus}seats-secondDiv`}
+                airBus={airBus}
+                rows={rows}
+                totalseats={totalseats}
+                setTotalseats={setTotalseats}
+                param={param}
+              />
             ))}
           </div>
         </div>

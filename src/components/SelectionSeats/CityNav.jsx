@@ -1,39 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-const flightGo = {
-  origin: 'Barranquilla',
-  destination: 'Bogota',
-  direction: 'Vuelo de ida',
-};
-const flightRtn = {
-  origin: 'Bogota',
-  destination: 'Barranquilla',
-  direction: 'Vuelo de vuelta',
-};
-
-const CityNav = () => {
+const CityNav = ({ param }) => {
   const [selected, setSelected] = useState({
     go: true,
     return: false,
   });
+  const { origin, destination, roundTrip } = useSelector(
+    state => state.bookingReducer
+  );
+
+  useEffect(() => {
+    if (param === 'departure') {
+      setSelected({
+        go: true,
+        return: false,
+      });
+    }
+    if (param === 'arrival') {
+      setSelected({
+        go: false,
+        return: true,
+      });
+    }
+  }, [param]);
+
   return (
     <>
-      <button
-        onClick={() => setSelected({ go: true, return: false })}
-        className={selected.go ? 'cityNav selected' : 'cityNav'}>
+      <button className={selected.go ? 'cityNav selected-city' : 'cityNav'}>
         <span className='cityNav__cities'>
-          {flightGo.origin} a {flightGo.destination}
+          {origin} a {destination}
         </span>
-        <span className='cityNav__direction'>{flightGo.direction}</span>
+        <span className='cityNav__direction'>Vuelo de ida</span>
       </button>
-      <button
-        onClick={() => setSelected({ go: false, return: true })}
-        className={selected.return ? 'cityNav selected' : 'cityNav'}>
-        <span className='cityNav__cities'>
-          {flightRtn.origin} a {flightRtn.destination}
-        </span>
-        <span className='cityNav__direction'>{flightRtn.direction}</span>
-      </button>
+      {!roundTrip ? null : (
+        <button
+          className={selected.return ? 'cityNav selected-city' : 'cityNav'}>
+          <span className='cityNav__cities'>
+            {destination} a {origin}
+          </span>
+          <span className='cityNav__direction'>Vuelo de vuelta</span>
+        </button>
+      )}
     </>
   );
 };
