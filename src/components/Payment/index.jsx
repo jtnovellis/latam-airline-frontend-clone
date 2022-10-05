@@ -6,12 +6,11 @@ export const Payment = ({ children }) => {
 
   const handler = window.ePayco.checkout.configure({
     // eslint-disable-next-line no-undef
-    key: process.env.REACT_PUBLIC_KEY,
+    key: process.env.REACT_APP_PUBLIC_KEY,
     test: true,
   });
 
   const data = {
-    //Parametros compra (obligatorio)
     name: `LA${flightData.id}`,
     description: 'Vestido Mujer Primavera',
     invoice: `${flightData.id}`,
@@ -21,17 +20,11 @@ export const Payment = ({ children }) => {
     tax: '0',
     country: 'co',
     lang: 'es',
-
-    //Onpage="false" - Standard="true"
     external: 'false',
-
-    //Atributos opcionales
     extra1: `${flightData.departureUser}`,
     extra2: `${flightData.arrivalUser}`,
     extra3: 'extra3',
     response: 'http://secure2.payco.co/prueba_curl.php',
-
-    //Atributos cliente
     name_billing: `${userData.name}`,
     address_billing: '',
     type_doc_billing: `${userData.documentType}`,

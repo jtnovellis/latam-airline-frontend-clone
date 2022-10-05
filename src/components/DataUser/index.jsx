@@ -6,8 +6,12 @@ import Stack from '@mui/material/Stack';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
 import userAvatar from '../../images/user/avatar.png';
+import { useSelector } from 'react-redux';
 
 const DataUser = () => {
+  const { email, password, name, lastname } = useSelector(
+    state => state.userReducer
+  );
   return (
     <div className='dataUser'>
       <div className='dataUser__header'>
@@ -43,7 +47,7 @@ const DataUser = () => {
               id='user-email'
               label='Email'
               type='email'
-              defaultValue='email.example@example.com'
+              defaultValue={email}
               InputProps={{
                 readOnly: true,
               }}
@@ -55,7 +59,7 @@ const DataUser = () => {
               id='user-password'
               label='Contraseña'
               type='password'
-              defaultValue='email.example@example.com'
+              defaultValue={password}
               InputProps={{
                 readOnly: true,
               }}
@@ -83,7 +87,7 @@ const DataUser = () => {
               id='user-name'
               label='Nombre(s)'
               type='text'
-              defaultValue='Jairo'
+              defaultValue={name}
               InputProps={{
                 readOnly: true,
               }}
@@ -95,7 +99,7 @@ const DataUser = () => {
               id='user-lastname'
               label='Apellidos'
               type='text'
-              defaultValue='Toro'
+              defaultValue={lastname}
               InputProps={{
                 readOnly: true,
               }}

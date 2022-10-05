@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser,
@@ -7,13 +7,23 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import useRemoveCookies from '../../services/Cookies/useRemoveCookies';
 import { useDispatch } from 'react-redux';
-import { SET_USER_LOGIN } from 'store/reducers/userReducer';
+import {
+  SET_USER_LOGIN,
+  DROP_MENU_VALIDATOR,
+} from 'store/reducers/userReducer';
 
 const LoginDropDown = ({ drop, photo, username }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleClick = () => {
     useRemoveCookies('lausrin');
     dispatch({ type: SET_USER_LOGIN });
+    window.location.reload();
+  };
+
+  const handleAccountClick = () => {
+    navigate({ pathname: '/my-account' });
+    dispatch({ type: DROP_MENU_VALIDATOR });
   };
   return (
     <div className={drop ? 'drop-enable' : 'loginDropDown'}>
@@ -30,10 +40,10 @@ const LoginDropDown = ({ drop, photo, username }) => {
         <div className='loginDropDown__content--links'>
           <ul>
             <li>
-              <Link to='/my-account'>
+              <button onClick={handleAccountClick}>
                 <FontAwesomeIcon icon={faUser} className='faUser' />
                 <p>Mi cuenta</p>
-              </Link>
+              </button>
             </li>
             <li>
               <button onClick={handleClick}>

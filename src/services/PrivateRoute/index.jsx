@@ -3,8 +3,8 @@ import useGetCookies from '../Cookies/useGetCookies';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
-  const user = JSON.parse(useGetCookies('lausrin'));
-  const { isExpired } = useJwt(user.token);
+  const user = useGetCookies('lausrin');
+  const { isExpired } = useJwt(user);
   const auth = isExpired;
   return !auth ? children : <Navigate to='/' />;
 };

@@ -3,10 +3,10 @@ import logo from '../images/login/logo_latam.png';
 import '../scss/pages/Login.scss';
 import '../scss/base/Fontfaces.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import useSetCookies from '../services/Cookies/useSetCookies';
+import useGetCookies from '../services/Cookies/useGetCookies';
 import useRemoveCookies from '../services/Cookies/useRemoveCookies';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -14,26 +14,26 @@ import {
   SET_USER_LOGIN,
   SET_ALL_DATAUSER,
 } from '../store/reducers/userReducer';
-// import GetCookies from 'services/Cookies/useGetCookies';
 
 function login() {
-  const [done, setDone] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const getDataUser = async () => {
-    try {
-      const res = await axios.get('http://localhost:8080/api/users/data', {
+
+  const getDataUser = () => {
+    axios
+      // eslint-disable-next-line no-undef
+      .get(`${process.env.REACT_APP_LOCAL_SERVER_URL}/api/users/data`, {
         headers: {
-          Authorization: `Bearer ${done}`,
+          Authorization: `Bearer ${useGetCookies('lausrin')}`,
         },
-        data: done,
+      })
+      .then(res => {
+        const { data } = res;
+        dispatch({ type: SET_ALL_DATAUSER, payload: data.data });
+      })
+      .catch(err => {
+        console.log(err);
       });
-      const { data } = res;
-      console.log('USER', data);
-      dispatch({ type: SET_ALL_DATAUSER, payload: data });
-    } catch (err) {
-      console.error(err);
-    }
   };
 
   return (
@@ -68,14 +68,18 @@ function login() {
                 }}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
                   axios
-                    .post(`http://localhost:8080/api/auth/local/signin`, {
-                      email: values.name,
-                      password: values.password,
-                    })
+                    .post(
+                      // eslint-disable-next-line no-undef
+                      `${process.env.REACT_APP_LOCAL_SERVER_URL}/api/auth/local/signin`,
+                      {
+                        email: values.name,
+                        password: values.password,
+                      }
+                    )
                     .then(res => {
                       useRemoveCookies('lausrin');
-                      useSetCookies('lausrin', JSON.stringify(res.data.data));
-                      setDone(res.data.data.token);
+                      useSetCookies('lausrin', res.data.data.token);
+                      dispatch({ type: SET_USER_LOGIN });
                     })
                     .catch(() => {
                       navigate({ pathname: '/login' });
@@ -83,9 +87,8 @@ function login() {
                     .finally(() => {
                       setSubmitting(true);
                       resetForm();
-                      dispatch({ type: SET_USER_LOGIN });
-                      navigate({ pathname: '/' });
                       getDataUser();
+                      navigate({ pathname: '/' });
                     });
                 }}>
                 {({ isSubmitting }) => (
@@ -129,7 +132,6 @@ function login() {
                       <button type='submit' disabled={isSubmitting}>
                         Iniciar sesión
                       </button>
-                      {done}
                     </div>
                   </Form>
                 )}

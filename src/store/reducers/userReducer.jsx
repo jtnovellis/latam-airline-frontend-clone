@@ -7,8 +7,8 @@ const initialState = {
   country: '',
   documentType: '',
   documentNumber: '',
-  name: 'Jairo',
-  lastname: 'Toro',
+  name: '',
+  lastname: '',
   birthdate: '',
   genre: '',
   phoneNumber: '',
@@ -31,7 +31,16 @@ const userReducer = (state = initialState, action) => {
         isLogin: !state.isLogin,
       };
     case SET_ALL_DATAUSER:
-      return state;
+      return {
+        ...state,
+        country: action.payload.country,
+        documentType: action.payload.documentType,
+        documentNumber: action.payload.documentNumber,
+        name: action.payload.firstname,
+        lastname: action.payload.lastname,
+        email: action.payload.email,
+        password: action.payload.password,
+      };
     default:
       return state;
   }
