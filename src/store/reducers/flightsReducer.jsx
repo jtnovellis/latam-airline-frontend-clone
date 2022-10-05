@@ -8,8 +8,9 @@ export const DELETE_DEPARTURE_SEATS = '@flights/delete-departure-seat';
 export const DELETE_ARRIVAL_SEATS = '@flights/delete-departure-seat';
 
 const initialState = {
+  id: 'alkgjoajdf1',
   price: {
-    light: '124.090,00',
+    light: '124090',
     basic: '233.090,00',
     plus: '533.090,00',
   },
