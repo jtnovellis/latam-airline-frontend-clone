@@ -5,6 +5,8 @@ import '../scss/base/Fontfaces.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+//import axios from 'axios';
 
 function login() {
   const [done, setDone] = useState(false);
@@ -39,6 +41,15 @@ function login() {
                   return errors;
                 }}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
+                  axios
+                    .post('http://localhost:8080//api/auth/local/signin', {
+                      email: values.name,
+                      password: values.password,
+                    })
+                    .then(res => {
+                      console.log(res.data);
+                    })
+                    .catch(err => console.log(err));
                   resetForm();
                   setDone(true);
                   setTimeout(() => {
@@ -81,7 +92,7 @@ function login() {
                     <div>
                       <p className='recuperar'>
                         <a href=''>
-                          <strong>recupera el acceso a tu cuenta </strong>{' '}
+                          <strong>Recupera el acceso a tu cuenta </strong>{' '}
                         </a>
                       </p>
                       <button type='submit' disabled={isSubmitting}>
