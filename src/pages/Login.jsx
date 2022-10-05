@@ -6,10 +6,36 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-//import axios from 'axios';
+import useSetCookies from '../services/Cookies/useSetCookies';
+import useRemoveCookies from '../services/Cookies/useRemoveCookies';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {
+  SET_USER_LOGIN,
+  SET_ALL_DATAUSER,
+} from '../store/reducers/userReducer';
+// import GetCookies from 'services/Cookies/useGetCookies';
 
 function login() {
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const getDataUser = async () => {
+    try {
+      const res = await axios.get('http://localhost:8080/api/users/data', {
+        headers: {
+          Authorization: `Bearer ${done}`,
+        },
+        data: done,
+      });
+      const { data } = res;
+      console.log('USER', data);
+      dispatch({ type: SET_ALL_DATAUSER, payload: data });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div>
       <div className='window-login'>
@@ -42,20 +68,25 @@ function login() {
                 }}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
                   axios
-                    .post('http://localhost:8080//api/auth/local/signin', {
+                    .post(`http://localhost:8080/api/auth/local/signin`, {
                       email: values.name,
                       password: values.password,
                     })
                     .then(res => {
-                      console.log(res.data);
+                      useRemoveCookies('lausrin');
+                      useSetCookies('lausrin', JSON.stringify(res.data.data));
+                      setDone(res.data.data.token);
                     })
-                    .catch(err => console.log(err));
-                  resetForm();
-                  setDone(true);
-                  setTimeout(() => {
-                    setSubmitting(true);
-                    setDone(true);
-                  }, 1000);
+                    .catch(() => {
+                      navigate({ pathname: '/login' });
+                    })
+                    .finally(() => {
+                      setSubmitting(true);
+                      resetForm();
+                      dispatch({ type: SET_USER_LOGIN });
+                      navigate({ pathname: '/' });
+                      getDataUser();
+                    });
                 }}>
                 {({ isSubmitting }) => (
                   <Form>

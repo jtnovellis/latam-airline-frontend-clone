@@ -5,20 +5,25 @@ import {
   faUser,
   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import profileIMG from '../../images/login/profileIMG.jpg';
-import { useSelector } from 'react-redux';
+import useRemoveCookies from '../../services/Cookies/useRemoveCookies';
+import { useDispatch } from 'react-redux';
+import { SET_USER_LOGIN } from 'store/reducers/userReducer';
 
-const LoginDropDown = () => {
-  const drop = useSelector(state => state.userReducer.dropdown);
+const LoginDropDown = ({ drop, photo, username }) => {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    useRemoveCookies('lausrin');
+    dispatch({ type: SET_USER_LOGIN });
+  };
   return (
     <div className={drop ? 'drop-enable' : 'loginDropDown'}>
       <div className='loginDropDown__content'>
         <div className='loginDropDown__content--header'>
           <div className='header--profile'>
-            <img src={profileIMG} alt='Username profile photo' />
+            <img src={photo} alt='Username profile photo' />
           </div>
           <div className='header--username'>
-            <p className='username-drop'>UserName</p>
+            <p className='username-drop'>{username}</p>
             <p className='latam'>LATAM</p>
           </div>
         </div>
@@ -31,13 +36,13 @@ const LoginDropDown = () => {
               </Link>
             </li>
             <li>
-              <Link to='/'>
+              <button onClick={handleClick}>
                 <FontAwesomeIcon
                   icon={faArrowRightFromBracket}
                   className='faArrowRightFromBracket'
                 />
                 <p>Cerrar sesión</p>
-              </Link>
+              </button>
             </li>
           </ul>
         </div>

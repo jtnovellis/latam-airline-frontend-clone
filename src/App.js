@@ -13,6 +13,7 @@ import TravelData from 'components/BodyAdminFligths/TravelData';
 import SelectionSeats from 'pages/SelectionSeats';
 import NotFound from 'pages/NotFound';
 import Luggage from 'pages/Luggage';
+import PrivateRoute from 'services/PrivateRoute';
 function App() {
   return (
     <div className='App'>
@@ -20,7 +21,13 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
-        <Route path='my-account' element={<MyAccount />}>
+        <Route
+          path='my-account'
+          element={
+            <PrivateRoute>
+              <MyAccount />
+            </PrivateRoute>
+          }>
           <Route index element={<DataUser />} />
           <Route path='my-trips' element={<MyTrips />} />
           <Route path='pay-methods' element={<PayMethods />} />
