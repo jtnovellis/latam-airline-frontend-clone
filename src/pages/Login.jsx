@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../images/login/logo_latam.png';
 import '../scss/pages/Login.scss';
 import '../scss/base/Fontfaces.scss';
@@ -18,6 +18,8 @@ import {
 function login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState(null);
 
   const getDataUser = () => {
     axios
@@ -32,7 +34,7 @@ function login() {
         dispatch({ type: SET_ALL_DATAUSER, payload: data.data });
       })
       .catch(err => {
-        console.log(err);
+        setError(err);
       });
   };
 

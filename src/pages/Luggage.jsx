@@ -3,6 +3,7 @@ import LuggageCard from '../components/Luggage/LuggageCard';
 import HeaderRegister from '../components/Header-Register/HeaderRegister';
 import FooterRegister from '../components/Footer-Register/index';
 import { useState } from 'react';
+
 const Luggage = () => {
   const [selected, setSelected] = useState(true);
 

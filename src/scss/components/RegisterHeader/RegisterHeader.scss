@@ -2,13 +2,15 @@
   /*Principal div*/
   display: flex;
   align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
+  *flex-direction: row;
+  justify-content: center;
   background: rgb(16, 0, 79);
   width: 100% !important;
   min-height: 3rem;
 
   .header-div {
+    max-width: 1024px;
+    margin: 0 auto;
     /*Div where the items(icon and button) are placed*/
     width: 100%;
     height: 4rem;
@@ -20,12 +22,12 @@
 
     .latam-a {
       /*Container of the icon*/
-      margin-top: 0.3rem;
+      *margin-top: 0.3rem;
 
       .latam-icon {
         /*Icon itself*/
         width: 104px;
-        margin-left: 12rem;
+        *margin-left: 12rem;
       }
     }
 
@@ -58,14 +60,14 @@
   @media (min-width: 980px) {
     .header-div {
       height: 4rem;
-      margin: 0rem 4rem;
+      *margin: 0rem 4rem;
     }
   }
   @media (min-width: 820px) {
     .header-div {
       justify-content: space-between;
       .latam-a {
-        margin-left: 3rem;
+        *margin-left: 3rem;
       }
       .latam-btn-div {
         margin-right: 2rem;
