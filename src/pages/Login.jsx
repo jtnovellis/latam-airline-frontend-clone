@@ -72,7 +72,7 @@ function login() {
                   axios
                     .post(
                       // eslint-disable-next-line no-undef
-                      `${process.env.REACT_APP_LOCAL_SERVER_URL}/api/auth/local/signin`,
+                      `${process.env.REACT_APP_API_LATAM_CLONE}/api/auth/local/signin`,
                       {
                         email: values.name,
                         password: values.password,
