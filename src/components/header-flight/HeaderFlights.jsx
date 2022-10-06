@@ -1,6 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useGetCookies from 'services/Cookies/useGetCookies';
+import { useJwt } from 'react-jwt';
+import ButtonLoginUser from 'components/Header/ButtonLoginUser';
+import Buttonlogin from 'components/Header/Buttonlogin';
+
 const HeaderFlights = () => {
+  const user = useGetCookies('lausrin');
+  const { isExpired } = useJwt(user);
+  const auth = isExpired;
+
   return (
     <header className='headerFlights'>
       <div className='header-div'>
@@ -31,7 +40,7 @@ const HeaderFlights = () => {
           </svg>
         </Link>
         <div className='latam-btn-div'>
-          <button className='latam-login-btn'>Iniciar sesión</button>
+          {!auth ? <ButtonLoginUser /> : <Buttonlogin />}
         </div>
       </div>
     </header>

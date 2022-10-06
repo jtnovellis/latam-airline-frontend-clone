@@ -1,6 +1,6 @@
 .drop-enable {
   display: block;
-  z-index: 40;
+  z-index: 160;
   background-color: #fff;
   position: absolute;
   top: 40px;
@@ -10,7 +10,7 @@
 }
 
 .loginDropDown {
-  z-index: 40;
+  z-index: 160;
   background-color: #fff;
   position: absolute;
   top: 40px;
@@ -49,6 +49,20 @@
     li {
       padding: 3px 1.5rem;
       margin: 5px;
+      button {
+        height: 60px;
+        width: 220px;
+        display: flex;
+        align-items: center;
+        padding: 0 0.3rem;
+        color: #1b0088;
+        cursor: pointer;
+        background: none;
+        border: none;
+        p {
+          margin-left: 1rem;
+        }
+      }
       a {
         height: 60px;
         width: 220px;

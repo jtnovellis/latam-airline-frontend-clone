@@ -3,8 +3,15 @@ import Navbar from './Navbar';
 import logo from '../../images/homepage/latam-airlines-home-logo.png';
 import Buttonlogin from './Buttonlogin';
 import Burgericon from './Burgericon';
+import ButtonLoginUser from './ButtonLoginUser';
+import useGetCookies from 'services/Cookies/useGetCookies';
+import { useJwt } from 'react-jwt';
 
 function Header() {
+  const user = useGetCookies('lausrin');
+  const { isExpired } = useJwt(user);
+  const auth = isExpired;
+
   return (
     <>
       <header className='container__header-homepage'>
@@ -17,7 +24,7 @@ function Header() {
             />
           </a>
           <Navbar />
-          <Buttonlogin />
+          {!auth ? <ButtonLoginUser /> : <Buttonlogin />}
           <Burgericon />
         </div>
       </header>
