@@ -33,7 +33,7 @@ function App() {
     if (!auth) {
       axios
         // eslint-disable-next-line no-undef
-        .get(`${process.env.REACT_APP_LOCAL_SERVER_URL}/api/users/data`, {
+        .get(`${process.env.REACT_APP_API_LATAM_CLONE}/api/users/data`, {
           headers: {
             Authorization: `Bearer ${useGetCookies('lausrin')}`,
           },
