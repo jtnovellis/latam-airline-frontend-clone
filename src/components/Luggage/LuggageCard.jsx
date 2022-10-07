@@ -17,26 +17,17 @@ import {
 
 const LuggageCard = prop => {
   //const action = 'lightIncrement';
-  const departureLightLuggage = useSelector(
-    state => state.luggageReducer.departureLightLuggage
-  );
-  const departureHeavyLuggage = useSelector(
-    state => state.luggageReducer.departureHeavyLuggage
-  );
-  const arrivalLightLuggage = useSelector(
-    state => state.luggageReducer.arrivalLightLuggage
-  );
-  const arrivalHeavyLuggage = useSelector(
-    state => state.luggageReducer.arrivalHeavyLuggage
-  );
-  const specialDeparture = useSelector(
-    state => state.luggageReducer.specialDeparture
-  );
-  const specialArrival = useSelector(
-    state => state.luggageReducer.specialArrival
-  );
-  const totalAmount = useSelector(state => state.luggageReducer.totalPrice);
+  const {
+    departureLightLuggage,
+    departureHeavyLuggage,
+    arrivalLightLuggage,
+    arrivalHeavyLuggage,
+    specialDeparture,
+    specialArrival,
+    totalPrice,
+  } = useSelector(state => state.luggageReducer);
   let selected = prop.select;
+  console.log(totalPrice, 'hola');
   const [value, setValue] = useState('increment');
   const [value2, setValue2] = useState('increment');
   const [selectedValue, setSelectedValue] = useState(true);
@@ -48,7 +39,6 @@ const LuggageCard = prop => {
     handleSend(selectedValue);
   } */
   function handleSend(action) {
-    console.log(action);
     if (selected === 'departure') {
       switch (action) {
         case 'increment':
@@ -358,13 +348,13 @@ const LuggageCard = prop => {
           </p>
         </div>
       </div>
-      {totalAmount > 1 ? (
+      {totalPrice > 1 ? (
         <div className='Luggagecard__body-total-prices'>
           <div>
             <p>Total equipaje</p>
           </div>
           <div>
-            <p>COP {totalAmount}</p>
+            <p>COP {totalPrice}</p>
           </div>
         </div>
       ) : (
