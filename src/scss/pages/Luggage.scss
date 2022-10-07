@@ -48,5 +48,12 @@
         }
       }
     }
+    .Luggage__passenger-selector {
+      display: flex;
+      justify-content: center;
+      p {
+        margin-right: 1rem;
+      }
+    }
   }
 }

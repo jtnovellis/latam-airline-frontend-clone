@@ -74,22 +74,32 @@ const Luggage = () => {
           </div>
           <div>
             {actualCard !== passengerAmount ? (
-              <>
-                {' '}
-                pasajero {actualCard + 1}{' '}
-                <button onClick={() => handleClick()}>
-                  Siguiente pasajero
-                </button>
-              </>
+              <div className='Luggage__passenger-selector'>
+                <p> Pasajero {actualCard + 1}</p>
+
+                <svg
+                  onClick={() => handleClick()}
+                  style={{ transform: 'rotate(-90deg)' }}
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20px'
+                  height='20px'
+                  viewBox='0 0 20 20'
+                  fill='none'
+                  focusable='false'>
+                  <path
+                    fill='red'
+                    d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
+                </svg>
+              </div>
             ) : (
-              <></>
+              <div className='Luggage__passenger-selector'>
+                <p> Pasajero {actualCard + 1}</p>
+              </div>
             )}
           </div>
           {toShow.map((card, index) => {
             if (index === actualCard) {
               return card;
-            } else {
-              return 'hola';
             }
           })}
         </div>
