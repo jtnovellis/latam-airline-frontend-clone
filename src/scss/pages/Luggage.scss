@@ -1,58 +1,116 @@
-.Luggage_wrapper {
-  height: 100vh;
-  h1 {
-    text-align: center;
-    font-size: 1.3rem;
-    margin-top: 2rem;
-    font-style: normal;
-    font-weight: 400;
-    color: rgb(16, 0, 79);
-  }
-  .Luggage__selector {
-    width: 38rem;
-    margin: 0rem auto;
-    .Luggagecard__body-departure-arrival {
-      display: flex;
-      justify-content: space-around;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+body {
+  background-color: rgb(251, 251, 251);
+}
 
-      .Luggagecard__body-departure {
-        width: 50%;
-        text-align: center;
-        box-shadow: rgba(48, 48, 48, 0.2) 0px 8px 8px -6px;
+.Luggage__container {
+  display: flex;
+  justify-content: center;
 
-        &:hover {
-          color: rgb(201, 21, 21);
-          cursor: pointer;
+  .Luggage_wrapper {
+    height: 100vh;
+    h1 {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      font-style: normal;
+      font-weight: 400;
+      color: rgb(16, 0, 79);
+    }
+    .Luggage__selector {
+      width: 38rem;
+      margin: 0rem auto;
+      background-color: white;
+      .Luggagecard__body-departure-arrival {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        .Luggagecard__body-departure {
+          width: 50%;
+          text-align: center;
+          box-shadow: rgba(48, 48, 48, 0.2) 0px 8px 8px -6px;
+
+          &:hover {
+            color: rgb(201, 21, 21);
+            cursor: pointer;
+          }
+          button {
+            background-color: white;
+            border: 0px;
+            cursor: pointer;
+          }
         }
-        button {
-          background-color: #fff;
-          border: 0px;
-          cursor: pointer;
+        .Luggagecard__body-arrival {
+          box-shadow: rgba(48, 48, 48, 0.2) 0px 8px 8px -6px;
+          width: 50%;
+          text-align: center;
+
+          &:hover {
+            color: rgb(16, 0, 79);
+            cursor: pointer;
+          }
+          button {
+            background-color: white;
+            border: 0px;
+            cursor: pointer;
+          }
         }
       }
-      .Luggagecard__body-arrival {
-        box-shadow: rgba(48, 48, 48, 0.2) 0px 8px 8px -6px;
-        width: 50%;
-        text-align: center;
-
-        &:hover {
-          color: rgb(16, 0, 79);
-          cursor: pointer;
-        }
-        button {
-          background-color: #fff;
-          border: 0px;
-          cursor: pointer;
+      .Luggage__passenger-selector {
+        display: flex;
+        justify-content: center;
+        p {
+          margin-right: 1rem;
         }
       }
     }
-    .Luggage__passenger-selector {
+  }
+  .Luggage_status {
+    margin: 0 1rem;
+    width: 17rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+
+    .status-info-continue {
       display: flex;
       justify-content: center;
-      p {
-        margin-right: 1rem;
+      justify-items: center;
+      flex-direction: column;
+      hr {
+        margin-bottom: 1rem;
+      }
+      .status-continue {
+        background-color: rgb(232, 17, 75);
+        color: rgb(255, 255, 255);
+        border: none;
+        font-size: 1.125rem;
+        height: 2.5rem;
+        width: 90%;
+        margin: 0 auto;
+
+        border-radius: 10px;
+        &:hover {
+          background-color: rgb(233, 88, 120);
+          border: 0.0625rem solid rgb(233, 88, 120);
+        }
+      }
+      .status-continue-details {
+        display: flex;
+        margin-bottom: 4rem;
+        margin-top: 1rem;
+        justify-content: space-between;
+        button {
+          background-color: #fff;
+          border: none;
+          color: rgb(28, 69, 151);
+          font-size: 0.8rem;
+        }
+        span {
+          font-size: 0.8rem;
+        }
       }
     }
   }

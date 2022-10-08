@@ -23,7 +23,7 @@ const Luggage = () => {
 
   let passengerAmount = 3;
   let toShow = [];
-  for (let i = 0; i <= passengerAmount; i++) {
+  for (let i = 0; i < passengerAmount; i++) {
     toShow.push(<FullLuggageCard key={`card${i}`} selected={selected} />);
   }
   const dispatch = useDispatch();
@@ -55,53 +55,66 @@ const Luggage = () => {
   return (
     <>
       <HeaderRegister />
-      <div className='Luggage_wrapper'>
-        <h1>Compra tu equipaje ahora y paga menos en el aeropuerto</h1>
-        <div className='Luggage__selector'>
-          <div className='Luggagecard__body-departure-arrival'>
-            <div
-              style={selected ? { borderBottom: '2px solid red' } : {}}
-              onClick={() => (!selected ? setSelected(true) : <></>)}
-              className='Luggagecard__body-departure'>
-              <button>Ida</button>
+      <div className='Luggage__container'>
+        <div className='Luggage_wrapper'>
+          <h1>Compra tu equipaje ahora y paga menos en el aeropuerto</h1>
+          <div className='Luggage__selector'>
+            <div className='Luggagecard__body-departure-arrival'>
+              <div
+                style={selected ? { borderBottom: '2px solid red' } : {}}
+                onClick={() => (!selected ? setSelected(true) : <></>)}
+                className='Luggagecard__body-departure'>
+                <button>Ida</button>
+              </div>
+              <div
+                style={!selected ? { borderBottom: '2px solid red' } : {}}
+                onClick={() => (selected ? setSelected(false) : <></>)}
+                className='Luggagecard__body-arrival'>
+                <button>Vuelta</button>
+              </div>
             </div>
-            <div
-              style={!selected ? { borderBottom: '2px solid red' } : {}}
-              onClick={() => (selected ? setSelected(false) : <></>)}
-              className='Luggagecard__body-arrival'>
-              <button>Vuelta</button>
-            </div>
-          </div>
-          <div>
-            {actualCard !== passengerAmount ? (
-              <div className='Luggage__passenger-selector'>
-                <p> Pasajero {actualCard + 1}</p>
+            <div>
+              {actualCard !== passengerAmount ? (
+                <div className='Luggage__passenger-selector'>
+                  <p> Pasajero {actualCard + 1}</p>
 
-                <svg
-                  onClick={() => handleClick()}
-                  style={{ transform: 'rotate(-90deg)' }}
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='20px'
-                  height='20px'
-                  viewBox='0 0 20 20'
-                  fill='none'
-                  focusable='false'>
-                  <path
-                    fill='red'
-                    d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
-                </svg>
-              </div>
-            ) : (
-              <div className='Luggage__passenger-selector'>
-                <p> Pasajero {actualCard + 1}</p>
-              </div>
-            )}
+                  <svg
+                    onClick={() => handleClick()}
+                    style={{ transform: 'rotate(-90deg)' }}
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='20px'
+                    height='20px'
+                    viewBox='0 0 20 20'
+                    fill='none'
+                    focusable='false'>
+                    <path
+                      fill='red'
+                      d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
+                  </svg>
+                </div>
+              ) : (
+                <div className='Luggage__passenger-selector'>
+                  <p> Pasajero {actualCard + 1}</p>
+                </div>
+              )}
+            </div>
+            {toShow.map((card, index) => {
+              if (index === actualCard) {
+                return card;
+              }
+            })}
           </div>
-          {toShow.map((card, index) => {
-            if (index === actualCard) {
-              return card;
-            }
-          })}
+        </div>
+        <div className='Luggage_status'>
+          <div className='status-info'></div>
+          <div className='status-info-continue'>
+            <hr />
+            <button className='status-continue'>continuar</button>
+            <div className='status-continue-details'>
+              <button>Precio final</button>
+              <span>COP 000,000,00</span>
+            </div>
+          </div>
         </div>
       </div>
 
