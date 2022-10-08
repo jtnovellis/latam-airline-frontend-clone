@@ -5,7 +5,8 @@ export const SET_PROFILE_PHOTO = '@user/set-profile-photo';
 
 const initialState = {
   dropdown: false,
-  profilePhoto: '',
+  profilePhoto:
+    'https://res.cloudinary.com/dvthwktqe/image/upload/v1665209002/latam-airlines-clone/e7xdm7h1ho6fobxu65xp.png',
   name: '',
   lastname: '',
   country: '',

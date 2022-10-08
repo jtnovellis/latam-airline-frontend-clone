@@ -6,6 +6,7 @@ import Burgericon from './Burgericon';
 import ButtonLoginUser from './ButtonLoginUser';
 import useGetCookies from 'services/Cookies/useGetCookies';
 import { useJwt } from 'react-jwt';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const user = useGetCookies('lausrin');
@@ -16,13 +17,13 @@ function Header() {
     <>
       <header className='container__header-homepage'>
         <div className='container__header'>
-          <a href='/'>
+          <Link to='/'>
             <img
               src={logo}
               alt='Logo de la aerolinea LATAM'
               className='img-logo'
             />
-          </a>
+          </Link>
           <Navbar />
           {!auth ? <ButtonLoginUser /> : <Buttonlogin />}
           <Burgericon />
