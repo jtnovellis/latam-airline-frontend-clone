@@ -48,7 +48,7 @@ const userReducer = (state = initialState, action) => {
         lastname: action.payload.lastname,
         email: action.payload.email,
         password: action.payload.password,
-        profilePhoto: action.payload.password,
+        profilePhoto: action.payload.profilePhoto,
       };
     default:
       return state;
