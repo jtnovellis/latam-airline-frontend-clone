@@ -1,17 +1,19 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
-import userAvatar from '../../images/user/avatar.png';
 import { useSelector } from 'react-redux';
+import ProfilePhoto from './ProfilePhoto';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import logouser from '../../images/user/avatar.png';
 
 const DataUser = () => {
-  const { email, password, name, lastname } = useSelector(
+  const { email, password, name, lastname, profilePhoto } = useSelector(
     state => state.userReducer
   );
+
   return (
     <div className='dataUser'>
       <div className='dataUser__header'>
@@ -22,10 +24,11 @@ const DataUser = () => {
           <Stack direction='row' spacing={2}>
             <Avatar
               alt='Remy Sharp'
-              src={userAvatar}
+              src={profilePhoto || logouser}
               sx={{ width: 56, height: 56 }}
             />
           </Stack>
+          <ProfilePhoto />
         </div>
       </div>
       <div className='dataUser__accessData'>

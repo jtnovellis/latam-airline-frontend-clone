@@ -11,6 +11,7 @@ import {
   SET_USER_LOGIN,
   DROP_MENU_VALIDATOR,
 } from 'store/reducers/userReducer';
+import logouser from '../../images/user/avatar.png';
 
 const LoginDropDown = ({ drop, photo, username }) => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const LoginDropDown = ({ drop, photo, username }) => {
       <div className='loginDropDown__content'>
         <div className='loginDropDown__content--header'>
           <div className='header--profile'>
-            <img src={photo} alt='Username profile photo' />
+            <img src={photo || logouser} alt='Username profile photo' />
           </div>
           <div className='header--username'>
             <p className='username-drop'>{username}</p>

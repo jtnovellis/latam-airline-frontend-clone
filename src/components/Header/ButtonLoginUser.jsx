@@ -2,10 +2,12 @@ import React from 'react';
 import LoginDropDown from 'components/LoginDropDown';
 import { useDispatch, useSelector } from 'react-redux';
 import { DROP_MENU_VALIDATOR } from 'store/reducers/userReducer';
-import profilephoto from '../../images/user/avatar.png';
+import logouser from '../../images/user/avatar.png';
 
 function ButtonLoginUser() {
-  const { dropdown, name, lastname } = useSelector(state => state.userReducer);
+  const { dropdown, name, lastname, profilePhoto } = useSelector(
+    state => state.userReducer
+  );
   const dispatch = useDispatch();
   const userName = `${name} ${lastname}`;
 
@@ -19,10 +21,10 @@ function ButtonLoginUser() {
         name='login'
         className='btn-login__user'
         onClick={handleClick}>
-        <img src={profilephoto} alt={userName} />
+        <img src={profilePhoto || logouser} alt={userName} />
         <span>{userName}</span>
       </button>
-      <LoginDropDown username={userName} photo={profilephoto} drop={dropdown} />
+      <LoginDropDown username={userName} photo={profilePhoto} drop={dropdown} />
     </div>
   );
 }
