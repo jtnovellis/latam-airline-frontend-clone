@@ -13,7 +13,7 @@ const HeaderFlights = () => {
   return (
     <header className='headerFlights'>
       <div className='header-div'>
-        <Link to='/home' className='latam-a' href='/'>
+        <Link to='/' className='latam-a'>
           <svg
             className='latam-icon'
             width='133px'
