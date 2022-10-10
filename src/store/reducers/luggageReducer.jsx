@@ -20,13 +20,17 @@ export const SPECIAL_DEPARTURE_UP = '@specialDeparture/increment';
 export const SPECIAL_DEPARTURE_DOWN = '@specialDeparture/decrement';
 export const SPECIAL_ARRIVAL_UP = '@specialArrival/increment';
 export const SPECIAL_ARRIVAL_DOWN = '@specialArrival/decrement';
+export const CONTINUE = '@continue/nowayback';
 const initialValues = {
   departureLightLuggage: 0,
   departureHeavyLuggage: 0,
+  departureCombo: 0,
+  specialDeparture: 0,
   arrivalLightLuggage: 0,
   arrivalHeavyLuggage: 0,
-  specialDeparture: 0,
   specialArrival: 0,
+  arrivalCombo: 0,
+  passengers: [],
   totalPrice: 0,
 };
 
@@ -139,21 +143,25 @@ const bookingReducer = (state = initialValues, action) => {
     case DEPARTURE_COMBO_UP:
       return {
         ...state,
+        departureCombo: state.departureCombo + 1,
         totalPrice: state.totalPrice + 44900,
       };
     case DEPARTURE_COMBO_DOWN:
       return {
         ...state,
+        departureCombo: state.departureCombo - 1,
         totalPrice: state.totalPrice - 44900,
       };
     case ARRIVAL_COMBO_UP:
       return {
         ...state,
+        arrivalCombo: state.arrivalCombo + 1,
         totalPrice: state.totalPrice + 44900,
       };
     case ARRIVAL_COMBO_DOWN:
       return {
         ...state,
+        arrivalCombo: state.arrivalCombo - 1,
         totalPrice: state.totalPrice - 44900,
       };
     case SPECIAL_DEPARTURE_UP:
@@ -179,6 +187,20 @@ const bookingReducer = (state = initialValues, action) => {
         ...state,
         specialArrival: state.specialArrival - 1,
         totalPrice: state.totalPrice - 100000,
+      };
+    case CONTINUE:
+      state.passengers.push(action.payload);
+
+      return {
+        ...state,
+        departureLightLuggage: 0,
+        departureHeavyLuggage: 0,
+        arrivalLightLuggage: 0,
+        arrivalHeavyLuggage: 0,
+        specialDeparture: 0,
+        specialArrival: 0,
+        arrivalCombo: 0,
+        departureCombo: 0,
       };
     default:
       return state;
