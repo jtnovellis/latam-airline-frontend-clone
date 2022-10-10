@@ -34,10 +34,7 @@ const LuggageCard = prop => {
   const [selectedValue2, setSelectedValue2] = useState(true);
   const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
-  /*   function handleClick(action) {
-    setSelectedValue(action);
-    handleSend(selectedValue);
-  } */
+
   function handleSend(action) {
     if (selected === 'departure') {
       switch (action) {
