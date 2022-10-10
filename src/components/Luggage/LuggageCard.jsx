@@ -27,7 +27,7 @@ const LuggageCard = prop => {
     totalPrice,
   } = useSelector(state => state.luggageReducer);
   let selected = prop.select;
-  console.log(totalPrice, 'hola');
+
   const [value, setValue] = useState('increment');
   const [value2, setValue2] = useState('increment');
   const [selectedValue, setSelectedValue] = useState(true);
