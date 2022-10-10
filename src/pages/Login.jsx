@@ -5,6 +5,7 @@ import '../scss/base/Fontfaces.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function login() {
   const [done, setDone] = useState(false);
@@ -41,10 +42,20 @@ function login() {
                 onSubmit={(values, { setSubmitting, resetForm }) => {
                   resetForm();
                   setDone(true);
-                  setTimeout(() => {
-                    setSubmitting(true);
-                    setDone(true);
-                  }, 1000);
+                  setSubmitting(false);
+                  setDone(false);
+                  console.log(values.name);
+                  console.log(values.password);
+                  axios
+                    .post('https://jsonplaceholder.typicode.com/posts', {
+                      values,
+                    })
+                    .then(function (response) {
+                      console.log(response);
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
                 }}>
                 {({ isSubmitting }) => (
                   <Form>
@@ -55,7 +66,7 @@ function login() {
                         type='text'
                         id='name'
                         name='name'
-                        placeholder='Email o número de socio '
+                        placeholder='Email '
                       />
                       <ErrorMessage
                         className='errors'
@@ -84,6 +95,7 @@ function login() {
                           <strong>recupera el acceso a tu cuenta </strong>{' '}
                         </a>
                       </p>
+
                       <button type='submit' disabled={isSubmitting}>
                         Iniciar sesión
                       </button>
