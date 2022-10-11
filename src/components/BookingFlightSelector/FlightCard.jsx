@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 const FlightCard = prop => {
+  console.log(prop);
   return (
     <div className='FlightCard__body'>
       <div className='FlightCard__header'>
