@@ -1,6 +1,33 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  DELETE_DEPARTURE_SEATS,
+  DELETE_ARRIVAL_SEATS,
+} from '../../store/reducers/flightsReducer';
 
-const PassengersCard = ({ seat, level, numPass, price }) => {
+const PassengersCard = ({
+  seat,
+  level,
+  numPass,
+  price,
+  column,
+  row,
+  param,
+  setTotalseats,
+}) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    if (param === 'departure') {
+      dispatch({ type: DELETE_DEPARTURE_SEATS, payload: { row, column } });
+      setTotalseats(prev => prev - 1);
+    }
+    if (param === 'arrival') {
+      dispatch({ type: DELETE_ARRIVAL_SEATS, payload: { row, column } });
+      setTotalseats(prev => prev - 1);
+    }
+  };
+
   return (
     <div className='passengerCard'>
       <button className='passengerCard__info'>
@@ -16,7 +43,7 @@ const PassengersCard = ({ seat, level, numPass, price }) => {
         </div>
       </button>
       {seat && (
-        <button className='passengerCard__delete'>
+        <button className='passengerCard__delete' onClick={handleClick}>
           Eliminar o cambiar asiento
         </button>
       )}

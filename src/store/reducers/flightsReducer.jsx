@@ -4,10 +4,13 @@ import airbusTwo from '../../AirbusTwo';
 export const REQ_FLIGHTS = '@flights/req-flights';
 export const ADD_SEATS_DEPARTURE = '@flights/add-seat-departure';
 export const ADD_SEATS_ARRIVAL = '@flights/add-seat-arrival';
+export const DELETE_DEPARTURE_SEATS = '@flights/delete-departure-seat';
+export const DELETE_ARRIVAL_SEATS = '@flights/delete-departure-seat';
 
 const initialState = {
+  id: 'alkgjoajdf1',
   price: {
-    light: '124.090,00',
+    light: '124090',
     basic: '233.090,00',
     plus: '533.090,00',
   },
@@ -59,6 +62,32 @@ const flightsReducer = (state = initialState, action) => {
     case ADD_SEATS_ARRIVAL:
       state.arrivalUser.push(action.payload);
       return state;
+    case DELETE_DEPARTURE_SEATS:
+      return {
+        ...state,
+        departureUser: {
+          ...state.departureUser,
+          departureUser: state.departureUser.filter(item => {
+            return (
+              (item.row && item.column) !==
+              (action.payload.row && action.payload.column)
+            );
+          }),
+        },
+      };
+    case DELETE_ARRIVAL_SEATS:
+      return {
+        ...state,
+        arrivalUser: {
+          ...state.arrivalUser,
+          arrivalUser: state.arrivalUser.filter(item => {
+            return (
+              (item.row && item.column) !==
+              (action.payload.row && action.payload.column)
+            );
+          }),
+        },
+      };
     default:
       return state;
   }

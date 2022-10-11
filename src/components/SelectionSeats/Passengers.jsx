@@ -26,7 +26,7 @@ const Passengers = ({
       setTotalseats(0);
     } else {
       navigate({
-        pathname: '/',
+        pathname: '/luggage?ldir=departure&pass=1',
       });
     }
   };
@@ -43,9 +43,13 @@ const Passengers = ({
                   <PassengersCard
                     key={`${i}${column}${param}`}
                     seat={`${column}${row}`}
+                    column={column}
+                    row={row}
                     level={location}
                     numPass={i + 1}
                     price={price}
+                    param={param}
+                    setTotalseats={setTotalseats}
                   />
                 </>
               ))
