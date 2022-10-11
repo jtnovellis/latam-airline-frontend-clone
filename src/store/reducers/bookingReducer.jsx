@@ -6,14 +6,15 @@ export const PASSENGER_AMOUNT_DOWN = '@passengerAmount/decrement';
 export const PASSENGER_AMOUNT_DOWN_ADULTS = '@passengerAmount_adults/decrement';
 export const PASSENGER_AMOUNT_DOWN_KIDS = '@passengerAmount_kids/decrement';
 export const PASSENGER_AMOUNT_DOWN_BABIES = '@passengerAmount_babies/decrement';
-export const BOOKING_CITIES_ADD = '@booking/add-cities';
+export const BOOKING_CITIES_ADD_DEPARTURE = '@booking/add-cities-departure';
+export const BOOKING_CITIES_ADD_ARRIVAL = '@booking/add-cities-arrival';
 export const BOOKING_DATES_ADD = '@booking/add-dates';
 export const BOOKING_SET_ROUNDTRIP = '@booking/add-roundtrip';
 
 const initialValues = {
   passengerAmount: 1,
-  origin: 'Barranquilla',
-  destination: 'Mayapo',
+  departureCity: null,
+  arrivalCity: null,
   dates: [null, null],
   adults: 1,
   kids: 0,
@@ -63,11 +64,15 @@ const bookingReducer = (state = initialValues, action) => {
         ...state,
         babies: state.babies - 1,
       };
-    case BOOKING_CITIES_ADD:
+    case BOOKING_CITIES_ADD_DEPARTURE:
       return {
         ...state,
-        origin: action.payload.origin,
-        destination: action.payload.destination,
+        departureCity: action.payload,
+      };
+    case BOOKING_CITIES_ADD_ARRIVAL:
+      return {
+        ...state,
+        arrivalCity: action.payload,
       };
     case BOOKING_DATES_ADD:
       return {
