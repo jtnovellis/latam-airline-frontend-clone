@@ -4,11 +4,21 @@ import FooterRegister from '../components/Footer-Register/index';
 import { useState } from 'react';
 import FullLuggageCard from 'components/Luggage/FullLuggageCard';
 
-import { CONTINUE } from 'store/reducers/luggageReducer';
+import {
+  CONTINUE,
+  GOBACK,
+  DEPARTURE_COMBO_DOWN,
+  ARRIVAL_COMBO_DOWN,
+  DEPARTURE_LIGHT_LUGGAGE_DOWN,
+  DEPARTURE_HEAVY_LUGGAGE_DOWN,
+  ARRIVAL_LIGHT_LUGGAGE_DOWN,
+  ARRIVAL_HEAVY_LUGGAGE_DOWN,
+  SPECIAL_DEPARTURE_DOWN,
+  SPECIAL_ARRIVAL_DOWN,
+} from 'store/reducers/luggageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 const Luggage = () => {
   const [selected, setSelected] = useState(true);
-  const [actualCard, setActualCard] = useState(0);
   const {
     departureLightLuggage,
     departureHeavyLuggage,
@@ -16,21 +26,20 @@ const Luggage = () => {
     arrivalHeavyLuggage,
     specialDeparture,
     specialArrival,
-    passengers,
+
     departureCombo,
     arrivalCombo,
+    position,
+    initialPassengers,
   } = useSelector(state => state.luggageReducer);
-
-  let passengerAmount = 3;
   let toShow = [];
-  for (let i = 0; i < passengerAmount; i++) {
+  for (let i = 0; i < initialPassengers; i++) {
     toShow.push(<FullLuggageCard key={`card${i}`} selected={selected} />);
   }
+
   const dispatch = useDispatch();
   function handleClick() {
-    console.log(passengers);
-    if (actualCard < passengerAmount) {
-      setActualCard(actualCard + 1);
+    if (position < initialPassengers) {
       dispatch({
         type: CONTINUE,
         payload: {
@@ -48,10 +57,29 @@ const Luggage = () => {
           },
         },
       });
+
+      console.log(position);
+      console.log(initialPassengers);
+
       setSelected(true);
     }
   }
-
+  const handleBack = () => {
+    if (position !== initialPassengers) {
+      if (position > 0) {
+        dispatch({ type: GOBACK });
+      }
+    } else {
+      dispatch({ type: DEPARTURE_COMBO_DOWN });
+      dispatch({ type: ARRIVAL_COMBO_DOWN });
+      dispatch({ type: DEPARTURE_LIGHT_LUGGAGE_DOWN });
+      dispatch({ type: DEPARTURE_HEAVY_LUGGAGE_DOWN });
+      dispatch({ type: ARRIVAL_LIGHT_LUGGAGE_DOWN });
+      dispatch({ type: ARRIVAL_HEAVY_LUGGAGE_DOWN });
+      dispatch({ type: SPECIAL_DEPARTURE_DOWN });
+      dispatch({ type: SPECIAL_ARRIVAL_DOWN });
+    }
+  };
   return (
     <>
       <HeaderRegister />
@@ -74,13 +102,11 @@ const Luggage = () => {
               </div>
             </div>
             <div>
-              {actualCard !== passengerAmount ? (
+              {position !== initialPassengers ? (
                 <div className='Luggage__passenger-selector'>
-                  <p> Pasajero {actualCard + 1}</p>
-
                   <svg
-                    onClick={() => handleClick()}
-                    style={{ transform: 'rotate(-90deg)' }}
+                    onClick={() => handleBack()}
+                    style={{ transform: 'rotate(90deg)' }}
                     xmlns='http://www.w3.org/2000/svg'
                     width='20px'
                     height='20px'
@@ -91,15 +117,33 @@ const Luggage = () => {
                       fill='red'
                       d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
                   </svg>
+                  <p> Pasajero {position + 1}</p>
+                  {position !== initialPassengers - 1 ? (
+                    <svg
+                      onClick={() => handleClick()}
+                      style={{ transform: 'rotate(-90deg)' }}
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='20px'
+                      height='20px'
+                      viewBox='0 0 20 20'
+                      fill='none'
+                      focusable='false'>
+                      <path
+                        fill='red'
+                        d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
+                    </svg>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               ) : (
                 <div className='Luggage__passenger-selector'>
-                  <p> Pasajero {actualCard + 1}</p>
+                  <p> Por favor, de click a continuar</p>
                 </div>
               )}
             </div>
             {toShow.map((card, index) => {
-              if (index === actualCard) {
+              if (index === position) {
                 return card;
               }
             })}
@@ -109,7 +153,9 @@ const Luggage = () => {
           <div className='status-info'></div>
           <div className='status-info-continue'>
             <hr />
-            <button className='status-continue'>continuar</button>
+            <button onClick={() => handleClick()} className='status-continue'>
+              continuar
+            </button>
             <div className='status-continue-details'>
               <button>Precio final</button>
               <span>COP 000,000,00</span>
