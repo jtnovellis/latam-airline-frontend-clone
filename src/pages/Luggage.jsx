@@ -4,18 +4,7 @@ import FooterRegister from '../components/Footer-Register/index';
 import { useState } from 'react';
 import FullLuggageCard from 'components/Luggage/FullLuggageCard';
 
-import {
-  CONTINUE,
-  GOBACK,
-  DEPARTURE_COMBO_DOWN,
-  ARRIVAL_COMBO_DOWN,
-  DEPARTURE_LIGHT_LUGGAGE_DOWN,
-  DEPARTURE_HEAVY_LUGGAGE_DOWN,
-  ARRIVAL_LIGHT_LUGGAGE_DOWN,
-  ARRIVAL_HEAVY_LUGGAGE_DOWN,
-  SPECIAL_DEPARTURE_DOWN,
-  SPECIAL_ARRIVAL_DOWN,
-} from 'store/reducers/luggageReducer';
+import { CONTINUE, GOBACK } from 'store/reducers/luggageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 const Luggage = () => {
   const [selected, setSelected] = useState(true);
@@ -26,7 +15,7 @@ const Luggage = () => {
     arrivalHeavyLuggage,
     specialDeparture,
     specialArrival,
-
+    passengersLuggage,
     departureCombo,
     arrivalCombo,
     position,
@@ -39,7 +28,7 @@ const Luggage = () => {
 
   const dispatch = useDispatch();
   function handleClick() {
-    if (position < initialPassengers) {
+    if (initialPassengers >= position) {
       dispatch({
         type: CONTINUE,
         payload: {
@@ -57,9 +46,9 @@ const Luggage = () => {
           },
         },
       });
-
-      console.log(position);
-      console.log(initialPassengers);
+      console.log(passengersLuggage);
+      console.log('position', position);
+      console.log('passenger', initialPassengers);
 
       setSelected(true);
     }
@@ -67,18 +56,28 @@ const Luggage = () => {
   const handleBack = () => {
     if (position !== initialPassengers) {
       if (position > 0) {
-        dispatch({ type: GOBACK });
+        dispatch({
+          type: GOBACK,
+          payload: {
+            departure: {
+              combo: departureCombo,
+              light: departureLightLuggage,
+              heavy: departureHeavyLuggage,
+              special: specialDeparture,
+            },
+            arrival: {
+              combo: arrivalCombo,
+              light: arrivalLightLuggage,
+              heavy: arrivalHeavyLuggage,
+              special: specialArrival,
+            },
+          },
+        });
       }
-    } else {
-      dispatch({ type: DEPARTURE_COMBO_DOWN });
-      dispatch({ type: ARRIVAL_COMBO_DOWN });
-      dispatch({ type: DEPARTURE_LIGHT_LUGGAGE_DOWN });
-      dispatch({ type: DEPARTURE_HEAVY_LUGGAGE_DOWN });
-      dispatch({ type: ARRIVAL_LIGHT_LUGGAGE_DOWN });
-      dispatch({ type: ARRIVAL_HEAVY_LUGGAGE_DOWN });
-      dispatch({ type: SPECIAL_DEPARTURE_DOWN });
-      dispatch({ type: SPECIAL_ARRIVAL_DOWN });
     }
+    console.log(passengersLuggage);
+    console.log('position', position);
+    console.log('passenger', initialPassengers);
   };
   return (
     <>
