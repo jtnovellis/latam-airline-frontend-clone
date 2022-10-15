@@ -1,0 +1,36 @@
+.profilePhoto__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+}
+.profile-photo-button {
+  padding: 1rem 2rem;
+  background-color: #e8114b;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border: none;
+  height: 3.5rem;
+  cursor: pointer;
+}
+.form-profile-photo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  input[type='file'] {
+    display: none;
+  }
+  .label-form-profile-photo {
+    padding: 1rem 2rem;
+    background-color: #e8114b;
+    color: #fff;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: none;
+    height: 3.5rem;
+    cursor: pointer;
+  }
+}

@@ -6,6 +6,7 @@ import BookingInputs from 'components/Booking/BookingInputs';
 import BookingInputsDesktop from 'components/Booking/BookingInputsDesktop';
 import FlightContainer from '../components/BookingFlightSelector/FlightContainer';
 import StatusFlight from 'components/StatusFlight/StatusFlight';
+import FlightInfo from 'components/StatusFlight/FlightInfo';
 
 const Flights = () => {
   return (
@@ -21,7 +22,10 @@ const Flights = () => {
       <div className='container-flights2'>
         <div className='cf'>
           <FlightContainer />
-          <StatusFlight />
+          <div className='Status'>
+            <FlightInfo />
+            <StatusFlight />
+          </div>
         </div>
       </div>
     </>

@@ -2,14 +2,8 @@ import React from 'react';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import PassengersCard from './PassengersCard';
 import { useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-//_________________________________________________________________________________
-const handler = window.ePayco.checkout.configure({
-  key: 'd7715028e800197071a813ebf7e3e754',
-  test: true,
-});
-//__________________________________________________________________________________
 const Passengers = ({
   passengersToRender,
   totalseats,
@@ -20,46 +14,7 @@ const Passengers = ({
   let length = passengersToRender.length;
   const [toRender, setToRender] = React.useState([]);
   const roundTrip = useSelector(state => state.bookingReducer.roundTrip);
-  // const navigate = useNavigate();
-
-  //______________________________________________________________________
-
-  const flightData = useSelector(state => state.flightsReducer);
-  const userData = useSelector(state => state.userReducer);
-
-  const data = {
-    //Parametros compra (obligatorio)
-    name: `LA${flightData.id}`,
-    description: 'Vestido Mujer Primavera',
-    invoice: `${flightData.id}`,
-    currency: 'cop',
-    amount: `${flightData.price.light}`,
-    tax_base: '0',
-    tax: '0',
-    country: 'co',
-    lang: 'es',
-
-    //Onpage="false" - Standard="true"
-    external: 'false',
-
-    //Atributos opcionales
-    extra1: `${flightData.departureUser}`,
-    extra2: `${flightData.arrivalUser}`,
-    extra3: 'extra3',
-    response: 'http://secure2.payco.co/prueba_curl.php',
-
-    //Atributos cliente
-    name_billing: `${userData.name}`,
-    address_billing: '',
-    type_doc_billing: `${userData.documentType}`,
-    mobilephone_billing: `${userData.phoneNumber}`,
-    number_doc_billing: `${userData.documentNumber}`,
-
-    //atributo deshabilitación metodo de pago
-    methodsDisable: ['PSE', 'SP', 'CASH', 'DP'],
-  };
-
-  //_________________________________________________________________________
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     setToRender(passengersToRender);
@@ -70,10 +25,9 @@ const Passengers = ({
       setQuery({ dir: 'arrival' });
       setTotalseats(0);
     } else {
-      // navigate({
-      //   pathname: '/luggage',
-      // });
-      handler.open(data);
+      navigate({
+        pathname: '/luggage',
+      });
     }
   };
 

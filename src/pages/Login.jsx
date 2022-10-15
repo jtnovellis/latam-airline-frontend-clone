@@ -1,13 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../images/login/logo_latam.png';
 import '../scss/pages/Login.scss';
 import '../scss/base/Fontfaces.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import useSetCookies from '../services/Cookies/useSetCookies';
+import useGetCookies from '../services/Cookies/useGetCookies';
+import useRemoveCookies from '../services/Cookies/useRemoveCookies';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {
+  SET_USER_LOGIN,
+  SET_ALL_DATAUSER,
+} from '../store/reducers/userReducer';
 
 function login() {
-  const [done, setDone] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState(null);
+
+  const getDataUser = () => {
+    axios
+      // eslint-disable-next-line no-undef
+      .get(`${process.env.REACT_APP_API_LATAM_CLONE}/api/users/data`, {
+        headers: {
+          Authorization: `Bearer ${useGetCookies('lausrin')}`,
+        },
+      })
+      .then(res => {
+        const { data } = res;
+        dispatch({ type: SET_ALL_DATAUSER, payload: data.data });
+      })
+      .catch(err => {
+        setError(err);
+      });
+  };
+
   return (
     <div>
       <div className='window-login'>
@@ -39,12 +69,29 @@ function login() {
                   return errors;
                 }}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
-                  resetForm();
-                  setDone(true);
-                  setTimeout(() => {
-                    setSubmitting(true);
-                    setDone(true);
-                  }, 1000);
+                  axios
+                    .post(
+                      // eslint-disable-next-line no-undef
+                      `${process.env.REACT_APP_API_LATAM_CLONE}/api/auth/local/signin`,
+                      {
+                        email: values.name,
+                        password: values.password,
+                      }
+                    )
+                    .then(res => {
+                      useRemoveCookies('lausrin');
+                      useSetCookies('lausrin', res.data.data.token);
+                      dispatch({ type: SET_USER_LOGIN });
+                    })
+                    .catch(() => {
+                      navigate({ pathname: '/login' });
+                    })
+                    .finally(() => {
+                      setSubmitting(true);
+                      resetForm();
+                      getDataUser();
+                      navigate({ pathname: '/' });
+                    });
                 }}>
                 {({ isSubmitting }) => (
                   <Form>
@@ -55,7 +102,7 @@ function login() {
                         type='text'
                         id='name'
                         name='name'
-                        placeholder='Email o número de socio '
+                        placeholder='Email '
                       />
                       <ErrorMessage
                         className='errors'
@@ -81,13 +128,13 @@ function login() {
                     <div>
                       <p className='recuperar'>
                         <a href=''>
-                          <strong>recupera el acceso a tu cuenta </strong>{' '}
+                          <strong>Recupera el acceso a tu cuenta </strong>{' '}
                         </a>
                       </p>
+
                       <button type='submit' disabled={isSubmitting}>
                         Iniciar sesión
                       </button>
-                      {done}
                     </div>
                   </Form>
                 )}

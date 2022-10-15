@@ -1,12 +1,19 @@
 import React from 'react';
+import useGetCookies from 'services/Cookies/useGetCookies';
+import { useJwt } from 'react-jwt';
+import ButtonLoginUser from 'components/Header/ButtonLoginUser';
+import Buttonlogin from 'components/Header/Buttonlogin';
 import { Link } from 'react-router-dom';
 
 const RegisterHeader = () => {
+  const user = useGetCookies('lausrin');
+  const { isExpired } = useJwt(user);
+  const auth = isExpired;
+
   return (
     <header className='header'>
-      <div></div>
       <div className='header-div'>
-        <a className='latam-a' href='/'>
+        <Link className='latam-a' to='/'>
           <svg
             className='latam-icon'
             width='133px'
@@ -31,12 +38,10 @@ const RegisterHeader = () => {
               />
             </g>
           </svg>
-        </a>
-        <Link to={'/login'}>
-          <div className='latam-btn-div'>
-            <button className='latam-login-btn'>Iniciar sesión</button>
-          </div>
         </Link>
+        <div className='latam-btn-div'>
+          {!auth ? <ButtonLoginUser /> : <Buttonlogin />}
+        </div>
       </div>
     </header>
   );
