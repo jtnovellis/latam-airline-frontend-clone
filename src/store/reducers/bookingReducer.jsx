@@ -15,7 +15,7 @@ const initialValues = {
   origin: 'Barranquilla',
   destination: 'Mayapo',
   dates: [null, null],
-  adults: 1,
+  adults: 4,
   kids: 0,
   babies: 0,
   roundTrip: true,
