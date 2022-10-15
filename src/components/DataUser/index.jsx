@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import ProfilePhoto from './ProfilePhoto';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import logouser from '../../images/user/avatar.png';
+// import logouser from '../../images/user/avatar.png';
 
 const DataUser = () => {
   const { email, password, name, lastname, profilePhoto } = useSelector(
@@ -23,8 +23,8 @@ const DataUser = () => {
         <div className='dataUser__header--avatar'>
           <Stack direction='row' spacing={2}>
             <Avatar
-              alt='Remy Sharp'
-              src={profilePhoto || logouser}
+              alt={name}
+              src={profilePhoto}
               sx={{ width: 56, height: 56 }}
             />
           </Stack>
