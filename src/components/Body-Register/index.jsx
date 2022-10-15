@@ -2,9 +2,38 @@ import React from 'react';
 import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
+import useGetCookies from '../../services/Cookies/useGetCookies';
+import useRemoveCookies from '../../services/Cookies/useRemoveCookies';
+import useSetCookies from '../../services/Cookies/useSetCookies';
+import {
+  SET_USER_LOGIN,
+  SET_ALL_DATAUSER,
+} from '../../store/reducers/userReducer';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 const index = () => {
   const [done, setDone] = useState(false);
   const [checked, setChecked] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const getDataUser = () => {
+    axios
+      // eslint-disable-next-line no-undef
+      .get(`${process.env.REACT_APP_API_LATAM_CLONE}/api/users/data`, {
+        headers: {
+          Authorization: `Bearer ${useGetCookies('lausrin')}`,
+        },
+      })
+      .then(res => {
+        dispatch({ type: SET_ALL_DATAUSER, payload: res.data.data.user });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <div className='section__div'>
@@ -54,31 +83,32 @@ const index = () => {
 
           <Formik
             initialValues={{
-              name: '',
+              firstName: '',
+              lastName: '',
+              birthdate: '',
+              gender: '',
+              country: 'Colombia',
+              documentType: 'Cédula de ciudadanía',
+              documentNumber: '',
               email: '',
               password: '',
-              country: 'CO',
-              id: 'CC',
-              passportCountry: 'CO',
-              idNumber: '',
-              lName: '',
-              date: '',
-              picked: '',
+              passportCountry: 'Colombia',
               countryNumber: '+57',
               number: '',
               terms: '',
               dataTreatment: '',
-              countryPP: 'CO',
+              countryPP: 'Colombia',
             }}
             validate={values => {
               const errors = {};
-              if (!values.name) {
-                errors.name =
+              if (!values.firstName) {
+                errors.firstName =
                   'Tienes que ingresar el o los nombres tal como aparecen en tu cédula de ciudadanía';
-              } else if (values.name.length < 4) {
-                errors.name = 'ingresa al menos 4 caracteres';
-              } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
-                errors.name = 'el nombre solo puede contener letras y espacios';
+              } else if (values.firstName.length < 4) {
+                errors.firstName = 'ingresa al menos 4 caracteres';
+              } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.firstName)) {
+                errors.firstName =
+                  'el nombre solo puede contener letras y espacios';
               }
               if (!values.email) {
                 errors.email = 'Tienes que ingresar un email';
@@ -94,15 +124,15 @@ const index = () => {
                 errors.password =
                   'Tienes que ingresar una contraseña que tenga mínimo 8 caracteres e incluir una mayúscula, una minúscula y un número';
               }
-              if (!values.idNumber) {
-                errors.idNumber =
+              if (!values.documentType) {
+                errors.documentType =
                   'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
-              } else if (values.idNumber.length < 8) {
-                errors.idNumber =
+              } else if (values.documentType.length < 8) {
+                errors.documentType =
                   'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
               }
-              if (!values.date) {
-                errors.date = 'La fecha es inválida';
+              if (!values.birthdate) {
+                errors.birthdate = 'La fecha es inválida';
               }
               if (!values.number) {
                 errors.number = 'Tienes que ingresar el número de celular';
@@ -121,20 +151,29 @@ const index = () => {
               return errors;
             }}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              resetForm();
-              setDone(true);
-              setSubmitting(false);
-              setDone(false);
               console.log(values);
               axios
-                .post('https://jsonplaceholder.typicode.com/posts', {
-                  values,
+                .post(
+                  // eslint-disable-next-line no-undef
+                  `${process.env.REACT_APP_API_LATAM_CLONE}/api/auth/local/signup`,
+                  { ...values, isRegistered: true }
+                )
+                .then(function (res) {
+                  console.log(res.data);
+                  useRemoveCookies('lausrin');
+                  useSetCookies('lausrin', res.data.data.token);
+                  dispatch({ type: SET_USER_LOGIN });
                 })
-                .then(function (response) {
-                  console.log(response);
+                .catch(function () {
+                  navigate({ pathname: '/register' });
                 })
-                .catch(function (error) {
-                  console.log(error);
+                .finally(() => {
+                  getDataUser();
+                  resetForm();
+                  setDone(true);
+                  setSubmitting(false);
+                  setDone(false);
+                  navigate({ pathname: '/' });
                 });
             }}>
             {({ isSubmitting, errors, values }) => (
@@ -142,17 +181,16 @@ const index = () => {
                 <div className='select-field'>
                   <label>País</label>
                   <Field as='select' id='country' name='country'>
-                    <option value='Co'>Colombia</option>
-                    <option value='SF'>San Francisco</option>
-                    <option value='CH'>Chicago</option>
-                    <option value='OTHER'>Other</option>
+                    <option value='Colombia'>Colombia</option>
                   </Field>
                 </div>
                 <div className='select-field id'>
                   <label>Tipo de documento</label>
-                  <Field as='select' id='id' name='id'>
-                    <option value='CC'>Cedula de ciudadanía</option>
-                    <option value='PP'>Pasaporte</option>
+                  <Field as='select' id='documentType' name='documentType'>
+                    <option value='Cedula de ciudadanía'>
+                      Cedula de ciudadanía
+                    </option>
+                    <option value='Pasaporte'>Pasaporte</option>
                   </Field>
                   <span>
                     Te recomendamos registrarte con tu cédula de ciudadanía de
@@ -160,32 +198,29 @@ const index = () => {
                   </span>
                 </div>
 
-                {values.id === 'PP' ? (
+                {values.id === 'Pasaporte' ? (
                   <>
                     <div className='select-field pp'>
                       <label>País de emisión del pasaporte</label>
                       <Field as='select' id='countryPP' name='countryPP'>
-                        <option value='Co'>Colombia</option>
-                        <option value='SF'>San Francisco</option>
-                        <option value='CH'>Chicago</option>
-                        <option value='OTHER'>Other</option>
+                        <option value='Colombia'>Colombia</option>
                       </Field>
                     </div>
                     <div className='input-field'>
                       <Field
                         type='input'
-                        id='idNumber'
-                        name='idNumber'
+                        id='documentNumber'
+                        name='documentNumber'
                         placeholder='Numero de pasaporte'
                       />
-                      {errors.idNumber ? (
+                      {errors.documentNumber ? (
                         <ErrorMessage
                           className='errors'
-                          name='idNumber'
+                          name='documentNumber'
                           component='div'
                         />
                       ) : (
-                        <span>Ejemplo: 1234567891</span>
+                        <span>Ejemplo: 1.234.567.891</span>
                       )}
                     </div>
                   </>
@@ -193,33 +228,33 @@ const index = () => {
                   <div className='input-field'>
                     <Field
                       type='input'
-                      id='idNumber'
-                      name='idNumber'
+                      id='documentNumber'
+                      name='documentNumber'
                       placeholder='Numero de cedula de ciudadanía'
                     />
-                    {errors.idNumber ? (
+                    {errors.documentNumber ? (
                       <ErrorMessage
                         className='errors'
-                        name='idNumber'
+                        name='documentNumber'
                         component='div'
                       />
                     ) : (
-                      <span>Ejemplo: 1234567891</span>
+                      <span>Ejemplo: 1.234.567.891</span>
                     )}
                   </div>
                 )}
                 <div className='input-field'>
                   <Field
                     type='input'
-                    id='name'
-                    name='name'
+                    id='firstName'
+                    name='firstName'
                     placeholder='Nombre(s)'
                   />
 
-                  {errors.name ? (
+                  {errors.firstName ? (
                     <ErrorMessage
                       className='errors'
-                      name='name'
+                      name='firstName'
                       component='div'
                     />
                   ) : (
@@ -229,8 +264,8 @@ const index = () => {
                 <div className='input-field'>
                   <Field
                     type='input'
-                    id='lName'
-                    name='lName'
+                    id='lastName'
+                    name='lastName'
                     placeholder='Apellidos'
                   />
                   <span>Tal como aparecen en tu cédula de ciudadanía</span>
@@ -238,13 +273,13 @@ const index = () => {
                 <div className='input-field'>
                   <Field
                     type='date'
-                    id='date'
-                    name='date'
+                    id='birthdate'
+                    name='birthdate'
                     placeholder='Ingresa tu fecha de nacimiento'
                   />
                   <ErrorMessage
                     className='errors'
-                    name='date'
+                    name='birthdate'
                     component='div'
                   />
                 </div>
@@ -266,15 +301,15 @@ const index = () => {
                   role='group'
                   aria-labelledby='my-radio-group'>
                   <label>
-                    <Field type='radio' name='picked' value='M' />
+                    <Field type='radio' name='gender' value='Male' />
                     Masculino
                   </label>
                   <label>
-                    <Field type='radio' name='picked' value='F' />
+                    <Field type='radio' name='gender' value='Female' />
                     Femenino
                   </label>
                   <label>
-                    <Field type='radio' name='picked' value='P' />
+                    <Field type='radio' name='gender' value='ND' />
                     Prefiero no decirlo
                   </label>
                 </div>
@@ -301,10 +336,7 @@ const index = () => {
                           as='select'
                           name='countryNumber'
                           multiple={false}>
-                          <option value='CO'>+57</option>
-                          <option value='SF'>+??</option>
-                          <option value='CH'>+??</option>
-                          <option value='OTHER'>+??</option>
+                          <option value='Colombia'>+57</option>
                         </Field>
                       </div>
 
