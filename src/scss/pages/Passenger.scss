@@ -1,0 +1,52 @@
+.LATAM__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0px 1rem;
+  margin: unset;
+  width: 100%;
+  height: 100%;
+
+  @media (min-width: 600px) {
+    gap: 2rem;
+    grid-template-columns: repeat(8, 1fr);
+    padding: 0px 2rem;
+    min-height: calc(100vh - 11rem);
+    height: 100%;
+  }
+  @media (min-width: 960px) {
+    gap: 2.5rem;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 0px 3rem;
+  }
+  @media (min-width: 1436px) {
+    gap: 3rem;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 89.75rem;
+    margin: 0px auto;
+    padding: 0px 4rem;
+  }
+}
+.Passager__Form {
+  height: calc(100% - 24px);
+  overflow: hidden scroll;
+  padding: 0px 1rem;
+  display: inline-table;
+  grid-column: 1 / span 8;
+
+  @media (min-width: 1024px) {
+    padding-left: 0rem;
+    padding-right: 4rem;
+    margin: 2rem 0;
+    height: auto;
+    overflow: unset;
+    display: block;
+
+    & > div {
+      margin: 1.5rem 0;
+    }
+  }
+  & > div {
+    margin: 1rem 0;
+  }
+}

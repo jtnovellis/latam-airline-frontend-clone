@@ -6,6 +6,8 @@ export const ADD_SEATS_DEPARTURE = '@flights/add-seat-departure';
 export const ADD_SEATS_ARRIVAL = '@flights/add-seat-arrival';
 export const DELETE_DEPARTURE_SEATS = '@flights/delete-departure-seat';
 export const DELETE_ARRIVAL_SEATS = '@flights/delete-departure-seat';
+export const ADD_PASSENGER_FORMDATA = '@flights/add-passenger-formdata';
+export const UPDATE_PASSENGER_FORMDATA = '@flights/update-passenger-formdata';
 
 const initialState = {
   id: 'alkgjoajdf1',
@@ -40,6 +42,7 @@ const initialState = {
   },
   departureUser: [],
   arrivalUser: [],
+  passengerRelated: [],
 };
 
 const flightsReducer = (state = initialState, action) => {
@@ -88,6 +91,20 @@ const flightsReducer = (state = initialState, action) => {
           }),
         },
       };
+    case ADD_PASSENGER_FORMDATA:
+      state.passengerRelated.push(action.payload);
+      return state;
+    case UPDATE_PASSENGER_FORMDATA:
+      return {
+        ...state,
+        passengerRelated: {
+          ...state.passengerRelated,
+          passengerRelated: state.passengerRelated.filter(item => {
+            return item.arrivalUser;
+          }),
+        },
+      };
+
     default:
       return state;
   }
