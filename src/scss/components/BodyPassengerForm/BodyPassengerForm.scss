@@ -1,7 +1,11 @@
 .BPF__section {
   .doubleField {
+    font-family: 'LATAM Sans', 'Sans';
+
     @media (min-width: 960px) {
       display: grid;
+      font-family: 'LATAM Sans', 'Sans';
+
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
@@ -9,6 +13,8 @@
       margin-top: 28.8px;
     }
     & .input-field {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
       margin-top: 33px;
     }
   }
@@ -34,6 +40,9 @@
     }
     & .input-field {
       margin-top: 38px;
+    }
+    input {
+      font-family: 'LATAM Sans', 'Sans';
     }
   }
   .errors {
@@ -109,8 +118,11 @@
     display: flex;
     flex-direction: column;
     margin: 1.5rem 0rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
 
     input {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
       color: #5c5c5c;
       font-size: 16px;
       height: 3.5rem;
@@ -141,6 +153,8 @@
     }
 
     .input-field {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
       margin: 0px;
       width: 100%;
     }
@@ -151,6 +165,8 @@
     }
 
     input {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
       width: 100%;
     }
   }
@@ -184,8 +200,8 @@
     padding: 1rem 2rem;
 
     &:hover {
-      background: rgb(255, 110, 110);
-      border: 0.0625rem solid rgb(255, 110, 110);
+      background-color: rgb(233, 88, 120);
+      border: 0.0625rem solid rgb(233, 88, 120);
     }
   }
 
