@@ -3,7 +3,18 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import FlightCard from './FlightCard';
 import useMediaQuery from '@mui/material/useMediaQuery';
+
 const FlightSelector = prop => {
+  const { departure, arrival, departureTime, arrivalTime, duration, price } =
+    prop;
+  const flightData = {
+    departure,
+    arrival,
+    departureTime,
+    arrivalTime,
+    duration,
+    price,
+  };
   const [show, setShow] = useState(false);
 
   const ourMediaQuery = useMediaQuery('(max-width:588px)');
@@ -71,9 +82,24 @@ const FlightSelector = prop => {
       {show ? (
         <div className='Flight__type-cards'>
           <div className='Flight__type-cards-container'>
-            <FlightCard type='Basic' price={prop.price} />
-            <FlightCard type='Light' price={prop.price} />
-            <FlightCard type='Plus' price={prop.price} />
+            <FlightCard
+              data={flightData}
+              type='Basic'
+              price={prop.price}
+              trigger={prop.trigger}
+            />
+            <FlightCard
+              data={flightData}
+              type='Light'
+              price={prop.price}
+              trigger={prop.trigger}
+            />
+            <FlightCard
+              data={flightData}
+              type='Plus'
+              price={prop.price}
+              trigger={prop.trigger}
+            />
           </div>
         </div>
       ) : (

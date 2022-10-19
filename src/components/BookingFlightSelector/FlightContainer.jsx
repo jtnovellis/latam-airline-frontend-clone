@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import FlightSelector from './FlightSelector';
 
-const FlightContainer = () => {
+const FlightContainer = ({ trigger }) => {
   const [filter, setFilter] = React.useState('');
   const flights = [
     {
@@ -76,6 +76,7 @@ const FlightContainer = () => {
       {flights.map(function (item) {
         return (
           <FlightSelector
+            trigger={trigger}
             key={item.id}
             departure={item.departure}
             departureTime={item.departureTime}
