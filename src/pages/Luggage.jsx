@@ -22,6 +22,9 @@ const Luggage = () => {
     position,
     initialPassengers,
   } = useSelector(state => state.luggageReducer);
+  
+  const navigate = useNavigate();
+
   let toShow = [];
   for (let i = 0; i < initialPassengers; i++) {
     toShow.push(<FullLuggageCard key={`card${i}`} selected={selected} />);
@@ -55,6 +58,7 @@ const Luggage = () => {
       pathname: '/passenger-form',
     });
   };
+
   const handleBack = () => {
     if (position !== initialPassengers) {
       if (position > 0) {
@@ -78,6 +82,7 @@ const Luggage = () => {
       }
     }
   };
+
   return (
     <>
       <HeaderRegister />

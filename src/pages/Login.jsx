@@ -102,7 +102,7 @@ function login() {
                         type='text'
                         id='name'
                         name='name'
-                        placeholder='Email o número de socio '
+                        placeholder='Email '
                       />
                       <ErrorMessage
                         className='errors'
@@ -131,6 +131,7 @@ function login() {
                           <strong>Recupera el acceso a tu cuenta </strong>{' '}
                         </a>
                       </p>
+
                       <button type='submit' disabled={isSubmitting}>
                         Iniciar sesión
                       </button>

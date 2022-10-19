@@ -5,8 +5,7 @@ export const SET_PROFILE_PHOTO = '@user/set-profile-photo';
 
 const initialState = {
   dropdown: false,
-  profilePhoto:
-    'https://res.cloudinary.com/dvthwktqe/image/upload/v1665209002/latam-airlines-clone/e7xdm7h1ho6fobxu65xp.png',
+  profilePhoto: '',
   name: '',
   lastname: '',
   country: '',
@@ -44,8 +43,8 @@ const userReducer = (state = initialState, action) => {
         country: action.payload.country,
         documentType: action.payload.documentType,
         documentNumber: action.payload.documentNumber,
-        name: action.payload.firstname,
-        lastname: action.payload.lastname,
+        name: action.payload.firstName,
+        lastname: action.payload.lastName,
         email: action.payload.email,
         password: action.payload.password,
         profilePhoto: action.payload.profilePhoto,

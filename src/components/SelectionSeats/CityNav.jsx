@@ -6,7 +6,7 @@ const CityNav = ({ param }) => {
     go: true,
     return: false,
   });
-  const { origin, destination, roundTrip } = useSelector(
+  const { departureCity, arrivalCity, roundTrip } = useSelector(
     state => state.bookingReducer
   );
 
@@ -29,7 +29,7 @@ const CityNav = ({ param }) => {
     <>
       <button className={selected.go ? 'cityNav selected-city' : 'cityNav'}>
         <span className='cityNav__cities'>
-          {origin} a {destination}
+          {departureCity} a {arrivalCity}
         </span>
         <span className='cityNav__direction'>Vuelo de ida</span>
       </button>
@@ -37,7 +37,7 @@ const CityNav = ({ param }) => {
         <button
           className={selected.return ? 'cityNav selected-city' : 'cityNav'}>
           <span className='cityNav__cities'>
-            {destination} a {origin}
+            {arrivalCity} a {departureCity}
           </span>
           <span className='cityNav__direction'>Vuelo de vuelta</span>
         </button>
