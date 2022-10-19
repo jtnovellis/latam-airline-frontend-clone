@@ -9,9 +9,9 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export const MuiAccordion = props => {
-  const { idItem, children, title } = props;
+  const { idItem, children, title, classname } = props;
   return (
-    <div>
+    <div className={classname}>
       <Accordion>
         <AccordionSummary
           id={`panel${idItem}-header`}

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_PASSENGER_FORMDATA } from '../../store/reducers/flightsReducer';
+import {
+  ADD_PASSENGER_FORMDATA,
+  UPDATE_PASSENGER_FORMDATA,
+} from '../../store/reducers/flightsReducer';
 
 const BodyPassengerForm = ({ passengerId }) => {
   const { passengerRelated } = useSelector(state => state.flightsReducer);
@@ -16,7 +19,7 @@ const BodyPassengerForm = ({ passengerId }) => {
             firstName: '',
             lastName: '',
             birthdate: '',
-            gender: '',
+            gender: 'Male',
             country: 'CO',
             documentType: 'Cédula de ciudadanía',
             passportCountry: 'CO',
@@ -74,7 +77,11 @@ const BodyPassengerForm = ({ passengerId }) => {
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
             if (passengerRelated[passengerId]) {
-              console.log('editando usuario');
+              dispatch({
+                type: UPDATE_PASSENGER_FORMDATA,
+                payload: { values, position: passengerId },
+              });
+              console.log('hi');
             } else {
               dispatch({ type: ADD_PASSENGER_FORMDATA, payload: values });
             }

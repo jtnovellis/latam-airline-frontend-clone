@@ -95,15 +95,9 @@ const flightsReducer = (state = initialState, action) => {
       state.passengerRelated.push(action.payload);
       return state;
     case UPDATE_PASSENGER_FORMDATA:
-      return {
-        ...state,
-        passengerRelated: {
-          ...state.passengerRelated,
-          passengerRelated: state.passengerRelated.filter(item => {
-            return item.arrivalUser;
-          }),
-        },
-      };
+      state.passengerRelated[action.payload.position] = action.payload.values;
+      console.log(action.payload);
+      return state;
 
     default:
       return state;

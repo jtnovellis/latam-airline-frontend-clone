@@ -25,9 +25,9 @@ const Passenger = () => {
               {[...Array(passengersToRender)].map((item, index) => (
                 <li key={`pass${index}`}>
                   <MuiAccordion
-                    className='eachform'
+                    classname='eachform'
                     idItem={index + 1}
-                    title={`Pasajero${index + 1}`}>
+                    title={`Pasajero ${index + 1}`}>
                     <BodyPassengerForm passengerId={index} />
                   </MuiAccordion>
                 </li>
