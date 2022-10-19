@@ -31,6 +31,7 @@ function BookingInputsDesktop() {
                 id='city-departure'
                 action={BOOKING_CITIES_ADD_DEPARTURE}
                 value={departureCity}
+                label='Ingresa Origen'
               />
             </div>
           </div>
@@ -41,6 +42,7 @@ function BookingInputsDesktop() {
                 id='city-arrival'
                 action={BOOKING_CITIES_ADD_ARRIVAL}
                 value={arrivalCity}
+                label='Ingresa Destino'
               />
             </div>
           </div>

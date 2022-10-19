@@ -4,7 +4,13 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch } from 'react-redux';
 
-export default function AutocompleteInput({ cities, id, action, value }) {
+export default function AutocompleteInput({
+  cities,
+  id,
+  action,
+  value,
+  label,
+}) {
   const dispatch = useDispatch();
 
   return (
@@ -17,7 +23,7 @@ export default function AutocompleteInput({ cities, id, action, value }) {
         options={cities.map(option => {
           return `${option.city}, ${option.iata} - ${option.country}`;
         })}
-        renderInput={params => <TextField {...params} label='Ingresa Origen' />}
+        renderInput={params => <TextField {...params} label={label} />}
       />
     </Stack>
   );
