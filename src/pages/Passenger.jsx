@@ -7,9 +7,10 @@ import BodyPassengerForm from 'components/BodyPassengerForm';
 import CommonButton from 'components/Buttons/CommonButton';
 
 const Passenger = () => {
-  const { adults, kids } = useSelector(state => state.bookingReducer);
+  //const { adults, kids } = useSelector(state => state.bookingReducer);
   const { passengerRelated } = useSelector(state => state.flightsReducer);
-  const passengersToRender = adults + kids;
+  // const passengersToRender = adults + kids;
+  const passengersToRender = 2;
 
   useEffect(() => {
     console.log(passengerRelated);
