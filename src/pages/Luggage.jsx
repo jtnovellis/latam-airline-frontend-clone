@@ -6,7 +6,9 @@ import FullLuggageCard from 'components/Luggage/FullLuggageCard';
 
 import { CONTINUE, GOBACK } from 'store/reducers/luggageReducer';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 const Luggage = () => {
+  let navigate = useNavigate();
   const [selected, setSelected] = useState(true);
   const {
     departureLightLuggage,
@@ -15,7 +17,6 @@ const Luggage = () => {
     arrivalHeavyLuggage,
     specialDeparture,
     specialArrival,
-    passengersLuggage,
     departureCombo,
     arrivalCombo,
     position,
@@ -46,13 +47,14 @@ const Luggage = () => {
           },
         },
       });
-      console.log(passengersLuggage);
-      console.log('position', position);
-      console.log('passenger', initialPassengers);
-
       setSelected(true);
     }
   }
+  const handleContinue = () => {
+    navigate({
+      pathname: '/passenger-form',
+    });
+  };
   const handleBack = () => {
     if (position !== initialPassengers) {
       if (position > 0) {
@@ -75,9 +77,6 @@ const Luggage = () => {
         });
       }
     }
-    console.log(passengersLuggage);
-    console.log('position', position);
-    console.log('passenger', initialPassengers);
   };
   return (
     <>
@@ -152,7 +151,12 @@ const Luggage = () => {
           <div className='status-info'></div>
           <div className='status-info-continue'>
             <hr />
-            <button onClick={() => handleClick()} className='status-continue'>
+            <button
+              onClick={() => {
+                handleClick();
+                handleContinue();
+              }}
+              className='status-continue'>
               continuar
             </button>
             <div className='status-continue-details'>
