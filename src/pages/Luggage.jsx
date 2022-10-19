@@ -21,7 +21,7 @@ const Luggage = () => {
     position,
     initialPassengers,
   } = useSelector(state => state.luggageReducer);
-  
+
   const navigate = useNavigate();
 
   let toShow = [];
@@ -54,7 +54,6 @@ const Luggage = () => {
     }
   }
 
-  let navigate = useNavigate();
   const handleContinue = () => {
     navigate({
       pathname: '/passenger-form',
