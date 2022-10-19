@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeaderRegister from '../components/Header-Register/HeaderRegister';
 import FooterRegister from '../components/Footer-Register/index';
 import { useState } from 'react';
@@ -8,6 +8,8 @@ import { CONTINUE, GOBACK } from 'store/reducers/luggageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 const Luggage = () => {
+  const { adults, kids } = useSelector(state => state.bookingReducer);
+  const initialPassengers = adults + kids;
   const [selected, setSelected] = useState(true);
   const {
     departureLightLuggage,
@@ -19,8 +21,31 @@ const Luggage = () => {
     departureCombo,
     arrivalCombo,
     position,
-    initialPassengers,
   } = useSelector(state => state.luggageReducer);
+
+  const squema = {
+    departure: {
+      combo: 0,
+      light: 0,
+      heavy: 0,
+      special: 0,
+    },
+    arrival: {
+      combo: 0,
+      light: 0,
+      heavy: 0,
+      special: 0,
+    },
+  };
+
+  useEffect(() => {
+    for (let i = 0; i < initialPassengers; i++) {
+      dispatch({
+        type: '@initialSchema',
+        payload: { initialPassengers, squema },
+      });
+    }
+  }, []);
 
   const navigate = useNavigate();
 

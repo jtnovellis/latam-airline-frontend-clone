@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Footer from 'components/Footer-Register';
 import HeaderRegister from '../components/Header-Register/HeaderRegister';
 import { MuiAccordion } from 'components/MuiComponents/MuiAccordion';
@@ -7,15 +7,14 @@ import BodyPassengerForm from 'components/BodyPassengerForm';
 import CommonButton from 'components/Buttons/CommonButton';
 
 const Passenger = () => {
-  //const { adults, kids } = useSelector(state => state.bookingReducer);
-  const { passengerRelated } = useSelector(state => state.flightsReducer);
-  // const passengersToRender = adults + kids;
-  const passengersToRender = 2;
+  const { adults, kids } = useSelector(state => state.bookingReducer);
+  //const { passengerRelated } = useSelector(state => state.flightsReducer);
+  const passengersToRender = adults + kids;
 
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log(passengerRelated);
   }, [passengerRelated]);
-
+ */
   const flightData = useSelector(state => state.flightsReducer);
   const { name, documentType, phoneNumber, documentNumber } = useSelector(
     state => state.userReducer
@@ -32,7 +31,9 @@ const Passenger = () => {
 
   const data = {
     name: `LA${flightData.id}`,
-    description: `Vuelo de ${departureCity} a ${arrivalCity}`,
+    description: `Vuelo de ${departureCity.split(',')[0]} a ${
+      arrivalCity.split(',')[0]
+    }`,
     invoice: `${flightData.id}`,
     currency: 'cop',
     amount: `${flightData.price.light}`,
