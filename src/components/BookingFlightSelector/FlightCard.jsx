@@ -1,7 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 const FlightCard = prop => {
-  console.log(prop);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    prop.trigger(true);
+    dispatch({ type: '@booking/addGoFlight', payload: prop.flightData });
+  };
+
   return (
     <div className='FlightCard__body'>
       <div className='FlightCard__header'>
@@ -265,7 +272,7 @@ const FlightCard = prop => {
 
       <div className='FlightCard__choose'>
         <div className='FlightCard__choose-button'>
-          <button>Elegir</button>
+          <button onClick={handleClick}>Elegir</button>
         </div>
       </div>
     </div>
