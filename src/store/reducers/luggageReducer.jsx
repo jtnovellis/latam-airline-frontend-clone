@@ -22,7 +22,7 @@ export const SPECIAL_ARRIVAL_UP = '@specialArrival/increment';
 export const SPECIAL_ARRIVAL_DOWN = '@specialArrival/decrement';
 export const CONTINUE = '@continue/nowayback';
 export const GOBACK = '@goback/thereswayback';
-
+/* 
 const squema = {
   departure: {
     combo: 0,
@@ -37,7 +37,7 @@ const squema = {
     special: 0,
   },
 };
-
+ */
 const initialValues = {
   departureLightLuggage: 0,
   departureHeavyLuggage: 0,
@@ -53,15 +53,21 @@ const initialValues = {
   initialPassengers: 3,
 };
 
-const initializePassengers = (state = initialValues) => {
+/* const initializePassengers = (state = initialValues) => {
   for (let i = 0; i < state.initialPassengers; i++) {
     state.passengersLuggage.push(squema);
   }
 };
-initializePassengers();
+initializePassengers(); */
 
 const bookingReducer = (state = initialValues, action) => {
   switch (action.type) {
+    case '@initialSchema':
+      state.passengersLuggage.push(action.payload.squema);
+      return {
+        ...state,
+        initialPassengers: action.payload.initialPassengers,
+      };
     case DEPARTURE_LIGHT_LUGGAGE_UP:
       return {
         ...state,
@@ -217,7 +223,7 @@ const bookingReducer = (state = initialValues, action) => {
     case CONTINUE:
       state.passengersLuggage[state.position] = action.payload;
       state.position += 1;
-      if (state.position < state.initialPassengers) {
+      if (state.position < state.initialPassengers)
         return {
           ...state,
           departureLightLuggage:
@@ -236,9 +242,7 @@ const bookingReducer = (state = initialValues, action) => {
           departureCombo:
             state.passengersLuggage[state.position].departure.combo,
         };
-      }
       return state;
-
     case GOBACK:
       state.passengersLuggage[state.position] = action.payload;
       state.position -= 1;

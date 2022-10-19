@@ -29,7 +29,7 @@ const CityNav = ({ param }) => {
     <>
       <button className={selected.go ? 'cityNav selected-city' : 'cityNav'}>
         <span className='cityNav__cities'>
-          {departureCity} a {arrivalCity}
+          {departureCity.split(',')[0]} a {arrivalCity.split(',')[0]}
         </span>
         <span className='cityNav__direction'>Vuelo de ida</span>
       </button>
@@ -37,7 +37,7 @@ const CityNav = ({ param }) => {
         <button
           className={selected.return ? 'cityNav selected-city' : 'cityNav'}>
           <span className='cityNav__cities'>
-            {arrivalCity} a {departureCity}
+            {arrivalCity.split(',')[0]} a {departureCity.split(',')[0]}
           </span>
           <span className='cityNav__direction'>Vuelo de vuelta</span>
         </button>
