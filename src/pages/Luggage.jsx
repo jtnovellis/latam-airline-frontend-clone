@@ -4,12 +4,11 @@ import FooterRegister from '../components/Footer-Register/index';
 import { useState } from 'react';
 import FullLuggageCard from 'components/Luggage/FullLuggageCard';
 
-import { CONTINUE } from 'store/reducers/luggageReducer';
+import { CONTINUE, GOBACK } from 'store/reducers/luggageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 const Luggage = () => {
   const [selected, setSelected] = useState(true);
-  const [actualCard, setActualCard] = useState(0);
   const {
     departureLightLuggage,
     departureHeavyLuggage,
@@ -17,22 +16,23 @@ const Luggage = () => {
     arrivalHeavyLuggage,
     specialDeparture,
     specialArrival,
-    passengers,
     departureCombo,
     arrivalCombo,
+    position,
+    initialPassengers,
   } = useSelector(state => state.luggageReducer);
+
   const navigate = useNavigate();
 
-  let passengerAmount = 3;
   let toShow = [];
-  for (let i = 0; i < passengerAmount; i++) {
+  for (let i = 0; i < initialPassengers; i++) {
     toShow.push(<FullLuggageCard key={`card${i}`} selected={selected} />);
   }
+
   const dispatch = useDispatch();
+
   function handleClick() {
-    console.log(passengers);
-    if (actualCard < passengerAmount) {
-      setActualCard(actualCard + 1);
+    if (initialPassengers >= position) {
       dispatch({
         type: CONTINUE,
         payload: {
@@ -53,10 +53,35 @@ const Luggage = () => {
       setSelected(true);
     }
   }
+
   const handleContinue = () => {
     navigate({
       pathname: '/passenger-form',
     });
+  };
+
+  const handleBack = () => {
+    if (position !== initialPassengers) {
+      if (position > 0) {
+        dispatch({
+          type: GOBACK,
+          payload: {
+            departure: {
+              combo: departureCombo,
+              light: departureLightLuggage,
+              heavy: departureHeavyLuggage,
+              special: specialDeparture,
+            },
+            arrival: {
+              combo: arrivalCombo,
+              light: arrivalLightLuggage,
+              heavy: arrivalHeavyLuggage,
+              special: specialArrival,
+            },
+          },
+        });
+      }
+    }
   };
 
   return (
@@ -81,13 +106,11 @@ const Luggage = () => {
               </div>
             </div>
             <div>
-              {actualCard !== passengerAmount ? (
+              {position !== initialPassengers ? (
                 <div className='Luggage__passenger-selector'>
-                  <p> Pasajero {actualCard + 1}</p>
-
                   <svg
-                    onClick={() => handleClick()}
-                    style={{ transform: 'rotate(-90deg)' }}
+                    onClick={() => handleBack()}
+                    style={{ transform: 'rotate(90deg)' }}
                     xmlns='http://www.w3.org/2000/svg'
                     width='20px'
                     height='20px'
@@ -98,15 +121,33 @@ const Luggage = () => {
                       fill='red'
                       d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
                   </svg>
+                  <p> Pasajero {position + 1}</p>
+                  {position !== initialPassengers - 1 ? (
+                    <svg
+                      onClick={() => handleClick()}
+                      style={{ transform: 'rotate(-90deg)' }}
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='20px'
+                      height='20px'
+                      viewBox='0 0 20 20'
+                      fill='none'
+                      focusable='false'>
+                      <path
+                        fill='red'
+                        d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
+                    </svg>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               ) : (
                 <div className='Luggage__passenger-selector'>
-                  <p> Pasajero {actualCard + 1}</p>
+                  <p> Por favor, de click a continuar</p>
                 </div>
               )}
             </div>
             {toShow.map((card, index) => {
-              if (index === actualCard) {
+              if (index === position) {
                 return card;
               }
             })}
@@ -116,7 +157,12 @@ const Luggage = () => {
           <div className='status-info'></div>
           <div className='status-info-continue'>
             <hr />
-            <button onClick={handleContinue} className='status-continue'>
+            <button
+              onClick={() => {
+                handleClick();
+                handleContinue();
+              }}
+              className='status-continue'>
               continuar
             </button>
             <div className='status-continue-details'>

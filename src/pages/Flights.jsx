@@ -7,8 +7,9 @@ import BookingInputsDesktop from 'components/Booking/BookingInputsDesktop';
 import FlightContainer from '../components/BookingFlightSelector/FlightContainer';
 import StatusFlight from 'components/StatusFlight/StatusFlight';
 import FlightInfo from 'components/StatusFlight/FlightInfo';
-
+import { useState } from 'react';
 const Flights = () => {
+  const [show, setShow] = useState(false);
   return (
     <>
       <HeaderRegister />
@@ -21,10 +22,9 @@ const Flights = () => {
       </div>
       <div className='container-flights2'>
         <div className='cf'>
-          <FlightContainer />
+          <FlightContainer trigger={setShow} />
           <div className='Status'>
-            <FlightInfo />
-            <StatusFlight />
+            {show ? <FlightInfo /> : <StatusFlight />}
           </div>
         </div>
       </div>
