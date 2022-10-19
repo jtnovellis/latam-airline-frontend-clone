@@ -10,11 +10,11 @@ export const ADD_PASSENGER_FORMDATA = '@flights/add-passenger-formdata';
 export const UPDATE_PASSENGER_FORMDATA = '@flights/update-passenger-formdata';
 
 const initialState = {
-  id: 'alkgjoajdf1',
+  id: '123443ASD',
   price: {
-    light: '124090',
-    basic: '233.090,00',
-    plus: '533.090,00',
+    light: '80000',
+    basic: '120000',
+    plus: '180000',
   },
   departureFlightData: {
     airplane: {

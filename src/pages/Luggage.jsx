@@ -6,6 +6,7 @@ import FullLuggageCard from 'components/Luggage/FullLuggageCard';
 
 import { CONTINUE } from 'store/reducers/luggageReducer';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 const Luggage = () => {
   const [selected, setSelected] = useState(true);
   const [actualCard, setActualCard] = useState(0);
@@ -20,6 +21,7 @@ const Luggage = () => {
     departureCombo,
     arrivalCombo,
   } = useSelector(state => state.luggageReducer);
+  const navigate = useNavigate();
 
   let passengerAmount = 3;
   let toShow = [];
@@ -51,6 +53,11 @@ const Luggage = () => {
       setSelected(true);
     }
   }
+  const handleContinue = () => {
+    navigate({
+      pathname: '/passenger-form',
+    });
+  };
 
   return (
     <>
@@ -109,7 +116,9 @@ const Luggage = () => {
           <div className='status-info'></div>
           <div className='status-info-continue'>
             <hr />
-            <button className='status-continue'>continuar</button>
+            <button onClick={handleContinue} className='status-continue'>
+              continuar
+            </button>
             <div className='status-continue-details'>
               <button>Precio final</button>
               <span>COP 000,000,00</span>

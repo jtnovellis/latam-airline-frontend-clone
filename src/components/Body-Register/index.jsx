@@ -159,7 +159,6 @@ const index = () => {
                   { ...values, isRegistered: true }
                 )
                 .then(function (res) {
-                  console.log(res.data);
                   useRemoveCookies('lausrin');
                   useSetCookies('lausrin', res.data.data.token);
                   dispatch({ type: SET_USER_LOGIN });
@@ -173,7 +172,7 @@ const index = () => {
                   setDone(true);
                   setSubmitting(false);
                   setDone(false);
-                  navigate({ pathname: '/' });
+                  window.location.assign('https://latamairlines.vercel.app/');
                 });
             }}>
             {({ isSubmitting, errors, values }) => (
