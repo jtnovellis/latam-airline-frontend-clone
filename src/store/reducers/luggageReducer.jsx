@@ -21,6 +21,23 @@ export const SPECIAL_DEPARTURE_DOWN = '@specialDeparture/decrement';
 export const SPECIAL_ARRIVAL_UP = '@specialArrival/increment';
 export const SPECIAL_ARRIVAL_DOWN = '@specialArrival/decrement';
 export const CONTINUE = '@continue/nowayback';
+export const GOBACK = '@goback/thereswayback';
+
+const squema = {
+  departure: {
+    combo: 0,
+    light: 0,
+    heavy: 0,
+    special: 0,
+  },
+  arrival: {
+    combo: 0,
+    light: 0,
+    heavy: 0,
+    special: 0,
+  },
+};
+
 const initialValues = {
   departureLightLuggage: 0,
   departureHeavyLuggage: 0,
@@ -30,9 +47,18 @@ const initialValues = {
   arrivalHeavyLuggage: 0,
   specialArrival: 0,
   arrivalCombo: 0,
-  passengers: [],
+  passengersLuggage: [],
+  position: 0,
   totalPrice: 0,
+  initialPassengers: 3,
 };
+
+const initializePassengers = (state = initialValues) => {
+  for (let i = 0; i < state.initialPassengers; i++) {
+    state.passengersLuggage.push(squema);
+  }
+};
+initializePassengers();
 
 const bookingReducer = (state = initialValues, action) => {
   switch (action.type) {
@@ -189,19 +215,67 @@ const bookingReducer = (state = initialValues, action) => {
         totalPrice: state.totalPrice - 100000,
       };
     case CONTINUE:
-      state.passengers.push(action.payload);
+      state.passengersLuggage[state.position] = action.payload;
+      state.position += 1;
+      if (state.position < state.initialPassengers) {
+        return {
+          ...state,
+          departureLightLuggage:
+            state.passengersLuggage[state.position].departure.light,
+          departureHeavyLuggage:
+            state.passengersLuggage[state.position].departure.heavy,
+          arrivalLightLuggage:
+            state.passengersLuggage[state.position].arrival.light,
+          arrivalHeavyLuggage:
+            state.passengersLuggage[state.position].arrival.heavy,
+          specialDeparture:
+            state.passengersLuggage[state.position].departure.special,
+          specialArrival:
+            state.passengersLuggage[state.position].arrival.special,
+          arrivalCombo: state.passengersLuggage[state.position].arrival.combo,
+          departureCombo:
+            state.passengersLuggage[state.position].departure.combo,
+        };
+      }
+      return state;
 
-      return {
-        ...state,
-        departureLightLuggage: 0,
-        departureHeavyLuggage: 0,
-        arrivalLightLuggage: 0,
-        arrivalHeavyLuggage: 0,
-        specialDeparture: 0,
-        specialArrival: 0,
-        arrivalCombo: 0,
-        departureCombo: 0,
-      };
+    case GOBACK:
+      state.passengersLuggage[state.position] = action.payload;
+      state.position -= 1;
+      if (state.position !== state.initialPassengers) {
+        return {
+          ...state,
+          departureLightLuggage:
+            state.passengersLuggage[state.position].departure.light,
+          departureHeavyLuggage:
+            state.passengersLuggage[state.position].departure.heavy,
+          arrivalLightLuggage:
+            state.passengersLuggage[state.position].arrival.light,
+          arrivalHeavyLuggage:
+            state.passengersLuggage[state.position].arrival.heavy,
+          specialDeparture:
+            state.passengersLuggage[state.position].departure.special,
+          specialArrival:
+            state.passengersLuggage[state.position].arrival.special,
+          arrivalCombo: state.passengersLuggage[state.position].arrival.combo,
+          departureCombo:
+            state.passengersLuggage[state.position].departure.combo,
+        };
+      } else {
+        return {
+          ...state,
+          departureLightLuggage: 0,
+          departureHeavyLuggage: 0,
+          arrivalLightLuggage: 0,
+          arrivalHeavyLuggage: 0,
+          specialDeparture: 0,
+          specialArrival: 0,
+          arrivalCombo: 0,
+          departureCombo: 0,
+          position: state.position - 1,
+        };
+      }
+
     default:
       return state;
   }
