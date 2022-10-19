@@ -8,7 +8,6 @@ import { CONTINUE, GOBACK } from 'store/reducers/luggageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 const Luggage = () => {
-  let navigate = useNavigate();
   const [selected, setSelected] = useState(true);
   const {
     departureLightLuggage,
@@ -28,6 +27,7 @@ const Luggage = () => {
   }
 
   const dispatch = useDispatch();
+
   function handleClick() {
     if (initialPassengers >= position) {
       dispatch({
@@ -50,6 +50,8 @@ const Luggage = () => {
       setSelected(true);
     }
   }
+
+  let navigate = useNavigate();
   const handleContinue = () => {
     navigate({
       pathname: '/passenger-form',
