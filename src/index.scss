@@ -14,12 +14,14 @@
 @import url(./scss/pages/MyAccount.scss);
 @import url(./scss/pages/SelectionSeats.scss);
 @import url(./scss/pages/NotFound.scss);
+@import url(./scss/pages/Passenger.scss);
 
 /* components */
 @import url(./scss/components/App.scss);
 
 //Buttons
 @import url(./scss/components/Buttons/ArrowButtonRight.scss);
+@import url(./scss/components/Buttons/CommonButton.scss);
 
 // Spinners
 @import url(./scss/components/Spinner/Spinner.scss);
@@ -138,3 +140,6 @@
 
 @import url(./scss/components/Luggage/LuggageCard.scss);
 @import url(./scss/pages/Luggage.scss);
+
+//Passenger
+@import url(./scss/components/BodyPassengerForm/BodyPassengerForm.scss);

@@ -2,6 +2,7 @@ import React from 'react';
 import LoginDropDown from 'components/LoginDropDown';
 import { useDispatch, useSelector } from 'react-redux';
 import { DROP_MENU_VALIDATOR } from 'store/reducers/userReducer';
+import Avatar from '@mui/material/Avatar';
 
 function ButtonLoginUser() {
   const { dropdown, name, lastname, profilePhoto } = useSelector(
@@ -20,7 +21,12 @@ function ButtonLoginUser() {
         name='login'
         className='btn-login__user'
         onClick={handleClick}>
-        <img src={profilePhoto} alt={userName} />
+        {/* <img src={profilePhoto} alt={userName} /> */}
+        <Avatar
+          alt={name}
+          src={profilePhoto}
+          sx={{ width: 20, height: 20, marginRight: '5px' }}
+        />
         <span>{userName}</span>
       </button>
       <LoginDropDown username={userName} photo={profilePhoto} drop={dropdown} />

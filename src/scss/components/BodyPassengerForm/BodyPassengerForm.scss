@@ -1,0 +1,249 @@
+.BPF__section {
+  .doubleField {
+    font-family: 'LATAM Sans', 'Sans';
+
+    @media (min-width: 960px) {
+      display: grid;
+      font-family: 'LATAM Sans', 'Sans';
+
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    & > div {
+      margin-top: 28.8px;
+    }
+    & .input-field {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
+      margin-top: 33px;
+    }
+  }
+  .doubleField__short {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 960px) {
+      grid-template-columns: 1fr 2fr;
+      gap: 0.5rem;
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: 1.5fr 2fr;
+      gap: 0.5rem;
+    }
+    @media (min-width: 1440px) {
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+    }
+    & > div {
+      margin-top: 28.8px;
+    }
+    & .input-field {
+      margin-top: 38px;
+    }
+    input {
+      font-family: 'LATAM Sans', 'Sans';
+    }
+  }
+  .errors {
+    font-family: 'LATAM Sans', 'Sans';
+    font-size: 12px;
+    letter-spacing: 1.5;
+    margin: 0.5rem 0.5rem;
+    color: #b30f3b;
+    font-weight: 400;
+    font-style: normal;
+  }
+  span {
+    font-family: 'LATAM Sans', 'Sans';
+    font-size: 12px;
+    margin: 0.5rem 0.5rem;
+    color: #5c5c5c;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .select-field {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    label {
+      font-size: 12px;
+      color: #5c5c5c;
+      margin-left: 10px;
+      z-index: 2;
+      background: #fff;
+      width: 2rem;
+      padding-left: 0.4rem;
+      margin-left: 14px;
+    }
+
+    select {
+      font-family: 'LATAM Sans', 'Sans';
+      font-weight: 400;
+      color: #5c5c5c;
+      background-color: #fff;
+      border: solid 1px grey;
+      font-size: 16px;
+      height: 3.5rem;
+      margin-top: -10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      /* Added the dropdown svg*/
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Antu-go-down-24.svg');
+      background-repeat: no-repeat, repeat;
+      background-position: right 0.7em top 50%, 0 0;
+      background-size: 1.3em auto, 100%;
+      -moz-appearance: none;
+      /* Firefox */
+      -webkit-appearance: none;
+      /* Safari and Chrome */
+      appearance: none;
+
+      &:focus {
+        border-style: inset;
+        outline-color: rgb(27, 0, 136);
+      }
+    }
+  }
+
+  .pp {
+    label {
+      width: 11rem;
+    }
+  }
+
+  .input-field {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
+    input {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
+      color: #5c5c5c;
+      font-size: 16px;
+      height: 3.5rem;
+      padding: 10px 20px;
+      border: solid 1px rgb(152, 152, 152);
+      border-radius: 10px;
+
+      &::placeholder {
+        font-family: 'LATAM Sans', 'Sans';
+        font-size: 1rem;
+        font-weight: 400;
+        color: #5c5c5c;
+        opacity: 1;
+      }
+    }
+  }
+
+  .select-number {
+    flex-direction: row;
+    margin: 0;
+    justify-content: space-around;
+    width: 100%;
+
+    .select-field {
+      margin: 0px;
+      width: 100%;
+      padding: 0px;
+    }
+
+    .input-field {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
+      margin: 0px;
+      width: 100%;
+    }
+
+    select {
+      height: 3.4rem;
+      width: 100%;
+    }
+
+    input {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
+      width: 100%;
+    }
+  }
+
+  .id {
+    margin-top: 1.8rem;
+
+    label {
+      width: 7rem;
+    }
+  }
+
+  .btn__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-width: 100%;
+  }
+
+  .btn-create {
+    background: none rgb(232, 17, 75);
+    border-radius: 0.5rem;
+    font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    min-width: 50%;
+    border: 0.0625rem solid rgb(232, 17, 75);
+    color: rgb(255, 255, 255);
+    font-size: 1.125rem;
+    height: 3.5rem;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+
+    &:hover {
+      background-color: rgb(233, 88, 120);
+      border: 0.0625rem solid rgb(233, 88, 120);
+    }
+  }
+
+  .captcha {
+    font-size: 0.9rem;
+
+    a {
+      color: #4658df;
+      font-weight: 600;
+    }
+  }
+  .message {
+    margin-left: 1.5rem;
+    margin-bottom: 3rem;
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  hr {
+    height: 0.02px;
+    opacity: 0.3;
+  }
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .main-container {
+      margin: 0rem 3rem;
+    }
+
+    .check-login {
+      label {
+        height: 4rem;
+      }
+    }
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .main-container {
+      margin: 0rem 3rem;
+    }
+  }
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+}

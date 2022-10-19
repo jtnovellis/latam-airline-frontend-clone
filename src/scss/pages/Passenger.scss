@@ -1,0 +1,114 @@
+.Passenger__LATAM__grid {
+  margin: unset;
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  padding: 0px 1rem;
+
+  @media (min-width: 600px) {
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    padding: 0px 2rem;
+    min-height: calc(100vh - 11rem);
+    height: 100%;
+  }
+  @media (min-width: 960px) {
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+    padding: 0px 3rem;
+  }
+  @media (min-width: 1024px) {
+    gap: 3rem;
+    grid-template-columns: 3fr 1.5fr;
+    max-width: 89.75rem;
+    margin: 0px auto;
+    padding: 0px 4rem;
+  }
+}
+.Passenger__Form__list {
+  list-style: none;
+  margin-top: 1rem;
+  width: 100%;
+
+  &.Passenger__Form {
+    height: calc(100% - 24px);
+    gap: 3rem;
+    grid-template-columns: 1fr;
+    max-width: 89.75rem;
+    margin: 0px auto;
+    padding: 0px 4rem;
+
+    @media (min-width: 1024px) {
+      padding-left: 0rem;
+      padding-right: 4rem;
+      margin-right: 0px;
+      height: auto;
+      overflow: unset;
+      display: block;
+      & > div {
+        margin: 1.5rem 0;
+      }
+    }
+    & > div {
+      margin: 1rem 0;
+    }
+  }
+}
+.Passenger__FlightDetails {
+  background-color: rgb(255, 255, 255);
+
+  height: 0px;
+  width: 100%;
+  z-index: 600;
+  @media (min-width: 1024px) {
+    min-height: 100%;
+    grid-template-columns: 1fr;
+  }
+  .Passenger__FlightDetails__shoppingCart {
+    height: 100%;
+    min-width: 100%;
+    display: grid;
+  }
+  .Passenger__FlightDetails__shoppingCart__button {
+    height: 138px;
+    background-color: rgb(255, 255, 255);
+    padding: 0px 1rem 1rem;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+
+    z-index: 1;
+    align-self: flex-end;
+    border-top: 1px solid rgb(243, 242, 246);
+    @media (min-width: 1024px) {
+      height: 116px;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      bottom: 0px;
+
+      & > div {
+        height: 100%;
+      }
+    }
+  }
+}
+.Passenger__bodycontainer {
+  background-color: rgb(243, 242, 246);
+  overflow: hidden scroll;
+  height: 100%;
+  min-height: 0px;
+  padding: 0px;
+
+  @media (min-width: 1024px) {
+    height: 100%;
+    min-height: 100%;
+    overflow: unset;
+  }
+}
+
+.eachform {
+  margin-bottom: 1rem;
+}

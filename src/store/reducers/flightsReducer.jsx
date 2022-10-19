@@ -6,13 +6,15 @@ export const ADD_SEATS_DEPARTURE = '@flights/add-seat-departure';
 export const ADD_SEATS_ARRIVAL = '@flights/add-seat-arrival';
 export const DELETE_DEPARTURE_SEATS = '@flights/delete-departure-seat';
 export const DELETE_ARRIVAL_SEATS = '@flights/delete-departure-seat';
+export const ADD_PASSENGER_FORMDATA = '@flights/add-passenger-formdata';
+export const UPDATE_PASSENGER_FORMDATA = '@flights/update-passenger-formdata';
 
 const initialState = {
-  id: 'alkgjoajdf1',
+  id: '123443ASD',
   price: {
-    light: '124090',
-    basic: '233.090,00',
-    plus: '533.090,00',
+    light: '80000',
+    basic: '120000',
+    plus: '180000',
   },
   departureFlightData: {
     airplane: {
@@ -40,6 +42,7 @@ const initialState = {
   },
   departureUser: [],
   arrivalUser: [],
+  passengerRelated: [],
 };
 
 const flightsReducer = (state = initialState, action) => {
@@ -88,6 +91,14 @@ const flightsReducer = (state = initialState, action) => {
           }),
         },
       };
+    case ADD_PASSENGER_FORMDATA:
+      state.passengerRelated.push(action.payload);
+      return state;
+    case UPDATE_PASSENGER_FORMDATA:
+      state.passengerRelated[action.payload.position] = action.payload.values;
+      console.log(action.payload);
+      return state;
+
     default:
       return state;
   }

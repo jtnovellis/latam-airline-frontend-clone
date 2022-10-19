@@ -13,6 +13,7 @@ import TravelData from 'components/BodyAdminFligths/TravelData';
 import SelectionSeats from 'pages/SelectionSeats';
 import NotFound from 'pages/NotFound';
 import Luggage from 'pages/Luggage';
+import Passenger from 'pages/Passenger';
 import PrivateRoute from 'services/PrivateRoute';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -72,6 +73,7 @@ function App() {
         <Route path='flights' element={<Flights />} />
         <Route path='seats-selection' element={<SelectionSeats />} />
         <Route path='luggage' element={<Luggage />} />
+        <Route path='passenger-form' element={<Passenger />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
