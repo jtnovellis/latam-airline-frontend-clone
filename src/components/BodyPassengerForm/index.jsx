@@ -16,17 +16,20 @@ const BodyPassengerForm = ({ passengerId }) => {
       <div className='main'>
         <Formik
           initialValues={{
-            firstName: '',
-            lastName: '',
-            birthdate: '',
-            gender: 'Male',
-            country: 'CO',
-            documentType: 'Cédula de ciudadanía',
-            passportCountry: 'CO',
-            documentNumber: '',
-            email: '',
-            number: '',
-            countryPP: 'CO',
+            firstName: passengerRelated[passengerId]?.firstName || '',
+            lastName: passengerRelated[passengerId]?.lastName || '',
+            birthdate: passengerRelated[passengerId]?.birthdate || '',
+            gender: passengerRelated[passengerId]?.gender || 'Male',
+            country: passengerRelated[passengerId]?.country || 'CO',
+            documentType:
+              passengerRelated[passengerId]?.documentType ||
+              'Cédula de ciudadanía',
+            passportCountry:
+              passengerRelated[passengerId]?.passportCountry || 'CO',
+            documentNumber: passengerRelated[passengerId]?.documentNumber || '',
+            email: passengerRelated[passengerId]?.email || '',
+            number: passengerRelated[passengerId]?.number || '',
+            countryPP: passengerRelated[passengerId]?.countryPP || 'CO',
           }}
           validate={values => {
             const errors = {};
@@ -60,6 +63,9 @@ const BodyPassengerForm = ({ passengerId }) => {
               errors.documentNumber =
                 'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
             } else if (values.documentNumber.length < 8) {
+              errors.documentNumber =
+                'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
+            } else if (!/^\d+$/i.test(values.documentNumber)) {
               errors.documentNumber =
                 'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
             }
