@@ -39,19 +39,17 @@ const Passengers = ({
           <div className='passengersContainer__data--adults'>
             {length > 0 ? (
               toRender.map(({ column, row, price, location }, i) => (
-                <>
-                  <PassengersCard
-                    key={`${i}${column}${param}`}
-                    seat={`${column}${row}`}
-                    column={column}
-                    row={row}
-                    level={location}
-                    numPass={i + 1}
-                    price={price}
-                    param={param}
-                    setTotalseats={setTotalseats}
-                  />
-                </>
+                <PassengersCard
+                  key={`${i}${column}${param}`}
+                  seat={`${column}${row}`}
+                  column={column}
+                  row={row}
+                  level={location}
+                  numPass={i + 1}
+                  price={price}
+                  param={param}
+                  setTotalseats={setTotalseats}
+                />
               ))
             ) : (
               <PassengersCard key={param} numPass={1} />
