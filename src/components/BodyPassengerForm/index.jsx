@@ -16,7 +16,7 @@ const BodyPassengerForm = ({ passengerId }) => {
       <div className='main'>
         <Formik
           initialValues={{
-            firstName: '',
+            firstName: passengerRelated[passengerId]?.firstName || '',
             lastName: '',
             birthdate: '',
             gender: 'Male',
