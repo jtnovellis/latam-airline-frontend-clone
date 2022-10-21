@@ -62,12 +62,12 @@ const BodyPassengerForm = ({ passengerId }) => {
             if (!values.documentNumber) {
               errors.documentNumber =
                 'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
-            } else if (values.documentNumber.length < 8) {
+            } else if (values.documentNumber.length < 7) {
               errors.documentNumber =
                 'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
             } else if (!/^\d+$/i.test(values.documentNumber)) {
               errors.documentNumber =
-                'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
+                'Solo se aceptan valores numéricos. Ejemplo: 1234567891';
             }
             if (!values.birthdate) {
               errors.birthdate = 'La fecha es inválida';
@@ -134,6 +134,8 @@ const BodyPassengerForm = ({ passengerId }) => {
               </div>
               <div id='BirthD_GenderField' className='doubleField'>
                 <div className='input-field'>
+                  <label>Fecha de nacimiento</label>
+
                   <Field
                     type='date'
                     id='birthdate'

@@ -63,6 +63,19 @@
     font-style: normal;
   }
 
+  // .dateField {
+  //   label {
+  //     font-size: 12px;
+  //     color: #5c5c5c;
+  //     margin-left: 10px;
+  //     z-index: 2;
+  //     background: #fff;
+  //     width: 2rem;
+  //     padding-left: 0.4rem;
+  //     margin-left: 14px;
+  //   }
+  // }
+
   .select-field {
     display: flex;
     flex-direction: column;
@@ -119,6 +132,19 @@
     flex-direction: column;
     margin: 1.5rem 0rem;
     font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+    margin-top: -10px;
+
+    label {
+      font-size: 12px;
+      margin-bottom: -12px;
+      color: #5c5c5c;
+      margin-left: 10px;
+      z-index: 2;
+      background: #fff;
+      width: 8rem;
+      padding-left: 0.4rem;
+      margin-left: 14px;
+    }
 
     input {
       font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
@@ -138,6 +164,9 @@
         opacity: 1;
       }
     }
+  }
+  .input-field-bd {
+    margin-top: -10px;
   }
 
   .select-number {

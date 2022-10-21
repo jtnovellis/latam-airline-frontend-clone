@@ -387,7 +387,8 @@ const index = () => {
                         component='div'
                       />
                     </div>
-                    <div className='input-field'>
+                    <div className='input-fieldBD'>
+                      <label>Fecha de nacimiento</label>
                       <Field
                         type='password'
                         id='password'
