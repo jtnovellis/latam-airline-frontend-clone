@@ -27,6 +27,7 @@ function App() {
   const user = useGetCookies('lausrin');
   const { isExpired } = useJwt(user);
   const auth = isExpired;
+  console.log(isExpired);
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
 
@@ -36,7 +37,7 @@ function App() {
         // eslint-disable-next-line no-undef
         .get(`${process.env.REACT_APP_API_LATAM_CLONE}/api/users/data`, {
           headers: {
-            Authorization: `Bearer ${useGetCookies('lausrin')}`,
+            Authorization: `Bearer ${user}`,
           },
         })
         .then(res => {
