@@ -54,11 +54,15 @@
     }
 
     .select-field {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
       display: flex;
       flex-direction: column;
       margin-top: 1rem;
 
       label {
+        font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
         font-size: 12px;
         color: #5c5c5c;
         margin-left: 10px;
@@ -104,12 +108,55 @@
       }
     }
 
+    .input-fieldBD {
+      display: flex;
+      flex-direction: column;
+      margin: 1.5rem 0rem;
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+      margin-top: -10px;
+
+      label {
+        font-size: 12px;
+        margin-bottom: -12px;
+        color: #5c5c5c;
+        margin-left: 10px;
+        z-index: 2;
+        background: #fff;
+        width: 8rem;
+        padding-left: 0.4rem;
+        margin-left: 14px;
+      }
+
+      input {
+        font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
+        color: #5c5c5c;
+        font-size: 16px;
+        height: 3.5rem;
+        padding: 10px 20px;
+        border: solid 1px rgb(152, 152, 152);
+        border-radius: 10px;
+
+        &::placeholder {
+          font-family: 'LATAM Sans', 'Sans';
+          font-size: 1rem;
+          font-weight: 400;
+          color: #5c5c5c;
+          opacity: 1;
+        }
+      }
+    }
+
     .input-field {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
       display: flex;
       flex-direction: column;
       margin: 1.5rem 0rem;
 
       input {
+        font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
         color: #5c5c5c;
         font-size: 16px;
         height: 3.5rem;
@@ -137,6 +184,8 @@
     }
 
     .number-selection {
+      font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
       margin: 2rem 0rem;
       display: flex;
       flex-direction: column;
@@ -152,12 +201,16 @@
           width: 100%;
 
           .select-field {
+            font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
             margin: 0px;
             width: 50%;
             padding: 0px;
           }
 
           .input-field {
+            font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
             margin: 0px;
             width: 100%;
           }
@@ -168,6 +221,8 @@
           }
 
           input {
+            font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+
             width: 100%;
           }
         }

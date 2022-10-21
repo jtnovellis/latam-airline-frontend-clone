@@ -127,9 +127,12 @@ const index = () => {
               if (!values.documentType) {
                 errors.documentType =
                   'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
-              } else if (values.documentType.length < 8) {
+              } else if (values.documentType.length < 7) {
                 errors.documentType =
                   'Tienes que ingresar un número de cédula de ciudadanía. Ejemplo: 1234567891';
+              } else if (!/^\d+$/i.test(values.documentNumber)) {
+                errors.documentNumber =
+                  'Solo se aceptan valores numéricos. Ejemplo: 1234567891';
               }
               if (!values.birthdate) {
                 errors.birthdate = 'La fecha es inválida';
@@ -269,7 +272,8 @@ const index = () => {
                   />
                   <span>Tal como aparecen en tu cédula de ciudadanía</span>
                 </div>
-                <div className='input-field'>
+                <div className='input-fieldBD'>
+                  <label>Fecha de nacimiento</label>
                   <Field
                     type='date'
                     id='birthdate'
