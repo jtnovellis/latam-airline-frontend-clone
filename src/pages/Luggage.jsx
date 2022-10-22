@@ -4,7 +4,7 @@ import FooterRegister from '../components/Footer-Register/index';
 import { useState } from 'react';
 import FullLuggageCard from 'components/Luggage/FullLuggageCard';
 
-import { CONTINUE, GOBACK } from 'store/reducers/luggageReducer';
+import { CONTINUE, GOBACK, NEXT } from 'store/reducers/luggageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 const Luggage = () => {
@@ -80,6 +80,23 @@ const Luggage = () => {
   }
 
   const handleContinue = () => {
+    dispatch({
+      type: NEXT,
+      payload: {
+        departure: {
+          combo: departureCombo,
+          light: departureLightLuggage,
+          heavy: departureHeavyLuggage,
+          special: specialDeparture,
+        },
+        arrival: {
+          combo: arrivalCombo,
+          light: arrivalLightLuggage,
+          heavy: arrivalHeavyLuggage,
+          special: specialArrival,
+        },
+      },
+    });
     navigate({
       pathname: '/passenger-form',
     });
@@ -133,20 +150,30 @@ const Luggage = () => {
             <div>
               {position !== initialPassengers ? (
                 <div className='Luggage__passenger-selector'>
-                  <svg
-                    onClick={() => handleBack()}
-                    style={{ transform: 'rotate(90deg)' }}
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='20px'
-                    height='20px'
-                    viewBox='0 0 20 20'
-                    fill='none'
-                    focusable='false'>
-                    <path
-                      fill='red'
-                      d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
-                  </svg>
-                  <p> Pasajero {position + 1}</p>
+                  {position > 0 ? (
+                    <svg
+                      onClick={() => handleBack()}
+                      style={{ transform: 'rotate(90deg)' }}
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='20px'
+                      height='20px'
+                      viewBox='0 0 20 20'
+                      fill='none'
+                      focusable='false'>
+                      <path
+                        fill='red'
+                        d='M16.611 5.382L10.011 12l-6.6-6.618-1.4 1.4 8 8 8-8z'></path>
+                    </svg>
+                  ) : (
+                    <></>
+                  )}
+
+                  {initialPassengers === 1 ? (
+                    <></>
+                  ) : (
+                    <p> Pasajero {position + 1}</p>
+                  )}
+
                   {position !== initialPassengers - 1 ? (
                     <svg
                       onClick={() => handleClick()}
@@ -184,7 +211,6 @@ const Luggage = () => {
             <hr />
             <button
               onClick={() => {
-                handleClick();
                 handleContinue();
               }}
               className='status-continue'>

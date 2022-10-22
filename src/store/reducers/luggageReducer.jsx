@@ -22,6 +22,7 @@ export const SPECIAL_ARRIVAL_UP = '@specialArrival/increment';
 export const SPECIAL_ARRIVAL_DOWN = '@specialArrival/decrement';
 export const CONTINUE = '@continue/nowayback';
 export const GOBACK = '@goback/thereswayback';
+export const NEXT = '@next/gonext';
 /* 
 const squema = {
   departure: {
@@ -279,7 +280,28 @@ const bookingReducer = (state = initialValues, action) => {
           position: state.position - 1,
         };
       }
-
+    case NEXT:
+      state.passengersLuggage[state.position] = action.payload;
+      if (state.position < state.initialPassengers)
+        return {
+          ...state,
+          departureLightLuggage:
+            state.passengersLuggage[state.position].departure.light,
+          departureHeavyLuggage:
+            state.passengersLuggage[state.position].departure.heavy,
+          arrivalLightLuggage:
+            state.passengersLuggage[state.position].arrival.light,
+          arrivalHeavyLuggage:
+            state.passengersLuggage[state.position].arrival.heavy,
+          specialDeparture:
+            state.passengersLuggage[state.position].departure.special,
+          specialArrival:
+            state.passengersLuggage[state.position].arrival.special,
+          arrivalCombo: state.passengersLuggage[state.position].arrival.combo,
+          departureCombo:
+            state.passengersLuggage[state.position].departure.combo,
+        };
+      return state;
     default:
       return state;
   }
