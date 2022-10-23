@@ -8,9 +8,9 @@ import { BOOKING_DATES_ADD } from 'store/reducers/bookingReducer';
 
 const CalendarRange = () => {
   const dispatch = useDispatch();
-  const dates = useSelector(state => state.bookingReducer.dates);
-  function handleChange(e) {
-    dispatch({ type: BOOKING_DATES_ADD, payload: e });
+  const currentDates = useSelector(state => state.bookingReducer.dates);
+  function handleChange(newDates) {
+    dispatch({ type: BOOKING_DATES_ADD, payload: newDates });
   }
   return (
     <LocalizationProvider
@@ -20,7 +20,7 @@ const CalendarRange = () => {
         end: 'Fecha vuelta',
       }}>
       <DateRangePicker
-        value={dates}
+        value={currentDates}
         onChange={e => handleChange(e)}
         renderInput={(startProps, endProps) => (
           <>
