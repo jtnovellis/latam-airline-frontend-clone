@@ -5,8 +5,15 @@ import FlightCard from './FlightCard';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const FlightSelector = prop => {
-  const { departure, arrival, departureTime, arrivalTime, duration, price } =
-    prop;
+  const {
+    departure,
+    arrival,
+    departureTime,
+    arrivalTime,
+    duration,
+    price,
+    setFlightTrip,
+  } = prop;
   const flightData = {
     departure,
     arrival,
@@ -93,6 +100,7 @@ const FlightSelector = prop => {
               type='Light'
               price={prop.price}
               trigger={prop.trigger}
+              setFlightTrip={setFlightTrip}
             />
             <FlightCard
               data={flightData}

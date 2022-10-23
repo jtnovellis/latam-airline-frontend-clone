@@ -20,7 +20,7 @@ const initialValues = {
   kids: 0,
   babies: 0,
   roundTrip: true,
-  flightGoData: [],
+  flightData: [],
 };
 
 const bookingReducer = (state = initialValues, action) => {
@@ -86,8 +86,13 @@ const bookingReducer = (state = initialValues, action) => {
         roundTrip: action.payload,
       };
     case '@booking/addGoFlight':
-      state.flightGoData = state.flightGoData.push(action.payload);
+      state.flightData.push(action.payload);
       return state;
+    case '@booking/removeFlights':
+      return {
+        ...state,
+        flightData: [],
+      };
     default:
       return state;
   }

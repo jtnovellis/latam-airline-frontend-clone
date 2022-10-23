@@ -6,7 +6,8 @@ import FlightSelector from './FlightSelector';
 
 const FlightContainer = ({ trigger }) => {
   const [filter, setFilter] = React.useState('');
-  const flights = [
+  const [flightTrip, setFlightTrip] = React.useState('go');
+  const flightsGo = [
     {
       id: '1',
       departureAirport: 'El Dorado Intl.',
@@ -41,6 +42,41 @@ const FlightContainer = ({ trigger }) => {
       price: 260008,
     },
   ];
+  const flightsReturn = [
+    {
+      id: '2',
+      departureAirport: 'El Dorado Intl.',
+      departureTime: '8:30',
+      departure: 'BOG',
+      arrivalAirport: 'Jose maría cordoba',
+      arrivalTime: '9:30',
+      arrival: 'MDE',
+      duration: '1 h 00 min',
+      price: 240000,
+    },
+    {
+      id: '3',
+      departureAirport: 'El Dorado Intl.',
+      departureTime: '11:30',
+      departure: 'BOG',
+      arrivalAirport: 'Jose maría cordoba',
+      arrivalTime: '12:20',
+      arrival: 'MDE',
+      duration: '0 h 50 min',
+      price: 260008,
+    },
+    {
+      id: '1',
+      departureAirport: 'El Dorado Intl.',
+      departureTime: '7:20',
+      departure: 'BOG',
+      arrivalAirport: 'Jose maría cordoba',
+      arrivalTime: '8:19',
+      arrival: 'MDE',
+      duration: '0 h 59 min',
+      price: 220000,
+    },
+  ];
 
   const handleChange = event => {
     setFilter(event.target.value);
@@ -73,20 +109,37 @@ const FlightContainer = ({ trigger }) => {
           </FormControl>
         </div>
       </div>
-      {flights.map(function (item) {
-        return (
-          <FlightSelector
-            trigger={trigger}
-            key={item.id}
-            departure={item.departure}
-            departureTime={item.departureTime}
-            price={item.price}
-            duration={item.duration}
-            arrival={item.arrival}
-            arrivalTime={item.arrivalTime}
-          />
-        );
-      })}
+      {flightTrip === 'go'
+        ? flightsGo.map(function (item) {
+            return (
+              <FlightSelector
+                trigger={trigger}
+                key={item.id}
+                departure={item.departure}
+                departureTime={item.departureTime}
+                price={item.price}
+                duration={item.duration}
+                arrival={item.arrival}
+                arrivalTime={item.arrivalTime}
+                setFlightTrip={setFlightTrip}
+              />
+            );
+          })
+        : flightsReturn.map(function (item) {
+            return (
+              <FlightSelector
+                trigger={trigger}
+                key={item.id}
+                departure={item.departure}
+                departureTime={item.departureTime}
+                price={item.price}
+                duration={item.duration}
+                arrival={item.arrival}
+                arrivalTime={item.arrivalTime}
+                setFlightTrip={setFlightTrip}
+              />
+            );
+          })}
 
       <div className='Flight__container-footer'>
         <div className='Flight__container-footer-services'>

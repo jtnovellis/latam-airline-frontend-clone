@@ -6,7 +6,9 @@ const FlightCard = prop => {
 
   const handleClick = () => {
     prop.trigger(true);
-    dispatch({ type: '@booking/addGoFlight', payload: prop.flightData });
+    prop.setFlightTrip('return');
+    console.log('click');
+    dispatch({ type: '@booking/addGoFlight', payload: prop.data });
   };
 
   return (
