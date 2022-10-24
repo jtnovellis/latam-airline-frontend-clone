@@ -42,12 +42,12 @@ const squema = {
 const initialValues = {
   departureLightLuggage: 0,
   departureHeavyLuggage: 0,
-  departureCombo: 0,
   specialDeparture: 0,
   arrivalLightLuggage: 0,
   arrivalHeavyLuggage: 0,
   specialArrival: 0,
-  arrivalCombo: 0,
+  departureCombo: false,
+  arrivalCombo: false,
   passengersLuggage: [],
   position: 0,
   totalPrice: 0,
@@ -176,30 +176,31 @@ const bookingReducer = (state = initialValues, action) => {
     case DEPARTURE_COMBO_UP:
       return {
         ...state,
-        departureCombo: state.departureCombo + 1,
+        departureCombo: true,
         totalPrice: state.totalPrice + 44900,
       };
     case DEPARTURE_COMBO_DOWN:
       return {
         ...state,
-        departureCombo: state.departureCombo - 1,
+        departureCombo: false,
         totalPrice: state.totalPrice - 44900,
       };
     case ARRIVAL_COMBO_UP:
       return {
         ...state,
-        arrivalCombo: state.arrivalCombo + 1,
+        arrivalCombo: true,
         totalPrice: state.totalPrice + 44900,
       };
     case ARRIVAL_COMBO_DOWN:
       return {
         ...state,
-        arrivalCombo: state.arrivalCombo - 1,
+        arrivalCombo: false,
         totalPrice: state.totalPrice - 44900,
       };
     case SPECIAL_DEPARTURE_UP:
       return {
         ...state,
+
         specialDeparture: state.specialDeparture + 1,
         totalPrice: state.totalPrice + 100000,
       };
@@ -239,9 +240,13 @@ const bookingReducer = (state = initialValues, action) => {
             state.passengersLuggage[state.position].departure.special,
           specialArrival:
             state.passengersLuggage[state.position].arrival.special,
-          arrivalCombo: state.passengersLuggage[state.position].arrival.combo,
           departureCombo:
             state.passengersLuggage[state.position].departure.combo,
+          arrivalCombo: state.passengersLuggage[state.position].arrival.combo,
+          departureComboFlag:
+            state.passengersLuggage[state.position].departure.comboFlag,
+          arrivalComboFlag:
+            state.passengersLuggage[state.position].arrival.comboFlag,
         };
       return state;
     case GOBACK:
@@ -275,8 +280,8 @@ const bookingReducer = (state = initialValues, action) => {
           arrivalHeavyLuggage: 0,
           specialDeparture: 0,
           specialArrival: 0,
-          arrivalCombo: 0,
-          departureCombo: 0,
+          arrivalCombo: false,
+          departureCombo: false,
           position: state.position - 1,
         };
       }
