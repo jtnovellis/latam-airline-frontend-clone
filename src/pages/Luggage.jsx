@@ -25,13 +25,13 @@ const Luggage = () => {
 
   const squema = {
     departure: {
-      combo: 0,
+      combo: false,
       light: 0,
       heavy: 0,
       special: 0,
     },
     arrival: {
-      combo: 0,
+      combo: false,
       light: 0,
       heavy: 0,
       special: 0,

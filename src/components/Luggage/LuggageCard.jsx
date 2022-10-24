@@ -25,56 +25,28 @@ const LuggageCard = prop => {
     specialDeparture,
     specialArrival,
     totalPrice,
+    departureCombo,
+    arrivalCombo,
   } = useSelector(state => state.luggageReducer);
   let selected = prop.select;
 
-  const [value, setValue] = useState('increment');
-  const [value2, setValue2] = useState('increment');
-  const [selectedValue, setSelectedValue] = useState(true);
-  const [selectedValue2, setSelectedValue2] = useState(true);
   const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
 
-  function handleSend(action) {
-    if (selected === 'departure') {
-      switch (action) {
-        case 'increment':
-          dispatch({ type: DEPARTURE_COMBO_UP });
-          break;
-        case 'decrement':
-          dispatch({ type: DEPARTURE_COMBO_DOWN });
-          break;
-      }
-    }
-    if (selected === 'arrival') {
-      switch (action) {
-        case 'increment':
-          dispatch({ type: ARRIVAL_COMBO_UP });
-          break;
-        case 'decrement':
-          dispatch({ type: ARRIVAL_COMBO_DOWN });
-          break;
-      }
-    }
-  }
   function handleRadio() {
     if (selected === 'departure') {
-      selectedValue ? setSelectedValue(false) : setSelectedValue(true);
-      if (!selectedValue) {
-        setValue('increment');
+      if (!departureCombo) {
+        dispatch({ type: DEPARTURE_COMBO_UP });
       } else {
-        setValue('decrement');
+        dispatch({ type: DEPARTURE_COMBO_DOWN });
       }
-      handleSend(value);
     }
     if (selected === 'arrival') {
-      selectedValue2 ? setSelectedValue2(false) : setSelectedValue2(true);
-      if (!selectedValue2) {
-        setValue2('increment');
+      if (!arrivalCombo) {
+        dispatch({ type: ARRIVAL_COMBO_UP });
       } else {
-        setValue2('decrement');
+        dispatch({ type: ARRIVAL_COMBO_DOWN });
       }
-      handleSend(value2);
     }
   }
 
@@ -108,7 +80,7 @@ const LuggageCard = prop => {
               <div className='Luggagecard__body-backpack-selector-radio'>
                 <input
                   checked={
-                    selected === 'departure' ? selectedValue : selectedValue2
+                    selected === 'departure' ? !departureCombo : !arrivalCombo
                   }
                   type='radio'
                   value='free'
@@ -140,7 +112,7 @@ const LuggageCard = prop => {
               <div className='Luggagecard__body-handheld-selector-radio'>
                 <input
                   checked={
-                    selected === 'departure' ? !selectedValue : !selectedValue2
+                    selected === 'departure' ? departureCombo : arrivalCombo
                   }
                   type='radio'
                   value='pay'
