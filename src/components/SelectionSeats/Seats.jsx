@@ -15,6 +15,7 @@ const Seats = ({
   totalseats,
   setTotalseats,
   param,
+  avaliable,
 }) => {
   const [hover, setHover] = useState(false);
   const [selected, setSelected] = useState(false);
@@ -38,14 +39,14 @@ const Seats = ({
         setTotalseats(prev => prev + 1);
         dispatch({
           type: ADD_SEATS_DEPARTURE,
-          payload: { column, row, price, location },
+          payload: { column, row, price, location, avaliable: !avaliable },
         });
       } else if (param === 'arrival') {
         setSelected(true);
         setTotalseats(prev => prev + 1);
         dispatch({
           type: ADD_SEATS_ARRIVAL,
-          payload: { column, row, price, location },
+          payload: { column, row, price, location, avaliable: !avaliable },
         });
       }
     }
@@ -72,14 +73,19 @@ const Seats = ({
             className='seats__button'
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={handleClick}>
-            {selected ? (
+            onClick={handleClick}
+            disabled={!avaliable}>
+            {avaliable && selected ? (
               <WeekendOutlinedIcon
                 sx={{ fontSize: '2.3rem', color: '#e8114b' }}
               />
-            ) : (
+            ) : avaliable ? (
               <WeekendOutlinedIcon
                 sx={{ fontSize: '2.3rem', color: '#1b0088' }}
+              />
+            ) : (
+              <WeekendOutlinedIcon
+                sx={{ fontSize: '2.3rem', color: '#dedede' }}
               />
             )}
           </button>

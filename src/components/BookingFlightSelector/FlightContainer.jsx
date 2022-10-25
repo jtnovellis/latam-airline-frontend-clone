@@ -48,6 +48,7 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
 
   if (isLoading) return <Spinner />;
   if (error) return console.log(error);
+
   console.log(flightData);
 
   const flightsGo = [
