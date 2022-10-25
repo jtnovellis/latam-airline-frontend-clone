@@ -86,8 +86,7 @@ const bookingReducer = (state = initialValues, action) => {
         roundTrip: action.payload,
       };
     case '@booking/addGoFlight':
-      state.flightData.push(action.payload);
-      return state;
+      return { ...state, flightData: [...state.flightData, action.payload] };
     case '@booking/removeFlights':
       return {
         ...state,

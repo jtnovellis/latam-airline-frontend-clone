@@ -1,12 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import FlightSelector from './FlightSelector';
+import axios from 'axios';
+import Spinner from 'components/Spinner';
+import { useSelector } from 'react-redux';
+import { parseDates } from '../../utils/parseDates';
 
-const FlightContainer = ({ trigger }) => {
+const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
   const [filter, setFilter] = React.useState('');
-  const [flightTrip, setFlightTrip] = React.useState('go');
+  const { departureCity, arrivalCity, dates } = useSelector(
+    state => state.bookingReducer
+  );
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [flightData, setFlightData] = useState({});
+  const newDates = parseDates(dates);
+  console.log(newDates);
+  useEffect(() => {
+    const fetchingData = async () => {
+      try {
+        setIsLoading(true);
+        const { data } = await axios.post(
+          // eslint-disable-next-line no-undef
+          `${process.env.REACT_APP_API_LATAM_CLONE}/api/flights/go-return`,
+          {
+            departureCity: departureCity.split(',')[0],
+            arrivalCity: arrivalCity.split(',')[0],
+            dates: newDates,
+          }
+        );
+        setFlightData(data.data);
+      } catch (e) {
+        setError(e);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchingData();
+  }, []);
+
+  if (isLoading) return <Spinner />;
+  if (error) return console.log(error);
+  console.log(flightData);
+
   const flightsGo = [
     {
       id: '1',

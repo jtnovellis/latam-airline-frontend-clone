@@ -2,15 +2,24 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FlightInfoCard from './FlightInfoCard';
+import { parseDates } from 'utils/parseDates';
 
-const FlightInfo = () => {
-  const flightData = useSelector(state => state.bookingReducer.flightData);
-
-  const datesFlights = useSelector(state => state.bookingReducer.dates);
-  const date = datesFlights[0];
-
+const FlightInfo = ({ setFlightTrip }) => {
+  const { dates, flightData } = useSelector(state => state.bookingReducer);
+  const newDate = parseDates(dates);
+  const goBack = ['ida', 'vuelta'];
+  function setCardDate() {
+    if (flightData.length === 1) {
+      return `${goBack[0]} ${newDate[0]}`;
+    } else if (flightData.length === 2) {
+      return `${goBack[1]} ${newDate[1]}`;
+    }
+  }
+  const cardDate = setCardDate();
   const flightSelected = flightData.map((flight, i) => (
     <FlightInfoCard
+      cardDate={cardDate}
+      setFlightTrip={setFlightTrip}
       departure={flight.departure}
       arrival={flight.arrival}
       departureTime={flight.departureTime}
@@ -23,11 +32,6 @@ const FlightInfo = () => {
     <div>
       <div className='statusf'>
         <h1>Resumen de tu viaje</h1>
-        <p className='date'>
-          Vuelo ida: {JSON.stringify(date).slice(1, 5)} -
-          {JSON.stringify(date).slice(6, 8)} -
-          {JSON.stringify(date).slice(9, 11)}
-        </p>
         {flightData.length > 0 && flightSelected}
         <Link to='/seats-selection?dir=departure'>
           <button className='continue'>continuar</button>
