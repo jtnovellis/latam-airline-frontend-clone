@@ -10,6 +10,7 @@ import FlightInfo from 'components/StatusFlight/FlightInfo';
 import { useState } from 'react';
 const Flights = () => {
   const [show, setShow] = useState(false);
+  const [flightTrip, setFlightTrip] = React.useState('go');
   return (
     <>
       <HeaderRegister />
@@ -22,9 +23,17 @@ const Flights = () => {
       </div>
       <div className='container-flights2'>
         <div className='cf'>
-          <FlightContainer trigger={setShow} />
+          <FlightContainer
+            trigger={setShow}
+            flightTrip={flightTrip}
+            setFlightTrip={setFlightTrip}
+          />
           <div className='Status'>
-            {show ? <FlightInfo /> : <StatusFlight />}
+            {show ? (
+              <FlightInfo setFlightTrip={setFlightTrip} />
+            ) : (
+              <StatusFlight />
+            )}
           </div>
         </div>
       </div>
