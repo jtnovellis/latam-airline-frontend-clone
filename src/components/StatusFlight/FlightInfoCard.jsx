@@ -37,7 +37,7 @@ function FlightInfoCard({
           <span>{arrival}</span>
         </div>
         <button className='changeflight' onClick={handleClick}>
-          cambiar
+          Cambiar
         </button>
       </div>
     </>
