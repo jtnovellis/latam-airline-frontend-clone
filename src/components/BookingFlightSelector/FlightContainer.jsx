@@ -51,76 +51,9 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
 
   console.log(flightData);
 
-  const flightsGo = [
-    {
-      id: '1',
-      departureAirport: 'El Dorado Intl.',
-      departureTime: '7:20',
-      departure: 'BOG',
-      arrivalAirport: 'Jose maría cordoba',
-      arrivalTime: '8:19',
-      arrival: 'MDE',
-      duration: '0 h 59 min',
-      price: 220000,
-    },
-    {
-      id: '2',
-      departureAirport: 'El Dorado Intl.',
-      departureTime: '8:30',
-      departure: 'BOG',
-      arrivalAirport: 'Jose maría cordoba',
-      arrivalTime: '9:30',
-      arrival: 'MDE',
-      duration: '1 h 00 min',
-      price: 240000,
-    },
-    {
-      id: '3',
-      departureAirport: 'El Dorado Intl.',
-      departureTime: '11:30',
-      departure: 'BOG',
-      arrivalAirport: 'Jose maría cordoba',
-      arrivalTime: '12:20',
-      arrival: 'MDE',
-      duration: '0 h 50 min',
-      price: 260008,
-    },
-  ];
-  const flightsReturn = [
-    {
-      id: '2',
-      departureAirport: 'El Dorado Intl.',
-      departureTime: '8:30',
-      departure: 'BOG',
-      arrivalAirport: 'Jose maría cordoba',
-      arrivalTime: '9:30',
-      arrival: 'MDE',
-      duration: '1 h 00 min',
-      price: 240000,
-    },
-    {
-      id: '3',
-      departureAirport: 'El Dorado Intl.',
-      departureTime: '11:30',
-      departure: 'BOG',
-      arrivalAirport: 'Jose maría cordoba',
-      arrivalTime: '12:20',
-      arrival: 'MDE',
-      duration: '0 h 50 min',
-      price: 260008,
-    },
-    {
-      id: '1',
-      departureAirport: 'El Dorado Intl.',
-      departureTime: '7:20',
-      departure: 'BOG',
-      arrivalAirport: 'Jose maría cordoba',
-      arrivalTime: '8:19',
-      arrival: 'MDE',
-      duration: '0 h 59 min',
-      price: 220000,
-    },
-  ];
+  const flightsGo = flightData.goFlights;
+
+  const flightsReturn = flightData.returnFlights;
 
   const handleChange = event => {
     setFilter(event.target.value);
@@ -153,34 +86,51 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
           </FormControl>
         </div>
       </div>
-      {flightTrip === 'go' ? (
+      {flightTrip === 'go' && flightsGo !== undefined ? (
         flightsGo.map(function (item) {
+          const departureHours = new Date(item.date).getHours();
+          const departureMinutes = new Date(item.date).getMinutes();
+          const arrivalHours = new Date(item.arrivalDate).getHours();
+          const arrivalMinutes = new Date(item.arrivalDate).getMinutes();
+
           return (
             <FlightSelector
               trigger={trigger}
-              key={item.id}
-              departure={item.departure}
-              departureTime={item.departureTime}
+              key={item._id}
+              departure={item.departureAirport.cityCode}
+              departureTime={`${departureHours}:${
+                departureMinutes > 9 ? departureMinutes : '0' + departureMinutes
+              }`}
               price={item.price}
-              duration={item.duration}
-              arrival={item.arrival}
-              arrivalTime={item.arrivalTime}
+              duration={item.estimatedTime}
+              arrival={item.departureArrival.cityCode}
+              arrivalTime={`${arrivalHours}:${
+                arrivalMinutes > 9 ? arrivalMinutes : '0' + arrivalMinutes
+              }`}
               setFlightTrip={setFlightTrip}
             />
           );
         })
-      ) : flightsStore.length !== 2 ? (
+      ) : flightsStore.length !== 2 && flightsGo !== undefined ? (
         flightsReturn.map(function (item) {
+          const departureHours = new Date(item.date).getHours();
+          const departureMinutes = new Date(item.date).getMinutes();
+          const arrivalHours = new Date(item.arrivalDate).getHours();
+          const arrivalMinutes = new Date(item.arrivalDate).getMinutes();
           return (
             <FlightSelector
               trigger={trigger}
-              key={item.id}
-              departure={item.departure}
-              departureTime={item.departureTime}
+              key={item._id}
+              departure={item.departureAirport.cityCode}
+              departureTime={`${departureHours}:${
+                departureMinutes > 9 ? departureMinutes : '0' + departureMinutes
+              }`}
               price={item.price}
-              duration={item.duration}
-              arrival={item.arrival}
-              arrivalTime={item.arrivalTime}
+              duration={item.estimatedTime}
+              arrival={item.departureArrival.cityCode}
+              arrivalTime={`${arrivalHours}:${
+                arrivalMinutes > 9 ? arrivalMinutes : '0' + arrivalMinutes
+              }`}
               setFlightTrip={setFlightTrip}
             />
           );
