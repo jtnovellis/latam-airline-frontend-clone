@@ -122,7 +122,7 @@ const LuggageCard = prop => {
                 />
               </div>
               <div className='Luggagecard__body-handheld-selector-description'>
-                <p>Ambos por COP 44900</p>
+                <p>Ambos por COP 44,900</p>
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@ const LuggageCard = prop => {
               <p>15kg</p>
             </div>
             <div className='Luggagecard__body-hold-15kg-price'>
-              <strong>COP 44900</strong>
+              <strong>COP 44,900</strong>
             </div>
           </div>
           <div className='Luggagecard__body-hold-15kg-buttons'>
@@ -178,20 +178,20 @@ const LuggageCard = prop => {
                 <strong>
                   {prop.types === 'arrival' ? (
                     arrivalHeavyLuggage == 0 ? (
-                      'COP 54900'
+                      'COP 54,900'
                     ) : arrivalHeavyLuggage >= 1 && arrivalHeavyLuggage < 2 ? (
-                      'COP 74900'
+                      'COP 74,900'
                     ) : (
-                      'COP 79900'
+                      'COP 79,900'
                     )
                   ) : prop.types === 'departure' ? (
                     departureHeavyLuggage == 0 ? (
-                      'COP 54900'
+                      'COP 54,900'
                     ) : departureHeavyLuggage >= 1 &&
                       departureHeavyLuggage < 2 ? (
-                      'COP 74900'
+                      'COP 74,900'
                     ) : (
-                      'COP 79900'
+                      'COP 79,900'
                     )
                   ) : (
                     <></>
@@ -266,7 +266,7 @@ const LuggageCard = prop => {
           <div className='Luggagecard__special-luggage-price'>
             <div className='Luggagecard__special-luggage-price-content'>
               <div>
-                <strong>100000 COP</strong>{' '}
+                <strong>100,000 COP</strong>{' '}
               </div>
               <div className='luggageCard__special__luggage-buttons'>
                 <div>
@@ -323,7 +323,7 @@ const LuggageCard = prop => {
             <p>Total equipaje</p>
           </div>
           <div>
-            <p>COP {totalPrice}</p>
+            <p>COP {totalPrice.toLocaleString('en-US')}</p>
           </div>
         </div>
       ) : (

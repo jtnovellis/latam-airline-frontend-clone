@@ -22,7 +22,24 @@ const Luggage = () => {
     arrivalCombo,
     position,
   } = useSelector(state => state.luggageReducer);
+  const flightDataPrice = useSelector(state => state.bookingReducer.flightData);
+  let flightTotal = 0;
+  flightDataPrice.map(item => (flightTotal += item.price));
 
+  const { departureUser, arrivalUser } = useSelector(
+    state => state.flightsReducer
+  );
+  let totalSeatsDeparture = 0;
+  departureUser.map(item => {
+    let price = item.price;
+    totalSeatsDeparture += parseInt(price.replace('.', ''));
+  });
+  let totalSeatsArival = 0;
+  arrivalUser.map(item => {
+    let price = item.price;
+    totalSeatsArival += parseInt(price.replace('.', ''));
+  });
+  let seatsTotal = totalSeatsArival + totalSeatsDeparture;
   const squema = {
     departure: {
       combo: false,
@@ -214,11 +231,13 @@ const Luggage = () => {
                 handleContinue();
               }}
               className='status-continue'>
-              continuar
+              Agregar y continuar
             </button>
             <div className='status-continue-details'>
               <button>Precio final</button>
-              <span>COP 000,000,00</span>
+              <span>
+                COP {(flightTotal + seatsTotal).toLocaleString('en-US')}
+              </span>
             </div>
           </div>
         </div>
