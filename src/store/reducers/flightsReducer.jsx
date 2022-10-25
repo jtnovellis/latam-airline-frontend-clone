@@ -5,7 +5,7 @@ export const REQ_FLIGHTS = '@flights/req-flights';
 export const ADD_SEATS_DEPARTURE = '@flights/add-seat-departure';
 export const ADD_SEATS_ARRIVAL = '@flights/add-seat-arrival';
 export const DELETE_DEPARTURE_SEATS = '@flights/delete-departure-seat';
-export const DELETE_ARRIVAL_SEATS = '@flights/delete-departure-seat';
+export const DELETE_ARRIVAL_SEATS = '@flights/delete-arrival-seat';
 export const ADD_PASSENGER_FORMDATA = '@flights/add-passenger-formdata';
 export const UPDATE_PASSENGER_FORMDATA = '@flights/update-passenger-formdata';
 
@@ -60,43 +60,40 @@ const flightsReducer = (state = initialState, action) => {
         },
       };
     case ADD_SEATS_DEPARTURE:
-      state.departureUser.push(action.payload);
-      return state;
+      return {
+        ...state,
+        departureUser: [...state.departureUser, action.payload],
+      };
     case ADD_SEATS_ARRIVAL:
-      state.arrivalUser.push(action.payload);
-      return state;
+      return {
+        ...state,
+        arrivalUser: [...state.arrivalUser, action.payload],
+      };
     case DELETE_DEPARTURE_SEATS:
       return {
         ...state,
-        departureUser: {
-          ...state.departureUser,
-          departureUser: state.departureUser.filter(item => {
-            return (
-              (item.row && item.column) !==
-              (action.payload.row && action.payload.column)
-            );
-          }),
-        },
+        departureUser: state.departureUser.filter(item => {
+          return (
+            (item.row && item.column) !==
+            (action.payload.row && action.payload.column)
+          );
+        }),
       };
     case DELETE_ARRIVAL_SEATS:
       return {
         ...state,
-        arrivalUser: {
-          ...state.arrivalUser,
-          arrivalUser: state.arrivalUser.filter(item => {
-            return (
-              (item.row && item.column) !==
-              (action.payload.row && action.payload.column)
-            );
-          }),
-        },
+        arrivalUser: state.arrivalUser.filter(item => {
+          return (
+            (item.row && item.column) !==
+            (action.payload.row && action.payload.column)
+          );
+        }),
       };
     case ADD_PASSENGER_FORMDATA:
       state.passengerRelated.push(action.payload);
       return state;
     case UPDATE_PASSENGER_FORMDATA:
       state.passengerRelated[action.payload.position] = action.payload.values;
-      console.log(action.payload);
       return state;
 
     default:

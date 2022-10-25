@@ -4,7 +4,7 @@ const ResizableSpinner = ({ color = '#e8114b', border = '10px' }) => {
   return (
     <div>
       <div
-        class='ResizableSpinner'
+        className='ResizableSpinner'
         style={{
           borderLeftColor: { color },
           border: ` ${border} solid rgba(0, 0, 0, 0.1)`,

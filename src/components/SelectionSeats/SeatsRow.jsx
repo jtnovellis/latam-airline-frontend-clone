@@ -14,6 +14,7 @@ const SeatsRow = ({ rows, totalseats, setTotalseats, param, airBus }) => {
           totalseats={totalseats}
           setTotalseats={setTotalseats}
           param={param}
+          avaliable={row.avaliable}
         />
       ))}
     </div>

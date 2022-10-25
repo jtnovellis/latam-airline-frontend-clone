@@ -27,7 +27,6 @@ function App() {
   const user = useGetCookies('lausrin');
   const { isExpired } = useJwt(user);
   const auth = isExpired;
-  console.log(isExpired);
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
 
