@@ -14,10 +14,12 @@ function BookingInputsDesktop() {
   const departureCity = useSelector(
     state => state.bookingReducer.departureCity
   );
-  const arrivalCity = useSelector(state => state.bookingReducer.arrivalCity);
+  const { arrivalCity, dates } = useSelector(state => state.bookingReducer);
 
   const handleSubmit = () => {
-    navigate({ pathname: '/flights' });
+    if (arrivalCity !== null && dates[0] !== null && dates[1] !== null) {
+      navigate({ pathname: '/flights' });
+    }
   };
 
   return (
