@@ -33,9 +33,11 @@ const FlightInfo = ({ setFlightTrip }) => {
       <div className='statusf'>
         <h1>Resumen de tu viaje</h1>
         {flightData.length > 0 && flightSelected}
-        <Link to='/seats-selection?dir=departure'>
-          <button className='continue'>continuar</button>
-        </Link>
+        {flightData.length === 2 && (
+          <Link to='/seats-selection?dir=departure'>
+            <button className='continue'>Continuar</button>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -5,21 +5,25 @@ import Select from '@mui/material/Select';
 import FlightSelector from './FlightSelector';
 import axios from 'axios';
 import Spinner from 'components/Spinner';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { parseDates } from '../../utils/parseDates';
 
 const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
   const [filter, setFilter] = React.useState('');
-  const { departureCity, arrivalCity, dates } = useSelector(
-    state => state.bookingReducer
-  );
-
+  const {
+    departureCity,
+    arrivalCity,
+    dates,
+    flightData: flightsStore,
+  } = useSelector(state => state.bookingReducer);
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [flightData, setFlightData] = useState({});
   const newDates = parseDates(dates);
-  console.log(newDates);
+
   useEffect(() => {
+    dispatch({ type: '@booking/removeFlights' });
     const fetchingData = async () => {
       try {
         setIsLoading(true);
@@ -148,37 +152,41 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
           </FormControl>
         </div>
       </div>
-      {flightTrip === 'go'
-        ? flightsGo.map(function (item) {
-            return (
-              <FlightSelector
-                trigger={trigger}
-                key={item.id}
-                departure={item.departure}
-                departureTime={item.departureTime}
-                price={item.price}
-                duration={item.duration}
-                arrival={item.arrival}
-                arrivalTime={item.arrivalTime}
-                setFlightTrip={setFlightTrip}
-              />
-            );
-          })
-        : flightsReturn.map(function (item) {
-            return (
-              <FlightSelector
-                trigger={trigger}
-                key={item.id}
-                departure={item.departure}
-                departureTime={item.departureTime}
-                price={item.price}
-                duration={item.duration}
-                arrival={item.arrival}
-                arrivalTime={item.arrivalTime}
-                setFlightTrip={setFlightTrip}
-              />
-            );
-          })}
+      {flightTrip === 'go' ? (
+        flightsGo.map(function (item) {
+          return (
+            <FlightSelector
+              trigger={trigger}
+              key={item.id}
+              departure={item.departure}
+              departureTime={item.departureTime}
+              price={item.price}
+              duration={item.duration}
+              arrival={item.arrival}
+              arrivalTime={item.arrivalTime}
+              setFlightTrip={setFlightTrip}
+            />
+          );
+        })
+      ) : flightsStore.length !== 2 ? (
+        flightsReturn.map(function (item) {
+          return (
+            <FlightSelector
+              trigger={trigger}
+              key={item.id}
+              departure={item.departure}
+              departureTime={item.departureTime}
+              price={item.price}
+              duration={item.duration}
+              arrival={item.arrival}
+              arrivalTime={item.arrivalTime}
+              setFlightTrip={setFlightTrip}
+            />
+          );
+        })
+      ) : (
+        <div className='FlightContainerDivSpace'></div>
+      )}
 
       <div className='Flight__container-footer'>
         <div className='Flight__container-footer-services'>
