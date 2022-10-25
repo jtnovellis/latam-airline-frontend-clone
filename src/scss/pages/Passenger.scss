@@ -57,7 +57,6 @@
 }
 .Passenger__FlightDetails {
   background-color: rgb(255, 255, 255);
-
   height: 0px;
   width: 100%;
   z-index: 9;
@@ -65,10 +64,18 @@
     min-height: 100%;
     grid-template-columns: 1fr;
   }
+
   .Passenger__FlightDetails__shoppingCart {
     height: 100%;
     min-width: 100%;
     display: grid;
+    h2 {
+      margin: 1rem 1rem;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.75rem;
+      color: rgb(27, 0, 136);
+    }
   }
   .Passenger__FlightDetails__shoppingCart__button {
     height: 138px;
@@ -111,4 +118,45 @@
 
 .eachform {
   margin-bottom: 1rem;
+}
+.priceCards__main {
+  grid-row: auto;
+  display: flex;
+  height: 4rem;
+  margin: 1rem 1rem;
+  border: 1px solid rgb(238, 237, 249);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s linear 0s;
+  p {
+    font-weight: bold;
+    color: rgb(16, 0, 79);
+  }
+  span {
+    color: rgb(16, 0, 79);
+  }
+
+  .priceCards__main-img {
+    margin: auto 1rem;
+    min-width: 42px;
+    min-height: 42px;
+    background: rgb(238, 237, 249);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .priceCards__main-img-2 {
+    margin: auto 1rem;
+    min-width: 42px;
+    min-height: 42px;
+    background: rgb(69, 61, 179);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .priceCards__main-info {
+    margin: auto 1rem;
+  }
 }
