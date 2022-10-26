@@ -6,7 +6,9 @@ import { parseDates } from 'utils/parseDates';
 
 const FlightInfo = ({ setFlightTrip }) => {
   const { dates, flightData } = useSelector(state => state.bookingReducer);
+
   const newDate = parseDates(dates);
+
   const goBack = ['ida', 'vuelta'];
   function setCardDate() {
     if (flightData.length === 1) {

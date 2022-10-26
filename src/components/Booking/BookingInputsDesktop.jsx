@@ -8,17 +8,41 @@ import {
 import { useNavigate } from 'react-router-dom';
 import AutocompleteInput from './AutocompleteInput';
 import { backcities } from '../../CitiesForAutocomplete';
+import axios from 'axios';
+import { parseDates } from '../../utils/parseDates';
 
-function BookingInputsDesktop() {
+function BookingInputsDesktop({
+  setIsLoading,
+  setError,
+  setFlightFetchedData,
+}) {
   const navigate = useNavigate();
+
   const departureCity = useSelector(
     state => state.bookingReducer.departureCity
   );
   const { arrivalCity, dates } = useSelector(state => state.bookingReducer);
-
-  const handleSubmit = () => {
+  const newDates = parseDates(dates);
+  const handleSubmit = async () => {
     if (arrivalCity !== null && dates[0] !== null && dates[1] !== null) {
       navigate({ pathname: '/flights' });
+      try {
+        setIsLoading(true);
+        const { data } = await axios.post(
+          // eslint-disable-next-line no-undef
+          `${process.env.REACT_APP_API_LATAM_CLONE}/api/flights/go-return`,
+          {
+            departureCity: departureCity.split(',')[0],
+            arrivalCity: arrivalCity.split(',')[0],
+            dates: newDates,
+          }
+        );
+        setFlightFetchedData(data.data);
+      } catch (e) {
+        setError(e);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 

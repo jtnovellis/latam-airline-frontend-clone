@@ -9,7 +9,10 @@ import StatusFlight from 'components/StatusFlight/StatusFlight';
 import FlightInfo from 'components/StatusFlight/FlightInfo';
 import { useState } from 'react';
 const Flights = () => {
+  const [flightFetchedData, setFlightFetchedData] = useState({});
   const [show, setShow] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [flightTrip, setFlightTrip] = React.useState('go');
   return (
     <>
@@ -18,15 +21,28 @@ const Flights = () => {
         <div>
           <Boxsearch />
           <BookingInputs />
-          <BookingInputsDesktop />
+          <BookingInputsDesktop
+            flightFetchedData={flightFetchedData}
+            setFlightFetchedData={setFlightFetchedData}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            error={error}
+            setError={setError}
+          />
         </div>
       </div>
       <div className='container-flights2'>
         <div className='cf'>
           <FlightContainer
+            flightFetchedData={flightFetchedData}
+            setFlightFetchedData={setFlightFetchedData}
             trigger={setShow}
             flightTrip={flightTrip}
             setFlightTrip={setFlightTrip}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            error={error}
+            setError={setError}
           />
           <div className='Status'>
             {show ? (
