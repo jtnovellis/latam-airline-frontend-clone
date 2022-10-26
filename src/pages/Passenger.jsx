@@ -63,7 +63,7 @@ const Passenger = () => {
     extra2: 'extra2',
     extra3: 'extra3',
     // eslint-disable-next-line no-undef
-    response: 'http://secure2.payco.co/prueba_curl.php',
+    response: `https://latamairlines.vercel.app/payment-response`,
     name_billing: `${name || ''}`,
     address_billing: '',
     type_doc_billing: `${documentType || ''}`,
