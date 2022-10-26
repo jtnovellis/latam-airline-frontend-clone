@@ -11,9 +11,7 @@ const PaymentResponse = () => {
   const [queries, _] = useSearchParams();
   const ePaycoRef = queries.get('ref_payco');
   const { isLoading, error, data } = useQuery(['paymentData'], () => {
-    axios
-      .get(`https://secure.epayco.co/validation/v1/reference/${ePaycoRef}`)
-      .then(res => res.data);
+    axios.get(`https://secure.epayco.co/validation/v1/reference/${ePaycoRef}`);
   });
   const navigate = useNavigate();
   console.log('Params', ePaycoRef);
@@ -30,10 +28,10 @@ const PaymentResponse = () => {
       <div className='paymentResponse'>
         <div className='paymentResponse__card'>
           <h1>Datos de compra</h1>
-          <h2>{data.success ? 'Compra exitosa' : 'Compra no exitosa'}</h2>
-          <p>Nombre: {data.data.x_customer_name}</p>
-          <p>Id de compra: {data.data.x_id_factura}</p>
-          <p>Precio total: {data.data.x_amount}</p>
+          <h2>{data.data.success ? 'Compra exitosa' : 'Compra no exitosa'}</h2>
+          <p>Nombre: {data.data.data.x_customer_name}</p>
+          <p>Id de compra: {data.data.data.x_id_factura}</p>
+          <p>Precio total: {data.data.data.x_amount}</p>
           <button onClick={handleClick}>Volver al inicio</button>
         </div>
       </div>

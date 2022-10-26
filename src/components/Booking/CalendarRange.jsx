@@ -29,6 +29,7 @@ const CalendarRange = () => {
               {...startProps}
             />
             <TextField
+              disabled
               sx={{ marginLeft: '1rem', width: '220px' }}
               {...endProps}
             />
