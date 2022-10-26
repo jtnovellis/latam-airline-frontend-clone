@@ -7,9 +7,18 @@ import axios from 'axios';
 import Spinner from 'components/Spinner';
 import { useSelector, useDispatch } from 'react-redux';
 import { parseDates } from '../../utils/parseDates';
-
-const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
-  const [filter, setFilter] = React.useState('');
+const FlightContainer = ({
+  trigger,
+  flightTrip,
+  setFlightTrip,
+  flightFetchedData,
+  setFlightFetchedData,
+  isLoading,
+  setIsLoading,
+  error,
+  setError,
+}) => {
+  const [filter, setFilter] = useState('');
   const {
     departureCity,
     arrivalCity,
@@ -17,11 +26,7 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
     flightData: flightsStore,
   } = useSelector(state => state.bookingReducer);
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [flightData, setFlightData] = useState({});
   const newDates = parseDates(dates);
-
   useEffect(() => {
     dispatch({ type: '@booking/removeFlights' });
     const fetchingData = async () => {
@@ -36,7 +41,7 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
             dates: newDates,
           }
         );
-        setFlightData(data.data);
+        setFlightFetchedData(data.data);
       } catch (e) {
         setError(e);
       } finally {
@@ -45,20 +50,14 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
     };
     fetchingData();
   }, []);
-
   if (isLoading) return <Spinner />;
-  if (error) return console.log(error);
-
-  console.log(flightData);
-
-  const flightsGo = flightData.goFlights;
-
-  const flightsReturn = flightData.returnFlights;
-
+  if (error)
+    return <div className='FlightContainerDivSpace'>Ocurrio un error</div>;
+  const flightsGo = flightFetchedData.goFlights;
+  const flightsReturn = flightFetchedData.returnFlights;
   const handleChange = event => {
     setFilter(event.target.value);
   };
-
   return (
     <div className='Flight__container'>
       <div className='Flight__container-header'>
@@ -67,7 +66,6 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
         </div>
         <div className='Flight__container-header-filter'>
           <p>Ordenado por:</p>
-
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <Select
               value={filter}
@@ -92,7 +90,6 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
           const departureMinutes = new Date(item.date).getMinutes();
           const arrivalHours = new Date(item.arrivalDate).getHours();
           const arrivalMinutes = new Date(item.arrivalDate).getMinutes();
-
           return (
             <FlightSelector
               trigger={trigger}
@@ -138,7 +135,6 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
       ) : (
         <div className='FlightContainerDivSpace'></div>
       )}
-
       <div className='Flight__container-footer'>
         <div className='Flight__container-footer-services'>
           <ul>
