@@ -3,13 +3,14 @@ import SeatsRow from './SeatsRow';
 import Emergency from 'components/SelectionSeats/Emergency';
 
 const Airplane = ({ flightData, param, totalseats, setTotalseats }) => {
-  const { airBus, seats } = flightData.airplane;
+  const { airplane, seats } = flightData;
   const { firstDiv, secondDiv, thirthDiv, headerSeats } = seats;
+  const { planeModel: airBus } = airplane;
 
   return (
     <div className={param === 'arrival' ? 'airplaneout' : 'airplane'}>
       <div className='airplane__body'>
-        <p>Air Bus {airBus}</p>
+        <p>{airBus}</p>
         <div className='airplane__body--seats'>
           <div className='seats--header'>
             {headerSeats.map(item => (

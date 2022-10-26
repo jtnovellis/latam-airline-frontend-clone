@@ -27,7 +27,7 @@ const FlightContainer = ({
     flightData: flightsStore,
   } = useSelector(state => state.bookingReducer);
   const dispatch = useDispatch();
-
+  console.log(flightFetchedData);
   const newDates = parseDates(dates);
 
   useEffect(() => {
@@ -104,6 +104,7 @@ const FlightContainer = ({
             <FlightSelector
               trigger={trigger}
               key={item._id}
+              flightsAllData={item}
               departure={item.departureAirport.cityCode}
               departureTime={`${departureHours}:${
                 departureMinutes > 9 ? departureMinutes : '0' + departureMinutes
@@ -128,6 +129,7 @@ const FlightContainer = ({
             <FlightSelector
               trigger={trigger}
               key={item._id}
+              flightsAllData={item}
               departure={item.departureAirport.cityCode}
               departureTime={`${departureHours}:${
                 departureMinutes > 9 ? departureMinutes : '0' + departureMinutes

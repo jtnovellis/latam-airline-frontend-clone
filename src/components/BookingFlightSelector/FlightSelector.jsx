@@ -12,6 +12,7 @@ const FlightSelector = prop => {
     arrivalTime,
     duration,
     price,
+    flightsAllData,
     setFlightTrip,
   } = prop;
   const flightData = {
@@ -98,6 +99,7 @@ const FlightSelector = prop => {
             <FlightCard
               data={flightData}
               type='Light'
+              flightsAllData={flightsAllData}
               price={prop.price}
               trigger={prop.trigger}
               setFlightTrip={setFlightTrip}

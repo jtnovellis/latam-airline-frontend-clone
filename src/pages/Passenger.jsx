@@ -8,16 +8,12 @@ import CommonButton from 'components/Buttons/CommonButton';
 
 const Passenger = () => {
   const luggageTotal = useSelector(state => state.luggageReducer.totalPrice);
-  const { adults, kids } = useSelector(state => state.bookingReducer);
+  const { adults, kids, id, totalPrice } = useSelector(
+    state => state.bookingReducer
+  );
   const flightDataPrice = useSelector(state => state.bookingReducer.flightData);
-  //const { passengerRelated } = useSelector(state => state.flightsReducer);
   const passengersToRender = adults + kids;
 
-  /*   useEffect(() => {
-    console.log(passengerRelated);
-  }, [passengerRelated]);
- */
-  const flightData = useSelector(state => state.flightsReducer);
   const { departureUser, arrivalUser } = useSelector(
     state => state.flightsReducer
   );
@@ -25,12 +21,12 @@ const Passenger = () => {
   let totalSeatsDeparture = 0;
   departureUser.map(item => {
     let price = item.price;
-    totalSeatsDeparture += parseInt(price.replace('.', ''));
+    totalSeatsDeparture += price;
   });
   let totalSeatsArival = 0;
   arrivalUser.map(item => {
     let price = item.price;
-    totalSeatsArival += parseInt(price.replace('.', ''));
+    totalSeatsArival += price;
   });
   let seatsTotal = totalSeatsArival + totalSeatsDeparture;
 
@@ -51,30 +47,29 @@ const Passenger = () => {
   });
 
   const data = {
-    name: `LA${flightData.id}`,
+    name: `LA${id}`,
     description: `Vuelo de ${departureCity.split(',')[0]} a ${
       arrivalCity.split(',')[0]
     }`,
-    invoice: `${flightData.id}`,
+    invoice: `${id}`,
     currency: 'cop',
-    amount: `${flightData.price.light}`,
+    amount: `${totalPrice}`,
     tax_base: '0',
     tax: '0',
     country: 'co',
     lang: 'es',
     external: 'false',
-    extra1: `${flightData.departureUser}`,
-    extra2: `${flightData.arrivalUser}`,
+    extra1: 'extra1',
+    extra2: 'extra2',
     extra3: 'extra3',
-    response: 'http://secure2.payco.co/prueba_curl.php',
-    name_billing: `${name}`,
+    // eslint-disable-next-line no-undef
+    response: `${process.env.REACT_APP_VERCEL_URL}/payment-response`,
+    name_billing: `${name || ''}`,
     address_billing: '',
-    type_doc_billing: `${documentType}`,
-    mobilephone_billing: `${phoneNumber}`,
-    number_doc_billing: `${documentNumber}`,
-
-    //atributo deshabilitación metodo de pago
-    methodsDisable: ['PSE', 'SP', 'CASH', 'DP'],
+    type_doc_billing: `${documentType || ''}`,
+    mobilephone_billing: `${phoneNumber || ''}`,
+    number_doc_billing: `${documentNumber || ''}`,
+    methodsDisable: ['SP', 'CASH', 'DP'],
   };
 
   const handleClick = () => {
