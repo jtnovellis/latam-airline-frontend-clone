@@ -22,11 +22,8 @@ const Flights = () => {
           <Boxsearch />
           <BookingInputs />
           <BookingInputsDesktop
-            flightFetchedData={flightFetchedData}
             setFlightFetchedData={setFlightFetchedData}
-            isLoading={isLoading}
             setIsLoading={setIsLoading}
-            error={error}
             setError={setError}
           />
         </div>
