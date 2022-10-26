@@ -1,14 +1,30 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {
+  SET_SELECTED_GO_FLIGHT,
+  SET_SELECTED_RETURN_FLIGHT,
+} from 'store/reducers/flightsReducer';
+
 const FlightCard = prop => {
   const dispatch = useDispatch();
+  const { flightData } = useSelector(state => state.bookingReducer);
 
   const handleClick = () => {
     prop.trigger(true);
     prop.setFlightTrip('return');
-    console.log('click');
-    dispatch({ type: '@booking/addGoFlight', payload: prop.data });
+    if (!(flightData.length > 0)) {
+      console.log('setGo');
+      dispatch({
+        type: SET_SELECTED_RETURN_FLIGHT,
+        payload: prop.flightsAllData,
+      });
+      dispatch({ type: '@booking/addGoFlight', payload: prop.data });
+    } else {
+      console.log('setReturn');
+      dispatch({ type: SET_SELECTED_GO_FLIGHT, payload: prop.flightsAllData });
+      dispatch({ type: '@booking/addGoFlight', payload: prop.data });
+    }
   };
 
   return (

@@ -21,6 +21,7 @@ import axios from 'axios';
 import { SET_ALL_DATAUSER } from './store/reducers/userReducer';
 import useGetCookies from './services/Cookies/useGetCookies';
 import { useJwt } from 'react-jwt';
+import PaymentResponse from 'pages/PaymentResponse';
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +75,7 @@ function App() {
         <Route path='seats-selection' element={<SelectionSeats />} />
         <Route path='luggage' element={<Luggage />} />
         <Route path='passenger-form' element={<Passenger />} />
+        <Route path='payment-response' element={<PaymentResponse />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

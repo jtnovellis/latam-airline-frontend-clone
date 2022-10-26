@@ -8,10 +8,11 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 const SelectionSeats = () => {
-  const departure = useSelector(
-    state => state.flightsReducer.departureFlightData
+  const flightToGo = useSelector(state => state.flightsReducer.flightToGo);
+  const flightToReturn = useSelector(
+    state => state.flightsReducer.flightToReturn
   );
-  const arrival = useSelector(state => state.flightsReducer.arrivalFlightData);
+  console.log('FLights to return', flightToReturn);
   const passengerDeparture = useSelector(
     state => state.flightsReducer.departureUser
   );
@@ -26,7 +27,7 @@ const SelectionSeats = () => {
     if (param === 'departure') {
       return (
         <Airplane
-          flightData={departure}
+          flightData={flightToGo}
           param={param}
           totalseats={totalseats}
           setTotalseats={setTotalseats}
@@ -35,7 +36,7 @@ const SelectionSeats = () => {
     } else if (param === 'arrival') {
       return (
         <Airplane
-          flightData={arrival}
+          flightData={flightToReturn}
           param={param}
           totalseats={totalseats}
           setTotalseats={setTotalseats}

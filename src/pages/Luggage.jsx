@@ -32,12 +32,12 @@ const Luggage = () => {
   let totalSeatsDeparture = 0;
   departureUser.map(item => {
     let price = item.price;
-    totalSeatsDeparture += parseInt(price.replace('.', ''));
+    totalSeatsDeparture += price;
   });
   let totalSeatsArival = 0;
   arrivalUser.map(item => {
     let price = item.price;
-    totalSeatsArival += parseInt(price.replace('.', ''));
+    totalSeatsArival += price;
   });
   let seatsTotal = totalSeatsArival + totalSeatsDeparture;
   const squema = {

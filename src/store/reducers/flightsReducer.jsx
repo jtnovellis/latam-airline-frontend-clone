@@ -8,8 +8,73 @@ export const DELETE_DEPARTURE_SEATS = '@flights/delete-departure-seat';
 export const DELETE_ARRIVAL_SEATS = '@flights/delete-arrival-seat';
 export const ADD_PASSENGER_FORMDATA = '@flights/add-passenger-formdata';
 export const UPDATE_PASSENGER_FORMDATA = '@flights/update-passenger-formdata';
+export const SET_SELECTED_GO_FLIGHT = '@flights/set-selected-go-flight';
+export const SET_SELECTED_RETURN_FLIGHT = '@flights/set-selected-return-flight';
 
 const initialState = {
+  flightToGo: {
+    id: '',
+    price: '',
+    airplane: {
+      id: '',
+      planeModel: '',
+      plate: '',
+    },
+    arrivalDate: null,
+    date: null,
+    seats: {
+      firstDiv: [],
+      secondDiv: [],
+      thirthDiv: [],
+      headerSeats: [],
+    },
+    departureAirport: {
+      id: '',
+      name: '',
+      city: '',
+      cityCode: '',
+      gate: '',
+    },
+    arrivalAirport: {
+      id: '',
+      name: '',
+      city: '',
+      gate: '',
+    },
+    estimatedTime: '',
+    scales: '',
+  },
+  flightToReturn: {
+    id: '',
+    price: '',
+    airplane: {
+      id: '',
+      planeModel: '',
+      plate: '',
+    },
+    arrivalDate: null,
+    date: null,
+    seats: {
+      firstDiv: [],
+      secondDiv: [],
+      thirthDiv: [],
+      headerSeats: [],
+    },
+    departureAirport: {
+      id: '',
+      name: '',
+      city: '',
+      gate: '',
+    },
+    arrivalAirport: {
+      id: '',
+      name: '',
+      city: '',
+      gate: '',
+    },
+    estimatedTime: '',
+    scales: '',
+  },
   id: '123443ASD',
   price: {
     light: '80000',
@@ -47,6 +112,82 @@ const initialState = {
 
 const flightsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_SELECTED_GO_FLIGHT:
+      return {
+        ...state,
+        flightToGo: {
+          ...state.flightToGo,
+          id: action.payload._id,
+          price: action.payload.price,
+          airplane: {
+            id: action.payload.airplane._id,
+            planeModel: action.payload.airplane.planeModel,
+            plate: action.payload.airplane.plate,
+          },
+          arrivalDate: action.payload.arrivalDate,
+          date: action.payload.date,
+          seats: {
+            firstDiv: action.payload.seats.firstDiv,
+            secondDiv: action.payload.seats.secondDiv,
+            thirthDiv: action.payload.seats.thirthDiv,
+            headerSeats: action.payload.seats.headerSeats,
+          },
+          departureAirport: {
+            id: action.payload.departureAirport._id,
+            name: action.payload.departureAirport.name,
+            city: action.payload.departureAirport.city,
+            cityCode: action.payload.departureAirport.cityCode,
+            gate: action.payload.departureAirport.gate,
+          },
+          arrivalAirport: {
+            id: action.payload.departureArrival._id,
+            name: action.payload.departureArrival.name,
+            city: action.payload.departureArrival.city,
+            cityCode: action.payload.departureArrival.cityCode,
+            gate: action.payload.departureArrival.gate,
+          },
+          estimatedTime: action.payload.estimatedTime,
+          scales: action.payload.scales,
+        },
+      };
+    case SET_SELECTED_RETURN_FLIGHT:
+      return {
+        ...state,
+        flightToReturn: {
+          ...state.flightToReturn,
+          id: action.payload._id,
+          price: action.payload.price,
+          airplane: {
+            id: action.payload.airplane._id,
+            planeModel: action.payload.airplane.planeModel,
+            plate: action.payload.airplane.plate,
+          },
+          arrivalDate: action.payload.arrivalDate,
+          date: action.payload.date,
+          seats: {
+            firstDiv: action.payload.seats.firstDiv,
+            secondDiv: action.payload.seats.secondDiv,
+            thirthDiv: action.payload.seats.thirthDiv,
+            headerSeats: action.payload.seats.headerSeats,
+          },
+          departureAirport: {
+            id: action.payload.departureAirport._id,
+            name: action.payload.departureAirport.name,
+            city: action.payload.departureAirport.city,
+            cityCode: action.payload.departureAirport.cityCode,
+            gate: action.payload.departureAirport.gate,
+          },
+          arrivalAirport: {
+            id: action.payload.departureArrival._id,
+            name: action.payload.departureArrival.name,
+            city: action.payload.departureArrival.city,
+            cityCode: action.payload.departureArrival.cityCode,
+            gate: action.payload.departureArrival.gate,
+          },
+          estimatedTime: action.payload.estimatedTime,
+          scales: action.payload.scales,
+        },
+      };
     case REQ_FLIGHTS:
       return {
         ...state,
