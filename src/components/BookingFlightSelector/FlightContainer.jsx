@@ -8,6 +8,8 @@ import Spinner from 'components/Spinner';
 import { useSelector, useDispatch } from 'react-redux';
 import { parseDates } from '../../utils/parseDates';
 
+console.log('q vaina mala hermano');
+
 const FlightContainer = ({
   trigger,
   flightTrip,
