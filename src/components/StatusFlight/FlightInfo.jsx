@@ -40,9 +40,9 @@ const FlightInfo = ({ setFlightTrip }) => {
     axios
       // eslint-disable-next-line no-undef
       .post(`${process.env.REACT_APP_API_LATAM_CLONE}/api/bookings/test`, {
-        roundTrip,
-        arrivalCity,
-        departureCity,
+        roundtrip: roundTrip,
+        arrival: arrivalCity,
+        departure: departureCity,
       })
       .then(res => {
         const initialbooking = res.data.data;
