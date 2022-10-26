@@ -7,37 +7,23 @@ import Spinner from 'components/Spinner';
 import { useQuery } from '@tanstack/react-query';
 
 const PaymentResponse = () => {
-  /* const [paymentData, setPaymentData] = useState(null); */
+  // eslint-disable-next-line no-unused-vars
+  const [queries, _] = useSearchParams();
+  const ePaycoRef = queries.get('ref_payco');
   const { isLoading, error, data } = useQuery(['paymentData'], () => {
     axios
       .get(`https://secure.epayco.co/validation/v1/reference/${ePaycoRef}`)
       .then(res => res.data);
   });
   const navigate = useNavigate();
-  // eslint-disable-next-line no-unused-vars
-  const [queries, _] = useSearchParams();
-  const ePaycoRef = queries.get('ref_payco');
   console.log('Params', ePaycoRef);
   const handleClick = () => {
     navigate('/');
   };
 
-  /* useEffect(() => {
-    const fetchingData = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://secure.epayco.co/validation/v1/reference/${ePaycoRef}`
-        );
-        setPaymentData(data);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    fetchingData();
-  }, []); */
-
   if (isLoading) return <Spinner />;
   if (error) return console.error(' algo paso compa revise');
+
   return (
     <>
       <Header />
