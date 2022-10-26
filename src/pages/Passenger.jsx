@@ -53,7 +53,7 @@ const Passenger = () => {
     }`,
     invoice: `${id}`,
     currency: 'cop',
-    amount: `${totalPrice}`,
+    amount: `${totalPrice || 100000}`,
     tax_base: '0',
     tax: '0',
     country: 'co',
