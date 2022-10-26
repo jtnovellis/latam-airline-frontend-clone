@@ -8,18 +8,8 @@ import Spinner from 'components/Spinner';
 import { useSelector, useDispatch } from 'react-redux';
 import { parseDates } from '../../utils/parseDates';
 
-const FlightContainer = ({
-  trigger,
-  flightTrip,
-  setFlightTrip,
-  flightFetchedData,
-  setFlightFetchedData,
-  isLoading,
-  setIsLoading,
-  error,
-  setError,
-}) => {
-  const [filter, setFilter] = useState('');
+const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
+  const [filter, setFilter] = React.useState('');
   const {
     departureCity,
     arrivalCity,
@@ -27,7 +17,9 @@ const FlightContainer = ({
     flightData: flightsStore,
   } = useSelector(state => state.bookingReducer);
   const dispatch = useDispatch();
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [flightData, setFlightData] = useState({});
   const newDates = parseDates(dates);
 
   useEffect(() => {
@@ -44,7 +36,7 @@ const FlightContainer = ({
             dates: newDates,
           }
         );
-        setFlightFetchedData(data.data);
+        setFlightData(data.data);
       } catch (e) {
         setError(e);
       } finally {
@@ -55,12 +47,13 @@ const FlightContainer = ({
   }, []);
 
   if (isLoading) return <Spinner />;
-  if (error)
-    return <div className='FlightContainerDivSpace'>Ocurrio un error</div>;
+  if (error) return console.log(error);
 
-  const flightsGo = flightFetchedData.goFlights;
+  console.log(flightData);
 
-  const flightsReturn = flightFetchedData.returnFlights;
+  const flightsGo = flightData.goFlights;
+
+  const flightsReturn = flightData.returnFlights;
 
   const handleChange = event => {
     setFilter(event.target.value);
@@ -104,7 +97,6 @@ const FlightContainer = ({
             <FlightSelector
               trigger={trigger}
               key={item._id}
-              flightsAllData={item}
               departure={item.departureAirport.cityCode}
               departureTime={`${departureHours}:${
                 departureMinutes > 9 ? departureMinutes : '0' + departureMinutes
@@ -129,7 +121,6 @@ const FlightContainer = ({
             <FlightSelector
               trigger={trigger}
               key={item._id}
-              flightsAllData={item}
               departure={item.departureAirport.cityCode}
               departureTime={`${departureHours}:${
                 departureMinutes > 9 ? departureMinutes : '0' + departureMinutes
