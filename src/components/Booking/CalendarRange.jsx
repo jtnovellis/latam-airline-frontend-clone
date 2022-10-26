@@ -8,10 +8,25 @@ import { BOOKING_DATES_ADD } from 'store/reducers/bookingReducer';
 
 const CalendarRange = () => {
   const dispatch = useDispatch();
-  const currentDates = useSelector(state => state.bookingReducer.dates);
+  const { dates: currentDates, roundTrip } = useSelector(
+    state => state.bookingReducer
+  );
   function handleChange(newDates) {
     dispatch({ type: BOOKING_DATES_ADD, payload: newDates });
   }
+
+  const hsndleMarginLeft = () => {
+    if (roundTrip) return '1rem';
+    return '100px';
+  };
+  const hsndleMarginRight = () => {
+    if (roundTrip) return '0px';
+    return '110px';
+  };
+  const handleWidth = () => {
+    if (roundTrip) return '220px';
+    return '270px';
+  };
   return (
     <LocalizationProvider
       dateAdapter={AdapterDateFns}
@@ -25,14 +40,19 @@ const CalendarRange = () => {
         renderInput={(startProps, endProps) => (
           <>
             <TextField
-              sx={{ width: '220px', marginLeft: '1rem' }}
+              sx={{
+                width: handleWidth(),
+                marginLeft: hsndleMarginLeft(),
+                marginRight: hsndleMarginRight(),
+              }}
               {...startProps}
             />
-            <TextField
-              disabled
-              sx={{ marginLeft: '1rem', width: '220px' }}
-              {...endProps}
-            />
+            {roundTrip && (
+              <TextField
+                sx={{ marginLeft: '1rem', width: '220px' }}
+                {...endProps}
+              />
+            )}
           </>
         )}
       />
