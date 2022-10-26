@@ -12,7 +12,6 @@ const SelectionSeats = () => {
   const flightToReturn = useSelector(
     state => state.flightsReducer.flightToReturn
   );
-  console.log('FLights to return', flightToReturn);
   const passengerDeparture = useSelector(
     state => state.flightsReducer.departureUser
   );
