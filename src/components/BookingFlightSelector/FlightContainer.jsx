@@ -8,8 +8,18 @@ import Spinner from 'components/Spinner';
 import { useSelector, useDispatch } from 'react-redux';
 import { parseDates } from '../../utils/parseDates';
 
-const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
-  const [filter, setFilter] = React.useState('');
+const FlightContainer = ({
+  trigger,
+  flightTrip,
+  setFlightTrip,
+  flightFetchedData,
+  setFlightFetchedData,
+  isLoading,
+  setIsLoading,
+  error,
+  setError,
+}) => {
+  const [filter, setFilter] = useState('');
   const {
     departureCity,
     arrivalCity,
@@ -17,9 +27,7 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
     flightData: flightsStore,
   } = useSelector(state => state.bookingReducer);
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [flightData, setFlightData] = useState({});
+
   const newDates = parseDates(dates);
 
   useEffect(() => {
@@ -36,7 +44,7 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
             dates: newDates,
           }
         );
-        setFlightData(data.data);
+        setFlightFetchedData(data.data);
       } catch (e) {
         setError(e);
       } finally {
@@ -47,13 +55,12 @@ const FlightContainer = ({ trigger, flightTrip, setFlightTrip }) => {
   }, []);
 
   if (isLoading) return <Spinner />;
-  if (error) return console.log(error);
+  if (error)
+    return <div className='FlightContainerDivSpace'>Ocurrio un error</div>;
 
-  console.log(flightData);
+  const flightsGo = flightFetchedData.goFlights;
 
-  const flightsGo = flightData.goFlights;
-
-  const flightsReturn = flightData.returnFlights;
+  const flightsReturn = flightFetchedData.returnFlights;
 
   const handleChange = event => {
     setFilter(event.target.value);
