@@ -7,7 +7,7 @@ import axios from 'axios';
 import Spinner from 'components/Spinner';
 import { useSelector, useDispatch } from 'react-redux';
 import { parseDates } from '../../utils/parseDates';
-
+console.log('no me toquen mas por ahora');
 const FlightContainer = ({
   trigger,
   flightTrip,

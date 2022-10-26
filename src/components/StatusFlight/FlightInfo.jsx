@@ -5,6 +5,7 @@ import FlightInfoCard from './FlightInfoCard';
 import { parseDates } from 'utils/parseDates';
 
 const FlightInfo = ({ setFlightTrip }) => {
+  console.log('no me toquen mas por ahora');
   const { dates, flightData } = useSelector(state => state.bookingReducer);
 
   const newDate = parseDates(dates);
