@@ -33,9 +33,8 @@ const Passenger = () => {
   let flightTotal = 0;
   flightDataPrice.map(item => (flightTotal += item.price));
 
-  const { name, documentType, phoneNumber, documentNumber } = useSelector(
-    state => state.userReducer
-  );
+  const { name, documentType, phoneNumber, documentNumber, lastname } =
+    useSelector(state => state.userReducer);
   const { departureCity, arrivalCity } = useSelector(
     state => state.bookingReducer
   );
@@ -64,7 +63,7 @@ const Passenger = () => {
     extra3: 'extra3',
     // eslint-disable-next-line no-undef
     response: `https://latamairlines.vercel.app/payment-response`,
-    name_billing: `${name || ''}`,
+    name_billing: `${name || ''} ${lastname || ''}`,
     address_billing: '',
     type_doc_billing: `${documentType || ''}`,
     mobilephone_billing: `${phoneNumber || ''}`,

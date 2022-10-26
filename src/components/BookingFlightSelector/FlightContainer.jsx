@@ -27,7 +27,7 @@ const FlightContainer = ({
     flightData: flightsStore,
   } = useSelector(state => state.bookingReducer);
   const dispatch = useDispatch();
-  console.log(flightFetchedData);
+
   const newDates = parseDates(dates);
 
   useEffect(() => {
