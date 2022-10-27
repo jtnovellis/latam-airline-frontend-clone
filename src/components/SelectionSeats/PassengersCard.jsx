@@ -31,6 +31,8 @@ const PassengersCard = ({
     }
   };
 
+  const priceToRender = price ? price.toLocaleString('en') : '--.---';
+
   return (
     <div className='passengerCard'>
       <button className='passengerCard__info'>
@@ -42,7 +44,7 @@ const PassengersCard = ({
           <span>{level || 'Sin selección'}</span>
         </div>
         <div className='passengerCard__info--price'>
-          <span>COP {price || '--.---,--'}</span>
+          <span>COP {priceToRender}</span>
         </div>
       </button>
       {seat && (
