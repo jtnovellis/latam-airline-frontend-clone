@@ -65,7 +65,7 @@ const FlightSelector = prop => {
           <div className='Flight__selector-price hidden'>
             <span className='Flight__selector-price-title'>Adulto desde</span>
             <span className='Flight__selector-price-amount'>
-              COP {prop.price}
+              COP {prop.price.toLocaleString('en')}
             </span>
           </div>
         ) : (

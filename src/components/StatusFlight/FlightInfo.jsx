@@ -51,16 +51,14 @@ const FlightInfo = ({ setFlightTrip }) => {
     navigate('/seats-selection?dir=departure');
   };
   return (
-    <div>
-      <div className='statusf'>
-        <h1>Resumen de tu viaje</h1>
-        {flightData.length > 0 && flightSelected}
-        {flightData.length === 2 && (
-          <button className='continue' onClick={handleClick}>
-            Continuar
-          </button>
-        )}
-      </div>
+    <div className='statusf'>
+      <h1>Resumen de tu viaje</h1>
+      {flightData.length > 0 && flightSelected}
+      {flightData.length === 2 && (
+        <button className='continue' onClick={handleClick}>
+          Continuar
+        </button>
+      )}
     </div>
   );
 };

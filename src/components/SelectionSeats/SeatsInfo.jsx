@@ -10,7 +10,7 @@ const SeatsInfo = ({ column, row, price, location }) => {
           <span>{`${column}${row} ${location}`}</span>
         </div>
         <div className='seatsinfo__body'>
-          <p>COP {price}</p>
+          <p>COP {price.toLocaleString('en')}</p>
         </div>
       </div>
       <div className='seatsinfo__arrow'>

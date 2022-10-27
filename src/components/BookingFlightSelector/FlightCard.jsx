@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { INCREASE_PRICE } from 'store/reducers/bookingReducer';
 import {
   SET_SELECTED_GO_FLIGHT,
   SET_SELECTED_RETURN_FLIGHT,
@@ -14,16 +15,16 @@ const FlightCard = prop => {
     prop.trigger(true);
     prop.setFlightTrip('return');
     if (!(flightData.length > 0)) {
-      console.log('setGo');
       dispatch({
         type: SET_SELECTED_RETURN_FLIGHT,
         payload: prop.flightsAllData,
       });
       dispatch({ type: '@booking/addGoFlight', payload: prop.data });
+      dispatch({ type: INCREASE_PRICE, payload: prop.price });
     } else {
-      console.log('setReturn');
       dispatch({ type: SET_SELECTED_GO_FLIGHT, payload: prop.flightsAllData });
       dispatch({ type: '@booking/addGoFlight', payload: prop.data });
+      dispatch({ type: INCREASE_PRICE, payload: prop.price });
     }
   };
 
@@ -279,10 +280,10 @@ const FlightCard = prop => {
         <div className='FlightCard__price'>
           <div className='FlightCard__price-amount'>
             {prop.type === 'Basic'
-              ? Math.floor(prop.price * 0.8)
+              ? Math.floor(prop.price * 0.8).toLocaleString('en')
               : prop.type === 'Light'
-              ? prop.price
-              : Math.floor(prop.price * 1.2)}
+              ? prop.price.toLocaleString('en')
+              : Math.floor(prop.price * 1.2).toLocaleString('en')}
           </div>
           <div className='FlightCard__price-description'>Por pasajero</div>
         </div>

@@ -14,7 +14,7 @@ export const SET_SELECTED_RETURN_FLIGHT = '@flights/set-selected-return-flight';
 const initialState = {
   flightToGo: {
     id: '',
-    price: '',
+    price: null,
     airplane: {
       id: '',
       planeModel: '',
@@ -46,7 +46,7 @@ const initialState = {
   },
   flightToReturn: {
     id: '',
-    price: '',
+    price: null,
     airplane: {
       id: '',
       planeModel: '',

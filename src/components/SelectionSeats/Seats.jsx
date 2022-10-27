@@ -6,6 +6,7 @@ import {
   ADD_SEATS_DEPARTURE,
   ADD_SEATS_ARRIVAL,
 } from '../../store/reducers/flightsReducer';
+import { INCREASE_PRICE } from 'store/reducers/bookingReducer';
 
 const Seats = ({
   column,
@@ -41,6 +42,7 @@ const Seats = ({
           type: ADD_SEATS_DEPARTURE,
           payload: { column, row, price, location, avaliable: !avaliable },
         });
+        dispatch({ type: INCREASE_PRICE, payload: price });
       } else if (param === 'arrival') {
         setSelected(true);
         setTotalseats(prev => prev + 1);
@@ -48,6 +50,7 @@ const Seats = ({
           type: ADD_SEATS_ARRIVAL,
           payload: { column, row, price, location, avaliable: !avaliable },
         });
+        dispatch({ type: INCREASE_PRICE, payload: price });
       }
     }
   };
