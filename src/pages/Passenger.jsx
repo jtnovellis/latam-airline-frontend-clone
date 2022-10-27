@@ -8,13 +8,18 @@ import CommonButton from 'components/Buttons/CommonButton';
 
 const Passenger = () => {
   const luggageTotal = useSelector(state => state.luggageReducer.totalPrice);
+  const { passengersLuggage } = useSelector(state => state.luggageReducer);
   const { adults, kids, id } = useSelector(state => state.bookingReducer);
   const flightDataPrice = useSelector(state => state.bookingReducer.flightData);
   const passengersToRender = adults + kids;
 
-  const { departureUser, arrivalUser } = useSelector(
-    state => state.flightsReducer
-  );
+  const {
+    departureUser,
+    arrivalUser,
+    flightToGo,
+    flightToReturn,
+    passengerRelated,
+  } = useSelector(state => state.flightsReducer);
 
   let totalSeatsDeparture = 0;
   departureUser.map(item => {
@@ -69,7 +74,21 @@ const Passenger = () => {
     methodsDisable: ['SP', 'CASH', 'DP'],
   };
 
+  const bookingData = {
+    bookingId: id,
+    tripGoFlight: flightToGo.id,
+    tripGoBackFlight: flightToReturn.id,
+    users: passengerRelated,
+    reservedSeats: {
+      tripGoSeats: departureUser,
+      tripReturnSeats: arrivalUser,
+    },
+    luggage: passengersLuggage,
+    isPaid: true,
+  };
+
   const handleClick = () => {
+    sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
     handler.open(data);
   };
 

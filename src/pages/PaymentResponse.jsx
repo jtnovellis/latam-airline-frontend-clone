@@ -15,15 +15,7 @@ const PaymentResponse = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const { name } = useSelector(state => state.userReducer);
-  const { id } = useSelector(state => state.bookingReducer);
-  const { passengersLuggage } = useSelector(state => state.luggageReducer);
-  const {
-    flightToGo,
-    flightToReturn,
-    departureUser,
-    arrivalUser,
-    passengerRelated,
-  } = useSelector(state => state.flightsReducer);
+  const bookingData = JSON.parse(sessionStorage.getItem('bookingData'));
 
   const handleClick = () => {
     navigate('/');
@@ -49,18 +41,7 @@ const PaymentResponse = () => {
         await axios.put(
           // eslint-disable-next-line no-undef
           `${process.env.REACT_APP_API_LATAM_CLONE}/api/bookings/payconfirm/update`,
-          {
-            bookingId: id,
-            tripGoFlight: flightToGo.id,
-            tripGoBackFlight: flightToReturn.id,
-            users: passengerRelated,
-            reservedSeats: {
-              tripGoSeats: departureUser,
-              tripReturnSeats: arrivalUser,
-            },
-            luggage: passengersLuggage,
-            isPaid: true,
-          }
+          bookingData
         );
       } catch (e) {
         console.error(e);
