@@ -60,7 +60,7 @@ const Passenger = () => {
     extra2: 'extra2',
     extra3: 'extra3',
     // eslint-disable-next-line no-undef
-    response: `http://localhost:3000/payment-response`,
+    response: `https://latamairlines.vercel.app/payment-response`,
     name_billing: `${name || ''} ${lastname || ''}`,
     address_billing: '',
     type_doc_billing: `${documentType || ''}`,
