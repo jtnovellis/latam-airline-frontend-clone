@@ -46,7 +46,7 @@ const PaymentResponse = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await axios.post(
+        await axios.put(
           // eslint-disable-next-line no-undef
           `${process.env.REACT_APP_API_LATAM_CLONE}/api/bookings/payconfirm/update`,
           {
