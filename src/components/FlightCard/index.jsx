@@ -65,7 +65,7 @@ function FlightCard(props) {
                           Precio final desde
                         </p>
                         <p aria-hidden='true' className='price-offert'>
-                          COP&nbsp; {price}
+                          COP&nbsp; {price.toLocaleString('en-US')}
                         </p>
                       </div>
                       <div className='red-arrow-item'>

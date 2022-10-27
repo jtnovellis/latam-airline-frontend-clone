@@ -154,7 +154,6 @@ const index = () => {
               return errors;
             }}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              console.log(values);
               axios
                 .post(
                   // eslint-disable-next-line no-undef
