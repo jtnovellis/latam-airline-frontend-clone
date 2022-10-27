@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { DECREASE_PRICE } from 'store/reducers/bookingReducer';
 import {
   DELETE_DEPARTURE_SEATS,
   DELETE_ARRIVAL_SEATS,
@@ -21,10 +22,12 @@ const PassengersCard = ({
     if (param === 'departure') {
       dispatch({ type: DELETE_DEPARTURE_SEATS, payload: { row, column } });
       setTotalseats(prev => prev - 1);
+      dispatch({ type: DECREASE_PRICE, payload: price });
     }
     if (param === 'arrival') {
       dispatch({ type: DELETE_ARRIVAL_SEATS, payload: { row, column } });
       setTotalseats(prev => prev - 1);
+      dispatch({ type: DECREASE_PRICE, payload: price });
     }
   };
 

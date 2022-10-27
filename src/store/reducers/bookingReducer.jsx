@@ -13,6 +13,8 @@ export const BOOKING_SET_ROUNDTRIP = '@booking/add-roundtrip';
 export const BOOKING_ADD_TOTAL_PRICE = '@booking/add-to-total-price';
 export const BOOKING_REMOVE_TOTAL_PRICE = '@booking/add-to-total-price';
 export const SET_INITIAL_BOOKING_DATA = '@booking/set-initial-booking-data';
+export const INCREASE_PRICE = '@booking/increase-price';
+export const DECREASE_PRICE = '@booking/decrease-price';
 
 const initialValues = {
   id: '',
@@ -31,6 +33,16 @@ const initialValues = {
 
 const bookingReducer = (state = initialValues, action) => {
   switch (action.type) {
+    case INCREASE_PRICE:
+      return {
+        ...state,
+        totalPrice: state.totalPrice + action.payload,
+      };
+    case DECREASE_PRICE:
+      return {
+        ...state,
+        totalPrice: state.totalPrice - action.payload,
+      };
     case SET_INITIAL_BOOKING_DATA:
       return {
         ...state,

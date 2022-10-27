@@ -13,9 +13,8 @@ const Passengers = ({
 }) => {
   let length = passengersToRender.length;
   const [toRender, setToRender] = React.useState([]);
-  const roundTrip = useSelector(state => state.bookingReducer.roundTrip);
+  const { roundTrip, totalPrice } = useSelector(state => state.bookingReducer);
   const navigate = useNavigate();
-  const flightDataPrice = useSelector(state => state.bookingReducer.flightData);
   React.useEffect(() => {
     setToRender(passengersToRender);
   }, [totalseats]);
@@ -30,8 +29,6 @@ const Passengers = ({
       });
     }
   };
-  let flightTotal = 0;
-  flightDataPrice.map(item => (flightTotal += item.price));
 
   return (
     <div className='passengersContainer'>
@@ -72,7 +69,7 @@ const Passengers = ({
             <span>Precio final</span>
             <KeyboardArrowUpOutlinedIcon />
           </button>
-          <p>COP {flightTotal.toLocaleString('en-US')}</p>
+          <p>COP {totalPrice.toLocaleString('en')}</p>
         </div>
       </div>
     </div>

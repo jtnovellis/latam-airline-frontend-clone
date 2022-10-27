@@ -7,17 +7,18 @@
   width: 500px;
   border: 1px rgb(255, 255, 255);
   box-shadow: 3px 3px 3px 3px rgb(236, 232, 232);
-  .changeflight {
-    margin-top: 8px;
-    height: 80%;
-    size: 16px;
-    margin-right: 0;
-    border: none;
-    border-left: 1px solid rgb(236, 232, 232);
-    background-color: white;
-    color: rgb(232, 17, 75);
-    cursor: pointer;
-  }
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+}
+.changeflight {
+  margin-top: 8px;
+  height: 80%;
+  size: 16px;
+  border: none;
+  border-left: 1px solid rgb(236, 232, 232);
+  background-color: white;
+  color: rgb(232, 17, 75);
+  cursor: pointer;
 }
 .flight1_city {
   display: flex;

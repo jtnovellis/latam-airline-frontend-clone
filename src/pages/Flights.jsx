@@ -13,7 +13,7 @@ const Flights = () => {
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [flightTrip, setFlightTrip] = React.useState('go');
+  const [flightTrip, setFlightTrip] = useState('go');
   return (
     <>
       <HeaderRegister />
