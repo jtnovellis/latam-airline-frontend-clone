@@ -8,9 +8,7 @@ import CommonButton from 'components/Buttons/CommonButton';
 
 const Passenger = () => {
   const luggageTotal = useSelector(state => state.luggageReducer.totalPrice);
-  const { adults, kids, id, totalPrice } = useSelector(
-    state => state.bookingReducer
-  );
+  const { adults, kids, id } = useSelector(state => state.bookingReducer);
   const flightDataPrice = useSelector(state => state.bookingReducer.flightData);
   const passengersToRender = adults + kids;
 
@@ -52,7 +50,7 @@ const Passenger = () => {
     }`,
     invoice: `${id}`,
     currency: 'cop',
-    amount: `${totalPrice || 100000}`,
+    amount: `${seatsTotal + luggageTotal + flightTotal}`,
     tax_base: '0',
     tax: '0',
     country: 'co',
