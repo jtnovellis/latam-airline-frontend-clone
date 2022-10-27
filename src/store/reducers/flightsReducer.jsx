@@ -1,5 +1,5 @@
-import airbus from '../../Airbus';
-import airbusTwo from '../../AirbusTwo';
+/* import airbus from '../../Airbus';
+import airbusTwo from '../../AirbusTwo'; */
 
 export const REQ_FLIGHTS = '@flights/req-flights';
 export const ADD_SEATS_DEPARTURE = '@flights/add-seat-departure';
@@ -75,7 +75,7 @@ const initialState = {
     estimatedTime: '',
     scales: '',
   },
-  id: '123443ASD',
+  /* id: '123443ASD',
   price: {
     light: '80000',
     basic: '120000',
@@ -104,7 +104,7 @@ const initialState = {
         headerSeats: airbusTwo.headerSeats,
       },
     },
-  },
+  }, */
   departureUser: [],
   arrivalUser: [],
   passengerRelated: [],
