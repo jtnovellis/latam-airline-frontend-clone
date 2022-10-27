@@ -48,7 +48,7 @@ const PaymentResponse = () => {
       try {
         await axios.post(
           // eslint-disable-next-line no-undef
-          `${process.env.REACT_APP_API_LATAM_CLONE}/api/bookings/payconfirm`,
+          `${process.env.REACT_APP_API_LATAM_CLONE}/api/bookings/payconfirm/update`,
           {
             bookingId: id,
             tripGoFlight: flightToGo.id,
