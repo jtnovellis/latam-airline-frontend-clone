@@ -20,6 +20,7 @@ const PaymentResponse = () => {
   const handleClick = () => {
     navigate('/');
   };
+
   const handleClickData = async () => {
     try {
       setIsLoading(true);
@@ -47,8 +48,20 @@ const PaymentResponse = () => {
         console.error(e);
       }
     };
-    if (show) {
+    const deleteData = async () => {
+      try {
+        await axios.delete(
+          // eslint-disable-next-line no-undef
+          `${process.env.REACT_APP_API_LATAM_CLONE}/api/bookings/destroy/${bookingData.bookingId}`
+        );
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    if (show && dataPayment.success === true) {
       fetchData();
+    } else {
+      deleteData();
     }
   }, [show]);
 

@@ -18,8 +18,7 @@ const SelectionSeats = () => {
   const passengerArrival = useSelector(
     state => state.flightsReducer.arrivalUser
   );
-  const { id } = useSelector(state => state.bookingReducer);
-  console.log(id);
+
   const [totalseats, setTotalseats] = React.useState(0);
   const [query, setQuery] = useSearchParams();
   const param = query.get('dir');
