@@ -1,6 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { DECREASE_PRICE } from 'store/reducers/bookingReducer';
 
 function FlightInfoCard({
   departure,
@@ -16,12 +17,23 @@ function FlightInfoCard({
     setDateToRender(cardDate);
   }, []);
   const dispatch = useDispatch();
+  const { flightToGo, flightToReturn } = useSelector(
+    state => state.flightsReducer
+  );
+
+  const { price: priceGoflight } = flightToGo;
+  const { price: priceReturnflight } = flightToReturn;
+
   function handleClick() {
     setFlightTrip('go');
     dispatch({ type: '@booking/removeFlights' });
+    dispatch({
+      type: DECREASE_PRICE,
+      payload: priceGoflight + priceReturnflight,
+    });
   }
   return (
-    <>
+    <div className='containerFlight1'>
       <p className='date'>Vuelo {dateToRender}</p>
       <div className='flight1'>
         <div className='flight1_city'>
@@ -40,7 +52,7 @@ function FlightInfoCard({
           Cambiar
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

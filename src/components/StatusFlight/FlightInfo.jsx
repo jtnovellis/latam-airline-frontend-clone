@@ -1,12 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import FlightInfoCard from './FlightInfoCard';
 import { parseDates } from 'utils/parseDates';
+import axios from 'axios';
+import { SET_INITIAL_BOOKING_DATA } from 'store/reducers/bookingReducer';
 
 const FlightInfo = ({ setFlightTrip }) => {
-  console.log('no me toquen mas por ahora');
-  const { dates, flightData } = useSelector(state => state.bookingReducer);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { dates, flightData, departureCity, arrivalCity, roundTrip } =
+    useSelector(state => state.bookingReducer);
 
   const newDate = parseDates(dates);
 
@@ -31,17 +35,30 @@ const FlightInfo = ({ setFlightTrip }) => {
       key={`${flight.departure}${flight.arrival}${i}`}
     />
   ));
+
+  const handleClick = () => {
+    axios
+      // eslint-disable-next-line no-undef
+      .post(`${process.env.REACT_APP_API_LATAM_CLONE}/api/bookings/test`, {
+        roundtrip: roundTrip,
+        arrival: arrivalCity,
+        departure: departureCity,
+      })
+      .then(res => {
+        const initialbooking = res.data.data;
+        dispatch({ type: SET_INITIAL_BOOKING_DATA, payload: initialbooking });
+      });
+    navigate('/seats-selection?dir=departure');
+  };
   return (
-    <div>
-      <div className='statusf'>
-        <h1>Resumen de tu viaje</h1>
-        {flightData.length > 0 && flightSelected}
-        {flightData.length === 2 && (
-          <Link to='/seats-selection?dir=departure'>
-            <button className='continue'>Continuar</button>
-          </Link>
-        )}
-      </div>
+    <div className='statusf'>
+      <h1>Resumen de tu viaje</h1>
+      {flightData.length > 0 && flightSelected}
+      {flightData.length === 2 && (
+        <button className='continue' onClick={handleClick}>
+          Continuar
+        </button>
+      )}
     </div>
   );
 };

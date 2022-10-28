@@ -8,38 +8,36 @@ import CommonButton from 'components/Buttons/CommonButton';
 
 const Passenger = () => {
   const luggageTotal = useSelector(state => state.luggageReducer.totalPrice);
-  const { adults, kids } = useSelector(state => state.bookingReducer);
+  const { passengersLuggage } = useSelector(state => state.luggageReducer);
+  const { adults, kids, id } = useSelector(state => state.bookingReducer);
   const flightDataPrice = useSelector(state => state.bookingReducer.flightData);
-  //const { passengerRelated } = useSelector(state => state.flightsReducer);
   const passengersToRender = adults + kids;
 
-  /*   useEffect(() => {
-    console.log(passengerRelated);
-  }, [passengerRelated]);
- */
-  const flightData = useSelector(state => state.flightsReducer);
-  const { departureUser, arrivalUser } = useSelector(
-    state => state.flightsReducer
-  );
+  const {
+    departureUser,
+    arrivalUser,
+    flightToGo,
+    flightToReturn,
+    passengerRelated,
+  } = useSelector(state => state.flightsReducer);
 
   let totalSeatsDeparture = 0;
   departureUser.map(item => {
     let price = item.price;
-    totalSeatsDeparture += parseInt(price.replace('.', ''));
+    totalSeatsDeparture += price;
   });
   let totalSeatsArival = 0;
   arrivalUser.map(item => {
     let price = item.price;
-    totalSeatsArival += parseInt(price.replace('.', ''));
+    totalSeatsArival += price;
   });
   let seatsTotal = totalSeatsArival + totalSeatsDeparture;
 
   let flightTotal = 0;
   flightDataPrice.map(item => (flightTotal += item.price));
 
-  const { name, documentType, phoneNumber, documentNumber } = useSelector(
-    state => state.userReducer
-  );
+  const { name, lastname, documentType, phoneNumber, documentNumber } =
+    useSelector(state => state.userReducer);
   const { departureCity, arrivalCity } = useSelector(
     state => state.bookingReducer
   );
@@ -51,33 +49,46 @@ const Passenger = () => {
   });
 
   const data = {
-    name: `LA${flightData.id}`,
+    name: `LA${id}`,
     description: `Vuelo de ${departureCity.split(',')[0]} a ${
       arrivalCity.split(',')[0]
     }`,
-    invoice: `${flightData.id}`,
+    invoice: `${id}`,
     currency: 'cop',
-    amount: `${flightData.price.light}`,
+    amount: `${seatsTotal + luggageTotal + flightTotal}`,
     tax_base: '0',
     tax: '0',
     country: 'co',
     lang: 'es',
     external: 'false',
-    extra1: `${flightData.departureUser}`,
-    extra2: `${flightData.arrivalUser}`,
+    extra1: 'extra1',
+    extra2: 'extra2',
     extra3: 'extra3',
-    response: 'http://secure2.payco.co/prueba_curl.php',
-    name_billing: `${name}`,
+    // eslint-disable-next-line no-undef
+    response: `https://latamairlines.vercel.app/payment-response`,
+    name_billing: `${name || ''} ${lastname || ''}`,
     address_billing: '',
-    type_doc_billing: `${documentType}`,
-    mobilephone_billing: `${phoneNumber}`,
-    number_doc_billing: `${documentNumber}`,
+    type_doc_billing: `${documentType || ''}`,
+    mobilephone_billing: `${phoneNumber || ''}`,
+    number_doc_billing: `${documentNumber || ''}`,
+    methodsDisable: ['SP', 'CASH', 'DP'],
+  };
 
-    //atributo deshabilitación metodo de pago
-    methodsDisable: ['PSE', 'SP', 'CASH', 'DP'],
+  const bookingData = {
+    bookingId: id,
+    tripGoFlight: flightToGo.id,
+    tripGoBackFlight: flightToReturn.id,
+    users: passengerRelated,
+    reservedSeats: {
+      tripGoSeats: departureUser,
+      tripReturnSeats: arrivalUser,
+    },
+    luggage: passengersLuggage,
+    isPaid: true,
   };
 
   const handleClick = () => {
+    sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
     handler.open(data);
   };
 

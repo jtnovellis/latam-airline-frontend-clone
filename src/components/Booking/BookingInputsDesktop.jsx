@@ -24,7 +24,7 @@ function BookingInputsDesktop({
   const { arrivalCity, dates } = useSelector(state => state.bookingReducer);
   const newDates = parseDates(dates);
   const handleSubmit = async () => {
-    if (arrivalCity !== null && dates[0] !== null && dates[1] !== null) {
+    if (arrivalCity !== null && dates[0] !== null) {
       navigate({ pathname: '/flights' });
       try {
         setIsLoading(true);

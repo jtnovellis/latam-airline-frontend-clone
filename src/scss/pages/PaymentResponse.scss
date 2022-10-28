@@ -1,0 +1,28 @@
+.paymentResponse {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 16rem;
+}
+.paymentResponse__card {
+  width: 30rem;
+  height: 19rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  border: 1px solid #1a056f;
+  padding: 2rem;
+  button {
+    border: none;
+    background: none;
+    background-color: #e8114b;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}

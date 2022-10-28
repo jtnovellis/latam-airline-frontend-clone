@@ -12,6 +12,7 @@ const FlightSelector = prop => {
     arrivalTime,
     duration,
     price,
+    flightsAllData,
     setFlightTrip,
   } = prop;
   const flightData = {
@@ -64,7 +65,7 @@ const FlightSelector = prop => {
           <div className='Flight__selector-price hidden'>
             <span className='Flight__selector-price-title'>Adulto desde</span>
             <span className='Flight__selector-price-amount'>
-              COP {prop.price}
+              COP {prop.price.toLocaleString('en')}
             </span>
           </div>
         ) : (
@@ -98,6 +99,7 @@ const FlightSelector = prop => {
             <FlightCard
               data={flightData}
               type='Light'
+              flightsAllData={flightsAllData}
               price={prop.price}
               trigger={prop.trigger}
               setFlightTrip={setFlightTrip}

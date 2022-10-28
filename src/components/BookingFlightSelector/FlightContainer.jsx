@@ -7,7 +7,6 @@ import axios from 'axios';
 import Spinner from 'components/Spinner';
 import { useSelector, useDispatch } from 'react-redux';
 import { parseDates } from '../../utils/parseDates';
-console.log('no me toquen mas por ahora');
 const FlightContainer = ({
   trigger,
   flightTrip,
@@ -27,9 +26,7 @@ const FlightContainer = ({
     flightData: flightsStore,
   } = useSelector(state => state.bookingReducer);
   const dispatch = useDispatch();
-
   const newDates = parseDates(dates);
-
   useEffect(() => {
     dispatch({ type: '@booking/removeFlights' });
     const fetchingData = async () => {
@@ -53,19 +50,14 @@ const FlightContainer = ({
     };
     fetchingData();
   }, []);
-
   if (isLoading) return <Spinner />;
   if (error)
     return <div className='FlightContainerDivSpace'>Ocurrio un error</div>;
-
   const flightsGo = flightFetchedData.goFlights;
-
   const flightsReturn = flightFetchedData.returnFlights;
-
   const handleChange = event => {
     setFilter(event.target.value);
   };
-
   return (
     <div className='Flight__container'>
       <div className='Flight__container-header'>
@@ -74,7 +66,6 @@ const FlightContainer = ({
         </div>
         <div className='Flight__container-header-filter'>
           <p>Ordenado por:</p>
-
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <Select
               value={filter}
@@ -99,11 +90,11 @@ const FlightContainer = ({
           const departureMinutes = new Date(item.date).getMinutes();
           const arrivalHours = new Date(item.arrivalDate).getHours();
           const arrivalMinutes = new Date(item.arrivalDate).getMinutes();
-
           return (
             <FlightSelector
               trigger={trigger}
               key={item._id}
+              flightsAllData={item}
               departure={item.departureAirport.cityCode}
               departureTime={`${departureHours}:${
                 departureMinutes > 9 ? departureMinutes : '0' + departureMinutes
@@ -128,6 +119,7 @@ const FlightContainer = ({
             <FlightSelector
               trigger={trigger}
               key={item._id}
+              flightsAllData={item}
               departure={item.departureAirport.cityCode}
               departureTime={`${departureHours}:${
                 departureMinutes > 9 ? departureMinutes : '0' + departureMinutes
@@ -145,7 +137,6 @@ const FlightContainer = ({
       ) : (
         <div className='FlightContainerDivSpace'></div>
       )}
-
       <div className='Flight__container-footer'>
         <div className='Flight__container-footer-services'>
           <ul>
