@@ -4,7 +4,6 @@ import Footer from '../components/Footer-Register';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from 'components/Spinner';
-import { useSelector } from 'react-redux';
 
 const PaymentResponse = () => {
   // eslint-disable-next-line no-unused-vars
@@ -14,8 +13,8 @@ const PaymentResponse = () => {
   const [dataPayment, setDataPayment] = useState(null);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-  const { name } = useSelector(state => state.userReducer);
   const bookingData = JSON.parse(sessionStorage.getItem('bookingData'));
+  const listOfUsers = JSON.parse(sessionStorage.getItem('listOfUsers'));
 
   const handleClick = () => {
     navigate('/');
@@ -78,7 +77,12 @@ const PaymentResponse = () => {
               <h2>
                 {dataPayment.success ? 'Compra exitosa' : 'Compra no exitosa'}
               </h2>
-              <p>Nombre: {name}</p>
+              <h3>Pasajeros:</h3>
+              <ul>
+                {listOfUsers.map((user, i) => (
+                  <li key={`${i} - ${user}`}>{user}</li>
+                ))}
+              </ul>
               <p>Id de compra: {dataPayment.data.x_id_factura}</p>
               <p>
                 Precio total: {dataPayment.data.x_amount.toLocaleString('en')}
