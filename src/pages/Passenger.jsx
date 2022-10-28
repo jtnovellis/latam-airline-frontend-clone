@@ -64,7 +64,6 @@ const Passenger = () => {
     extra1: 'extra1',
     extra2: 'extra2',
     extra3: 'extra3',
-    // eslint-disable-next-line no-undef
     response: `https://latamairlines.vercel.app/payment-response`,
     name_billing: `${name || ''} ${lastname || ''}`,
     address_billing: '',
@@ -88,6 +87,10 @@ const Passenger = () => {
   };
 
   const handleClick = () => {
+    const listOfUsers = passengerRelated.map(user => {
+      return `${user.firstName} ${user.lastName}`;
+    });
+    sessionStorage.setItem('listOfUsers', JSON.stringify(listOfUsers));
     sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
     handler.open(data);
   };

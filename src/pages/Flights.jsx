@@ -8,12 +8,14 @@ import FlightContainer from '../components/BookingFlightSelector/FlightContainer
 import StatusFlight from 'components/StatusFlight/StatusFlight';
 import FlightInfo from 'components/StatusFlight/FlightInfo';
 import { useState } from 'react';
+
 const Flights = () => {
   const [flightFetchedData, setFlightFetchedData] = useState({});
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [flightTrip, setFlightTrip] = useState('go');
+
   return (
     <>
       <HeaderRegister />
@@ -21,11 +23,7 @@ const Flights = () => {
         <div>
           <Boxsearch />
           <BookingInputs />
-          <BookingInputsDesktop
-            setFlightFetchedData={setFlightFetchedData}
-            setIsLoading={setIsLoading}
-            setError={setError}
-          />
+          <BookingInputsDesktop />
         </div>
       </div>
       <div className='container-flights2'>
