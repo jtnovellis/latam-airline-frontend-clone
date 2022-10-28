@@ -6,7 +6,7 @@ import {
   UPDATE_PASSENGER_FORMDATA,
 } from '../../store/reducers/flightsReducer';
 
-const BodyPassengerForm = ({ passengerId }) => {
+const BodyPassengerForm = ({ passengerId, setExpanded }) => {
   const { passengerRelated } = useSelector(state => state.flightsReducer);
 
   const dispatch = useDispatch();
@@ -91,6 +91,7 @@ const BodyPassengerForm = ({ passengerId }) => {
             } else {
               dispatch({ type: ADD_PASSENGER_FORMDATA, payload: values });
             }
+            setExpanded(false);
           }}>
           {({ isSubmitting, errors, values }) => (
             <Form>

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from 'components/Footer-Register';
 import HeaderRegister from '../components/Header-Register/HeaderRegister';
 import { MuiAccordion } from 'components/MuiComponents/MuiAccordion';
 import { useSelector } from 'react-redux';
 import BodyPassengerForm from 'components/BodyPassengerForm';
 import CommonButton from 'components/Buttons/CommonButton';
+import { useRef } from 'react';
 
 const Passenger = () => {
   const luggageTotal = useSelector(state => state.luggageReducer.totalPrice);
@@ -12,6 +13,8 @@ const Passenger = () => {
   const { adults, kids, id } = useSelector(state => state.bookingReducer);
   const flightDataPrice = useSelector(state => state.bookingReducer.flightData);
   const passengersToRender = adults + kids;
+  const [isDisable, setIsDisable] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   const {
     departureUser,
@@ -86,6 +89,15 @@ const Passenger = () => {
     isPaid: true,
   };
 
+  const isUnable = useRef();
+
+  useEffect(() => {
+    if (passengerRelated.length === passengersToRender) {
+      setIsDisable(false);
+      isUnable.current.className = 'CommonButton__button';
+    }
+  }, [expanded]);
+
   const handleClick = () => {
     const listOfUsers = passengerRelated.map(user => {
       return `${user.firstName} ${user.lastName}`;
@@ -107,8 +119,13 @@ const Passenger = () => {
                   <MuiAccordion
                     classname='eachform'
                     idItem={index + 1}
-                    title={`Pasajero ${index + 1}`}>
-                    <BodyPassengerForm passengerId={index} />
+                    title={`Pasajero ${index + 1}`}
+                    expanded={expanded}
+                    setExpanded={setExpanded}>
+                    <BodyPassengerForm
+                      passengerId={index}
+                      setExpanded={setExpanded}
+                    />
                   </MuiAccordion>
                 </li>
               ))}
@@ -224,7 +241,12 @@ const Passenger = () => {
               </div>
               <div className='Passenger__FlightDetails__shoppingCart__button'></div>
               <div className='Passenger__FlightDetails__shoppingCart__button'>
-                <CommonButton trigger={handleClick}>Continuar</CommonButton>
+                <CommonButton
+                  isDisable={isDisable}
+                  trigger={handleClick}
+                  isUnable={isUnable}>
+                  Continuar
+                </CommonButton>
               </div>
             </div>
           </aside>
