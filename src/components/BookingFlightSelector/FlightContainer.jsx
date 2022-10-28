@@ -6,7 +6,14 @@ import FlightSelector from './FlightSelector';
 import axios from 'axios';
 import Spinner from 'components/Spinner';
 import { useSelector, useDispatch } from 'react-redux';
+import {
+  BOOKING_CITIES_ADD_ARRIVAL,
+  BOOKING_CITIES_ADD_DEPARTURE,
+  BOOKING_DATES_ADD,
+} from 'store/reducers/bookingReducer';
+import { useSearchParams } from 'react-router-dom';
 import { parseDates } from '../../utils/parseDates';
+
 const FlightContainer = ({
   trigger,
   flightTrip,
@@ -19,16 +26,24 @@ const FlightContainer = ({
   setError,
 }) => {
   const [filter, setFilter] = useState('');
-  const {
-    departureCity,
-    arrivalCity,
-    dates,
-    flightData: flightsStore,
-  } = useSelector(state => state.bookingReducer);
+  const { flightData: flightsStore } = useSelector(
+    state => state.bookingReducer
+  );
   const dispatch = useDispatch();
+
+  // eslint-disable-next-line no-unused-vars
+  const [queries, _] = useSearchParams();
+  const departureCity = queries.get('departureCity');
+  const arrivalCity = queries.get('arrivalCity');
+  const dates = [queries.get('goDate'), queries.get('goBackDate')];
+
   const newDates = parseDates(dates);
+
   useEffect(() => {
     dispatch({ type: '@booking/removeFlights' });
+    dispatch({ type: BOOKING_CITIES_ADD_DEPARTURE, payload: departureCity });
+    dispatch({ type: BOOKING_CITIES_ADD_ARRIVAL, payload: arrivalCity });
+    dispatch({ type: BOOKING_DATES_ADD, payload: dates });
     const fetchingData = async () => {
       try {
         setIsLoading(true);
@@ -50,9 +65,12 @@ const FlightContainer = ({
     };
     fetchingData();
   }, []);
+
   if (isLoading) return <Spinner />;
+
   if (error)
     return <div className='FlightContainerDivSpace'>Ocurrio un error</div>;
+
   const flightsGo = flightFetchedData.goFlights;
   const flightsReturn = flightFetchedData.returnFlights;
   const handleChange = event => {

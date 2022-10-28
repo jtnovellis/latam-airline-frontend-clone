@@ -75,36 +75,7 @@ const initialState = {
     estimatedTime: '',
     scales: '',
   },
-  /* id: '123443ASD',
-  price: {
-    light: '80000',
-    basic: '120000',
-    plus: '180000',
-  },
-  departureFlightData: {
-    airplane: {
-      plate: 'A543',
-      airBus: 319,
-      seats: {
-        firstDiv: airbus.firstDiv,
-        secondDiv: airbus.secondDiv,
-        thirthDiv: airbus.thirthDiv,
-        headerSeats: airbus.headerSeats,
-      },
-    },
-  },
-  arrivalFlightData: {
-    airplane: {
-      plate: 'A333',
-      airBus: 320,
-      seats: {
-        firstDiv: airbusTwo.firstDiv,
-        secondDiv: airbusTwo.secondDiv,
-        thirthDiv: airbusTwo.thirthDiv,
-        headerSeats: airbusTwo.headerSeats,
-      },
-    },
-  }, */
+
   departureUser: [],
   arrivalUser: [],
   passengerRelated: [],
