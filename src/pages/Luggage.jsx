@@ -11,6 +11,7 @@ const Luggage = () => {
   const { adults, kids } = useSelector(state => state.bookingReducer);
   const initialPassengers = adults + kids;
   const [selected, setSelected] = useState(true);
+  const { roundTrip } = useSelector(state => state.bookingReducer);
   const {
     departureLightLuggage,
     departureHeavyLuggage,
@@ -157,12 +158,16 @@ const Luggage = () => {
                 className='Luggagecard__body-departure'>
                 <button>Ida</button>
               </div>
-              <div
-                style={!selected ? { borderBottom: '2px solid red' } : {}}
-                onClick={() => (selected ? setSelected(false) : <></>)}
-                className='Luggagecard__body-arrival'>
-                <button>Vuelta</button>
-              </div>
+              {roundTrip ? (
+                <div
+                  style={!selected ? { borderBottom: '2px solid red' } : {}}
+                  onClick={() => (selected ? setSelected(false) : <></>)}
+                  className='Luggagecard__body-arrival'>
+                  <button>Vuelta</button>
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
             <div>
               {position !== initialPassengers ? (
