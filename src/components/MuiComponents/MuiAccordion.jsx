@@ -9,10 +9,12 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export const MuiAccordion = props => {
-  const { idItem, children, title, classname } = props;
+  const { idItem, children, title, classname, expanded, setExpanded } = props;
   return (
     <div className={classname}>
-      <Accordion>
+      <Accordion
+        expanded={expanded}
+        onChange={() => setExpanded(prev => !prev)}>
         <AccordionSummary
           id={`panel${idItem}-header`}
           aria-controls='panel1-content'
