@@ -23,7 +23,7 @@ const FlightInfo = ({ setFlightTrip }) => {
     }
   }
   const cardDate = setCardDate();
-  console.log(flightData);
+
   const flightSelected = flightData.map((flight, i) => (
     <FlightInfoCard
       cardDate={cardDate}
@@ -49,7 +49,7 @@ const FlightInfo = ({ setFlightTrip }) => {
         const initialbooking = res.data.data;
         dispatch({ type: SET_INITIAL_BOOKING_DATA, payload: initialbooking });
       });
-    navigate('/seats-selection?dir=departure');
+    navigate(`/seats-selection?dir=departure`);
   };
   return (
     <div className='statusf'>

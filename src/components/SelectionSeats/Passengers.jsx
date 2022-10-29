@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import PassengersCard from './PassengersCard';
 import { useSelector } from 'react-redux';
@@ -12,10 +12,24 @@ const Passengers = ({
   setTotalseats,
 }) => {
   let length = passengersToRender.length;
-  const [toRender, setToRender] = React.useState([]);
-  const { roundTrip, totalPrice } = useSelector(state => state.bookingReducer);
+  const [toRender, setToRender] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const { roundTrip, totalPrice, adults, kids } = useSelector(
+    state => state.bookingReducer
+  );
   const navigate = useNavigate();
-  React.useEffect(() => {
+  const isEnable = useRef();
+  const totalPassengers = adults + kids;
+
+  useEffect(() => {
+    if (totalseats === totalPassengers) {
+      isEnable.current.className =
+        'passengersContainer__flightSelector--buttonNext';
+      setIsDisabled(false);
+    }
+  }, [totalseats]);
+
+  useEffect(() => {
     setToRender(passengersToRender);
   }, [totalseats]);
 
@@ -58,7 +72,9 @@ const Passengers = ({
       </div>
       <div className='passengersContainer__flightSelector'>
         <button
-          className='passengersContainer__flightSelector--buttonNext'
+          ref={isEnable}
+          disabled={isDisabled}
+          className='passengersContainer__flightSelector--buttonNext-disable'
           onClick={handleClick}>
           {roundTrip && param !== 'arrival'
             ? 'Pasar al siguiente vuelo'
