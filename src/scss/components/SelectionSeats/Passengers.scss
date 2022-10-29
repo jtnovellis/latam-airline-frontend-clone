@@ -56,3 +56,13 @@
   height: 3.5rem;
   cursor: pointer;
 }
+.passengersContainer__flightSelector--buttonNext-disable {
+  padding: 1rem 2rem;
+  background-color: rgb(136, 136, 136);
+  color: #fff;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border: none;
+  height: 3.5rem;
+}

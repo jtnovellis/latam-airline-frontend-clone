@@ -48,6 +48,8 @@ const bookingReducer = (state = initialValues, action) => {
         ...state,
         id: action.payload._id,
         isPaid: action.payload.isPaid,
+        departureCity: action.payload.departure,
+        arrivalCity: action.payload.arrival,
       };
     case PASSENGER_AMOUNT_UP:
       return {
