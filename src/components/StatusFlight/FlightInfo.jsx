@@ -11,13 +11,9 @@ const FlightInfo = ({ setFlightTrip }) => {
   const navigate = useNavigate();
   const { dates, flightData, departureCity, arrivalCity, roundTrip } =
     useSelector(state => state.bookingReducer);
-  //console.log('111', dates[0]);
-  //console.log('2222', dates[1]);
+
   const newDate = parseDates(dates);
-  //console.log(newDate[1]);
-  if (!newDate[1]) {
-    console.log('este es newDate', newDate[1]);
-  }
+
   const goBack = ['ida', 'vuelta'];
   function setCardDate() {
     if (flightData.length === 1) {
