@@ -2,8 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Link } from 'react-router-dom';
+
+import MyTrips from 'components/DataUser/MyTrips';
+
 const SearchFligth = () => {
   const [done, setDone] = useState(false);
+  const [noLoginEmail, setNoLoginEmail] = useState(null);
+  const [show, setShow] = useState(false);
+
+  if (show) return <MyTrips noLoginEmail={noLoginEmail} />;
   return (
     <>
       <div className=' item tt '>
@@ -26,12 +33,14 @@ const SearchFligth = () => {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
+        onSubmit={({ email }, { setSubmitting, resetForm }) => {
+          setNoLoginEmail(email);
           resetForm();
+
           setDone(true);
           setSubmitting(false);
           setDone(false);
-          console.log(values);
+          setShow(true);
         }}>
         {isSubmitting => (
           <Form>
