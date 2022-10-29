@@ -23,6 +23,7 @@ const FlightInfo = ({ setFlightTrip }) => {
     }
   }
   const cardDate = setCardDate();
+  console.log(flightData);
   const flightSelected = flightData.map((flight, i) => (
     <FlightInfoCard
       cardDate={cardDate}
@@ -54,11 +55,15 @@ const FlightInfo = ({ setFlightTrip }) => {
     <div className='statusf'>
       <h1>Resumen de tu viaje</h1>
       {flightData.length > 0 && flightSelected}
-      {flightData.length === 2 && (
+      {roundTrip && flightData.length > 1 ? (
         <button className='continue' onClick={handleClick}>
           Continuar
         </button>
-      )}
+      ) : !roundTrip && flightData.length === 1 ? (
+        <button className='continue' onClick={handleClick}>
+          Continuar
+        </button>
+      ) : null}
     </div>
   );
 };

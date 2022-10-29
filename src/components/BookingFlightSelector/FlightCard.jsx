@@ -14,7 +14,7 @@ const FlightCard = prop => {
   const handleClick = () => {
     prop.trigger(true);
     prop.setFlightTrip('return');
-    if (!(flightData.length > 0)) {
+    if (flightData.length) {
       dispatch({
         type: SET_SELECTED_RETURN_FLIGHT,
         payload: prop.flightsAllData,
