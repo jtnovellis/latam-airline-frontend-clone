@@ -11,9 +11,13 @@ const FlightInfo = ({ setFlightTrip }) => {
   const navigate = useNavigate();
   const { dates, flightData, departureCity, arrivalCity, roundTrip } =
     useSelector(state => state.bookingReducer);
-
+  //console.log('111', dates[0]);
+  //console.log('2222', dates[1]);
   const newDate = parseDates(dates);
-
+  //console.log(newDate[1]);
+  if (!newDate[1]) {
+    console.log('este es newDate', newDate[1]);
+  }
   const goBack = ['ida', 'vuelta'];
   function setCardDate() {
     if (flightData.length === 1) {
@@ -23,6 +27,7 @@ const FlightInfo = ({ setFlightTrip }) => {
     }
   }
   const cardDate = setCardDate();
+  console.log(flightData);
   const flightSelected = flightData.map((flight, i) => (
     <FlightInfoCard
       cardDate={cardDate}
@@ -54,11 +59,15 @@ const FlightInfo = ({ setFlightTrip }) => {
     <div className='statusf'>
       <h1>Resumen de tu viaje</h1>
       {flightData.length > 0 && flightSelected}
-      {flightData.length === 2 && (
+      {roundTrip && flightData.length > 1 ? (
         <button className='continue' onClick={handleClick}>
           Continuar
         </button>
-      )}
+      ) : !roundTrip && flightData.length === 1 ? (
+        <button className='continue' onClick={handleClick}>
+          Continuar
+        </button>
+      ) : null}
     </div>
   );
 };
