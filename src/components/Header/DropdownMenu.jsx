@@ -25,7 +25,7 @@ function DropdownMenu(props) {
       </div>
       <div className={props.classforStyle}>
         <div className='dropdown-menu-item'>
-          <Link to='ofertas'>
+          <Link to='/admin-fligths'>
             <FontAwesomeIcon icon={faTicket} className='faTicket' />
             <span>Administrar mis vuelos</span>
           </Link>

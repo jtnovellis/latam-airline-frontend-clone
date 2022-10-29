@@ -10,10 +10,6 @@ const AdminFligths = () => {
       slug: '/admin-fligths',
       content: 'Solicitar acceso via email',
     },
-    {
-      slug: 'travel-data',
-      content: 'Ingresa con los datos de tu viaje',
-    },
   ];
 
   const [selected, setSelected] = useState({
