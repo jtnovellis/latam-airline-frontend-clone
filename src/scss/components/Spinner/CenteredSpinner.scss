@@ -1,0 +1,25 @@
+.CenteredSpinnerMain__Container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto auto;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  background-color: #fff;
+}
+
+.spinner__text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  margin-top: 1.2rem;
+  font-family: 'LATAM Sans', 'Trebuchet MS', sans-serif;
+  color: rgb(27, 0, 136);
+  font-style: italic;
+}
+.CenteredSpinner__element {
+  margin: 1rem;
+}

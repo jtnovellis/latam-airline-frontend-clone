@@ -1,6 +1,7 @@
 import axios from 'axios';
 import FlightHistoryCard from 'components/FlightHistoryCard';
-import Spinner from 'components/Spinner';
+// import Spinner from 'components/Spinner';
+import CenteredSpinner from 'components/Spinner/CenteredSpinner';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -34,7 +35,7 @@ const MyTrips = ({ noLoginEmail }) => {
   }, []);
 
   const { bookings } = userBookingData;
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <CenteredSpinner />;
 
   return (
     <div className='myAccount__bodyContainer-section'>

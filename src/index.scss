@@ -16,6 +16,7 @@
 @import url(./scss/pages/NotFound.scss);
 @import url(./scss/pages/Passenger.scss);
 @import url(./scss/pages/PaymentResponse.scss);
+@import url(./scss/pages/AdminFligths.scss);
 
 /* components */
 @import url(./scss/components/App.scss);
@@ -27,6 +28,7 @@
 // Spinners
 @import url(./scss/components/Spinner/Spinner.scss);
 @import url(./scss/components/Spinner/ResizableSpinner.scss);
+@import url(./scss/components/Spinner/CenteredSpinner.scss);
 
 /* Header */
 @import url(./scss/components/Header/index.scss);
@@ -107,9 +109,6 @@
 @import url(./scss/components/DataUser/index.scss);
 @import url(./scss/components/DataUser/AddCardModal.scss);
 @import url(./scss/components/DataUser/ProfilePhoto.scss);
-
-//adminFligths
-@import url(./scss/components/BodyAdminFligths/AdminFligths.scss);
 
 // LoginDropDown
 @import url(./scss/components/LoginDropDown/index.scss);
