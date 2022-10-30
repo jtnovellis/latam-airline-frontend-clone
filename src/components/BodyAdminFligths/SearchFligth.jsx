@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Link } from 'react-router-dom';
 
 import MyTrips from 'components/DataUser/MyTrips';
 
@@ -12,7 +11,7 @@ const SearchFligth = () => {
 
   if (show) return <MyTrips noLoginEmail={noLoginEmail} />;
   return (
-    <>
+    <div className='myAccount__bodyContainer-section-search'>
       <div className=' item tt '>
         <h1>Busca tu viaje</h1>
       </div>
@@ -57,16 +56,8 @@ const SearchFligth = () => {
         )}
       </Formik>
 
-      <div className=' item lin toShow'>
-        <div className='line'>&nbsp;</div>
-        <div className='leyend'>O</div>
-        <div className='line'>&nbsp;</div>
-      </div>
       {done}
-      <div className=' item another-option toShow'>
-        <Link to={'travel-data'}>Ingresa con los datos de tu viaje</Link>
-      </div>
-    </>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import AdminMenu from '../components/BodyAdminFligths/AdminMenu';
+
+import MenuSelector from 'components/DataUser/MenuSelector';
 import Header from 'components/Header';
 import Footer from 'components/Footer-Register/index';
 import { useState } from 'react';
@@ -8,7 +9,7 @@ const AdminFligths = () => {
   const menuOption = [
     {
       slug: '/admin-fligths',
-      content: 'Solicitar acceso via email',
+      content: 'Acceso via email',
     },
   ];
 
@@ -20,27 +21,29 @@ const AdminFligths = () => {
   return (
     <>
       <Header />
-      <div className='main-wrapper'>
-        <div className='side-content toHide '>
-          <div className='side-div'>
-            <h1>Mis Viajes</h1>
+      <div className='myAccount'>
+        <div className='myAccount__infoContainer'>
+          <div className='myAccount__infoContainer-title'>
+            <h2>Mis Viajes</h2>
+          </div>
+          <div className='myAccount__infoContainer-menu'>
             {menuOption.map(link => {
               const { slug, content } = link;
               return (
-                <div className='admin-menu' key={content}>
+                <div key={content}>
                   <hr />
-                  <AdminMenu
+                  <MenuSelector
                     path={slug}
                     setCurrent={setSelected}
                     current={selected}>
                     {content}
-                  </AdminMenu>
+                  </MenuSelector>
                 </div>
               );
             })}
           </div>
         </div>
-        <div className='admin-main-content'>
+        <div className='admin-main-content '>
           <Outlet />
         </div>
       </div>

@@ -26,9 +26,14 @@
   }
 }
 .admin-main-content {
-  display: flex;
-  flex-direction: column;
-  min-width: 370px;
+  border-left: 1px solid #ccc;
+  min-height: 50rem;
+  width: 100%;
+  padding: 3.35rem 1.5rem 3rem;
+
+  @media (min-width: 992px) {
+    width: 80%;
+  }
 
   .item {
     margin-left: 1rem;
@@ -121,26 +126,7 @@
     margin-bottom: 6rem;
   }
 }
-@media (min-width: 428px) {
-  .main-wrapper {
-    margin-bottom: 8rem;
-  }
-}
-@media (min-width: 637px) {
-  .admin-main-content {
-    margin: 0rem 20rem 10rem 9rem;
-  }
-}
-@media (min-width: 768px) {
-  .admin-main-content {
-    margin: 0rem 20rem 15.4rem 13rem;
-  }
-}
-@media (min-width: 810px) {
-  .admin-main-content {
-    margin: 0rem 20rem 15.4rem 13rem;
-  }
-}
+
 @media (min-width: 980px) {
   br {
     display: none;
@@ -168,10 +154,7 @@
     margin-left: 18rem;
     border-right: solid 1px #acacac;
   }
-  .admin-main-content {
-    margin-left: 30rem;
-    margin-right: 0rem;
-  }
+
   .side-div {
     margin-top: 4rem;
     display: flex;
@@ -209,7 +192,7 @@
   }
   .admin-main-content {
     margin-top: 2rem;
-    margin-left: 22%;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -222,30 +205,14 @@
     text-align: center;
   }
 }
-@media (min-width: 1440px) {
-  .main-wrapper {
-    margin: 0rem 30rem 0rem 0rem;
-    height: 700px;
-  }
-  .side-content {
-    height: 700px;
-  }
-}
-@media (min-width: 1920px) {
-  .main-wrapper {
-    margin: 0rem 30rem 10.5rem 10rem;
-    height: 700px;
-  }
-  .side-content {
-    height: 54.3rem;
-  }
-}
-@media (min-width: 2560px) {
-  .main-wrapper {
-    margin: 0rem 30rem 15rem 40rem;
-    height: 700px;
-  }
-  .side-content {
-    height: 60rem;
+
+.myAccount__bodyContainer-section-search {
+  min-height: 50rem;
+  width: 100%;
+  padding: 3.35rem 1.5rem 3rem;
+
+  @media (min-width: 992px) {
+    width: 80%;
+    padding: 3.35rem 6.5rem 3rem 10.5rem;
   }
 }
