@@ -251,6 +251,16 @@
           fill: rgb(143, 143, 143);
         }
       }
+      .requeriment-2 {
+        margin-bottom: 0.3rem;
+        display: flex;
+        li {
+          margin-left: 0.5rem;
+        }
+        path {
+          fill: rgb(153, 204, 51);
+        }
+      }
     }
 
     .check-login {
