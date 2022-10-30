@@ -147,6 +147,9 @@ const index = () => {
                 errors.terms =
                   'Tienes que aceptar los Términos y condiciones del Programa LATAM Pass y los Términos y condiciones de la cuenta LATAM.';
               }
+              if (!values.gender) {
+                errors.gender = 'Debe seleccionar una opción.';
+              }
               if (!values.dataTreatment) {
                 errors.dataTreatment =
                   'Tienes que aceptar la Política de Privacidad.';
@@ -314,6 +317,11 @@ const index = () => {
                     <Field type='radio' name='gender' value='ND' />
                     Prefiero no decirlo
                   </label>
+                  <ErrorMessage
+                    className='errors'
+                    name='gender'
+                    component='div'
+                  />
                 </div>
                 <div className='number-selection'>
                   <div>
@@ -407,62 +415,132 @@ const index = () => {
                   <div className='requeriments'>
                     <p>Tu contraseña necesita tener mínimo:</p>
                     <ul>
-                      <div className='requeriment'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          width='16px'
-                          height='16px'
-                          viewBox='0 0 20 20'
-                          fill='none'
-                          focusable='false'>
-                          <path
-                            fill='currentColor'
-                            d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
-                        </svg>
-                        <li>1 mayúscula</li>
-                      </div>
-                      <div className='requeriment'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          width='16px'
-                          height='16px'
-                          viewBox='0 0 20 20'
-                          fill='none'
-                          focusable='false'>
-                          <path
-                            fill='currentColor'
-                            d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
-                        </svg>
-                        <li>1 minúscula</li>
-                      </div>
-                      <div className='requeriment'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          width='16px'
-                          height='16px'
-                          viewBox='0 0 20 20'
-                          fill='none'
-                          focusable='false'>
-                          <path
-                            fill='currentColor'
-                            d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
-                        </svg>
-                        <li>1 número</li>
-                      </div>
-                      <div className='requeriment'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          width='16px'
-                          height='16px'
-                          viewBox='0 0 20 20'
-                          fill='none'
-                          focusable='false'>
-                          <path
-                            fill='currentColor'
-                            d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
-                        </svg>
-                        <li>8 caracteres</li>
-                      </div>
+                      {!/[A-Z]/.test(values.password) ? (
+                        <div className='requeriment'>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16px'
+                            height='16px'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            focusable='false'>
+                            <path
+                              fill='currentColor'
+                              d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
+                          </svg>
+                          <li>1 mayúscula</li>
+                        </div>
+                      ) : (
+                        <div className='requeriment-2'>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16px'
+                            height='16px'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            focusable='false'>
+                            <path
+                              fill='currentColor'
+                              d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
+                          </svg>
+                          <li>1 mayúscula</li>
+                        </div>
+                      )}
+
+                      {!/[a-z]/.test(values.password) ? (
+                        <div className='requeriment'>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16px'
+                            height='16px'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            focusable='false'>
+                            <path
+                              fill='currentColor'
+                              d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
+                          </svg>
+                          <li>1 minuscula</li>
+                        </div>
+                      ) : (
+                        <div className='requeriment-2'>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16px'
+                            height='16px'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            focusable='false'>
+                            <path
+                              fill='currentColor'
+                              d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
+                          </svg>
+                          <li>1 minuscula</li>
+                        </div>
+                      )}
+                      {!/[0-9]/.test(values.password) ? (
+                        <div className='requeriment'>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16px'
+                            height='16px'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            focusable='false'>
+                            <path
+                              fill='currentColor'
+                              d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
+                          </svg>
+                          <li>1 numero</li>
+                        </div>
+                      ) : (
+                        <div className='requeriment-2'>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16px'
+                            height='16px'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            focusable='false'>
+                            <path
+                              fill='currentColor'
+                              d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
+                          </svg>
+                          <li>1 numero</li>
+                        </div>
+                      )}
+                      {values.password.length < 8 ? (
+                        <div className='requeriment'>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16px'
+                            height='16px'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            focusable='false'>
+                            <path
+                              fill='currentColor'
+                              d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.121 4.464L10 8.586 7.879 6.464 6.464 7.88 8.586 10l-2.123 2.12 1.414 1.414L10 11.414l2.121 2.122 1.415-1.415L11.414 10l2.12-2.122-1.413-1.414z'></path>
+                          </svg>
+                          <li>8 caracteres</li>
+                        </div>
+                      ) : (
+                        <div className='requeriment-2'>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16px'
+                            height='16px'
+                            viewBox='0 0 20 20'
+                            fill='#ccff33'
+                            focusable='false'>
+                            <path
+                              fill='#ccff33'
+                              fillRule='evenodd'
+                              d='M10 2a8 8 0 110 16 8 8 0 010-16zm2.734 5l-3.53 3.563L7.363 8.83 6 10.26l3.205 3.112 4.942-5.018L12.734 7z'></path>
+                          </svg>
+                          <li>8 caracteres</li>
+                        </div>
+                      )}
                     </ul>
                   </div>
 
