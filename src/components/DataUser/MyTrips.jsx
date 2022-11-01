@@ -1,6 +1,5 @@
 import axios from 'axios';
 import FlightHistoryCard from 'components/FlightHistoryCard';
-// import Spinner from 'components/Spinner';
 import CenteredSpinner from 'components/Spinner/CenteredSpinner';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
@@ -8,10 +7,20 @@ import { useSelector } from 'react-redux';
 
 const MyTrips = ({ noLoginEmail }) => {
   const { email, name } = useSelector(state => state.userReducer);
-  const [userBookingData, setUserBookingData] = useState({});
+  const [userBookingData, setUserBookingData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const emailToUse = email || noLoginEmail;
+  let emailToUse;
+  let nameToRender;
+
+  if (window.location.pathname === '/admin-fligths') {
+    nameToRender = 'Hola';
+    emailToUse = noLoginEmail;
+  } else {
+    nameToRender = name;
+    emailToUse = email;
+  }
+
   useEffect(() => {
     const fetchData = async data => {
       try {
@@ -34,7 +43,6 @@ const MyTrips = ({ noLoginEmail }) => {
     fetchData(emailToUse);
   }, []);
 
-  const { bookings } = userBookingData;
   if (isLoading) return <CenteredSpinner />;
 
   return (
@@ -44,8 +52,8 @@ const MyTrips = ({ noLoginEmail }) => {
       </h1>
       <div className='myTrips__bodyContainer'>
         <ul className='myTrips__ulBody latam-grid'>
-          {bookings ? (
-            bookings.map(booking => {
+          {userBookingData ? (
+            userBookingData.bookings.map(booking => {
               const { tripGoFlight, _id } = booking;
               const { departureAirport, departureArrival, date } = tripGoFlight;
               const departureDate = `${new Date(date).getFullYear()} ${
@@ -67,7 +75,7 @@ const MyTrips = ({ noLoginEmail }) => {
           ) : (
             <div className='myTrips--emptyHistory'>
               <h3 className='myTrips--emptyHistory-subtitle'>
-                {name}, no encontramos viajes
+                {nameToRender}, no encontramos viajes
               </h3>
             </div>
           )}
