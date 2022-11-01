@@ -9,6 +9,7 @@ const MyTrips = ({ noLoginEmail }) => {
   const { email, name } = useSelector(state => state.userReducer);
   const [userBookingData, setUserBookingData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  console.log(userBookingData);
 
   let emailToUse;
   let nameToRender;
@@ -52,7 +53,7 @@ const MyTrips = ({ noLoginEmail }) => {
       </h1>
       <div className='myTrips__bodyContainer'>
         <ul className='myTrips__ulBody latam-grid'>
-          {userBookingData ? (
+          {userBookingData && userBookingData.bookings.length > 0 ? (
             userBookingData.bookings.map(booking => {
               const { tripGoFlight, _id } = booking;
               const { departureAirport, departureArrival, date } = tripGoFlight;
