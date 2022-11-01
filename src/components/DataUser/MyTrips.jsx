@@ -9,7 +9,6 @@ const MyTrips = ({ noLoginEmail }) => {
   const { email, name } = useSelector(state => state.userReducer);
   const [userBookingData, setUserBookingData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(userBookingData);
 
   let emailToUse;
   let nameToRender;
