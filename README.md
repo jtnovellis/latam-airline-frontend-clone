@@ -1,7 +1,5 @@
 # LATAM Airline Front-End Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Description
 
 Latam es una aerolinea, catalogada como la más grande de América Latina
@@ -15,3 +13,33 @@ todas las funcionalidades que poseen para brindar el servicio.
 - Noah Zapata Puerta
 - Omar Andrés Vega Atencia
 - Daniel Moreno
+
+## Requisitos
+
+Para este proyecto necesitas tener instalado las siguientes librerias/tecnologias:
+
+- Node.js
+
+[Desde esta dirección lo puedes instalar en caso de no tenerlo](https://nodejs.org/es/download/)
+
+## Configuración
+
+Para configurar este proyecto de forma local sigue estas instrucciones:
+
+1. Clona el proyecto de GitHub con el siguiente comando:
+
+```
+git clone <link del repositorio> <nombre de la carpeta>
+```
+
+2. Instala las dependencias con NPM, corriendo el siguiente comando:
+
+```
+npm install
+```
+
+3. Ejecuta el proyecto con el siguiente comando:
+
+```
+npm start
+```
